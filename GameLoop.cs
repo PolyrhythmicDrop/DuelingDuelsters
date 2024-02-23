@@ -56,7 +56,7 @@ namespace DuelingDuelsters
 
                 // Player 1 action selection
                 do
-                {
+                {                    
                     player1.SelectAction();
                     Console.Clear();
                     Console.WriteLine(roundHeader);
@@ -86,11 +86,11 @@ namespace DuelingDuelsters
 
             // Set the victor
             string victor;
-            if (player1.Health == 0 && player2.Health != 0) 
+            if (player1.Health == 0 && player2.Health > 0) 
             { 
                 victor = player2.Name;
             }
-            else if (player2.Health == 0 && player1.Health != 0)
+            else if (player2.Health == 0 && player1.Health > 0)
             {
                 victor = player1.Name;
             }
@@ -98,12 +98,13 @@ namespace DuelingDuelsters
             {
                 victor = "Nobody";
             }
+
             // Capitalize victor for maximum victoriousness
             string upperVictor = victor.ToUpper();
 
             // Declare the victor for all to see
             Console.Clear();
-            Console.WriteLine($"*** {victor} is victorious!\nAll hail the most dueling duelster of them all:\n*** {upperVictor} ***");
+            Console.WriteLine($"*** {victor} is victorious!\nAll hail the most dueling duelster of them all:\n\n*** {upperVictor} ***");
 
             
 

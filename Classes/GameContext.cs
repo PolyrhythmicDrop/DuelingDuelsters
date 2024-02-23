@@ -43,6 +43,10 @@ namespace DuelingDuelsters.Classes
             this.RoundCounter = 1;
         }
 
+        // *** Constants ***
+
+        private readonly Random rng = new Random();
+
 
         // *** Methods ***
 
@@ -235,7 +239,131 @@ namespace DuelingDuelsters.Classes
                 {
                     string nothingHappens = $"\nThe crowd claps along to an unheard beat as {playerOne.Name} and {playerTwo.Name} groove and wiggle across the battlefield, matching each other's steps in a deadly dance of martial prowess.\nNobody takes damage, but everybody has a good time.\n";
                     Console.WriteLine(nothingHappens);
+                    Thread.Sleep(500);
                 }
+
+                // Heal actions
+                // P1 heals and P2 does anything other than swing. P1 restores health and nothing happens to P2.
+                else if (playerOne.ChosenAction == Player.Action.heal && (playerTwo.ChosenAction != Player.Action.swingL && playerTwo.ChosenAction != Player.Action.swingR))
+                {
+                    // P1 heals because they have healed less than 3 times.
+                    if (playerOne.HealCount < 3)
+                    {
+                        string uneventfulHeal = $"\n{playerOne.Name} recovers health! {playerTwo.Name}'s defensive actions are all for naught!\n";
+                        Console.WriteLine(uneventfulHeal);
+                        Thread.Sleep(500);
+                        playerOne.HealSelf();
+                        Thread.Sleep(500);
+                    }
+                    // P1 cannot heal because they have healed 3 times.
+                    else
+                    {
+                        string cannotHeal = $"\n{playerOne.Name} can't heal and wastes a turn! Too bad {playerTwo.Name} only took a defensive action...\n";
+                        Console.WriteLine(cannotHeal);
+                        Thread.Sleep(500);
+                    }   
+                }
+                // P2 heals and P1 does anything other than swing. P2 restores health and nothing happens to P1.
+                else if (playerTwo.ChosenAction == Player.Action.heal && (playerOne.ChosenAction != Player.Action.swingL && playerOne.ChosenAction != Player.Action.swingR))
+                {
+                    // P1 heals because they have healed less than 3 times.
+                    if (playerTwo.HealCount < 3)
+                    {
+                        string uneventfulHeal = $"\n{playerTwo.Name} recovers health! {playerOne.Name}'s defensive actions are all for naught!\n";
+                        Console.WriteLine(uneventfulHeal);
+                        Thread.Sleep(500);
+                        playerTwo.HealSelf();
+                        Thread.Sleep(500);
+                    }
+                    // P1 cannot heal because they have healed 3 times.
+                    else
+                    {
+                        string cannotHeal = $"\n{playerTwo.Name} can't heal and wastes a turn! Too bad {playerOne.Name} only took a defensive action...\n";
+                        Console.WriteLine(cannotHeal);
+                        Thread.Sleep(500);
+                    }
+                }
+                // P1 heals and P2 swings. P1 restores health and has a chance to dodge P2's attack.
+                else if (playerOne.ChosenAction == Player.Action.heal && (playerTwo.ChosenAction == Player.Action.swingL || playerTwo.ChosenAction == Player.Action.swingR))
+                {
+                    // P1 heals because they have healed less than 3 times. P2 has a chance to land an attack.
+                    if (playerOne.HealCount < 3)
+                    {
+                        string playerHeals = $"\n{playerOne.Name} recovers health! But {playerTwo.Name} has a chance to tear off the Band-Aid...\n";
+                        Console.WriteLine(playerHeals);
+                        Thread.Sleep(500);
+                        playerOne.HealSelf();
+                        Thread.Sleep(500);
+                    }
+                    // P1 cannot heal because they have healed 3 times. P2 counters.
+                    else
+                    {
+                        string cannotHeal = $"\n{playerOne.Name} can't heal and wastes a turn! {playerTwo.Name} takes advantage of {playerOne.Name}'s lack of counting ability!\n";
+                        Console.WriteLine(cannotHeal);
+                        Thread.Sleep(500);
+                    }
+                    // P1 has a chance to dodge P2's attack if they successfully heal and roll a 6 or greater.
+                    switch (playerOne.IsHealing)
+                    {
+                        case (true):
+                            int healDodgeRoll = rng.Next(0, 10);
+                            if (healDodgeRoll >= 6)
+                            {
+                                Console.WriteLine($"\n{playerOne.Name} dodges {playerTwo.Name}'s attack at the last moment!\n");
+                                playerOne.IsHealing = false;
+                                break;
+                            }
+                            else
+                            {
+                                this.ApplyAttackResult(playerTwo, playerOne);
+                                break;
+                            }
+                        case (false):
+                            this.ApplyAttackResult(playerTwo, playerOne);
+                            break;
+                    }
+                }
+                // P2 heals and P1 swings. P2 restores health and has a chance to dodge P1's attack.
+                else if (playerTwo.ChosenAction == Player.Action.heal && (playerOne.ChosenAction == Player.Action.swingL || playerOne.ChosenAction == Player.Action.swingR))
+                {
+                    // P2 heals because they have healed less than 3 times. P1 has a chance to land an attack.
+                    if (playerTwo.HealCount < 3)
+                    {
+                        string playerHeals = $"\n{playerTwo.Name} recovers health! But {playerOne.Name} has a chance to tear off the Band-Aid...\n";
+                        Console.WriteLine(playerHeals);
+                        Thread.Sleep(500);
+                        playerTwo.HealSelf();
+                        Thread.Sleep(500);
+                    }
+                    // P2 cannot heal because they have healed 3 times. P1 counters.
+                    else
+                    {
+                        string cannotHeal = $"\n{playerTwo.Name} can't heal and wastes a turn! {playerOne.Name} takes advantage of {playerTwo.Name}'s lack of counting ability!\n";
+                        Console.WriteLine(cannotHeal);
+                        Thread.Sleep(500);
+                    }
+                    // P2 has a chance to dodge P1's attack if they successfully heal and roll a 6 or greater.
+                    switch (playerTwo.IsHealing)
+                    {
+                        case (true):
+                            int healDodgeRoll = rng.Next(0, 10);
+                            if (healDodgeRoll >= 6)
+                            {
+                                Console.WriteLine($"\n{playerTwo.Name} dodges {playerOne.Name}'s attack at the last moment!\n");
+                                playerTwo.IsHealing = false;
+                                break;
+                            }
+                            else
+                            {
+                                this.ApplyAttackResult(playerOne, playerTwo);
+                                break;
+                            }
+                        case (false):
+                            this.ApplyAttackResult(playerOne, playerTwo);
+                            break;
+                    }
+                }
+                Thread.Sleep(500);
 
                 this.RoundCounter++;
                 playerOne.ActionTaken = false;
