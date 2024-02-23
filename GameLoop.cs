@@ -103,7 +103,7 @@ namespace DuelingDuelsters
 
             // Declare the victor for all to see
             Console.Clear();
-            Console.WriteLine($"*** {victor} is victorious!\nAll hail the most dueling duelster of them all:\n*** {upperVictor} ***");
+            Console.WriteLine($"*** {victor} is victorious!\nAll hail the most dueling duelster of them all:\n\n*** {upperVictor} ***");
 
             
 
