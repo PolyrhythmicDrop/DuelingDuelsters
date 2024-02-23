@@ -40,10 +40,15 @@ namespace DuelingDuelsters.Classes
         {
             get { return _health; }
             // Set health to 0 if value set would be less than or equal to 0. Health cannot be negative.
+            // Also make sure health cannot surpass maximum health, for healing purposes.
             set
             {
                 if (value <= 0)
                 { _health = 0; }
+                else if (value >= this.MaxHealth)
+                {
+                    _health = this.MaxHealth;
+                }
                 else { _health = value; }
             }
         }
@@ -98,7 +103,8 @@ namespace DuelingDuelsters.Classes
             blockR,
             blockL,
             dodgeR,
-            dodgeL
+            dodgeL,
+            heal
         }
 
         // The action the player has chosen
@@ -119,6 +125,8 @@ namespace DuelingDuelsters.Classes
             }
         }
 
+        // ** Status Flags **
+
         // Flag for whether or not the player is staggered. 
         public bool IsStaggered
         { get; set; }
@@ -127,6 +135,28 @@ namespace DuelingDuelsters.Classes
         public bool IsCountering
         { get; set; }
 
+        // Flag for whether or not the player is healing.
+        public bool IsHealing
+        { get; set; }
+
+        // Heal count. Medics can only heal 3 times per match.
+        private int _healCount;
+        public int HealCount
+        {
+            get { return _healCount; }
+            set
+            {
+                if (_healCount < 3)
+                {
+                    _healCount = value;
+                }
+                else
+                {
+                    _healCount = 3;
+                }
+            }
+        }
+
         // *** Constructors ***
 
         public Player()
@@ -134,6 +164,7 @@ namespace DuelingDuelsters.Classes
             this.Name = name;
             this.PlayerClass = playerClass;
             this.ActionTaken = false;
+            this.HealCount = 0;
         }
 
         // *** Constants ***
@@ -148,6 +179,8 @@ namespace DuelingDuelsters.Classes
         private const string DescGymnast = "Gymnast\n-------\nHigh speed, low defense, average attack.\nNimble and acrobatic, the Gymnast can dance on the head of a pin, and also skewer their opponents with it.\n";
         // Description for Medic character class
         private const string DescMedic = "Medic\n-----\nHigh health, slightly lower attack, good speed, and average defense.\nThe only class that can heal, the Medic is durable and doesn't care one whit about the Hippocratic Oath.\n";
+        // Instructions/Help screen
+        private const string helpInstructions = "Here is the help that I'm going to write eventually!\n";
         // Key info
         private ConsoleKeyInfo key;
         // Random number generator
@@ -187,9 +220,9 @@ namespace DuelingDuelsters.Classes
                     {
                         this.Name = charName;
                         this.PlayerClass = "Normie";
-                        this.Health = 15;
-                        this.MaxHealth = this.Health;
-                        this.Attack = 5;
+                        this.MaxHealth = 15;
+                        this.Health = this.MaxHealth;
+                        this.Attack = 10;
                         this.Defense = 10;
                         this.Speed = 5;
                     }
@@ -197,9 +230,9 @@ namespace DuelingDuelsters.Classes
                     {
                         this.Name = charName;
                         this.PlayerClass = "Fridge";
-                        this.Health = 20;
-                        this.MaxHealth = this.Health;
-                        this.Attack = 3;
+                        this.MaxHealth = 25;
+                        this.Health = this.MaxHealth;
+                        this.Attack = 7;
                         this.Defense = 15;
                         this.Speed = 5;
                     }
@@ -207,9 +240,9 @@ namespace DuelingDuelsters.Classes
                     {
                         this.Name = charName;
                         PlayerClass = "Leeroy";
-                        Health = 18;
-                        this.MaxHealth = this.Health;
-                        Attack = 10;
+                        this.MaxHealth = 18;
+                        this.Health = this.MaxHealth;
+                        Attack = 15;
                         Defense = 5;
                         Speed = 6;
                     }
@@ -217,19 +250,19 @@ namespace DuelingDuelsters.Classes
                     {
                         this.Name = charName;
                         PlayerClass = "Gymnast";
-                        Health = 15;
-                        this.MaxHealth = this.Health;
-                        Attack = 5;
-                        Defense = 7;
+                        this.MaxHealth = 15;
+                        this.Health = this.MaxHealth;
+                        Attack = 8;
+                        Defense = 6;
                         Speed = 10;
                     }
                     else if (charClass == "5" || charClass == "Medic" || charClass == "medic")
                     {
                         this.Name = charName;
                         PlayerClass = "Medic";
-                        Health = 25;
-                        this.MaxHealth = this.Health;
-                        Attack = 4;
+                        this.MaxHealth = 20;
+                        this.Health = this.MaxHealth;
+                        Attack = 9;
                         Defense = 8;
                         Speed = 6;
                     }
@@ -269,142 +302,202 @@ namespace DuelingDuelsters.Classes
         // ** Action Methods **
 
         /// <summary>
-        /// Selects an action for the player to undertake
+        /// Selects an action for the player to undertake.
         /// </summary>
         public void SelectAction()
         {
             // Set string variables
-            string actionList = "1. Swing your sword.\n2. Block with your shield.\n3. Dodge your opponent's attack.\n4. Help\n";
+            string swingOption = "1. Swing your sword.";
+            string blockOption = "2. Block with your shield.";
+            string dodgeOption = "3. Dodge your opponent's attack.";
+            string helpOption = "4. Help";
+            string healOption = "4. Heal yourself.";
             string chooseDirection = "Which direction?\n1. Left\n2. Right\n";
+            // Create a new instance of StringBuilder to build the action list.
+            System.Text.StringBuilder actionBuilder = new StringBuilder();
+            // Create the initial action list for Medic and class that is not the medic.
+            if (this.PlayerClass != "Medic")
+            {
+                actionBuilder.AppendLine(swingOption);
+                actionBuilder.AppendLine(blockOption);
+                actionBuilder.AppendLine(dodgeOption);
+                actionBuilder.AppendLine(helpOption);
+            }
+            else
+            {
+                helpOption = "5. Help";
+                actionBuilder.AppendLine(swingOption);
+                actionBuilder.AppendLine(blockOption);
+                actionBuilder.AppendLine(dodgeOption);
+                actionBuilder.AppendLine(healOption);
+                actionBuilder.AppendLine(helpOption);
+            }
+            string actionList = actionBuilder.ToString();
+            do
+                {
+                // Player is prompted to choose an action
+                Console.WriteLine($"{this.Name}, select an action:\n");
+                Console.WriteLine(actionList);
+                key = Console.ReadKey(true);
+                // Player selects 1. Swing your sword
+                if (key.Key == ConsoleKey.D1)
+                {
+                    // Player is prompted to choose their direction
+                    Console.WriteLine(chooseDirection);
+                    key = Console.ReadKey(true);
+                    // Player selects 1. Left
+                    if (key.Key == ConsoleKey.D1)
+                    {
+                        // Player receives summary of their action, swinging the sword left.
+                        Console.WriteLine("Is this what you want to do? Y/n\n");
+                        key = Console.ReadKey(true);
+                        // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingL
+                        if (key.Key == ConsoleKey.Y)
+                        {
+                            this.ActionTaken = true;
+                            this.ChosenAction = Action.swingL;
+                        }
+                        // Player selects N to start over
+                        else if (key.Key == ConsoleKey.N)
+                        {
+                        }
+                    }
+                    // Player selects 2. Right
+                    else if (key.Key == ConsoleKey.D2)
+                    {
+                        // Player receives summary of their action, swinging the sword right.
+                        Console.WriteLine("Is this what you want to do? Y/n\n");
+                        key = Console.ReadKey(true);
+                        // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingR
+                        if (key.Key == ConsoleKey.Y)
+                        {
+                            this.ActionTaken = true;
+                            this.ChosenAction = Action.swingR;
+                        }
+                        // Player selects N to start over
+                        else if (key.Key == ConsoleKey.N)
+                        {
+                        }
+                    }
+                }
+                // Player selects 2. Block with your shield.
+                else if (key.Key == ConsoleKey.D2)
+                {
+                    // Player is prompted to choose their direction
+                    Console.WriteLine(chooseDirection);
+                    key = Console.ReadKey(true);
+                    // Player selects 1. Left
+                    if (key.Key == ConsoleKey.D1)
+                    {
+                        // Player receives summary of their action, blocking to the left.
+                        Console.WriteLine("Is this what you want to do? Y/n\n");
+                        key = Console.ReadKey(true);
+                        // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingL
+                        if (key.Key == ConsoleKey.Y)
+                        {
+                            this.ActionTaken = true;
+                            this.ChosenAction = Action.blockL;
+                        }
+                        // Player selects N to start over
+                        else if (key.Key == ConsoleKey.N)
+                        {
+                        }
+                    }
+                    // Player selects 2. Right
+                    else if (key.Key == ConsoleKey.D2)
+                    {
+                        // Player receives summary of their action, blocking to the right.
+                        Console.WriteLine("Is this what you want to do? Y/n\n");
+                        key = Console.ReadKey(true);
+                        // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingR
+                        if (key.Key == ConsoleKey.Y)
+                        {
+                            this.ActionTaken = true;
+                            this.ChosenAction = Action.blockR;
+                        }
+                        // Player selects N to start over
+                        else if (key.Key == ConsoleKey.N)
+                        {
+                        }
+                    }
+                }
+                // Player select 3. Dodge your opponent's attack.
+                else if (key.Key == ConsoleKey.D3)
+                {
+                    // Player is prompted to choose their direction
+                    Console.WriteLine(chooseDirection);
+                    key = Console.ReadKey(true);
+                    // Player selects 1. Left
+                    if (key.Key == ConsoleKey.D1)
+                    {
+                        // Player receives summary of their action, dodging to the left.
+                        Console.WriteLine("Is this what you want to do? Y/n\n");
+                        key = Console.ReadKey(true);
+                        // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingL
+                        if (key.Key == ConsoleKey.Y)
+                        {
+                            this.ActionTaken = true;
+                            this.ChosenAction = Action.dodgeL;
+                        }
+                        // Player selects N to start over
+                        else if (key.Key == ConsoleKey.N)
+                        {
 
-            // Player is prompted to choose an action
-            Console.WriteLine($"{this.Name}, select an action:\n");
-            Console.WriteLine(actionList);
-            key = Console.ReadKey(true);
-            // Player selects 1. Swing your sword
-            if (key.Key == ConsoleKey.D1)
-            {
-                // Player is prompted to choose their direction
-                Console.WriteLine(chooseDirection);
-                key = Console.ReadKey(true);
-                // Player selects 1. Left
-                if (key.Key == ConsoleKey.D1)
-                {
-                    // Player receives summary of their action, swinging the sword left.
-                    Console.WriteLine("Is this what you want to do? Y/n\n");
-                    key = Console.ReadKey(true);
-                    // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingL
-                    if (key.Key == ConsoleKey.Y)
-                    {
-                        this.ActionTaken = true;
-                        this.ChosenAction = Action.swingL;
+                        }
                     }
-                    // Player selects N to start over
-                    else if (key.Key == ConsoleKey.N)
+                    // Player selects 2. Right
+                    else if (key.Key == ConsoleKey.D2)
                     {
-                    }  
-                }
-                // Player selects 2. Right
-                else if (key.Key == ConsoleKey.D2)
-                {
-                    // Player receives summary of their action, swinging the sword right.
-                    Console.WriteLine("Is this what you want to do? Y/n\n");
-                    key = Console.ReadKey(true);
-                    // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingR
-                    if (key.Key == ConsoleKey.Y)
-                    {
-                        this.ActionTaken = true;
-                        this.ChosenAction = Action.swingR;
-                    }
-                    // Player selects N to start over
-                    else if (key.Key == ConsoleKey.N)
-                    {
+                        // Player receives summary of their action, dodging to the right.
+                        Console.WriteLine("Is this what you want to do? Y/n\n");
+                        key = Console.ReadKey(true);
+                        // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingR
+                        if (key.Key == ConsoleKey.Y)
+                        {
+                            this.ActionTaken = true;
+                            this.ChosenAction = Action.dodgeR;
+                        }
+                        // Player selects N to start over
+                        else if (key.Key == ConsoleKey.N)
+                        {
+                        }
                     }
                 }
-            }
-            // Player selects 2. Block with your shield.
-            else if (key.Key == ConsoleKey.D2)
-            {
-                // Player is prompted to choose their direction
-                Console.WriteLine(chooseDirection);
-                key = Console.ReadKey(true);
-                // Player selects 1. Left
-                if (key.Key == ConsoleKey.D1)
+                // Player is not a medic and selects 4. Help or player is a medic and selects 5. Help
+                else if ((key.Key == ConsoleKey.D4 && this.PlayerClass != "Medic") || (key.Key == ConsoleKey.D5 && this.PlayerClass == "Medic"))
                 {
-                    // Player receives summary of their action, blocking to the left.
-                    Console.WriteLine("Is this what you want to do? Y/n\n");
-                    key = Console.ReadKey(true);
-                    // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingL
-                    if (key.Key == ConsoleKey.Y)
-                    {
-                        this.ActionTaken = true;
-                        this.ChosenAction = Action.blockL;
-                    }
-                    // Player selects N to start over
-                    else if (key.Key == ConsoleKey.N)
-                    {
-                    }
+                    Console.Clear();
+                    Console.WriteLine(helpInstructions);
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadKey(true);
+                    break;
                 }
-                // Player selects 2. Right
-                else if (key.Key == ConsoleKey.D2)
+                // Player is a medic and selects 4. Heal yourself.
+                else if (key.Key == ConsoleKey.D4 && this.PlayerClass == "Medic")
                 {
-                    // Player receives summary of their action, blocking to the right.
-                    Console.WriteLine("Is this what you want to do? Y/n\n");
+                    // Player is prompted to choose their direction (it's not a real option because the direction of the healing doesn't matter, but it effectively hides their action from the other player.
+                    Console.WriteLine(chooseDirection);
                     key = Console.ReadKey(true);
-                    // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingR
-                    if (key.Key == ConsoleKey.Y)
-                    {
-                        this.ActionTaken = true;
-                        this.ChosenAction = Action.blockR;
-                    }
-                    // Player selects N to start over
-                    else if (key.Key == ConsoleKey.N)
-                    {
-                    }
+                        // Player receives summary of their action
+                        Console.WriteLine("Is this what you want to do? Y/n\n");
+                        key = Console.ReadKey(true);
+                        // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingL
+                        if (key.Key == ConsoleKey.Y)
+                        {
+                            this.ActionTaken = true;
+                            this.ChosenAction = Action.heal;
+                        }
+                        // Player selects N to start over
+                        else if (key.Key == ConsoleKey.N)
+                        {
+                        }
+                }
+                else
+                {
+                    break;
                 }
             }
-            // Player select 3. Dodge your opponent's attack.
-            else if (key.Key == ConsoleKey.D3)
-            {
-                // Player is prompted to choose their direction
-                Console.WriteLine(chooseDirection);
-                key = Console.ReadKey(true);
-                // Player selects 1. Left
-                if (key.Key == ConsoleKey.D1)
-                {
-                    // Player receives summary of their action, dodging to the left.
-                    Console.WriteLine("Is this what you want to do? Y/n\n");
-                    key = Console.ReadKey(true);
-                    // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingL
-                    if (key.Key == ConsoleKey.Y)
-                    {
-                        this.ActionTaken = true;
-                        this.ChosenAction = Action.dodgeL;
-                    }
-                    // Player selects N to start over
-                    else if (key.Key == ConsoleKey.N)
-                    {
-                        
-                    }
-                }
-                // Player selects 2. Right
-                else if (key.Key == ConsoleKey.D2)
-                {
-                    // Player receives summary of their action, dodging to the right.
-                    Console.WriteLine("Is this what you want to do? Y/n\n");
-                    key = Console.ReadKey(true);
-                    // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingR
-                    if (key.Key == ConsoleKey.Y)
-                    {
-                        this.ActionTaken = true;
-                        this.ChosenAction = Action.dodgeR;
-                    }
-                    // Player selects N to start over
-                    else if (key.Key == ConsoleKey.N)
-                    {
-                    }
-                }
-            }
+            while (this.ActionTaken == false);
         }
 
         /// <summary>
@@ -442,6 +535,18 @@ namespace DuelingDuelsters.Classes
             else if (this.ChosenAction == Action.dodgeR)
             {
                 playerActionDescription = $"{this.Name} quickly dodges to their right!";
+                return playerActionDescription;
+            }
+            // Healing action if player has healed less than 3 times.
+            else if (this.ChosenAction == Action.heal && this.HealCount < 3)
+            {
+                playerActionDescription = $"{this.Name} breaks out their emergency trauma kit!\nThey stich up their gaping wounds and pour isopropyl alcohol over their head!";
+                return playerActionDescription;
+            }
+            // Healing action description if player has healed 3 times and cannot heal any more
+            else if (this.ChosenAction == Action.heal && this.HealCount >= 3)
+            {
+                playerActionDescription = $"{this.Name} fumbles around in their medical bag for supplies, but they are fresh out!\n{this.Name} can't heal for the rest of the match!";
                 return playerActionDescription;
             }
             else if (this.ChosenAction == Action.none)
@@ -510,6 +615,29 @@ namespace DuelingDuelsters.Classes
             { return this.IsCountering = true; }
             else 
             { return this.IsCountering = false; }
+        }
+
+        /// <summary>
+        /// Calculate heal amount, set heal flag for actions.
+        /// </summary>
+        /// <returns></returns>
+        public bool HealSelf()
+        {
+            int healAmount = rng.Next(1, 10);
+            string healAmountString;
+            if (healAmount + this.Health <= this.MaxHealth)
+            {
+                healAmountString = healAmount.ToString();
+            }
+            else
+            {
+                 healAmount = this.MaxHealth - this.Health;
+                 healAmountString = healAmount.ToString();
+            }
+            this.Health = this.Health + healAmount;
+            HealCount++;
+            Console.WriteLine($"{this.Name} heals for {healAmountString} health!");
+            return this.IsHealing = true;
         }
     }
 }

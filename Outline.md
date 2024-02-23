@@ -101,7 +101,9 @@ The player can dodge using the Dodge Left or Dodge Right action:
 
 #### Healing
 
-The Medic class can heal themselves as an action. They can do this up to 3 times per match. After selecting the Heal action, they roll RNG(1-10) to determine the heal amount. If their opponent swings in any direction during a Heal action, the Medic rolls to avoid the attack. This is not a dodge; the Medic cannot counter after successfully avoiding an attack, they simply take no damage.
+The Medic class can heal themselves as an action. They can do this up to 3 times per match. After selecting the Heal action, they roll RNG(1-10) to determine the heal amount. The heal is applied before their opponent's attack, if any.
+
+If their opponent swings in any direction during a Heal action, the Medic rolls to avoid the attack. This is not a dodge; the Medic cannot counter after successfully avoiding an attack, they simply take no damage. Any damage done is applied after the heal has been completed.
 
 if (RNG(1-10) >= 6) then No Damage
 if (RNG(1-10) < 6) then PAtk does a regular attack with chance to crit
