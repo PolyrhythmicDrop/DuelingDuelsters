@@ -1,0 +1,515 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DuelingDuelsters.Classes
+{
+    // Class for player characters. Handles stats and actions for player characters.
+    public class Player
+    {
+        // *** Properties ***
+
+        // Player's name
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        // Player's class
+        private string playerClass;
+        public string PlayerClass
+        {
+            get { return playerClass; }
+            // only sets the player class if it is one of the specified classes.
+            set
+            {
+                if (value == "Normie" || value == "Fridge" || value == "Leeroy" || value == "Gymnast" || value == "Medic")
+                {
+                    this.playerClass = value;
+                }
+            }
+        }
+        // Player's current health
+        private int _health;
+        public int Health
+        {
+            get { return _health; }
+            // Set health to 0 if value set would be less than or equal to 0. Health cannot be negative.
+            set
+            {
+                if (value <= 0)
+                { _health = 0; }
+                else { _health = value; }
+            }
+        }
+        // Player's maximum health
+        public int MaxHealth
+        { get; set; }
+        // Player's health readout: Health / MaxHealth
+        private string _healthReadout;
+        public string HealthReadout
+        {
+            get
+            {
+                string healthString = Health.ToString();
+                string maxHealthString = MaxHealth.ToString();
+                _healthReadout = $"{healthString} / {maxHealthString}";
+                return _healthReadout;
+            }
+        }
+        // Player's attack
+        public int Attack
+        { get; set; }
+        // Player's defense
+        public int Defense
+        { get; set; }
+        // Player's speed
+        public int Speed
+        { get; set; }
+
+        private string charSheet;
+        public string CharSheet
+        {
+            get
+            {
+                int charNameLength = this.Name.Length;
+                System.Text.StringBuilder charSheetDivider = new System.Text.StringBuilder();
+                charSheetDivider.Append('-', charNameLength);
+                return $"{charSheetDivider}\n{this.Name}\n{charSheetDivider}\nClass = {this.PlayerClass}\nHealth = {this.Health}\nAttack = {this.Attack}\nDefense = {this.Defense}\nSpeed = {this.Speed}";
+            }
+            set { this.charSheet = value; }
+        }
+
+        // ** Action properties **
+        // Action taken flag: True if the player has taken an action, false if they have not
+        public bool ActionTaken
+        { get; set; }
+        // Enums for possible player actions
+        public enum Action
+        {
+            none,
+            swingR,
+            swingL,
+            blockR,
+            blockL,
+            dodgeR,
+            dodgeL
+        }
+
+        // The action the player has chosen
+        public Action ChosenAction
+        { get; set; }
+
+        // ** Damage Properties **
+        private int _baseDamage;
+        public int BaseDamage
+        {
+            get { return _baseDamage; }
+            // when CalculateBaseDamage returns less than 0, set _baseDamage to 0 instead.
+            set
+            {
+                if (value <= 0)
+                { _baseDamage = 0; }
+                else { _baseDamage = value; }
+            }
+        }
+
+        // Flag for whether or not the player is staggered. 
+        public bool IsStaggered
+        { get; set; }
+
+        // Flag for whether or not the player is countering.
+        public bool IsCountering
+        { get; set; }
+
+        // *** Constructors ***
+
+        public Player()
+        {
+            this.Name = name;
+            this.PlayerClass = playerClass;
+            this.ActionTaken = false;
+        }
+
+        // *** Constants ***
+
+        // Description for Normie character class
+        private const string DescNormie = "Normie\n------\nAbsolutely average at absolutely everything.\nIf Mario were in this game, he would be a Normie.\n";
+        // Description for Fridge character class
+        private const string DescFridge = "Fridge\n------\nHigh defense, low attack, average speed.\nCan take whatever you throw at them, but can have trouble dishing it out.\n";
+        // Description for Leeroy character class
+        private const string DescLeeroy = "Leeroy\n------\nHigh attack, low defense, average speed.\nExpert at bashin', smashin', and crashin', not so much at plannin'.\n";
+        // Description for Gymnast character class
+        private const string DescGymnast = "Gymnast\n-------\nHigh speed, low defense, average attack.\nNimble and acrobatic, the Gymnast can dance on the head of a pin, and also skewer their opponents with it.\n";
+        // Description for Medic character class
+        private const string DescMedic = "Medic\n-----\nHigh health, slightly lower attack, good speed, and average defense.\nThe only class that can heal, the Medic is durable and doesn't care one whit about the Hippocratic Oath.\n";
+        // Key info
+        private ConsoleKeyInfo key;
+        // Random number generator
+        private readonly Random rng = new Random();
+
+        // *** Methods ***
+
+        /// <summary>
+        /// Creates a character with a name, class, and stats.
+        /// </summary>
+        public void CreateCharacter()
+        {
+            // set nullify charName and charClass to start while loop
+            string? charName = null;
+            string? charClass = null;
+            // while loop for character creation
+            while (string.IsNullOrEmpty(charName) || string.IsNullOrEmpty(charClass))
+            {
+                do
+                {
+                    // User is prompted to enter their character's name:
+                    Console.WriteLine("\nEnter your character's name:\n");
+                    // Character's name entered and then assigned to the charName variable:
+                    charName = Console.ReadLine();
+                }
+                while (string.IsNullOrEmpty(charName) == true);
+
+                // User is prompted to enter their character's class:
+                while (string.IsNullOrEmpty(charClass) == true)
+                {
+                    Console.Clear();
+                    string characterPrompt = $"Welcome, {charName}.\n\nPlease enter your character's class:\n\n1. {DescNormie}\n2. {DescFridge}\n3. {DescLeeroy}\n4. {DescGymnast}\n5. {DescMedic}";
+                    Console.WriteLine(characterPrompt);
+                    charClass = Console.ReadLine();
+                    // Parse character class
+                    if (charClass == "1" || charClass == "Normie" || charClass == "normie")
+                    {
+                        this.Name = charName;
+                        this.PlayerClass = "Normie";
+                        this.Health = 15;
+                        this.MaxHealth = this.Health;
+                        this.Attack = 5;
+                        this.Defense = 10;
+                        this.Speed = 5;
+                    }
+                    else if (charClass == "2" || charClass == "Fridge" || charClass == "fridge")
+                    {
+                        this.Name = charName;
+                        this.PlayerClass = "Fridge";
+                        this.Health = 20;
+                        this.MaxHealth = this.Health;
+                        this.Attack = 3;
+                        this.Defense = 15;
+                        this.Speed = 5;
+                    }
+                    else if (charClass == "3" || charClass == "Leeroy" || charClass == "leeroy")
+                    {
+                        this.Name = charName;
+                        PlayerClass = "Leeroy";
+                        Health = 18;
+                        this.MaxHealth = this.Health;
+                        Attack = 10;
+                        Defense = 5;
+                        Speed = 6;
+                    }
+                    else if (charClass == "4" || charClass == "Gymnast" || charClass == "gymnast")
+                    {
+                        this.Name = charName;
+                        PlayerClass = "Gymnast";
+                        Health = 15;
+                        this.MaxHealth = this.Health;
+                        Attack = 5;
+                        Defense = 7;
+                        Speed = 10;
+                    }
+                    else if (charClass == "5" || charClass == "Medic" || charClass == "medic")
+                    {
+                        this.Name = charName;
+                        PlayerClass = "Medic";
+                        Health = 25;
+                        this.MaxHealth = this.Health;
+                        Attack = 4;
+                        Defense = 8;
+                        Speed = 6;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine($"{charClass} is not a valid class. Please try again.");
+                        charClass = null;
+                        continue;
+                    }
+                }
+                // Print player's name, chosen class, and stats, then ask player if they want to use this character, or start over.
+                do
+                {
+                    Console.WriteLine("\nLet's make sure you got everything right. Here's your character:\n\n" + $"{this.CharSheet}\n");
+                    Console.WriteLine($"Are you satisfied with {this.Name}? Y/n");
+                    key = Console.ReadKey(true);
+                    if (key.Key == ConsoleKey.Y)
+                    {
+                        Console.Clear();
+                        break;
+                    }
+                    else if (key.Key == ConsoleKey.N)
+                    {
+                        Console.Clear();
+                        CreateCharacter();
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                while (key.Key != ConsoleKey.Y || key.Key != ConsoleKey.N);
+            }
+        }
+
+        // ** Action Methods **
+
+        /// <summary>
+        /// Selects an action for the player to undertake
+        /// </summary>
+        public void SelectAction()
+        {
+            // Set string variables
+            string actionList = "1. Swing your sword.\n2. Block with your shield.\n3. Dodge your opponent's attack.\n4. Help\n";
+            string chooseDirection = "Which direction?\n1. Left\n2. Right\n";
+
+            // Player is prompted to choose an action
+            Console.WriteLine($"{this.Name}, select an action:\n");
+            Console.WriteLine(actionList);
+            key = Console.ReadKey(true);
+            // Player selects 1. Swing your sword
+            if (key.Key == ConsoleKey.D1)
+            {
+                // Player is prompted to choose their direction
+                Console.WriteLine(chooseDirection);
+                key = Console.ReadKey(true);
+                // Player selects 1. Left
+                if (key.Key == ConsoleKey.D1)
+                {
+                    // Player receives summary of their action, swinging the sword left.
+                    Console.WriteLine("Is this what you want to do? Y/n\n");
+                    key = Console.ReadKey(true);
+                    // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingL
+                    if (key.Key == ConsoleKey.Y)
+                    {
+                        this.ActionTaken = true;
+                        this.ChosenAction = Action.swingL;
+                    }
+                    // Player selects N to start over
+                    else if (key.Key == ConsoleKey.N)
+                    {
+                    }  
+                }
+                // Player selects 2. Right
+                else if (key.Key == ConsoleKey.D2)
+                {
+                    // Player receives summary of their action, swinging the sword right.
+                    Console.WriteLine("Is this what you want to do? Y/n\n");
+                    key = Console.ReadKey(true);
+                    // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingR
+                    if (key.Key == ConsoleKey.Y)
+                    {
+                        this.ActionTaken = true;
+                        this.ChosenAction = Action.swingR;
+                    }
+                    // Player selects N to start over
+                    else if (key.Key == ConsoleKey.N)
+                    {
+                    }
+                }
+            }
+            // Player selects 2. Block with your shield.
+            else if (key.Key == ConsoleKey.D2)
+            {
+                // Player is prompted to choose their direction
+                Console.WriteLine(chooseDirection);
+                key = Console.ReadKey(true);
+                // Player selects 1. Left
+                if (key.Key == ConsoleKey.D1)
+                {
+                    // Player receives summary of their action, blocking to the left.
+                    Console.WriteLine("Is this what you want to do? Y/n\n");
+                    key = Console.ReadKey(true);
+                    // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingL
+                    if (key.Key == ConsoleKey.Y)
+                    {
+                        this.ActionTaken = true;
+                        this.ChosenAction = Action.blockL;
+                    }
+                    // Player selects N to start over
+                    else if (key.Key == ConsoleKey.N)
+                    {
+                    }
+                }
+                // Player selects 2. Right
+                else if (key.Key == ConsoleKey.D2)
+                {
+                    // Player receives summary of their action, blocking to the right.
+                    Console.WriteLine("Is this what you want to do? Y/n\n");
+                    key = Console.ReadKey(true);
+                    // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingR
+                    if (key.Key == ConsoleKey.Y)
+                    {
+                        this.ActionTaken = true;
+                        this.ChosenAction = Action.blockR;
+                    }
+                    // Player selects N to start over
+                    else if (key.Key == ConsoleKey.N)
+                    {
+                    }
+                }
+            }
+            // Player select 3. Dodge your opponent's attack.
+            else if (key.Key == ConsoleKey.D3)
+            {
+                // Player is prompted to choose their direction
+                Console.WriteLine(chooseDirection);
+                key = Console.ReadKey(true);
+                // Player selects 1. Left
+                if (key.Key == ConsoleKey.D1)
+                {
+                    // Player receives summary of their action, dodging to the left.
+                    Console.WriteLine("Is this what you want to do? Y/n\n");
+                    key = Console.ReadKey(true);
+                    // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingL
+                    if (key.Key == ConsoleKey.Y)
+                    {
+                        this.ActionTaken = true;
+                        this.ChosenAction = Action.dodgeL;
+                    }
+                    // Player selects N to start over
+                    else if (key.Key == ConsoleKey.N)
+                    {
+                        
+                    }
+                }
+                // Player selects 2. Right
+                else if (key.Key == ConsoleKey.D2)
+                {
+                    // Player receives summary of their action, dodging to the right.
+                    Console.WriteLine("Is this what you want to do? Y/n\n");
+                    key = Console.ReadKey(true);
+                    // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingR
+                    if (key.Key == ConsoleKey.Y)
+                    {
+                        this.ActionTaken = true;
+                        this.ChosenAction = Action.dodgeR;
+                    }
+                    // Player selects N to start over
+                    else if (key.Key == ConsoleKey.N)
+                    {
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Build strings describing the player's action.
+        /// </summary>
+        /// <returns></returns>
+        public string? DescribePlayerAction()
+        {
+            string? playerActionDescription;
+            if (this.ChosenAction == Action.swingL)
+            {
+                playerActionDescription = $"{this.Name} swings their sword to their left!";
+                return playerActionDescription;
+            }
+            else if (this.ChosenAction == Action.swingR)
+            {
+                playerActionDescription = $"{this.Name} swings their sword to their right!";
+                return playerActionDescription;
+            }
+            else if (this.ChosenAction == Action.blockL)
+            {
+                playerActionDescription = $"{this.Name} raises their shield and guards their left side!";
+                return playerActionDescription;
+            }
+            else if (this.ChosenAction == Action.blockR)
+            {
+                playerActionDescription = $"{this.Name} raises their shield and guards their right side!";
+                return playerActionDescription;
+            }
+            else if (this.ChosenAction == Action.dodgeL)
+            {
+                playerActionDescription = $"{this.Name} quickly dodges to their left!";
+                return playerActionDescription;
+            }
+            else if (this.ChosenAction == Action.dodgeR)
+            {
+                playerActionDescription = $"{this.Name} quickly dodges to their right!";
+                return playerActionDescription;
+            }
+            else if (this.ChosenAction == Action.none)
+            {
+                playerActionDescription = $"{this.Name} does nothing! How could they be so irresponsible?";
+                return playerActionDescription;
+            }
+            else
+            {
+                playerActionDescription = null;
+                return playerActionDescription;
+            }
+        }
+
+        // ** Damage Methods **
+
+        /// <summary>
+        /// Calculate base damage for the attacking player.
+        /// </summary>
+        /// <param name="defPlayer">The defending player.</param>
+        /// <returns></returns>
+        public int CalculateBaseDamage(Player defPlayer)
+        {
+            int baseDamage = this.Attack - (defPlayer.Defense / 2);
+            this.BaseDamage = baseDamage;
+            return this.BaseDamage;
+        }
+
+        /// <summary>
+        /// Calculate whether or not a hit is a critical hit.
+        /// </summary>
+        /// <param name="defPlayer">The defending player. Used to determine stagger condition.</param>
+        /// <returns>true = Critical hit.</returns>
+        public bool IsCrit(Player defPlayer)
+        {
+            int critRoll = rng.Next(0, 20) + (this.Speed / 2);
+            // increase chance to crit if attacking player is countering and the defending player is not blocking.
+            if (this.IsCountering == true && (defPlayer.ChosenAction != Action.blockL && defPlayer.ChosenAction != Action.blockR))
+            { critRoll = critRoll + 5; }
+            // Crit is successful if the crit roll is >= 12, if the defending player is staggered, or if the defending player is dodging.
+            if (critRoll >= 12 || defPlayer.IsStaggered == true || (defPlayer.ChosenAction == Action.dodgeL || defPlayer.ChosenAction == Action.dodgeR))
+            { return true; }
+            else if (this.IsCountering == true && (defPlayer.ChosenAction == Action.blockL || defPlayer.ChosenAction == Action.blockR))
+            { return false; }
+            else { return false; }
+        }
+
+        /// <summary>
+        /// Calculate damage for a critical hit. Critical hits ignore opposing player's defense, and the damage is applied after base damage is calculated. Critical damage is based on RNG + player's attack / 3.
+        /// </summary>
+        /// <returns></returns>
+        public int CalculateCritDamage()
+        {
+            int critDamage = rng.Next(1, 5) + (this.Attack / 2);
+            return critDamage;
+        }
+
+        /// <summary>
+        /// Roll to determine whether or not a round results in a counter.
+        /// </summary>
+        /// <returns>True = The player counters.</returns>
+        public bool IsCounter()
+        {
+            int counterRoll = rng.Next(0, 20) + this.Speed;
+            if (counterRoll >= 14)
+            { return this.IsCountering = true; }
+            else 
+            { return this.IsCountering = false; }
+        }
+    }
+}
