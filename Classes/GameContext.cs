@@ -421,10 +421,6 @@ namespace DuelingDuelsters.Classes
             int p2CharNameLength = this.PlayerTwo.Name.Length;
             int p1ClassNameLength = this.PlayerOne.PlayerClass.Length;
             int p2ClassNameLength = this.PlayerTwo.PlayerClass.Length;
-            string p1healthToString = this.PlayerOne.Health.ToString();
-            string p2healthToString = this.PlayerTwo.Health.ToString();
-            string p1MaxHealthToString = this.PlayerOne.MaxHealth.ToString();
-            string p2MaxHealthToString = this.PlayerTwo.MaxHealth.ToString();
             // Get the length of both names + 40
             int headerLength = p1CharNameLength + p2CharNameLength + 40;
             // Create a string for the spaces between character names and left/right border

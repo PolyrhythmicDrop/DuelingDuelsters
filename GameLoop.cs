@@ -1,5 +1,6 @@
 ﻿using DuelingDuelsters.Classes;
 using System;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -16,6 +17,7 @@ namespace DuelingDuelsters
 
             // ** Game start **
             // Print the splash screen
+            DrawTitleScreen();
             // Ask whether the user wants to start a new game or exit
             // If the user chooses to exit, close the program
             // If the user starts a new game, begin character creation for Player 1
@@ -148,6 +150,14 @@ namespace DuelingDuelsters
                 /* CharacterCreation player1 = new CharacterCreation();
                 player1.CreateCharacter(); */
          
+        }
+
+        static void DrawTitleScreen()
+        {
+            System.Text.StringBuilder titleBuilder = new System.Text.StringBuilder();
+            int width = 60;
+            titleBuilder.Append('*', width);
+            titleBuilder.Append("\n");
         }
     }
 }
