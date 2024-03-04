@@ -57,18 +57,19 @@ namespace DuelingDuelsters
                 // Player 1 creates their character
                 player1.CreateCharacter();
                 Console.WriteLine($"Welcome our newest Duelster, {player1.Name} the {player1.PlayerClass}!\n");
+                Thread.Sleep(1000);
 
                 // Player 2 character creation begins
                 Player player2 = new Player();
                 Console.WriteLine("***PLAYER 2, CREATE YOUR CHARACTER***\n");
                 player2.CreateCharacter();
                 Console.WriteLine($"Welcome our newest Duelster, {player2.Name} the {player2.PlayerClass}!\n");
+                Thread.Sleep(1000);
 
                 // Pre-match character summary
                 Console.Clear();
                 Console.WriteLine("\nLet's get ready to D U E L!!!\n");
-                Console.WriteLine($"Duelster #1:\n\n{player1.CharSheet}\n\n");
-                Console.WriteLine($"Duelster #2:\n\n{player2.CharSheet}\n\n");
+                
 
                 GameContext gameRound = new GameContext(player1, player2);
                 Console.Clear();
@@ -262,5 +263,7 @@ namespace DuelingDuelsters
             return splashScreen;
 
         }
+
+        
     }
 }

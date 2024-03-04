@@ -306,6 +306,8 @@ namespace DuelingDuelsters.Classes
             int charNameLength = this.Name.Length;
             string charHealth = $"Health: {this.Health} / {this.MaxHealth}";
             int charHealthLength = charHealth.Length;
+            string charClass = $"Class: {this.PlayerClass}";
+            int charClassLength = charClass.Length;
             string charAttack = $"Attack: {this.Attack}";
             int charAttackLength = charAttack.Length;
             string charDefense = $"Defense: {this.Defense}";
@@ -314,9 +316,45 @@ namespace DuelingDuelsters.Classes
             int charSpeedLength = charSpeed.Length;
 
             // array of all lengths
-            int[] statLengths = { charNameLength, charHealthLength, charAttackLength, charDefenseLength, charSpeedLength };
+            int[] statLengths = { charNameLength, charHealthLength, charAttackLength, charDefenseLength, charSpeedLength, charClassLength };
             // get highest length from array
             int highestLength = statLengths.Max();
+            // Set the width of the character sheet
+            int charSheetLength = 6 + highestLength;
+
+            // Set the spacers after each stat and the asterisks
+            int asteriskCompensator = 3;
+            int nameSpacerLength = charSheetLength - charNameLength - asteriskCompensator;
+            int classSpacerLength = charSheetLength - charClassLength - asteriskCompensator;
+            int healthSpacerLength = charSheetLength - charHealthLength - asteriskCompensator;
+            int attackSpacerLength = charSheetLength - charAttackLength - asteriskCompensator;
+            int defenseSpacerLength = charSheetLength - charDefenseLength - asteriskCompensator;
+            int speedSpacerLength = charSheetLength - charSpeedLength - asteriskCompensator;
+            int blankSpacerLength = charSheetLength - asteriskCompensator + 1;
+
+            // Build the spacers
+            System.Text.StringBuilder blankBuilder = new System.Text.StringBuilder();
+            blankBuilder.Append(' ', blankSpacerLength);
+            string emptySpacer = blankBuilder.ToString();
+            blankBuilder.Clear();
+            blankBuilder.Append(' ', nameSpacerLength);
+            string nameSpacer = blankBuilder.ToString();
+            blankBuilder.Clear();
+            blankBuilder.Append(' ', classSpacerLength);
+            string classSpacer = blankBuilder.ToString();
+            blankBuilder.Clear();
+            blankBuilder.Append(' ', healthSpacerLength);
+            string healthSpacer = blankBuilder.ToString();
+            blankBuilder.Clear();
+            blankBuilder.Append(' ', attackSpacerLength);
+            string attackSpacer = blankBuilder.ToString();
+            blankBuilder.Clear();
+            blankBuilder.Append(' ', defenseSpacerLength);
+            string defenseSpacer = blankBuilder.ToString();
+            blankBuilder.Clear();
+            blankBuilder.Append(' ', speedSpacerLength);
+            string speedSpacer = blankBuilder.ToString();
+
 
             // Build the divider that goes above and below the name.
             System.Text.StringBuilder charSheetDivider = new System.Text.StringBuilder();
@@ -324,26 +362,20 @@ namespace DuelingDuelsters.Classes
             string charSheetDiv = charSheetDivider.ToString();
 
             // Build character sheet
-            int charSheetLength = 20 + highestLength;
             System.Text.StringBuilder charSheetBuilder = new System.Text.StringBuilder();
             charSheetBuilder.Append('*', charSheetLength);
             charSheetBuilder.Append("\n");
-            charSheetBuilder.Append('*', 1);
-            charSheetBuilder.Append(' ', charSheetLength - 2);
-            charSheetBuilder.Append('*', 1);
-            charSheetBuilder.Append("\n");
-            charSheetBuilder.AppendLine($"* {this.Name} *");
-            charSheetBuilder.AppendLine($"* {charSheetDiv} *");
-            charSheetBuilder.AppendLine($"* {charHealth} *");
-            charSheetBuilder.AppendLine($"* {charAttack} *");
-            charSheetBuilder.AppendLine($"* {charDefense} *");
-            charSheetBuilder.AppendLine($"* {charSpeed} *");
-            charSheetBuilder.Append("\n");
-            charSheetBuilder.Append('*', 1);
-            charSheetBuilder.Append(' ', charSheetLength - 2);
-            charSheetBuilder.Append('*', 1);
-            charSheetBuilder.Append("\n");
+            charSheetBuilder.AppendLine($"*{emptySpacer}*");
+            charSheetBuilder.AppendLine($"* {this.Name}{nameSpacer}*");
+            charSheetBuilder.AppendLine($"* {charSheetDiv}{nameSpacer}*");
+            charSheetBuilder.AppendLine($"* {charClass}{classSpacer}*");
+            charSheetBuilder.AppendLine($"* {charHealth}{healthSpacer}*");
+            charSheetBuilder.AppendLine($"* {charAttack}{attackSpacer}*");
+            charSheetBuilder.AppendLine($"* {charDefense}{defenseSpacer}*");
+            charSheetBuilder.AppendLine($"* {charSpeed}{speedSpacer}*");
+            charSheetBuilder.AppendLine($"*{emptySpacer}*");
             charSheetBuilder.Append('*', charSheetLength);
+            charSheetBuilder.Append("\n");
 
 
             string characterSheet = charSheetBuilder.ToString();

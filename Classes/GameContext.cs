@@ -53,6 +53,14 @@ namespace DuelingDuelsters.Classes
         // Interface implementations
 
         /// <summary>
+        /// Creates the pre-match summary and asks players to continue.
+        /// </summary>
+        static void CreatePreMatchSummary()
+        {
+
+        }
+
+        /// <summary>
         /// Plays out the round
         /// </summary>
         /// <param name="playerOne">Player one.</param>
