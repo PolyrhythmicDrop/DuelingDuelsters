@@ -46,49 +46,66 @@ namespace DuelingDuelsters
                 while (key.Key != ConsoleKey.D1);
                 // ** End title screen menu **
 
-
-
                 // ** Character Creation **
-
-                // Player 1 character creation begins
-                // player1 object is instantiated
+                // Player objects are instantiated
                 Player player1 = new Player();
-                Console.WriteLine("***PLAYER 1, CREATE YOUR CHARACTER***\n");
-                // Player 1 creates their character
-                player1.CreateCharacter();
-                Console.WriteLine($"Welcome our newest Duelster, {player1.Name} the {player1.PlayerClass}!\n");
-                Thread.Sleep(1000);
-
-                // Player 2 character creation begins
                 Player player2 = new Player();
-                Console.WriteLine("***PLAYER 2, CREATE YOUR CHARACTER***\n");
-                player2.CreateCharacter();
-                Console.WriteLine($"Welcome our newest Duelster, {player2.Name} the {player2.PlayerClass}!\n");
-                Thread.Sleep(1000);
+                do
+                {
+                    // Player 1 character creation begins                    
+                    Console.WriteLine("***PLAYER 1, CREATE YOUR CHARACTER***\n");
+                    // Player 1 creates their character
+                    player1.CreateCharacter();
+                    Console.WriteLine($"Welcome our newest Duelster, {player1.Name} the {player1.PlayerClass}!\n");
+                    Thread.Sleep(1000);
+                    Console.Clear();
 
-                // Pre-match character summary
-                Console.Clear();
-                Console.WriteLine("\nLet's get ready to D U E L!!!\n");
+                    // Player 2 character creation begins                    
+                    Console.WriteLine("***PLAYER 2, CREATE YOUR CHARACTER***\n");
+                    player2.CreateCharacter();
+                    Console.WriteLine($"Welcome our newest Duelster, {player2.Name} the {player2.PlayerClass}!\n");
+                    Thread.Sleep(1000);
+                    Console.Clear();
+                    
+
+                // Pre-match summary and confirmation
                 
+                    WritePreMatchSummary(player1, player2);
+                    Thread.Sleep(1000);
+                    Console.WriteLine("\nAre you ready to duel like you've never duelled before?\n1. Yes, let's do this!\n2. No, let's start over.");
+                    key = Console.ReadKey(true);
+                    switch (key.Key)
+                    {
+                        case ConsoleKey.D1:                            
+                            break;
+                        case ConsoleKey.D2:
+                            Console.Clear();
+                            continue;
+                        default:
+                            Console.WriteLine("Is that a whimper of defeat? Or a rousing call to battle? Let's start over to be sure...");
+                            Thread.Sleep(500);
+                            Console.Clear();
+                            continue;
+                    }                    
+                }
+                while (key.Key != ConsoleKey.D1);
 
+                // Instantiate the game context with the two players.
                 GameContext gameRound = new GameContext(player1, player2);
-                Console.Clear();
 
-                // Establish roundHeader variable
-                string roundHeader = gameRound.DrawRoundHeader();
+                Console.Clear();
 
                 // ** Start of round loop **
                 // Loop returns here if player selects Rematch after the round.
                 do
                 {
-
-
                     // Round plays out until one player's health reaches 0.
                     do
                     {
-                        roundHeader = gameRound.DrawRoundHeader();
+                        string roundHeader = gameRound.DrawRoundHeader();
                         Console.Clear();
                         Console.WriteLine(roundHeader);
+                        Thread.Sleep(500);
 
                         // Player 1 action selection
                         do
@@ -264,6 +281,19 @@ namespace DuelingDuelsters
 
         }
 
-        
+        /// <summary>
+        /// Creates the pre-match summary and asks players to continue.
+        /// </summary>
+        static void WritePreMatchSummary(Player playerOne, Player playerTwo)
+        {
+            // Pre-match character summary
+            Console.Clear();
+            Console.WriteLine("\nLet's get ready to D U E L!!!\n");
+            Console.WriteLine(playerOne.CharSheet);
+            Console.WriteLine("\n** VS. **\n");
+            Console.WriteLine(playerTwo.CharSheet);
+        }
+
+
     }
 }

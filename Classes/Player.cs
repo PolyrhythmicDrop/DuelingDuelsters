@@ -274,6 +274,7 @@ namespace DuelingDuelsters.Classes
                 // Print player's name, chosen class, and stats, then ask player if they want to use this character, or start over.
                 do
                 {
+                    Console.Clear();
                     Console.WriteLine("\nLet's make sure you got everything right. Here's your character:\n\n" + $"{this.CharSheet}\n");
                     Console.WriteLine($"Are you satisfied with {this.Name}? Y/n");
                     key = Console.ReadKey(true);
@@ -375,7 +376,6 @@ namespace DuelingDuelsters.Classes
             charSheetBuilder.AppendLine($"* {charSpeed}{speedSpacer}*");
             charSheetBuilder.AppendLine($"*{emptySpacer}*");
             charSheetBuilder.Append('*', charSheetLength);
-            charSheetBuilder.Append("\n");
 
 
             string characterSheet = charSheetBuilder.ToString();
