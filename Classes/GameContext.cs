@@ -50,8 +50,6 @@ namespace DuelingDuelsters.Classes
 
         // *** Methods ***
 
-        // Interface implementations
-
         /// <summary>
         /// Plays out the round
         /// </summary>

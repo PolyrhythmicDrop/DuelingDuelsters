@@ -82,10 +82,7 @@ namespace DuelingDuelsters.Classes
         {
             get
             {
-                int charNameLength = this.Name.Length;
-                System.Text.StringBuilder charSheetDivider = new System.Text.StringBuilder();
-                charSheetDivider.Append('-', charNameLength);
-                return $"{charSheetDivider}\n{this.Name}\n{charSheetDivider}\nClass = {this.PlayerClass}\nHealth = {this.Health}\nAttack = {this.Attack}\nDefense = {this.Defense}\nSpeed = {this.Speed}";
+                return this.BuildCharacterSheet();
             }
             set { this.charSheet = value; }
         }
@@ -277,6 +274,7 @@ namespace DuelingDuelsters.Classes
                 // Print player's name, chosen class, and stats, then ask player if they want to use this character, or start over.
                 do
                 {
+                    Console.Clear();
                     Console.WriteLine("\nLet's make sure you got everything right. Here's your character:\n\n" + $"{this.CharSheet}\n");
                     Console.WriteLine($"Are you satisfied with {this.Name}? Y/n");
                     key = Console.ReadKey(true);
@@ -297,6 +295,99 @@ namespace DuelingDuelsters.Classes
                 }
                 while (key.Key != ConsoleKey.Y || key.Key != ConsoleKey.N);
             }
+        }
+
+        /// <summary>
+        /// Builds a character sheet for the character.
+        /// </summary>
+        /// <returns>A string containing the character sheet and a fancy asterisk border.</returns>
+        public string BuildCharacterSheet()
+        {
+            // String stats and length of said strings
+            int charNameLength = this.Name.Length;
+            string charHealth = $"Health: {this.Health} / {this.MaxHealth}";
+            int charHealthLength = charHealth.Length;
+            string charClass = $"Class: {this.PlayerClass}";
+            int charClassLength = charClass.Length;
+            string charAttack = $"Attack: {this.Attack}";
+            int charAttackLength = charAttack.Length;
+            string charDefense = $"Defense: {this.Defense}";
+            int charDefenseLength = charDefense.Length;
+            string charSpeed = $"Speed: {this.Speed}";
+            int charSpeedLength = charSpeed.Length;
+
+            // array of all lengths
+            int[] statLengths = { charNameLength, charHealthLength, charAttackLength, charDefenseLength, charSpeedLength, charClassLength };
+            // get highest length from array
+            int highestLength = statLengths.Max();
+            // Set the width of the character sheet
+            int charSheetLength = 6 + highestLength;
+
+            // Set the spacers after each stat and the asterisks
+            int asteriskCompensator = 3;
+            int nameSpacerLength = charSheetLength - charNameLength - asteriskCompensator;
+            int classSpacerLength = charSheetLength - charClassLength - asteriskCompensator;
+            int healthSpacerLength = charSheetLength - charHealthLength - asteriskCompensator;
+            int attackSpacerLength = charSheetLength - charAttackLength - asteriskCompensator;
+            int defenseSpacerLength = charSheetLength - charDefenseLength - asteriskCompensator;
+            int speedSpacerLength = charSheetLength - charSpeedLength - asteriskCompensator;
+            int blankSpacerLength = charSheetLength - asteriskCompensator + 1;
+
+            // Build the spacers
+            System.Text.StringBuilder blankBuilder = new System.Text.StringBuilder();
+            blankBuilder.Append(' ', blankSpacerLength);
+            string emptySpacer = blankBuilder.ToString();
+            blankBuilder.Clear();
+            blankBuilder.Append(' ', nameSpacerLength);
+            string nameSpacer = blankBuilder.ToString();
+            blankBuilder.Clear();
+            blankBuilder.Append(' ', classSpacerLength);
+            string classSpacer = blankBuilder.ToString();
+            blankBuilder.Clear();
+            blankBuilder.Append(' ', healthSpacerLength);
+            string healthSpacer = blankBuilder.ToString();
+            blankBuilder.Clear();
+            blankBuilder.Append(' ', attackSpacerLength);
+            string attackSpacer = blankBuilder.ToString();
+            blankBuilder.Clear();
+            blankBuilder.Append(' ', defenseSpacerLength);
+            string defenseSpacer = blankBuilder.ToString();
+            blankBuilder.Clear();
+            blankBuilder.Append(' ', speedSpacerLength);
+            string speedSpacer = blankBuilder.ToString();
+
+
+            // Build the divider that goes above and below the name.
+            System.Text.StringBuilder charSheetDivider = new System.Text.StringBuilder();
+            charSheetDivider.Append('-', charNameLength);
+            string charSheetDiv = charSheetDivider.ToString();
+
+            // Build character sheet
+            System.Text.StringBuilder charSheetBuilder = new System.Text.StringBuilder();
+            charSheetBuilder.Append('*', charSheetLength);
+            charSheetBuilder.Append("\n");
+            charSheetBuilder.AppendLine($"*{emptySpacer}*");
+            charSheetBuilder.AppendLine($"* {this.Name}{nameSpacer}*");
+            charSheetBuilder.AppendLine($"* {charSheetDiv}{nameSpacer}*");
+            charSheetBuilder.AppendLine($"* {charClass}{classSpacer}*");
+            charSheetBuilder.AppendLine($"* {charHealth}{healthSpacer}*");
+            charSheetBuilder.AppendLine($"* {charAttack}{attackSpacer}*");
+            charSheetBuilder.AppendLine($"* {charDefense}{defenseSpacer}*");
+            charSheetBuilder.AppendLine($"* {charSpeed}{speedSpacer}*");
+            charSheetBuilder.AppendLine($"*{emptySpacer}*");
+            charSheetBuilder.Append('*', charSheetLength);
+
+
+            string characterSheet = charSheetBuilder.ToString();
+            return characterSheet;
+        }
+
+        /// <summary>
+        /// Resets the character to their default health and stats for a rematch.
+        /// </summary>
+        public void ResetCharacterHealth()
+        {
+            this.Health = this.MaxHealth;
         }
 
         // ** Action Methods **
