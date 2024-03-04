@@ -1,8 +1,4 @@
 ﻿using DuelingDuelsters.Classes;
-using System;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace DuelingDuelsters
 {
@@ -16,13 +12,41 @@ namespace DuelingDuelsters
 
 
             // ** Game start **
+            // ** Title Screen Menu **
             // Print the splash screen
-            DrawTitleScreen();
-            // Ask whether the user wants to start a new game or exit
-            // If the user chooses to exit, close the program
-            // If the user starts a new game, begin character creation for Player 1
+            do
+            {
+                Console.WriteLine(DrawTitleScreen());
 
-            // ** Character creation **
+                // Ask whether the user wants to start a new game or exit
+                // Splash screen variables
+                string newGame = "1. New Game\n";
+                string exitGame = "2. Exit\n";
+                // If the user chooses to exit, close the program
+                // If the user starts a new game, begin character creation for Player 1
+                Console.WriteLine($"{newGame}\n{exitGame}");
+                key = Console.ReadKey(true);
+                switch (key.Key)
+                {
+                    case ConsoleKey.D1:
+                        {
+                            Console.Clear();
+                            break;
+                        }
+                    case ConsoleKey.D2:
+                        {
+                            System.Environment.Exit(0);
+                            break;
+                        }
+                }
+                Console.Clear();
+            }
+            while (key.Key != ConsoleKey.D1 || key.Key != ConsoleKey.D2);
+            // ** End title screen menu **
+
+
+
+            // ** Character Creation **
 
             // Player 1 character creation begins
             // player1 object is instantiated
@@ -152,12 +176,55 @@ namespace DuelingDuelsters
          
         }
 
-        static void DrawTitleScreen()
+        /// <summary>
+        /// Draws the title screen at the start of the game.
+        /// </summary>
+        static string DrawTitleScreen()
         {
             System.Text.StringBuilder titleBuilder = new System.Text.StringBuilder();
-            int width = 60;
+            // set variables for the width of the box and empty spaces
+            int width = 82;
+            int sideBorderWidth = width - 2;
+            string copyright = "\u00a9 2024 Hobby Horse Studios, absolutely no rights reserved.";
+            int copyrightLength = copyright.Length;
+            int copyrightSpaceLength = sideBorderWidth - copyrightLength - 2;
+            System.String copyrightSpaces = new string(' ', copyrightSpaceLength);
+            System.String centerSpaces = new string(' ', sideBorderWidth);
+            // Get the full path for the banner file and assign it to a variable
+            string fullPath = System.IO.Path.GetFullPath("banner.txt");
+            // Read from banner.txt.
+            StreamReader streamReader = new StreamReader(fullPath);
+            // Count the lines in banner.txt
+            int lineNumber = File.ReadLines(fullPath).Count();            
+
+            // Build the string itself
             titleBuilder.Append('*', width);
             titleBuilder.Append("\n");
+            titleBuilder.AppendLine($"*{centerSpaces}*");
+            titleBuilder.AppendLine($"*{centerSpaces}*");
+            // Loop to read banner.txt and add it to the string between asterisks.
+            for (int i = 0; i < lineNumber; i++)
+            {
+                // Read a line from banner.txt and assign it to a variable.
+                string? splashLine = streamReader.ReadLine();
+                titleBuilder.AppendLine($"* {splashLine} *");
+            }
+            // Dispose the streamReader memory
+            streamReader.Dispose();
+            titleBuilder.AppendLine($"*{centerSpaces}*");
+            titleBuilder.AppendLine($"*{centerSpaces}*");
+            // Copyright section
+            titleBuilder.AppendLine($"* {copyright}{copyrightSpaces} *");
+            titleBuilder.AppendLine($"*{centerSpaces}*");
+            titleBuilder.AppendLine($"*{centerSpaces}*");
+            titleBuilder.Append('*', width);
+            titleBuilder.Append("\n");
+            titleBuilder.Append("\n");
+            // Convert titleBuilder to a string
+            string splashScreen = titleBuilder.ToString();
+            // return the string
+            return splashScreen;
+
         }
     }
 }
