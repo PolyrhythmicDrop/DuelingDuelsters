@@ -82,10 +82,7 @@ namespace DuelingDuelsters.Classes
         {
             get
             {
-                int charNameLength = this.Name.Length;
-                System.Text.StringBuilder charSheetDivider = new System.Text.StringBuilder();
-                charSheetDivider.Append('-', charNameLength);
-                return $"{charSheetDivider}\n{this.Name}\n{charSheetDivider}\nClass = {this.PlayerClass}\nHealth = {this.Health}\nAttack = {this.Attack}\nDefense = {this.Defense}\nSpeed = {this.Speed}";
+                return this.BuildCharacterSheet();
             }
             set { this.charSheet = value; }
         }
@@ -297,6 +294,68 @@ namespace DuelingDuelsters.Classes
                 }
                 while (key.Key != ConsoleKey.Y || key.Key != ConsoleKey.N);
             }
+        }
+
+        /// <summary>
+        /// Builds a character sheet for the character.
+        /// </summary>
+        /// <returns>A string containing the character sheet and a fancy asterisk border.</returns>
+        public string BuildCharacterSheet()
+        {
+            // String stats and length of said strings
+            int charNameLength = this.Name.Length;
+            string charHealth = $"Health: {this.Health} / {this.MaxHealth}";
+            int charHealthLength = charHealth.Length;
+            string charAttack = $"Attack: {this.Attack}";
+            int charAttackLength = charAttack.Length;
+            string charDefense = $"Defense: {this.Defense}";
+            int charDefenseLength = charDefense.Length;
+            string charSpeed = $"Speed: {this.Speed}";
+            int charSpeedLength = charSpeed.Length;
+
+            // array of all lengths
+            int[] statLengths = { charNameLength, charHealthLength, charAttackLength, charDefenseLength, charSpeedLength };
+            // get highest length from array
+            int highestLength = statLengths.Max();
+
+            // Build the divider that goes above and below the name.
+            System.Text.StringBuilder charSheetDivider = new System.Text.StringBuilder();
+            charSheetDivider.Append('-', charNameLength);
+            string charSheetDiv = charSheetDivider.ToString();
+
+            // Build character sheet
+            int charSheetLength = 20 + highestLength;
+            System.Text.StringBuilder charSheetBuilder = new System.Text.StringBuilder();
+            charSheetBuilder.Append('*', charSheetLength);
+            charSheetBuilder.Append("\n");
+            charSheetBuilder.Append('*', 1);
+            charSheetBuilder.Append(' ', charSheetLength - 2);
+            charSheetBuilder.Append('*', 1);
+            charSheetBuilder.Append("\n");
+            charSheetBuilder.AppendLine($"* {this.Name} *");
+            charSheetBuilder.AppendLine($"* {charSheetDiv} *");
+            charSheetBuilder.AppendLine($"* {charHealth} *");
+            charSheetBuilder.AppendLine($"* {charAttack} *");
+            charSheetBuilder.AppendLine($"* {charDefense} *");
+            charSheetBuilder.AppendLine($"* {charSpeed} *");
+            charSheetBuilder.Append("\n");
+            charSheetBuilder.Append('*', 1);
+            charSheetBuilder.Append(' ', charSheetLength - 2);
+            charSheetBuilder.Append('*', 1);
+            charSheetBuilder.Append("\n");
+            charSheetBuilder.Append('*', charSheetLength);
+
+
+            string characterSheet = charSheetBuilder.ToString();
+            return characterSheet;
+        }
+
+        /// <summary>
+        /// Resets the character to their default health and stats for a rematch.
+        /// </summary>
+        public void ResetCharacterHealth()
+        {
+            this.Health = this.MaxHealth;
         }
 
         // ** Action Methods **
