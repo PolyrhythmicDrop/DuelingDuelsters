@@ -24,9 +24,11 @@ namespace DuelingDuelsters
                     // Splash screen variables
                     string newGame = "1. New Game\n";
                     string exitGame = "2. Exit\n";
+                    string help = "3. Instructions\n";
                     // If the user chooses to exit, close the program
                     // If the user starts a new game, begin character creation for Player 1
-                    Console.WriteLine($"{newGame}\n{exitGame}");
+                    // If the user chooses help, starts the help.
+                    Console.WriteLine($"{newGame}\n{exitGame}\n{help}");
                     key = Console.ReadKey(true);
                     switch (key.Key)
                     {
@@ -39,6 +41,15 @@ namespace DuelingDuelsters
                             {
                                 System.Environment.Exit(0);
                                 break;
+                            }
+                        case ConsoleKey.D3:
+                            {
+                                Console.Clear();
+                                Console.WriteLine(BuildHelpScreen());
+                                Console.WriteLine("Press any key to continue...");
+                                Console.ReadKey();
+                                Console.Clear();
+                                continue;
                             }
                     }
                     Console.Clear();
@@ -66,17 +77,17 @@ namespace DuelingDuelsters
                     Console.WriteLine($"Welcome our newest Duelster, {player2.Name} the {player2.PlayerClass}!\n");
                     Thread.Sleep(1000);
                     Console.Clear();
-                    
 
-                // Pre-match summary and confirmation
-                
+
+                    // Pre-match summary and confirmation
+
                     WritePreMatchSummary(player1, player2);
                     Thread.Sleep(1000);
                     Console.WriteLine("\nAre you ready to duel like you've never duelled before?\n1. Yes, let's do this!\n2. No, let's start over.");
                     key = Console.ReadKey(true);
                     switch (key.Key)
                     {
-                        case ConsoleKey.D1:                            
+                        case ConsoleKey.D1:
                             break;
                         case ConsoleKey.D2:
                             Console.Clear();
@@ -86,7 +97,7 @@ namespace DuelingDuelsters
                             Thread.Sleep(500);
                             Console.Clear();
                             continue;
-                    }                    
+                    }
                 }
                 while (key.Key != ConsoleKey.D1);
 
@@ -188,11 +199,11 @@ namespace DuelingDuelsters
                 continue;
             }
             while (key.Key != ConsoleKey.Escape);
-            
-            
-            
-            
-            
+
+
+
+
+
             /*
             Test player 1 action selection output
             string p1Action = player1.ChosenAction.ToString();
@@ -202,32 +213,32 @@ namespace DuelingDuelsters
 
 
 
-                // ** Match **
-                // First round begins
-                // Player 1 is prompted to choose an action
-                // Print a list of Player 1's possible actions, plus their current stats
-                // Player 1 enters an action, which is hidden from the console so Player 2 cannot see it
-                // Player 2 is prompted to choose an action
-                // Print a list of Player 2's possible actions, plus their current stats
-                // Player 2 enters an action, which is hidden from the console so Player 2 cannot see it
-                // Action plays out
-                // Status for Player 1 and Player 2 are updated.
-                // Second round begins.
-                // Repeat until one player is out of health.
+            // ** Match **
+            // First round begins
+            // Player 1 is prompted to choose an action
+            // Print a list of Player 1's possible actions, plus their current stats
+            // Player 1 enters an action, which is hidden from the console so Player 2 cannot see it
+            // Player 2 is prompted to choose an action
+            // Print a list of Player 2's possible actions, plus their current stats
+            // Player 2 enters an action, which is hidden from the console so Player 2 cannot see it
+            // Action plays out
+            // Status for Player 1 and Player 2 are updated.
+            // Second round begins.
+            // Repeat until one player is out of health.
 
-                // ** Post-Match **
-                // Display the winner's name and a victory message.
-                // Ask if the players want a rematch, to start a new game, or to exit.
-                // Rematch pits the same characters against each other, starting with Round 1
-                // New game returns to character creation
-                // Exit game exits the program
-
-
+            // ** Post-Match **
+            // Display the winner's name and a victory message.
+            // Ask if the players want a rematch, to start a new game, or to exit.
+            // Rematch pits the same characters against each other, starting with Round 1
+            // New game returns to character creation
+            // Exit game exits the program
 
 
-                /* CharacterCreation player1 = new CharacterCreation();
-                player1.CreateCharacter(); */
-         
+
+
+            /* CharacterCreation player1 = new CharacterCreation();
+            player1.CreateCharacter(); */
+
         }
 
         /// <summary>
@@ -249,7 +260,7 @@ namespace DuelingDuelsters
             // Read from banner.txt.
             StreamReader streamReader = new StreamReader(fullPath);
             // Count the lines in banner.txt
-            int lineNumber = File.ReadLines(fullPath).Count();            
+            int lineNumber = File.ReadLines(fullPath).Count();
 
             // Build the string itself
             titleBuilder.Append('*', width);
@@ -292,6 +303,27 @@ namespace DuelingDuelsters
             Console.WriteLine(playerOne.CharSheet);
             Console.WriteLine("\n** VS. **\n");
             Console.WriteLine(playerTwo.CharSheet);
+        }
+
+        /// <summary>
+        /// Builds the help screen.
+        /// </summary>
+        /// <returns>Returns the help screen as a string.</returns>
+        static string BuildHelpScreen()
+        {
+            string helpPath = System.IO.Path.GetFullPath("README.md");
+            StreamReader streamReader = new StreamReader(helpPath);
+            int lineNumber = File.ReadLines(helpPath).Count();
+            System.Text.StringBuilder helpBuilder = new System.Text.StringBuilder();
+            for (int i = 0; i < lineNumber; i++)
+            {
+                // Read a line from the readme, then go to the next one until it reaches the end.
+                string? helpLine = streamReader.ReadLine();
+                helpBuilder.AppendLine($"{helpLine}");
+            }
+
+            string helpScreen = helpBuilder.ToString();
+            return helpScreen;
         }
 
 

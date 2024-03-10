@@ -176,8 +176,7 @@ namespace DuelingDuelsters.Classes
         private const string DescGymnast = "Gymnast\n-------\nHigh speed, low defense, average attack.\nNimble and acrobatic, the Gymnast can dance on the head of a pin, and also skewer their opponents with it.\n";
         // Description for Medic character class
         private const string DescMedic = "Medic\n-----\nHigh health, slightly lower attack, good speed, and average defense.\nThe only class that can heal, the Medic is durable and doesn't care one whit about the Hippocratic Oath.\n";
-        // Instructions/Help screen
-        private const string helpInstructions = "Here is the help that I'm going to write eventually!\n";
+        
         // Key info
         private ConsoleKeyInfo key;
         // Random number generator
@@ -558,7 +557,7 @@ namespace DuelingDuelsters.Classes
                 else if ((key.Key == ConsoleKey.D4 && this.PlayerClass != "Medic") || (key.Key == ConsoleKey.D5 && this.PlayerClass == "Medic"))
                 {
                     Console.Clear();
-                    Console.WriteLine(helpInstructions);
+                    Console.WriteLine(BuildHelpScreen());
                     Console.WriteLine("Press any key to continue...");
                     Console.ReadKey(true);
                     break;
@@ -589,6 +588,23 @@ namespace DuelingDuelsters.Classes
                 }
             }
             while (this.ActionTaken == false);
+        }
+
+        public string BuildHelpScreen()
+        {
+            string helpPath = System.IO.Path.GetFullPath("README.md");
+            StreamReader streamReader = new StreamReader(helpPath);
+            int lineNumber = File.ReadLines(helpPath).Count();
+            System.Text.StringBuilder helpBuilder = new System.Text.StringBuilder();
+            for (int i = 0; i < lineNumber; i++)
+            {
+                // Read a line from the readme, then go to the next one until it reaches the end.
+                string? helpLine = streamReader.ReadLine();
+                helpBuilder.AppendLine($"{helpLine}");
+            }
+
+            string helpScreen = helpBuilder.ToString();
+            return helpScreen;
         }
 
         /// <summary>
