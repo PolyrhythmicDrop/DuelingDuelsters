@@ -1,4 +1,5 @@
 ﻿using DuelingDuelsters.Classes;
+using System.Reflection;
 
 namespace DuelingDuelsters
 {
@@ -17,7 +18,7 @@ namespace DuelingDuelsters
             {
                 // Print the splash screen
                 do
-                {
+                {                    
                     Console.WriteLine(DrawTitleScreen());
 
                     // Ask whether the user wants to start a new game or exit
@@ -256,11 +257,9 @@ namespace DuelingDuelsters
             System.String copyrightSpaces = new string(' ', copyrightSpaceLength);
             System.String centerSpaces = new string(' ', sideBorderWidth);
             // Get the full path for the banner file and assign it to a variable
-            string fullPath = System.IO.Path.GetFullPath("banner.txt");
+            Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("DuelingDuelsters.banner.txt");
             // Read from banner.txt.
-            StreamReader streamReader = new StreamReader(fullPath);
-            // Count the lines in banner.txt
-            int lineNumber = File.ReadLines(fullPath).Count();
+            StreamReader? streamReader = new StreamReader(stream);
 
             // Build the string itself
             titleBuilder.Append('*', width);
@@ -268,14 +267,14 @@ namespace DuelingDuelsters
             titleBuilder.AppendLine($"*{centerSpaces}*");
             titleBuilder.AppendLine($"*{centerSpaces}*");
             // Loop to read banner.txt and add it to the string between asterisks.
-            for (int i = 0; i < lineNumber; i++)
+            string? splashLine = streamReader.ReadLine();
+            do
             {
-                // Read a line from banner.txt and assign it to a variable.
-                string? splashLine = streamReader.ReadLine();
                 titleBuilder.AppendLine($"* {splashLine} *");
+                // Read a line from banner.txt and assign it to a variable.
+                splashLine = streamReader.ReadLine();
             }
-            // Dispose the streamReader memory
-            streamReader.Dispose();
+            while (splashLine != null);
             titleBuilder.AppendLine($"*{centerSpaces}*");
             titleBuilder.AppendLine($"*{centerSpaces}*");
             // Copyright section
@@ -285,6 +284,8 @@ namespace DuelingDuelsters
             titleBuilder.Append('*', width);
             titleBuilder.Append("\n");
             titleBuilder.Append("\n");
+            // Dispose the streamReader memory
+            streamReader.Dispose();
             // Convert titleBuilder to a string
             string splashScreen = titleBuilder.ToString();
             // return the string
@@ -311,16 +312,17 @@ namespace DuelingDuelsters
         /// <returns>Returns the help screen as a string.</returns>
         static string BuildHelpScreen()
         {
-            string helpPath = System.IO.Path.GetFullPath("README.md");
-            StreamReader streamReader = new StreamReader(helpPath);
-            int lineNumber = File.ReadLines(helpPath).Count();
+            Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("DuelingDuelsters.README.md");
+            StreamReader streamReader = new StreamReader(stream);            
             System.Text.StringBuilder helpBuilder = new System.Text.StringBuilder();
-            for (int i = 0; i < lineNumber; i++)
+            string? helpLine = streamReader.ReadLine();
+            do
             {
-                // Read a line from the readme, then go to the next one until it reaches the end.
-                string? helpLine = streamReader.ReadLine();
+                // Read a line from the readme, then go to the next one until it reaches the end.                
                 helpBuilder.AppendLine($"{helpLine}");
+                helpLine = streamReader.ReadLine();
             }
+            while (helpLine != null);
 
             string helpScreen = helpBuilder.ToString();
             return helpScreen;

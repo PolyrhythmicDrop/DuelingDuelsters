@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -592,16 +593,17 @@ namespace DuelingDuelsters.Classes
 
         public string BuildHelpScreen()
         {
-            string helpPath = System.IO.Path.GetFullPath("README.md");
-            StreamReader streamReader = new StreamReader(helpPath);
-            int lineNumber = File.ReadLines(helpPath).Count();
+            Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("DuelingDuelsters.README.md");
+            StreamReader streamReader = new StreamReader(stream);
             System.Text.StringBuilder helpBuilder = new System.Text.StringBuilder();
-            for (int i = 0; i < lineNumber; i++)
+            string? helpLine = streamReader.ReadLine();
+            do
             {
-                // Read a line from the readme, then go to the next one until it reaches the end.
-                string? helpLine = streamReader.ReadLine();
+                // Read a line from the readme, then go to the next one until it reaches the end.                
                 helpBuilder.AppendLine($"{helpLine}");
+                helpLine = streamReader.ReadLine();
             }
+            while (helpLine != null);
 
             string helpScreen = helpBuilder.ToString();
             return helpScreen;
