@@ -8,21 +8,27 @@ using System.Threading.Tasks;
 
 namespace DuelingDuelsters.Classes
 {
-    // Class for player characters. Handles stats and actions for player characters.
+    /// <summary>
+    /// Class for player characters. Handles stats and actions for player characters.
+    /// </summary>
     public class Player
     {
-        // *** Properties ***
 
-        // Player's name
+        
         private string name;
+        /// <summary>
+        /// Player's name
+        /// </summary>
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
-
-        // Player's class
+        
         private string playerClass;
+        /// <summary>
+        /// Player's class.
+        /// </summary>
         public string PlayerClass
         {
             get { return playerClass; }
@@ -35,8 +41,11 @@ namespace DuelingDuelsters.Classes
                 }
             }
         }
-        // Player's current health
+        
         private int _health;
+        /// <summary>
+        /// Player's current health
+        /// </summary>
         public int Health
         {
             get { return _health; }
@@ -53,10 +62,14 @@ namespace DuelingDuelsters.Classes
                 else { _health = value; }
             }
         }
-        // Player's maximum health
+        /// <summary>
+        /// Player's maximum health
+        /// </summary>
         public int MaxHealth
         { get; set; }
-        // Player's health readout: Health / MaxHealth
+        /// <summary>
+        /// Player's health readout: Health / MaxHealth
+        /// </summary>
         private string _healthReadout;
         public string HealthReadout
         {
@@ -68,17 +81,26 @@ namespace DuelingDuelsters.Classes
                 return _healthReadout;
             }
         }
-        // Player's attack
+        /// <summary>
+        /// Player's attack
+        /// </summary>
         public int Attack
         { get; set; }
-        // Player's defense
+        /// <summary>
+        /// Player's defense
+        /// </summary>
         public int Defense
         { get; set; }
-        // Player's speed
+        /// <summary>
+        /// Player's speed
+        /// </summary>
         public int Speed
         { get; set; }
 
         private string charSheet;
+        /// <summary>
+        /// The character's character sheet. The sheet is build every time it's retrieved.
+        /// </summary>
         public string CharSheet
         {
             get
@@ -89,28 +111,61 @@ namespace DuelingDuelsters.Classes
         }
 
         // ** Action properties **
-        // Action taken flag: True if the player has taken an action, false if they have not
+        /// <summary>
+        /// Action taken flag: True if the player has taken an action, false if they have not
+        /// </summary>
         public bool ActionTaken
         { get; set; }
-        // Enums for possible player actions
+        /// <summary>
+        /// All possible player actions as enums.
+        /// </summary>
         public enum Action
         {
+            /// <summary>
+            /// No action has been taken.
+            /// </summary>
             none,
+            /// <summary>
+            /// The player swings right.
+            /// </summary>
             swingR,
+            /// <summary>
+            /// The player swings left.
+            /// </summary>
             swingL,
+            /// <summary>
+            /// The player blocks right.
+            /// </summary>
             blockR,
+            /// <summary>
+            /// The player blocks left.
+            /// </summary>
             blockL,
+            /// <summary>
+            /// The player dodges right.
+            /// </summary>
             dodgeR,
+            /// <summary>
+            /// The player dodges left.
+            /// </summary>
             dodgeL,
+            /// <summary>
+            /// The player heals.
+            /// </summary>
             heal
         }
 
-        // The action the player has chosen
+        /// <summary>
+        /// The action the player has chosen.
+        /// </summary>
         public Action ChosenAction
         { get; set; }
 
         // ** Damage Properties **
         private int _baseDamage;
+        /// <summary>
+        /// The base damage for this player.
+        /// </summary>
         public int BaseDamage
         {
             get { return _baseDamage; }
@@ -125,20 +180,31 @@ namespace DuelingDuelsters.Classes
 
         // ** Status Flags **
 
-        // Flag for whether or not the player is staggered. 
+        /// <summary>
+        /// Flag for whether or not the player is staggered. 
+        /// </summary>
         public bool IsStaggered
         { get; set; }
 
-        // Flag for whether or not the player is countering.
+        /// <summary>
+        /// Flag for whether or not the player is countering.
+        /// </summary>
         public bool IsCountering
         { get; set; }
 
-        // Flag for whether or not the player is healing.
+        /// <summary>
+        /// Flag for whether or not the player is healing.
+        /// </summary>
         public bool IsHealing
         { get; set; }
 
-        // Heal count. Medics can only heal 3 times per match.
+        /// <summary>
+        /// Heal count. Medics can only heal 3 times per match.
+        /// </summary>
         private int _healCount;
+        /// <summary>
+        /// Heal count. Medics can only heal 3 times per match.
+        /// </summary>
         public int HealCount
         {
             get { return _healCount; }
@@ -157,6 +223,9 @@ namespace DuelingDuelsters.Classes
 
         // *** Constructors ***
 
+        /// <summary>
+        /// Empty constructor class for each player.
+        /// </summary>
         public Player()
         {
             this.Name = name;
@@ -167,20 +236,34 @@ namespace DuelingDuelsters.Classes
 
         // *** Constants ***
 
-        // Description for Normie character class
+        /// <summary>
+        /// Description for Normie character class
+        /// </summary>
         private const string DescNormie = "Normie\n------\nAbsolutely average at absolutely everything.\nIf Mario were in this game, he would be a Normie.\n";
-        // Description for Fridge character class
+        /// <summary>
+        /// Description for Fridge character class
+        /// </summary>
         private const string DescFridge = "Fridge\n------\nHigh defense, low attack, average speed.\nCan take whatever you throw at them, but can have trouble dishing it out.\n";
-        // Description for Leeroy character class
+        /// <summary>
+        /// Description for Leeroy character class
+        /// </summary>
         private const string DescLeeroy = "Leeroy\n------\nHigh attack, low defense, average speed.\nExpert at bashin', smashin', and crashin', not so much at plannin'.\n";
-        // Description for Gymnast character class
+        /// <summary>
+        /// Description for Gymnast character class
+        /// </summary>
         private const string DescGymnast = "Gymnast\n-------\nHigh speed, low defense, average attack.\nNimble and acrobatic, the Gymnast can dance on the head of a pin, and also skewer their opponents with it.\n";
-        // Description for Medic character class
+        /// <summary>
+        /// Description for Medic character class
+        /// </summary>
         private const string DescMedic = "Medic\n-----\nHigh health, slightly lower attack, good speed, and average defense.\nThe only class that can heal, the Medic is durable and doesn't care one whit about the Hippocratic Oath.\n";
         
-        // Key info
+        /// <summary>
+        /// Key info
+        /// </summary>
         private ConsoleKeyInfo key;
-        // Random number generator
+        /// <summary>
+        /// Random number generator
+        /// </summary>
         private readonly Random rng = new Random();
 
         // *** Methods ***
@@ -591,6 +674,10 @@ namespace DuelingDuelsters.Classes
             while (this.ActionTaken == false);
         }
 
+        /// <summary>
+        /// Build the help screen for use from the round menu.
+        /// </summary>
+        /// <returns>Contents of README.md</returns>
         public string BuildHelpScreen()
         {
             Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("DuelingDuelsters.README.md");

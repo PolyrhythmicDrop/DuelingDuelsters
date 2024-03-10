@@ -10,32 +10,42 @@ namespace DuelingDuelsters.Classes
     
     public class GameContext
     {
-        // *** Properties ***
+        // *** Properties ***        
 
-        // Pass in players as PlayerOne and PlayerTwo so we can get their properties
-
-        private Player _playerOne;
-        public Player PlayerOne
+        private Player? _playerOne;
+        /// <summary>
+        /// Pass in players as PlayerOne and PlayerTwo so we can get their properties
+        /// </summary>
+        public Player? PlayerOne
         {
             get { return _playerOne; }
             set { _playerOne = value; }
         }
 
-        private Player _playerTwo;
-        public Player PlayerTwo
+        private Player? _playerTwo;
+        /// <summary>
+        /// Pass in players as PlayerOne and PlayerTwo so we can get their properties
+        /// </summary>
+        public Player? PlayerTwo
         {
             get { return _playerTwo; }
             set { _playerTwo = value; }
         }
 
-        // Round number
+        /// <summary>
+        /// Round number
+        /// </summary>
         public int RoundCounter
         { get; set;}
 
 
         // *** Constructors ***
-
-        public GameContext(Player playerOne, Player playerTwo)
+        /// <summary>
+        /// Handles round data and action data for each player as the round progresses.
+        /// </summary>
+        /// <param name="playerOne">Player One, the first player.</param>
+        /// <param name="playerTwo">Player Two, the second player.</param>
+        public GameContext(Player? playerOne, Player? playerTwo)
         {
             this.PlayerOne = playerOne;
             this.PlayerTwo = playerTwo;
