@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Platforms>AnyCPU;x64;x86</Platforms>
-    <StartupObject>DuelingDuelsters.GameLoop</StartupObject>
+    <StartupObject>DuelingDuelsters.Classes.GameLoop</StartupObject>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>

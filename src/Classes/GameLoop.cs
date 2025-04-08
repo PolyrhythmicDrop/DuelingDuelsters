@@ -1,7 +1,6 @@
-﻿using DuelingDuelsters.Classes;
-using System.Reflection;
+﻿using System.Reflection;
 
-namespace DuelingDuelsters
+namespace DuelingDuelsters.Classes
 {
     internal class GameLoop
     {
@@ -40,7 +39,7 @@ namespace DuelingDuelsters
                             }
                         case ConsoleKey.D2:
                             {
-                                System.Environment.Exit(0);
+                                Environment.Exit(0);
                                 break;
                             }
                         case ConsoleKey.D3:
@@ -191,7 +190,7 @@ namespace DuelingDuelsters
                     // 3. Exit the game.
                     else if (key.Key == ConsoleKey.D3)
                     {
-                        System.Environment.Exit(0);
+                        Environment.Exit(0);
                     }
                 }
                 while (key.Key != ConsoleKey.Escape);
@@ -254,8 +253,8 @@ namespace DuelingDuelsters
             string copyright = "\u00a9 2024 Hobby Horse Studios, absolutely no rights reserved.";
             int copyrightLength = copyright.Length;
             int copyrightSpaceLength = sideBorderWidth - copyrightLength - 2;
-            System.String copyrightSpaces = new string(' ', copyrightSpaceLength);
-            System.String centerSpaces = new string(' ', sideBorderWidth);
+            string copyrightSpaces = new string(' ', copyrightSpaceLength);
+            string centerSpaces = new string(' ', sideBorderWidth);
             // Get the full path for the banner file and assign it to a variable
             Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("DuelingDuelsters.banner.txt");
             // Read from banner.txt.
