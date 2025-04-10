@@ -37,7 +37,7 @@ namespace DuelingDuelsters.Classes
             {
                 if (value == "Normie" || value == "Fridge" || value == "Leeroy" || value == "Gymnast" || value == "Medic")
                 {
-                    this.playerClass = value;
+                    playerClass = value;
                 }
             }
         }
@@ -55,9 +55,9 @@ namespace DuelingDuelsters.Classes
             {
                 if (value <= 0)
                 { _health = 0; }
-                else if (value >= this.MaxHealth)
+                else if (value >= MaxHealth)
                 {
-                    _health = this.MaxHealth;
+                    _health = MaxHealth;
                 }
                 else { _health = value; }
             }
@@ -105,9 +105,9 @@ namespace DuelingDuelsters.Classes
         {
             get
             {
-                return this.BuildCharacterSheet();
+                return BuildCharacterSheet();
             }
-            set { this.charSheet = value; }
+            set { charSheet = value; }
         }
 
         // ** Action properties **
@@ -233,10 +233,10 @@ namespace DuelingDuelsters.Classes
         /// </summary>
         public Player()
         {
-            this.Name = name;
-            this.PlayerClass = playerClass;
-            this.ActionTaken = false;
-            this.HealCount = 0;
+            Name = name;
+            PlayerClass = playerClass;
+            ActionTaken = false;
+            HealCount = 0;
         }
 
         // *** Constants ***
@@ -303,50 +303,50 @@ namespace DuelingDuelsters.Classes
                     // Parse character class
                     if (charClass == "1" || charClass == "Normie" || charClass == "normie")
                     {
-                        this.Name = charName;
-                        this.PlayerClass = "Normie";
-                        this.MaxHealth = 15;
-                        this.Health = this.MaxHealth;
-                        this.Attack = 10;
-                        this.Defense = 10;
-                        this.Speed = 5;
+                        Name = charName;
+                        PlayerClass = "Normie";
+                        MaxHealth = 15;
+                        Health = MaxHealth;
+                        Attack = 10;
+                        Defense = 10;
+                        Speed = 5;
                     }
                     else if (charClass == "2" || charClass == "Fridge" || charClass == "fridge")
                     {
-                        this.Name = charName;
-                        this.PlayerClass = "Fridge";
-                        this.MaxHealth = 25;
-                        this.Health = this.MaxHealth;
-                        this.Attack = 7;
-                        this.Defense = 15;
-                        this.Speed = 5;
+                        Name = charName;
+                        PlayerClass = "Fridge";
+                        MaxHealth = 25;
+                        Health = MaxHealth;
+                        Attack = 7;
+                        Defense = 15;
+                        Speed = 5;
                     }
                     else if (charClass == "3" || charClass == "Leeroy" || charClass == "leeroy")
                     {
-                        this.Name = charName;
+                        Name = charName;
                         PlayerClass = "Leeroy";
-                        this.MaxHealth = 18;
-                        this.Health = this.MaxHealth;
+                        MaxHealth = 18;
+                        Health = MaxHealth;
                         Attack = 15;
                         Defense = 5;
                         Speed = 6;
                     }
                     else if (charClass == "4" || charClass == "Gymnast" || charClass == "gymnast")
                     {
-                        this.Name = charName;
+                        Name = charName;
                         PlayerClass = "Gymnast";
-                        this.MaxHealth = 15;
-                        this.Health = this.MaxHealth;
+                        MaxHealth = 15;
+                        Health = MaxHealth;
                         Attack = 8;
                         Defense = 6;
                         Speed = 10;
                     }
                     else if (charClass == "5" || charClass == "Medic" || charClass == "medic")
                     {
-                        this.Name = charName;
+                        Name = charName;
                         PlayerClass = "Medic";
-                        this.MaxHealth = 20;
-                        this.Health = this.MaxHealth;
+                        MaxHealth = 20;
+                        Health = MaxHealth;
                         Attack = 9;
                         Defense = 8;
                         Speed = 6;
@@ -363,8 +363,8 @@ namespace DuelingDuelsters.Classes
                 do
                 {
                     Console.Clear();
-                    Console.WriteLine("\nLet's make sure you got everything right. Here's your character:\n\n" + $"{this.CharSheet}\n");
-                    Console.WriteLine($"Are you satisfied with {this.Name}? Y/n");
+                    Console.WriteLine("\nLet's make sure you got everything right. Here's your character:\n\n" + $"{CharSheet}\n");
+                    Console.WriteLine($"Are you satisfied with {Name}? Y/n");
                     key = Console.ReadKey(true);
                     if (key.Key == ConsoleKey.Y)
                     {
@@ -392,16 +392,16 @@ namespace DuelingDuelsters.Classes
         public string BuildCharacterSheet()
         {
             // String stats and length of said strings
-            int charNameLength = this.Name.Length;
-            string charHealth = $"Health: {this.Health} / {this.MaxHealth}";
+            int charNameLength = Name.Length;
+            string charHealth = $"Health: {Health} / {MaxHealth}";
             int charHealthLength = charHealth.Length;
-            string charClass = $"Class: {this.PlayerClass}";
+            string charClass = $"Class: {PlayerClass}";
             int charClassLength = charClass.Length;
-            string charAttack = $"Attack: {this.Attack}";
+            string charAttack = $"Attack: {Attack}";
             int charAttackLength = charAttack.Length;
-            string charDefense = $"Defense: {this.Defense}";
+            string charDefense = $"Defense: {Defense}";
             int charDefenseLength = charDefense.Length;
-            string charSpeed = $"Speed: {this.Speed}";
+            string charSpeed = $"Speed: {Speed}";
             int charSpeedLength = charSpeed.Length;
 
             // array of all lengths
@@ -455,7 +455,7 @@ namespace DuelingDuelsters.Classes
             charSheetBuilder.Append('*', charSheetLength);
             charSheetBuilder.Append("\n");
             charSheetBuilder.AppendLine($"*{emptySpacer}*");
-            charSheetBuilder.AppendLine($"* {this.Name}{nameSpacer}*");
+            charSheetBuilder.AppendLine($"* {Name}{nameSpacer}*");
             charSheetBuilder.AppendLine($"* {charSheetDiv}{nameSpacer}*");
             charSheetBuilder.AppendLine($"* {charClass}{classSpacer}*");
             charSheetBuilder.AppendLine($"* {charHealth}{healthSpacer}*");
@@ -475,7 +475,7 @@ namespace DuelingDuelsters.Classes
         /// </summary>
         public void ResetCharacterHealth()
         {
-            this.Health = this.MaxHealth;
+            Health = MaxHealth;
         }
 
         // ** Action Methods **
@@ -493,9 +493,10 @@ namespace DuelingDuelsters.Classes
             string healOption = "4. Heal yourself.";
             string chooseDirection = "Which direction?\n1. Left\n2. Right\n";
             // Create a new instance of StringBuilder to build the action list.
-            System.Text.StringBuilder actionBuilder = new StringBuilder();
+            StringBuilder actionBuilder = new StringBuilder();
+
             // Create the initial action list for Medic and class that is not the medic.
-            if (this.PlayerClass != "Medic")
+            if (PlayerClass != "Medic")
             {
                 actionBuilder.AppendLine(swingOption);
                 actionBuilder.AppendLine(blockOption);
@@ -515,7 +516,7 @@ namespace DuelingDuelsters.Classes
             do
                 {
                 // Player is prompted to choose an action
-                Console.WriteLine($"{this.Name}, select an action:\n");
+                Console.WriteLine($"{Name}, select an action:\n");
                 Console.WriteLine(actionList);
                 key = Console.ReadKey(true);
                 // Player selects 1. Swing your sword
@@ -533,8 +534,8 @@ namespace DuelingDuelsters.Classes
                         // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingL
                         if (key.Key == ConsoleKey.Y)
                         {
-                            this.ActionTaken = true;
-                            this.ChosenAction = Action.swingL;
+                            ActionTaken = true;
+                            ChosenAction = Action.swingL;
                         }
                         // Player selects N to start over
                         else if (key.Key == ConsoleKey.N)
@@ -550,8 +551,8 @@ namespace DuelingDuelsters.Classes
                         // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingR
                         if (key.Key == ConsoleKey.Y)
                         {
-                            this.ActionTaken = true;
-                            this.ChosenAction = Action.swingR;
+                            ActionTaken = true;
+                            ChosenAction = Action.swingR;
                         }
                         // Player selects N to start over
                         else if (key.Key == ConsoleKey.N)
@@ -574,8 +575,8 @@ namespace DuelingDuelsters.Classes
                         // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingL
                         if (key.Key == ConsoleKey.Y)
                         {
-                            this.ActionTaken = true;
-                            this.ChosenAction = Action.blockL;
+                            ActionTaken = true;
+                            ChosenAction = Action.blockL;
                         }
                         // Player selects N to start over
                         else if (key.Key == ConsoleKey.N)
@@ -591,8 +592,8 @@ namespace DuelingDuelsters.Classes
                         // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingR
                         if (key.Key == ConsoleKey.Y)
                         {
-                            this.ActionTaken = true;
-                            this.ChosenAction = Action.blockR;
+                            ActionTaken = true;
+                            ChosenAction = Action.blockR;
                         }
                         // Player selects N to start over
                         else if (key.Key == ConsoleKey.N)
@@ -615,8 +616,8 @@ namespace DuelingDuelsters.Classes
                         // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingL
                         if (key.Key == ConsoleKey.Y)
                         {
-                            this.ActionTaken = true;
-                            this.ChosenAction = Action.dodgeL;
+                            ActionTaken = true;
+                            ChosenAction = Action.dodgeL;
                         }
                         // Player selects N to start over
                         else if (key.Key == ConsoleKey.N)
@@ -633,8 +634,8 @@ namespace DuelingDuelsters.Classes
                         // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingR
                         if (key.Key == ConsoleKey.Y)
                         {
-                            this.ActionTaken = true;
-                            this.ChosenAction = Action.dodgeR;
+                            ActionTaken = true;
+                            ChosenAction = Action.dodgeR;
                         }
                         // Player selects N to start over
                         else if (key.Key == ConsoleKey.N)
@@ -643,7 +644,7 @@ namespace DuelingDuelsters.Classes
                     }
                 }
                 // Player is not a medic and selects 4. Help or player is a medic and selects 5. Help
-                else if ((key.Key == ConsoleKey.D4 && this.PlayerClass != "Medic") || (key.Key == ConsoleKey.D5 && this.PlayerClass == "Medic"))
+                else if ((key.Key == ConsoleKey.D4 && PlayerClass != "Medic") || (key.Key == ConsoleKey.D5 && PlayerClass == "Medic"))
                 {
                     Console.Clear();
                     Console.WriteLine(GameLoop.DrawHelpScreen());
@@ -652,7 +653,7 @@ namespace DuelingDuelsters.Classes
                     break;
                 }
                 // Player is a medic and selects 4. Heal yourself.
-                else if (key.Key == ConsoleKey.D4 && this.PlayerClass == "Medic")
+                else if (key.Key == ConsoleKey.D4 && PlayerClass == "Medic")
                 {
                     // Player is prompted to choose their direction (it's not a real option because the direction of the healing doesn't matter, but it effectively hides their action from the other player.
                     Console.WriteLine(chooseDirection);
@@ -663,8 +664,8 @@ namespace DuelingDuelsters.Classes
                         // Player selects Y to confirm. The action taken flag is set to True and the player's action is set to swingL
                         if (key.Key == ConsoleKey.Y)
                         {
-                            this.ActionTaken = true;
-                            this.ChosenAction = Action.heal;
+                            ActionTaken = true;
+                            ChosenAction = Action.heal;
                         }
                         // Player selects N to start over
                         else if (key.Key == ConsoleKey.N)
@@ -676,7 +677,7 @@ namespace DuelingDuelsters.Classes
                     break;
                 }
             }
-            while (this.ActionTaken == false);
+            while (ActionTaken == false);
         }
 
         // ** Damage Methods **
@@ -688,9 +689,9 @@ namespace DuelingDuelsters.Classes
         /// <returns></returns>
         public int CalculateBaseDamage(Player defPlayer)
         {
-            int baseDamage = this.Attack - (defPlayer.Defense / 2);
-            this.BaseDamage = baseDamage;
-            return this.BaseDamage;
+            int baseDamage = Attack - (defPlayer.Defense / 2);
+            BaseDamage = baseDamage;
+            return BaseDamage;
         }
 
         /// <summary>
@@ -700,14 +701,14 @@ namespace DuelingDuelsters.Classes
         /// <returns>true = Critical hit.</returns>
         public bool IsCrit(Player defPlayer)
         {
-            int critRoll = rng.Next(0, 20) + (this.Speed / 2);
+            int critRoll = rng.Next(0, 20) + (Speed / 2);
             // increase chance to crit if attacking player is countering and the defending player is not blocking.
-            if (this.IsCountering == true && (defPlayer.ChosenAction != Action.blockL && defPlayer.ChosenAction != Action.blockR))
+            if (IsCountering == true && (defPlayer.ChosenAction != Action.blockL && defPlayer.ChosenAction != Action.blockR))
             { critRoll = critRoll + 5; }
             // Crit is successful if the crit roll is >= 12, if the defending player is staggered, or if the defending player is dodging.
             if (critRoll >= 12 || defPlayer.IsStaggered == true || (defPlayer.ChosenAction == Action.dodgeL || defPlayer.ChosenAction == Action.dodgeR))
             { return true; }
-            else if (this.IsCountering == true && (defPlayer.ChosenAction == Action.blockL || defPlayer.ChosenAction == Action.blockR))
+            else if (IsCountering == true && (defPlayer.ChosenAction == Action.blockL || defPlayer.ChosenAction == Action.blockR))
             { return false; }
             else { return false; }
         }
@@ -718,7 +719,7 @@ namespace DuelingDuelsters.Classes
         /// <returns></returns>
         public int CalculateCritDamage()
         {
-            int critDamage = rng.Next(1, 5) + (this.Attack / 2);
+            int critDamage = rng.Next(1, 5) + (Attack / 2);
             return critDamage;
         }
 
@@ -728,7 +729,7 @@ namespace DuelingDuelsters.Classes
         /// <returns>True = The player counters.</returns>
         public bool IsCounter()
         {
-            int counterRoll = rng.Next(0, 20) + this.Speed;
+            int counterRoll = rng.Next(0, 20) + Speed;
             IsCountering = counterRoll >= 15 ? true : false;
 
             return IsCountering;

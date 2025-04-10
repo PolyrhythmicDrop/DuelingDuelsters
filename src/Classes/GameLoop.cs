@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Text;
 
 namespace DuelingDuelsters.Classes
 {
@@ -7,7 +8,7 @@ namespace DuelingDuelsters.Classes
         static void Main(string[] args)
         {
             // ConsoleKey variable to manage input.
-            ConsoleKeyInfo key;
+            ConsoleKeyInfo key;         
 
             // Main game loop
             do
@@ -194,50 +195,59 @@ namespace DuelingDuelsters.Classes
         static void CharacterCreation(Player player1, Player player2)
         {
             // Player 1 character creation begins                    
-            Console.WriteLine("*** PLAYER 1, CREATE YOUR CHARACTER*** \n");
+            Console.WriteLine("*** PLAYER 1, CREATE YOUR CHARACTER *** \n");
             // Player 1 creates their character
             player1.CreateCharacter();
             Console.WriteLine($"Welcome our newest Duelster:\n\n~~ {player1.Name} the {player1.PlayerClass} ~~\n");
             Thread.Sleep(1000);
-            Console.WriteLine(player1.Name + " is entering the arena.");
-            Thread.Sleep(500);
-            DrawSword();
-            Thread.Sleep(1500);
+            Console.WriteLine(player1.Name + " is entering the arena...\n");
+            Console.WriteLine(DrawArena());
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey(true);
             Console.Clear();
 
             // Player 2 character creation begins                    
-            Console.WriteLine("***PLAYER 2, CREATE YOUR CHARACTER***\n");
+            Console.WriteLine("*** PLAYER 2, CREATE YOUR CHARACTER ***\n");
             player2.CreateCharacter();
             Console.WriteLine($"Welcome our newest Duelster:\n\n~~ {player2.Name} the {player2.PlayerClass} ~~\n");
             Thread.Sleep(1000);
-            Console.WriteLine(player2.Name + " is entering the arena.");
-            Thread.Sleep(500);
-            DrawSword();
-            Thread.Sleep(1500);
+            Console.WriteLine(player2.Name + " is entering the arena...\n");
+            Console.WriteLine(DrawArena());
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey(true);
             Console.Clear();
-
         }
 
-        /// <summary>
-        /// Draw a really cool sword to let the player know that some premium dueling action is about to happen.
-        /// </summary>
-        static void DrawSword()
+        static string DrawArena()
         {
-            Console.WriteLine("\n");
-            Console.WriteLine("   ^");
-            Console.WriteLine("  / \\");
-            for (int i = 0; i < 5; i++)
+            // Get the file path for the arena.
+            Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("DuelingDuelsters.res.arena-entrance.txt");
+            try
             {
-                Console.WriteLine("  | |");
-                Thread.Sleep(100);
+                if (stream == null)
+                {
+                    throw new ArgumentNullException("Could not load the arena ASCII!");
+                }
             }
-            Console.WriteLine("\\\\___//");
-            Thread.Sleep(100);
-            Console.WriteLine("  | |");
-            Thread.Sleep(100);
-            Console.WriteLine("  | |");
-            Thread.Sleep(100);
-            Console.WriteLine("  UUU");
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e.Message);
+                return ("There should be a picture of an arena here...");
+            }
+
+            StreamReader? streamReader = new StreamReader(stream);
+            StringBuilder arenaBuilder = new StringBuilder();
+            string? arena = streamReader.ReadLine();
+            do
+            {
+                arenaBuilder.AppendLine(arena);
+                arena = streamReader.ReadLine();
+            }
+            while (arena != null);
+
+            streamReader.Dispose();
+
+            return arenaBuilder.ToString();
         }
 
         /// <summary>

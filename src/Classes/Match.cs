@@ -449,13 +449,11 @@ namespace DuelingDuelsters.Classes
         /// <returns></returns>
         public string DrawRoundHeader()
         {
-            // Consider writing your own method using arrays to create the strings, the borders, and justification so that you don't "round" numbers in the wrong direction.
-
             // Get the length of the current player names, health, and classes
-            int p1CharNameLength = this.PlayerOne.Name.Length;
-            int p2CharNameLength = this.PlayerTwo.Name.Length;
-            int p1ClassNameLength = this.PlayerOne.PlayerClass.Length;
-            int p2ClassNameLength = this.PlayerTwo.PlayerClass.Length;
+            int p1CharNameLength = PlayerOne.Name.Length;
+            int p2CharNameLength = PlayerTwo.Name.Length;
+            int p1ClassNameLength = PlayerOne.PlayerClass.Length;
+            int p2ClassNameLength = PlayerTwo.PlayerClass.Length;
             // Get the length of both names + 40
             int headerLength = p1CharNameLength + p2CharNameLength + 40;
             // Create a string for the spaces between character names and left/right border
