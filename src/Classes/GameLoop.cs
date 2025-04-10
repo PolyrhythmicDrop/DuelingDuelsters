@@ -13,6 +13,7 @@ namespace DuelingDuelsters.Classes
             // Main game loop
             do
             {
+                Title: 
                 // Draw the title screen and create the initial menu.
                 do
                 {                    
@@ -21,7 +22,7 @@ namespace DuelingDuelsters.Classes
                     // Splash screen variables
                     string newGame = "1. New Game\n";
                     string exitGame = "2. Exit\n";
-                    string help = "3. Instructions\n";
+                    string help = "3. Help\n";
 
                     Console.WriteLine($"{newGame}\n{exitGame}\n{help}");
                     key = Console.ReadKey(true);
@@ -54,9 +55,44 @@ namespace DuelingDuelsters.Classes
                 }
                 while (key.Key != ConsoleKey.D1);
 
+                Player.PlayerBrain brain = Player.PlayerBrain.Human;
+                // Select single player or two player mode.
+                do
+                {
+                    Console.WriteLine(DrawTitleScreen());
+                    Console.WriteLine("1. One Player\n");
+                    Console.WriteLine("2. Two Players\n");
+                    Console.WriteLine("3. Back to Title\n");
+                    key = Console.ReadKey(true);
+                    switch (key.Key)
+                    {
+                        default:
+                            continue;
+                        case ConsoleKey.D1:
+                            {
+                                brain = Player.PlayerBrain.Computer;
+                                Console.Clear();
+                                break;
+                            }
+                        case ConsoleKey.D2:
+                            {
+                                brain = Player.PlayerBrain.Human;
+                                Console.Clear();
+                                break;
+                            }
+                        case ConsoleKey.D3:
+                            {
+                                Console.Clear();
+                                goto Title;
+                            }
+                    }
+                }
+                while (key.Key != ConsoleKey.D1);
+
                 // Ready the players
-                Player player1 = new Player();
-                Player player2 = new Player();
+                Player player1 = new Player(Player.PlayerBrain.Human);
+                Player player2 = new Player(brain);
+
                 do
                 {
                     CharacterCreation(player1, player2);
