@@ -12,12 +12,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="banner.txt" />
+    <None Remove="res/banner.txt" />
     <None Remove="README.md" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="banner.txt">
+    <EmbeddedResource Include="res/banner.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

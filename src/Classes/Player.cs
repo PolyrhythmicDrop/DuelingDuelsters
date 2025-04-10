@@ -99,7 +99,7 @@ namespace DuelingDuelsters.Classes
 
         private string charSheet;
         /// <summary>
-        /// The character's character sheet. The sheet is build every time it's retrieved.
+        /// The character's character sheet. The sheet is built every time it's retrieved.
         /// </summary>
         public string CharSheet
         {
@@ -210,7 +210,7 @@ namespace DuelingDuelsters.Classes
             get { return _healCount; }
             set
             {
-                if (_healCount < 3)
+                if (_healCount <= 3)
                 {
                     _healCount = value;
                 }
@@ -219,6 +219,11 @@ namespace DuelingDuelsters.Classes
                     _healCount = 3;
                 }
             }
+        }
+
+        public bool CanHeal
+        {
+            get { return HealCount < 3; }
         }
 
         // *** Constructors ***
@@ -641,7 +646,7 @@ namespace DuelingDuelsters.Classes
                 else if ((key.Key == ConsoleKey.D4 && this.PlayerClass != "Medic") || (key.Key == ConsoleKey.D5 && this.PlayerClass == "Medic"))
                 {
                     Console.Clear();
-                    Console.WriteLine(BuildHelpScreen());
+                    Console.WriteLine(GameLoop.DrawHelpScreen());
                     Console.WriteLine("Press any key to continue...");
                     Console.ReadKey(true);
                     break;
@@ -672,89 +677,6 @@ namespace DuelingDuelsters.Classes
                 }
             }
             while (this.ActionTaken == false);
-        }
-
-        /// <summary>
-        /// Build the help screen for use from the round menu.
-        /// </summary>
-        /// <returns>Contents of README.md</returns>
-        public string BuildHelpScreen()
-        {
-            Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("DuelingDuelsters.README.md");
-            StreamReader streamReader = new StreamReader(stream);
-            System.Text.StringBuilder helpBuilder = new System.Text.StringBuilder();
-            string? helpLine = streamReader.ReadLine();
-            do
-            {
-                // Read a line from the readme, then go to the next one until it reaches the end.                
-                helpBuilder.AppendLine($"{helpLine}");
-                helpLine = streamReader.ReadLine();
-            }
-            while (helpLine != null);
-
-            string helpScreen = helpBuilder.ToString();
-            return helpScreen;
-        }
-
-        /// <summary>
-        /// Build strings describing the player's action.
-        /// </summary>
-        /// <returns></returns>
-        public string? DescribePlayerAction()
-        {
-            string? playerActionDescription;
-            if (this.ChosenAction == Action.swingL)
-            {
-                playerActionDescription = $"{this.Name} swings their sword to their left!";
-                return playerActionDescription;
-            }
-            else if (this.ChosenAction == Action.swingR)
-            {
-                playerActionDescription = $"{this.Name} swings their sword to their right!";
-                return playerActionDescription;
-            }
-            else if (this.ChosenAction == Action.blockL)
-            {
-                playerActionDescription = $"{this.Name} raises their shield and guards their left side!";
-                return playerActionDescription;
-            }
-            else if (this.ChosenAction == Action.blockR)
-            {
-                playerActionDescription = $"{this.Name} raises their shield and guards their right side!";
-                return playerActionDescription;
-            }
-            else if (this.ChosenAction == Action.dodgeL)
-            {
-                playerActionDescription = $"{this.Name} quickly dodges to their left!";
-                return playerActionDescription;
-            }
-            else if (this.ChosenAction == Action.dodgeR)
-            {
-                playerActionDescription = $"{this.Name} quickly dodges to their right!";
-                return playerActionDescription;
-            }
-            // Healing action if player has healed less than 3 times.
-            else if (this.ChosenAction == Action.heal && this.HealCount < 3)
-            {
-                playerActionDescription = $"{this.Name} breaks out their emergency trauma kit!\nThey stich up their gaping wounds and pour isopropyl alcohol over their head!";
-                return playerActionDescription;
-            }
-            // Healing action description if player has healed 3 times and cannot heal any more
-            else if (this.ChosenAction == Action.heal && this.HealCount >= 3)
-            {
-                playerActionDescription = $"{this.Name} fumbles around in their medical bag for supplies, but they are fresh out!\n{this.Name} can't heal for the rest of the match!";
-                return playerActionDescription;
-            }
-            else if (this.ChosenAction == Action.none)
-            {
-                playerActionDescription = $"{this.Name} does nothing! How could they be so irresponsible?";
-                return playerActionDescription;
-            }
-            else
-            {
-                playerActionDescription = null;
-                return playerActionDescription;
-            }
         }
 
         // ** Damage Methods **
@@ -807,33 +729,41 @@ namespace DuelingDuelsters.Classes
         public bool IsCounter()
         {
             int counterRoll = rng.Next(0, 20) + this.Speed;
-            if (counterRoll >= 14)
-            { return this.IsCountering = true; }
-            else 
-            { return this.IsCountering = false; }
+            IsCountering = counterRoll >= 15 ? true : false;
+
+            return IsCountering;
         }
 
         /// <summary>
         /// Calculate heal amount, set heal flag for actions.
         /// </summary>
         /// <returns></returns>
-        public bool HealSelf()
+        public void HealSelf()
         {
-            int healAmount = rng.Next(1, 10);
-            string healAmountString;
-            if (healAmount + this.Health <= this.MaxHealth)
+            if (CanHeal)
             {
-                healAmountString = healAmount.ToString();
+                int healAmount = rng.Next(1, 10);
+                string healAmountString;
+                if (healAmount + Health <= MaxHealth)
+                {
+                    healAmountString = healAmount.ToString();
+                }
+                else
+                {
+                    healAmount = MaxHealth - Health;
+                    healAmountString = healAmount.ToString();
+                }
+                Health = Health + healAmount;
+                HealCount++;
+                Console.WriteLine($"{Name} heals for {healAmountString} health!");
+
+                IsHealing = true;
             }
             else
             {
-                 healAmount = this.MaxHealth - this.Health;
-                 healAmountString = healAmount.ToString();
+                IsHealing = false;
             }
-            this.Health = this.Health + healAmount;
-            HealCount++;
-            Console.WriteLine($"{this.Name} heals for {healAmountString} health!");
-            return this.IsHealing = true;
+            
         }
     }
 }

@@ -2,50 +2,47 @@
 
 namespace DuelingDuelsters.Classes
 {
-    internal class GameLoop
+    internal static class GameLoop
     {
         static void Main(string[] args)
         {
-            // variables
+            // ConsoleKey variable to manage input.
             ConsoleKeyInfo key;
 
-            // ** Game start **
-            // ** Title Screen Menu **
-
-            // Main game loop. Return here if the player selects "Return to title" at the end of a match."
+            // Main game loop
             do
             {
-                // Print the splash screen
+                // Draw the title screen and create the initial menu.
                 do
                 {                    
                     Console.WriteLine(DrawTitleScreen());
 
-                    // Ask whether the user wants to start a new game or exit
                     // Splash screen variables
                     string newGame = "1. New Game\n";
                     string exitGame = "2. Exit\n";
                     string help = "3. Instructions\n";
-                    // If the user chooses to exit, close the program
-                    // If the user starts a new game, begin character creation for Player 1
-                    // If the user chooses help, starts the help.
+
                     Console.WriteLine($"{newGame}\n{exitGame}\n{help}");
                     key = Console.ReadKey(true);
                     switch (key.Key)
                     {
+                        // If the user selects "New Game", begin character creation for Player 1.
                         case ConsoleKey.D1:
                             {
                                 Console.Clear();
                                 break;
                             }
+                        // If the user selects "Exit," close the program.
                         case ConsoleKey.D2:
                             {
                                 Environment.Exit(0);
                                 break;
                             }
+                        // If the user selects "Instructions", displays the help screen.
                         case ConsoleKey.D3:
                             {
                                 Console.Clear();
-                                Console.WriteLine(BuildHelpScreen());
+                                Console.WriteLine(DrawHelpScreen());
                                 Console.WriteLine("Press any key to continue...");
                                 Console.ReadKey();
                                 Console.Clear();
@@ -55,43 +52,28 @@ namespace DuelingDuelsters.Classes
                     Console.Clear();
                 }
                 while (key.Key != ConsoleKey.D1);
-                // ** End title screen menu **
 
-                // ** Character Creation **
-                // Player objects are instantiated
+                // Ready the players
                 Player player1 = new Player();
                 Player player2 = new Player();
                 do
                 {
-                    // Player 1 character creation begins                    
-                    Console.WriteLine("***PLAYER 1, CREATE YOUR CHARACTER***\n");
-                    // Player 1 creates their character
-                    player1.CreateCharacter();
-                    Console.WriteLine($"Welcome our newest Duelster, {player1.Name} the {player1.PlayerClass}!\n");
+                    CharacterCreation(player1, player2);
+                    DrawPreMatchSummary(player1, player2);
                     Thread.Sleep(1000);
-                    Console.Clear();
 
-                    // Player 2 character creation begins                    
-                    Console.WriteLine("***PLAYER 2, CREATE YOUR CHARACTER***\n");
-                    player2.CreateCharacter();
-                    Console.WriteLine($"Welcome our newest Duelster, {player2.Name} the {player2.PlayerClass}!\n");
-                    Thread.Sleep(1000);
-                    Console.Clear();
-
-
-                    // Pre-match summary and confirmation
-
-                    WritePreMatchSummary(player1, player2);
-                    Thread.Sleep(1000);
-                    Console.WriteLine("\nAre you ready to duel like you've never duelled before?\n1. Yes, let's do this!\n2. No, let's start over.");
+                    Console.WriteLine("\nAre you ready to duel like you've never duelled before?\n\n1. Yes, let's do this!\n2. No, let's start over.");
                     key = Console.ReadKey(true);
                     switch (key.Key)
                     {
+                        // If the player selects 1, continue with the duel.
                         case ConsoleKey.D1:
                             break;
+                        // If the player selects 2, clear the console and return to character creation.
                         case ConsoleKey.D2:
                             Console.Clear();
                             continue;
+                        // If the player pushes any other button, return to character creation.
                         default:
                             Console.WriteLine("Is that a whimper of defeat? Or a rousing call to battle? Let's start over to be sure...");
                             Thread.Sleep(500);
@@ -101,9 +83,7 @@ namespace DuelingDuelsters.Classes
                 }
                 while (key.Key != ConsoleKey.D1);
 
-                // Instantiate the game context with the two players.
-                GameContext gameRound = new GameContext(player1, player2);
-
+                Match gameRound = new Match(player1, player2);
                 Console.Clear();
 
                 // ** Start of round loop **
@@ -160,7 +140,7 @@ namespace DuelingDuelsters.Classes
                     }
                     else
                     {
-                        victor = "Nobody";
+                        victor = "nobody";
                     }
 
                     // Capitalize victor for maximum victoriousness
@@ -170,15 +150,19 @@ namespace DuelingDuelsters.Classes
                     Console.Clear();
                     Console.WriteLine($"*** {victor} is victorious! ***\n\nAll hail the most dueling duelster of them all:\n\n*** {upperVictor} ***");
                     Console.WriteLine("\n\n\n");
+
                     // Write out post-match options
-                    string postMatchOptions = "What do you want to do next?\n1. Return to title\n2. Rematch\n3. Exit the game\n";
+                    string postMatchOptions = "What do you want to do next?\n\n1. Return to title\n2. Rematch\n3. Exit the game\n";
                     Console.WriteLine(postMatchOptions);
+
                     key = Console.ReadKey(true);
-                    // 2. Rematch. Reset characters' health and reset the round counter.
+                    
+                    // 1. Break out of the gameplay loop and return to the title screen.
                     if (key.Key == ConsoleKey.D1)
                     {
                         break;
                     }
+                    // 2. Rematch. Reset characters' health and reset the round counter.
                     else if (key.Key == ConsoleKey.D2)
                     {
                         Console.Clear();
@@ -200,54 +184,69 @@ namespace DuelingDuelsters.Classes
             }
             while (key.Key != ConsoleKey.Escape);
 
+        }
 
+        /// <summary>
+        /// Create both characters and get them ready to duel.
+        /// </summary>
+        /// <param name="player1">The first player.</param>
+        /// <param name="player2">The second player.</param>
+        static void CharacterCreation(Player player1, Player player2)
+        {
+            // Player 1 character creation begins                    
+            Console.WriteLine("*** PLAYER 1, CREATE YOUR CHARACTER*** \n");
+            // Player 1 creates their character
+            player1.CreateCharacter();
+            Console.WriteLine($"Welcome our newest Duelster:\n\n~~ {player1.Name} the {player1.PlayerClass} ~~\n");
+            Thread.Sleep(1000);
+            Console.WriteLine(player1.Name + " is entering the arena.");
+            Thread.Sleep(500);
+            DrawSword();
+            Thread.Sleep(1500);
+            Console.Clear();
 
-
-
-            /*
-            Test player 1 action selection output
-            string p1Action = player1.ChosenAction.ToString();
-            Console.WriteLine(p1Action);
-            */
-
-
-
-
-            // ** Match **
-            // First round begins
-            // Player 1 is prompted to choose an action
-            // Print a list of Player 1's possible actions, plus their current stats
-            // Player 1 enters an action, which is hidden from the console so Player 2 cannot see it
-            // Player 2 is prompted to choose an action
-            // Print a list of Player 2's possible actions, plus their current stats
-            // Player 2 enters an action, which is hidden from the console so Player 2 cannot see it
-            // Action plays out
-            // Status for Player 1 and Player 2 are updated.
-            // Second round begins.
-            // Repeat until one player is out of health.
-
-            // ** Post-Match **
-            // Display the winner's name and a victory message.
-            // Ask if the players want a rematch, to start a new game, or to exit.
-            // Rematch pits the same characters against each other, starting with Round 1
-            // New game returns to character creation
-            // Exit game exits the program
-
-
-
-
-            /* CharacterCreation player1 = new CharacterCreation();
-            player1.CreateCharacter(); */
+            // Player 2 character creation begins                    
+            Console.WriteLine("***PLAYER 2, CREATE YOUR CHARACTER***\n");
+            player2.CreateCharacter();
+            Console.WriteLine($"Welcome our newest Duelster:\n\n~~ {player2.Name} the {player2.PlayerClass} ~~\n");
+            Thread.Sleep(1000);
+            Console.WriteLine(player2.Name + " is entering the arena.");
+            Thread.Sleep(500);
+            DrawSword();
+            Thread.Sleep(1500);
+            Console.Clear();
 
         }
 
         /// <summary>
-        /// Draws the title screen at the start of the game.
+        /// Draw a really cool sword to let the player know that some premium dueling action is about to happen.
+        /// </summary>
+        static void DrawSword()
+        {
+            Console.WriteLine("\n");
+            Console.WriteLine("   ^");
+            Console.WriteLine("  / \\");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine("  | |");
+                Thread.Sleep(100);
+            }
+            Console.WriteLine("\\\\___//");
+            Thread.Sleep(100);
+            Console.WriteLine("  | |");
+            Thread.Sleep(100);
+            Console.WriteLine("  | |");
+            Thread.Sleep(100);
+            Console.WriteLine("  UUU");
+        }
+
+        /// <summary>
+        /// Draws the title screen at the start of the game using a StringBuilder object.
         /// </summary>
         static string DrawTitleScreen()
         {
-            System.Text.StringBuilder titleBuilder = new System.Text.StringBuilder();
-            // set variables for the width of the box and empty spaces
+            
+            // Initial variables, including border, ASCII art, and spacing
             int width = 82;
             int sideBorderWidth = width - 2;
             string copyright = "\u00a9 2024 Hobby Horse Studios, absolutely no rights reserved.";
@@ -255,27 +254,45 @@ namespace DuelingDuelsters.Classes
             int copyrightSpaceLength = sideBorderWidth - copyrightLength - 2;
             string copyrightSpaces = new string(' ', copyrightSpaceLength);
             string centerSpaces = new string(' ', sideBorderWidth);
-            // Get the full path for the banner file and assign it to a variable
-            Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("DuelingDuelsters.banner.txt");
-            // Read from banner.txt.
+
+            // Get the full path for the banner ASCII art file, throw an exception if null.
+            Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("DuelingDuelsters.res.banner.txt");
+            try 
+            { 
+                if (stream == null)
+                {
+                    throw new ArgumentNullException("Could not load the title screen banner!");
+                }
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e.Message);
+                // If, for some reason, we couldn't load the banner, simply display the title of the game.
+                return ("Dueling Duelsters");
+            }
+
             StreamReader? streamReader = new StreamReader(stream);
 
-            // Build the string itself
+            // Build the complete title screen string.
+            System.Text.StringBuilder titleBuilder = new System.Text.StringBuilder();
+            // Top border
             titleBuilder.Append('*', width);
             titleBuilder.Append("\n");
             titleBuilder.AppendLine($"*{centerSpaces}*");
             titleBuilder.AppendLine($"*{centerSpaces}*");
-            // Loop to read banner.txt and add it to the string between asterisks.
+
+            // Apply asterisks around the ASCII art banner.
             string? splashLine = streamReader.ReadLine();
             do
             {
                 titleBuilder.AppendLine($"* {splashLine} *");
-                // Read a line from banner.txt and assign it to a variable.
                 splashLine = streamReader.ReadLine();
             }
             while (splashLine != null);
+
             titleBuilder.AppendLine($"*{centerSpaces}*");
             titleBuilder.AppendLine($"*{centerSpaces}*");
+
             // Copyright section
             titleBuilder.AppendLine($"* {copyright}{copyrightSpaces} *");
             titleBuilder.AppendLine($"*{centerSpaces}*");
@@ -283,21 +300,20 @@ namespace DuelingDuelsters.Classes
             titleBuilder.Append('*', width);
             titleBuilder.Append("\n");
             titleBuilder.Append("\n");
-            // Dispose the streamReader memory
-            streamReader.Dispose();
-            // Convert titleBuilder to a string
-            string splashScreen = titleBuilder.ToString();
-            // return the string
-            return splashScreen;
 
+            streamReader.Dispose();
+
+            string splashScreen = titleBuilder.ToString();
+            return splashScreen;
         }
 
         /// <summary>
-        /// Creates the pre-match summary and asks players to continue.
+        /// Draws the pre-match summary, including each player's name and character sheet.
         /// </summary>
-        static void WritePreMatchSummary(Player playerOne, Player playerTwo)
+        /// <param name="playerOne">Player one.</param>
+        /// <param name="playerTwo">Player two.</param>
+        public static void DrawPreMatchSummary(Player playerOne, Player playerTwo)
         {
-            // Pre-match character summary
             Console.Clear();
             Console.WriteLine("\nLet's get ready to D U E L!!!\n");
             Console.WriteLine(playerOne.CharSheet);
@@ -306,18 +322,31 @@ namespace DuelingDuelsters.Classes
         }
 
         /// <summary>
-        /// Builds the help screen.
+        /// Builds and draws the help screen. Called if the player asks for help at any time.
         /// </summary>
         /// <returns>Returns the help screen as a string.</returns>
-        static string BuildHelpScreen()
+        public static string DrawHelpScreen()
         {
             Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("DuelingDuelsters.README.md");
-            StreamReader streamReader = new StreamReader(stream);            
+            try
+            {
+                if (stream == null)
+                {
+                    throw new ArgumentNullException("Help Screen", "Could not load the help screen!");
+                }
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e.Message);
+                return ("Real duelsters require no assistance in the art of the duel.\nPress some buttons, execute some martial pirouettes, see what happens!");
+            }
+            StreamReader streamReader = new StreamReader(stream);
+
             System.Text.StringBuilder helpBuilder = new System.Text.StringBuilder();
+
             string? helpLine = streamReader.ReadLine();
             do
             {
-                // Read a line from the readme, then go to the next one until it reaches the end.                
                 helpBuilder.AppendLine($"{helpLine}");
                 helpLine = streamReader.ReadLine();
             }
