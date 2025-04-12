@@ -8,7 +8,9 @@ namespace DuelingDuelsters.Classes
         static void Main(string[] args)
         {
             // ConsoleKey variable to manage input.
-            ConsoleKeyInfo key;         
+            ConsoleKeyInfo key;  
+            // MenuManager to handle the menus and input.
+
 
             // Main game loop
             do
