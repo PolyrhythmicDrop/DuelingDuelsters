@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using static DuelingDuelsters.Classes.Narrator;
 
 namespace DuelingDuelsters.Classes
@@ -19,10 +20,12 @@ namespace DuelingDuelsters.Classes
         /// </summary>
         /// <param name="playerOne">Player One, the first player.</param>
         /// <param name="playerTwo">Player Two, the second player.</param>
-        public Match(Player playerOne, Player playerTwo)
+        /// <param name="narrator">Narrator, containing all the string constants and menus.</param>
+        public Match(Player playerOne, Player playerTwo, Narrator narrator)
         {
             _playerOne = playerOne;
             _playerTwo = playerTwo;
+            _narrator = narrator;
             RoundCounter = 1;
             rng = new Random();
         }
@@ -58,7 +61,7 @@ namespace DuelingDuelsters.Classes
         /// </summary>
         private readonly Random rng;
 
-        private Narrator _narrator = new Narrator();
+        private Narrator _narrator;
 
         public enum Outcome
         {
@@ -92,14 +95,29 @@ namespace DuelingDuelsters.Classes
             HealDodge
         }
 
-
         /// <summary>
         /// Plays out the round based on each player's actions.
         /// </summary>
-        /// <param name="playerOne">Player one.</param>
-        /// <param name="playerTwo">Player two.</param>
-        public void PlayRound(Player playerOne, Player playerTwo)
+        public void PlayRound()
         {
+            do
+            {
+                Console.WriteLine(DrawRoundHeader());
+            }
+            while (!_narrator.RunPlayerActionSelect(_playerOne));
+
+            Console.Clear();
+
+            do
+            {
+                Console.WriteLine(DrawRoundHeader());
+            }
+            while (!_narrator.RunPlayerActionSelect(_playerTwo));
+
+            _narrator.PressAnyKey();
+
+            GameLoop.GameState = State.OutcomeDisplay;
+
             do
             {
                 // Describe player individual actions
@@ -118,10 +136,10 @@ namespace DuelingDuelsters.Classes
                 RoundCounter++;
 
                 // Reset player actions for the next round.
-                playerOne.ActionTaken = false;
-                playerTwo.ActionTaken = false;
+                _playerOne.ActionTaken = false;
+                _playerTwo.ActionTaken = false;
             }
-            while (playerOne.ActionTaken == true && playerTwo.ActionTaken == true);
+            while (_playerOne.ActionTaken == true && _playerTwo.ActionTaken == true);
         }
 
         private Outcome GetOutcome(Player.Action actionOne, Player.Action actionTwo)

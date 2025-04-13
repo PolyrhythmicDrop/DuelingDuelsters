@@ -1,15 +1,107 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace DuelingDuelsters.Classes
 {
-    internal class Narrator
+    public class Narrator
     {
 
-        // ** Outcome Strings **
+        ConsoleKeyInfo _keyInfo = new ConsoleKeyInfo();
+        public ConsoleKeyInfo KeyInfo
+        {
+            get => _keyInfo;
+            set => _keyInfo = value;
+        }
+
+        public ConsoleKey Key
+        {
+            get => _keyInfo.Key;
+        }
+
+        public enum Choices
+        {
+            Reset,
+            NewGame,
+            Help,
+            Exit,
+            ReturnToTitle,
+            Back,
+            Yes = 6,
+            Left = 6,
+            No = 7,
+            Right = 7
+        }
+
+        public Choices Choice;
+
+        // ** String Constants ** //
+
+        // ~File Paths~ //
+        private const string readme = "DuelingDuelsters.README.md";
+        private const string arenaPic = "DuelingDuelsters.res.arena-entrance.txt";
+        private const string actionHelp = "DuelingDuelsters.res.action-help.txt";
+
+        // ~Title Screen~ //
+
+        private const string newGame = "1. New Game\n";
+        private const string exitGame = "2. Exit\n";
+        private const string help = "3. Help\n";
+
+        // Press any key to continue
+        private const string pressAnyKey = "Press any key to continue...";
+
+        // ~Player Count Select Screen~ //
+
+        private const string singlePlayer = "1. One Player\n";
+        private const string twoPlayer = "2. Two Players\n";
+        private const string returnTitle = "3. Back to Title\n";
+
+        // ** Character Creation Screen ** //
+
+        private const string createCharacter = "*** PLAYER {0}, CREATE YOUR CHARACTER *** \n";
+        private const string selectName = "\nEnter your character's name:\n";
+        private const string selectClass = "Welcome, {0}.\n\nPlease enter your character's class:\n\n1. {1}\n2. {2}\n3. {3}\n4. {4}\n5. {5}";
+        private const string confirmCharacter = "\nLet's make sure you got everything right. Here's your character:\n\n{0}\n";
+        private const string satisfied = "\nAre you satisfied with {0}? Y/n";
+        private const string welcomePlayer = "Welcome our newest Duelster:\n\n~~ {0} the {1} ~~\n";
+        private const string enterArena = "{0} is entering the arena...\n";
+
+        // ~ Class Summaries ~ //
+
+        /// <summary>
+        /// Description for Normie character class
+        /// </summary>
+        private const string normieDescription = "Normie\n------\nAbsolutely average at absolutely everything.\nIf Mario were in this game, he would be a Normie.\n";
+        /// <summary>
+        /// Description for Fridge character class
+        /// </summary>
+        private const string fridgeDescription = "Fridge\n------\nHigh defense, low attack, average speed.\nCan take whatever you throw at them, but can have trouble dishing it out.\n";
+        /// <summary>
+        /// Description for Leeroy character class
+        /// </summary>
+        private const string leeroyDescription = "Leeroy\n------\nHigh attack, low defense, average speed.\nExpert at bashin', smashin', and crashin', not so much at plannin'.\n";
+        /// <summary>
+        /// Description for Gymnast character class
+        /// </summary>
+        private const string gymnastDescription = "Gymnast\n-------\nHigh speed, low defense, average attack.\nNimble and acrobatic, the Gymnast can dance on the head of a pin, and also skewer their opponents with it.\n";
+        /// <summary>
+        /// Description for Medic character class
+        /// </summary>
+        private const string medicDescription = "Medic\n-----\nHigh health, slightly lower attack, good speed, and average defense.\nThe only class that can heal, the Medic is durable and doesn't care one whit about the Hippocratic Oath.\n";
+
+        // ** In-Round Menu Strings ** //
+
+        private const string selectDirection = "Which direction?\n1. Left\n2. Right\n";
+        private const string selectAction = "\n{0}, select an action:\n";
+        private const string confirmAction = "Is this what you want to do? Y/n\n";
+
+        // ** Outcome Strings ** //
 
         private const string swordClash = "The swords of {0} and {1} clash, the sound of ringing steel echoing throughout the arena!\nThe two combatants eye each other over their crossed blades.\nIs this the start of an enemies-to-lovers romance? Or another chapter in a long tale of bitter rivalry?\n{0} and {1} part with a puff of dust and return to their ready stances.\n";
 
@@ -30,7 +122,7 @@ namespace DuelingDuelsters.Classes
         private const string failedHealAndSwing = "{0} wastes a turn swatting the flies away from their empty medicine bag!\n{1} takes advantage of {0}'s lack of counting ability!\n";
         private const string healDodge = "{0} uses advanced diagnostic technology to anticipate and dodge {1}'s attack at the last moment!\n{0} is as agile as a CAT scan!\n\n";
 
-        // ** Player Action Strings **
+        // ** Player Action Description Strings **
 
         private const string swingLeft = "{0} swings their sword to their left!\n";
         private const string swingRight = "{0} swings their sword to their right!\n";
@@ -201,6 +293,646 @@ namespace DuelingDuelsters.Classes
             }
 
             return narration;
+        }
+
+        public bool RunTitleMenu()
+        {
+            bool success = false;
+
+            Console.WriteLine($"{newGame}\n{exitGame}\n{help}");
+            _keyInfo = Console.ReadKey(true);
+            switch (Key)
+            {
+                default:
+                    {
+                        success = false;
+                        break;
+                    }
+                // If the user selects "New Game", begin character creation for Player 1.
+                case ConsoleKey.D1:
+                    {
+                        Choice = Choices.NewGame;
+                        Console.Clear();
+                        success = true;
+                        break;
+                    }
+                // If the user selects "Exit," close the program.
+                case ConsoleKey.D2:
+                    {
+                        Choice = Choices.Exit;
+                        success = true;
+                        break;
+                    }
+                // If the user selects "Instructions", displays the help screen.
+                case ConsoleKey.D3:
+                    {
+                        Choice = Choices.Help;
+                        success = true;
+                        break;
+                    }
+                case ConsoleKey.None:
+                    {
+                        success = false;
+                        break;
+                    }
+            }
+            Console.Clear();
+            return success;
+        }
+
+        public bool RunCharacterCreation(Player player, int playerNumber)
+        {
+            bool success = false;
+
+            Console.WriteLine(string.Format(createCharacter, playerNumber));
+
+            while (!CreateCharacter(player)) ;
+
+            // Exit character creation and back out if we hit Esc or selected Back.
+            if (Choice == Choices.Back)
+            {
+                success = true;
+                return success;
+            }
+
+            try
+            {
+                if (player.PlayerClass == null)
+                {
+                    success = false;
+                    throw new ArgumentNullException("PlayerClass", "Character creation failed!");
+                }
+                else
+                {
+                    player.BuildActionList();
+                    success = true;
+                }
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e.Message);
+                return success;
+            }
+
+            Console.Clear();
+
+            Console.WriteLine(string.Format(welcomePlayer, player.Name, player.PlayerClass));
+            Thread.Sleep(2000);
+
+            Console.WriteLine(string.Format(enterArena, player.Name));
+            Console.WriteLine(DrawArena());
+
+            while (!PressAnyKey()) ;
+
+            return success;
+
+        }
+
+        /// <summary>
+        /// Creates a character with a name, class, and stats.
+        /// </summary>
+        public bool CreateCharacter(Player player)
+        {
+            bool success = false;
+
+            // set nullify charName and charClass to start while loop
+            string? charName = null;
+            string? charClass = null;
+            // while loop for character creation
+            while (string.IsNullOrEmpty(charName) || string.IsNullOrEmpty(charClass))
+            {
+                do
+                {
+                    // User is prompted to enter their character's name:
+                    Console.WriteLine(selectName);
+                    charName = Console.ReadLine();
+                }
+                while (string.IsNullOrEmpty(charName) == true);
+
+                // User is prompted to enter their character's class:
+                while (string.IsNullOrEmpty(charClass) == true)
+                {
+                    Console.Clear();
+                    Console.WriteLine(string.Format(selectClass, charName, normieDescription, fridgeDescription, leeroyDescription, gymnastDescription, medicDescription));
+
+                    charClass = Console.ReadLine();
+                    // Parse character class
+                    if (charClass == "1" || charClass == "Normie" || charClass == "normie")
+                    {
+                        player.Name = charName;
+                        player.PlayerClass = "Normie";
+                        player.MaxHealth = 20;
+                        player.Health = player.MaxHealth;
+                        player.Attack = 10;
+                        player.Defense = 10;
+                        player.Speed = 5;
+                    }
+                    else if (charClass == "2" || charClass == "Fridge" || charClass == "fridge")
+                    {
+                        player.Name = charName;
+                        player.PlayerClass = "Fridge";
+                        player.MaxHealth = 30;
+                        player.Health = player.MaxHealth;
+                        player.Attack = 7;
+                        player.Defense = 15;
+                        player.Speed = 5;
+                    }
+                    else if (charClass == "3" || charClass == "Leeroy" || charClass == "leeroy")
+                    {
+                        player.Name = charName;
+                        player.PlayerClass = "Leeroy";
+                        player.MaxHealth = 23;
+                        player.Health = player.MaxHealth;
+                        player.Attack = 15;
+                        player.Defense = 5;
+                        player.Speed = 6;
+                    }
+                    else if (charClass == "4" || charClass == "Gymnast" || charClass == "gymnast")
+                    {
+                        player.Name = charName;
+                        player.PlayerClass = "Gymnast";
+                        player.MaxHealth = 20;
+                        player.Health = player.MaxHealth;
+                        player.Attack = 8;
+                        player.Defense = 6;
+                        player.Speed = 10;
+                    }
+                    else if (charClass == "5" || charClass == "Medic" || charClass == "medic")
+                    {
+                        player.Name = charName;
+                        player.PlayerClass = "Medic";
+                        player.MaxHealth = 25;
+                        player.Health = player.MaxHealth;
+                        player.Attack = 9;
+                        player.Defense = 8;
+                        player.Speed = 6;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine($"{charClass} is not a valid class. Please try again.");
+                        charClass = null;
+                        continue;
+                    }
+                }
+
+                Console.Clear();
+                string confirmDialog = string.Format(confirmCharacter, player.CharSheet) + string.Format(satisfied, player.Name);
+
+                while (!SelectBinary(confirmDialog)) ;
+
+                switch (Choice)
+                {
+                    default:
+                        success = false;
+                        break;
+                    case Choices.Yes:
+                        success = true;
+                        break;
+                    // If no, return to the start of the method.
+                    case Choices.No:
+                        Console.Clear();
+                        charName = null;
+                        charClass = null;
+                        success = false;
+                        continue;
+                    case Choices.Back:
+                        Console.Clear();
+                        charName = null;
+                        charClass = null;
+                        success = true;
+                        return success;
+                }
+            }
+
+            return success;
+        }
+
+        public bool RunPlayerCountMenu(out Player.PlayerBrain? brain)
+        {
+            bool success = false;
+
+            Console.WriteLine(singlePlayer);
+            Console.WriteLine(twoPlayer);
+            Console.WriteLine(returnTitle);
+
+            _keyInfo = Console.ReadKey(true);
+            switch (Key)
+            {
+                default:
+                    {
+                        brain = null;
+                        success = false;
+                        break;
+                    }
+                case ConsoleKey.D1:
+                    {
+                        brain = Player.PlayerBrain.Computer;
+                        success = true;
+                        break;
+                    }
+                case ConsoleKey.D2:
+                    {
+                        brain = Player.PlayerBrain.Human;
+                        success = true;
+                        break;
+                    }
+                case ConsoleKey.D3:
+                case ConsoleKey.Escape:
+                    {
+                        brain = null;
+                        Choice = Choices.ReturnToTitle;
+                        success = true;
+                        break;
+                    }
+            }
+
+            return success;
+        }
+
+        public bool RunHelpScreen(State state)
+        {
+            bool success = false;
+            string? filePath = null;
+
+            GameLoop.GameState = State.HelpDisplay;
+
+            // Set the file path to use from the game's state.
+            try
+            {
+                switch (state)
+                {
+                    default:
+                        throw new ArgumentNullException("state", "State cannot be null!");
+                    case State.TitleScreen:
+                        filePath = readme;
+                        break;
+                    case State.ActionSelect:
+                        filePath = actionHelp;
+                        break;
+                }
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e.Message);
+                return success;
+            }
+
+            Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(filePath);
+
+            try
+            {
+                if (stream == null)
+                {
+                    throw new ArgumentNullException("Help Screen", "Could not load the help screen!");
+                }
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("Real duelsters require no assistance in the art of the duel.\nPress some buttons, execute some martial pirouettes, see what happens!");
+                return false;
+            }
+
+            StreamReader streamReader = new StreamReader(stream);
+            StringBuilder helpBuilder = new StringBuilder();
+
+            string? helpLine = streamReader.ReadLine();
+            do
+            {
+                helpBuilder.AppendLine($"{helpLine}");
+                helpLine = streamReader.ReadLine();
+            }
+            while (helpLine != null);
+
+            string helpScreen = helpBuilder.ToString();
+            if (helpScreen != null)
+            {
+                Console.WriteLine(helpScreen);
+                success = true;
+            }
+
+            while (!PressAnyKey())
+            { }
+
+            streamReader.Dispose();
+
+            return success;
+        }
+
+        /// <summary>
+        /// Prompts the player to choose an action to take.
+        /// </summary>
+        public bool RunPlayerActionSelect(Player player)
+        {
+            bool success = false;
+            GameLoop.GameState = State.ActionSelect;
+
+            if (player.Brain == Player.PlayerBrain.Human)
+            {
+                while (!HumanActionSelect(player));
+                if (Choice == Choices.Back)
+                {
+                    success = true;
+                    return success;
+                }
+            }
+            // AI action choice
+            else if (player.Brain == Player.PlayerBrain.Computer)
+            {
+                while (!ComputerActionSelect(player) && player.ActionTaken == false);
+            }
+
+            return success;
+        }
+
+        public bool HumanActionSelect(Player player)
+        {
+            bool success = false;
+
+        ChooseAction:
+            // Player is prompted to choose an action
+            Console.WriteLine(string.Format(selectAction, player.Name));
+            Console.WriteLine(player.ActionList);
+            _keyInfo = Console.ReadKey(true);
+
+            switch (Key)
+            {
+                default:
+                    success = false;
+                    break;
+                // Swing sword.
+                case ConsoleKey.D1:
+                    // Choose direction.
+                    while (!SelectBinary(selectDirection));
+                    switch (Choice)
+                    {
+                        default:
+                            break;
+                        case Choices.Back:
+                            goto ChooseAction;
+                        case Choices.Left:
+                            player.ChosenAction = Player.Action.swingL;
+                            break;
+                        case Choices.Right:
+                            player.ChosenAction = Player.Action.swingR;
+                            break;
+                    }
+                    break;
+                // Block with shield.
+                case ConsoleKey.D2:
+                    // Choose direction.
+                    while (!SelectBinary(selectDirection)) ;
+                    switch (Choice)
+                    {
+                        default:
+                            break;
+                        case Choices.Back:
+                            // TODO: Reword these to return to the PlayRound() do loop so we can see the round header.
+                            goto ChooseAction;
+                        case Choices.Left:
+                            player.ChosenAction = Player.Action.blockL;
+                            break;
+                        case Choices.Right:
+                            player.ChosenAction = Player.Action.blockR;
+                            break;
+                    }
+                    break;
+                // Dodge
+                case ConsoleKey.D3:
+                    // Choose direction.
+                    while (!SelectBinary(selectDirection)) ;
+                    switch (Choice)
+                    {
+                        default:
+                            break;
+                        case Choices.Back:
+                            goto ChooseAction;
+                        case Choices.Left:
+                            player.ChosenAction = Player.Action.dodgeL;
+                            break;
+                        case Choices.Right:
+                            player.ChosenAction = Player.Action.dodgeR;
+                            break;
+                    }
+                    break;
+                // Help (if not medic) or Heal (if medic)
+                case ConsoleKey.D4:
+                    // Open the help screen if not a medic.
+                    if (player.PlayerClass != "Medic")
+                    {
+                        Console.Clear();
+                        RunHelpScreen(GameLoop.GameState);
+                        goto ChooseAction;
+                    }
+                    else
+                    {
+                    // Choose heal "direction". This doesn't actually matter, it's just to disguise the healer's action from the other player.
+                        switch (Choice)
+                        {
+                            default:
+                                break;
+                            case Choices.Back:
+                                goto ChooseAction;
+                            case Choices.Left:
+                            case Choices.Right:
+                                player.ChosenAction = Player.Action.heal;
+                                break;
+                        }
+                        break;
+                    }
+                case ConsoleKey.D5:
+                    // Open the help screen if a Medic.
+                    if (player.PlayerClass == "Medic")
+                    {
+                        Console.Clear();
+                        RunHelpScreen(GameLoop.GameState);
+                        goto ChooseAction;
+                    }
+                    else
+                    {
+                        break;
+                    }
+            }
+
+            // Confirm action.
+            if (player.ChosenAction != Player.Action.none)
+            {
+                while (!SelectBinary(confirmAction));
+                switch (Choice)
+                {
+                    default:
+                        break;
+                    case Choices.Back:
+                    case Choices.No:
+                        player.ChosenAction = Player.Action.none;
+                        goto ChooseAction;
+                    case Choices.Yes:
+                        player.ActionTaken = true;
+                        success = true;
+                        break;
+                }
+            }
+            else
+            {
+                goto ChooseAction;
+            }
+
+            return success;
+        }
+
+        public bool ComputerActionSelect(Player player)
+        {
+            bool success = false;
+
+            int time = (int)DateTime.Now.Ticks;
+            Random rand = new(time);
+            int choice = 0;
+
+            if (player.PlayerClass != "Medic" || (player.PlayerClass == "Medic" && !player.CanHeal) || (player.PlayerClass == "Medic" && player.Health == player.MaxHealth))
+            {
+                choice = rand.Next(0, 5);
+            }
+            else if (player.PlayerClass == "Medic" && (player.Health < (player.MaxHealth / 2)))
+            {
+                choice = rand.Next(0, 8);
+            }
+            else
+            {
+                choice = rand.Next(0, 6);
+            }
+
+            switch (choice)
+            {
+                case 0:
+                    player.ChosenAction = Player.Action.swingR;
+                    break;
+                case 1:
+                    player.ChosenAction = Player.Action.swingL;
+                    break;
+                case 2:
+                    player.ChosenAction = Player.Action.blockR;
+                    break;
+                case 3:
+                    player.ChosenAction = Player.Action.blockL;
+                    break;
+                case 4:
+                    player.ChosenAction = Player.Action.dodgeR;
+                    break;
+                case 5:
+                    player.ChosenAction = Player.Action.dodgeL;
+                    break;
+                case >= 6:
+                    player.ChosenAction = Player.Action.heal;
+                    break;
+            }
+            player.ActionTaken = true;
+
+            return success;
+        }
+
+        public bool PressAnyKey()
+        {
+            bool success = false;
+            Choice = Choices.Reset;
+
+            Console.WriteLine(pressAnyKey);
+            _keyInfo = Console.ReadKey(true);
+
+            try
+            {
+                if (Key == ConsoleKey.None)
+                {
+                    throw new ArgumentNullException("Key press", "no key pressed");
+                }
+                else
+                {
+                    success = true;
+                }
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            return success;
+        }
+
+        /// <summary>
+        /// Presents the player with a binary choice (yes/no, 1/2, left/right, etc.). Also provides the option of pressing Esc to go back.
+        /// </summary>
+        /// <param name="dialog">Dialog to display to the player. This also includes the choices they can select.</param>
+        /// <returns></returns>
+        public bool SelectBinary(string dialog)
+        {
+            bool success = false;
+            Choice = Choices.Reset;
+
+            Console.WriteLine(dialog);
+
+            _keyInfo = Console.ReadKey(true);
+            switch (Key)
+            {
+                default:
+                    {
+                        success = false;
+                        break;
+                    }
+                case ConsoleKey.Y:
+                case ConsoleKey.D1:
+                    {
+                        Choice = (Choices)6;
+                        success = true;
+                        break;
+                    }
+                case ConsoleKey.N:
+                case ConsoleKey.D2:
+                    {
+                        Choice = (Choices)7;
+                        success = true;
+                        break;
+                    }
+                case ConsoleKey.Escape:
+                    {
+                        Choice = Choices.Back;
+                        success = true;
+                        break;
+                    }
+            }
+
+            return success;
+        }
+
+        public string DrawArena()
+        {
+            // Get the file path for the arena.
+            Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(arenaPic);
+            try
+            {
+                if (stream == null)
+                {
+                    throw new ArgumentNullException("Could not load the arena ASCII!");
+                }
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e.Message);
+                return ("There should be a picture of an arena here...");
+            }
+
+            StreamReader? streamReader = new StreamReader(stream);
+            StringBuilder arenaBuilder = new StringBuilder();
+            string? arena = streamReader.ReadLine();
+            do
+            {
+                arenaBuilder.AppendLine(arena);
+                arena = streamReader.ReadLine();
+            }
+            while (arena != null);
+
+            streamReader.Dispose();
+
+            return arenaBuilder.ToString();
         }
     }
 }
