@@ -134,6 +134,11 @@ namespace DuelingDuelsters.Classes
         private const string failedHeal = "{0} fumbles around in their medical bag for supplies, but they are fresh out!\n{0} can't heal for the rest of the match!\n";
         private const string noAction = "{0} does nothing! How could they be so irresponsible?\n";
 
+        // ** Victory String **
+
+        public const string declareVictor = "\n*** {0} is victorious! ***\n\nAll hail the most dueling duelster of them all:\n\n*** {1} ***\n";
+        public const string postMatchOptions = "What do you want to do next?\n\n1. Return to title\n2. Rematch\n";
+
         public string GetPlayerActionNarration(Player player)
         {
             string? playerActionDescription = null;
@@ -310,6 +315,7 @@ namespace DuelingDuelsters.Classes
                     }
                 // If the user selects "New Game", begin character creation for Player 1.
                 case ConsoleKey.D1:
+                case ConsoleKey.NumPad1:
                     {
                         Choice = Choices.NewGame;
                         Console.Clear();
@@ -318,6 +324,7 @@ namespace DuelingDuelsters.Classes
                     }
                 // If the user selects "Exit," close the program.
                 case ConsoleKey.D2:
+                case ConsoleKey.NumPad2:
                     {
                         Choice = Choices.Exit;
                         success = true;
@@ -325,6 +332,7 @@ namespace DuelingDuelsters.Classes
                     }
                 // If the user selects "Instructions", displays the help screen.
                 case ConsoleKey.D3:
+                case ConsoleKey.NumPad3:
                     {
                         Choice = Choices.Help;
                         success = true;
@@ -346,7 +354,8 @@ namespace DuelingDuelsters.Classes
 
             Console.WriteLine(string.Format(createCharacter, playerNumber));
 
-            while (!CreateCharacter(player)) ;
+            
+            while (!CreateCharacter(player));
 
             // Exit character creation and back out if we hit Esc or selected Back.
             if (Choice == Choices.Back)
@@ -357,10 +366,10 @@ namespace DuelingDuelsters.Classes
 
             try
             {
-                if (player.PlayerClass == null)
+                if (player.Class == Player.PlayerClass.None)
                 {
                     success = false;
-                    throw new ArgumentNullException("PlayerClass", "Character creation failed!");
+                    throw new ArgumentNullException("Class", "Character needs a class!");
                 }
                 else
                 {
@@ -376,7 +385,7 @@ namespace DuelingDuelsters.Classes
 
             Console.Clear();
 
-            Console.WriteLine(string.Format(welcomePlayer, player.Name, player.PlayerClass));
+            Console.WriteLine(string.Format(welcomePlayer, player.Name, player.Class.ToString()));
             Thread.Sleep(2000);
 
             Console.WriteLine(string.Format(enterArena, player.Name));
@@ -398,111 +407,121 @@ namespace DuelingDuelsters.Classes
             // set nullify charName and charClass to start while loop
             string? charName = null;
             string? charClass = null;
-            // while loop for character creation
-            while (string.IsNullOrEmpty(charName) || string.IsNullOrEmpty(charClass))
+
+            while (Key != ConsoleKey.Escape)
             {
-                do
+                // while loop for character creation
+                while (string.IsNullOrEmpty(charName) || string.IsNullOrEmpty(charClass))
                 {
-                    // User is prompted to enter their character's name:
-                    Console.WriteLine(selectName);
-                    charName = Console.ReadLine();
-                }
-                while (string.IsNullOrEmpty(charName) == true);
+                    do
+                    {
+                        // User is prompted to enter their character's name:
+                        Console.WriteLine(selectName);
+                        charName = Console.ReadLine();
+                    }
+                    while (string.IsNullOrEmpty(charName) == true && (Key != ConsoleKey.Escape));
 
-                // User is prompted to enter their character's class:
-                while (string.IsNullOrEmpty(charClass) == true)
-                {
+                    // User is prompted to enter their character's class:
+                    while (string.IsNullOrEmpty(charClass) == true && (Key != ConsoleKey.Escape))
+                    {
+                        Console.Clear();
+                        Console.WriteLine(string.Format(selectClass, charName, normieDescription, fridgeDescription, leeroyDescription, gymnastDescription, medicDescription));
+
+                        charClass = Console.ReadLine();
+                        // Parse character class
+                        if (charClass == "1" || charClass == "Normie" || charClass == "normie")
+                        {
+                            player.Name = charName;
+                            player.Class = Player.PlayerClass.Normie;
+                            player.MaxHealth = 20;
+                            player.Health = player.MaxHealth;
+                            player.Attack = 10;
+                            player.Defense = 10;
+                            player.Speed = 5;
+                        }
+                        else if (charClass == "2" || charClass == "Fridge" || charClass == "fridge")
+                        {
+                            player.Name = charName;
+                            player.Class = Player.PlayerClass.Fridge;
+                            player.MaxHealth = 30;
+                            player.Health = player.MaxHealth;
+                            player.Attack = 7;
+                            player.Defense = 15;
+                            player.Speed = 5;
+                        }
+                        else if (charClass == "3" || charClass == "Leeroy" || charClass == "leeroy")
+                        {
+                            player.Name = charName;
+                            player.Class = Player.PlayerClass.Leeroy;
+                            player.MaxHealth = 23;
+                            player.Health = player.MaxHealth;
+                            player.Attack = 15;
+                            player.Defense = 5;
+                            player.Speed = 6;
+                        }
+                        else if (charClass == "4" || charClass == "Gymnast" || charClass == "gymnast")
+                        {
+                            player.Name = charName;
+                            player.Class = Player.PlayerClass.Gymnast;
+                            player.MaxHealth = 20;
+                            player.Health = player.MaxHealth;
+                            player.Attack = 8;
+                            player.Defense = 6;
+                            player.Speed = 10;
+                        }
+                        else if (charClass == "5" || charClass == "Medic" || charClass == "medic")
+                        {
+                            player.Name = charName;
+                            player.Class = Player.PlayerClass.Medic;
+                            player.MaxHealth = 25;
+                            player.Health = player.MaxHealth;
+                            player.Attack = 9;
+                            player.Defense = 8;
+                            player.Speed = 6;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine($"{charClass} is not a valid class. Please try again.");
+                            charClass = null;
+                            continue;
+                        }
+                    }
+
                     Console.Clear();
-                    Console.WriteLine(string.Format(selectClass, charName, normieDescription, fridgeDescription, leeroyDescription, gymnastDescription, medicDescription));
+                    string confirmDialog = string.Format(confirmCharacter, player.CharSheet) + string.Format(satisfied, player.Name);
 
-                    charClass = Console.ReadLine();
-                    // Parse character class
-                    if (charClass == "1" || charClass == "Normie" || charClass == "normie")
+                    while (!SelectBinary(confirmDialog)) ;
+
+                    switch (Choice)
                     {
-                        player.Name = charName;
-                        player.PlayerClass = "Normie";
-                        player.MaxHealth = 20;
-                        player.Health = player.MaxHealth;
-                        player.Attack = 10;
-                        player.Defense = 10;
-                        player.Speed = 5;
-                    }
-                    else if (charClass == "2" || charClass == "Fridge" || charClass == "fridge")
-                    {
-                        player.Name = charName;
-                        player.PlayerClass = "Fridge";
-                        player.MaxHealth = 30;
-                        player.Health = player.MaxHealth;
-                        player.Attack = 7;
-                        player.Defense = 15;
-                        player.Speed = 5;
-                    }
-                    else if (charClass == "3" || charClass == "Leeroy" || charClass == "leeroy")
-                    {
-                        player.Name = charName;
-                        player.PlayerClass = "Leeroy";
-                        player.MaxHealth = 23;
-                        player.Health = player.MaxHealth;
-                        player.Attack = 15;
-                        player.Defense = 5;
-                        player.Speed = 6;
-                    }
-                    else if (charClass == "4" || charClass == "Gymnast" || charClass == "gymnast")
-                    {
-                        player.Name = charName;
-                        player.PlayerClass = "Gymnast";
-                        player.MaxHealth = 20;
-                        player.Health = player.MaxHealth;
-                        player.Attack = 8;
-                        player.Defense = 6;
-                        player.Speed = 10;
-                    }
-                    else if (charClass == "5" || charClass == "Medic" || charClass == "medic")
-                    {
-                        player.Name = charName;
-                        player.PlayerClass = "Medic";
-                        player.MaxHealth = 25;
-                        player.Health = player.MaxHealth;
-                        player.Attack = 9;
-                        player.Defense = 8;
-                        player.Speed = 6;
-                    }
-                    else
-                    {
-                        Console.Clear();
-                        Console.WriteLine($"{charClass} is not a valid class. Please try again.");
-                        charClass = null;
-                        continue;
+                        default:
+                            success = false;
+                            break;
+                        case Choices.Yes:
+                            success = true;
+                            break;
+                        // If no, return to the start of the method.
+                        case Choices.No:
+                            Console.Clear();
+                            charName = null;
+                            charClass = null;
+                            success = false;
+                            continue;
+                        case Choices.Back:
+                            Console.Clear();
+                            charName = null;
+                            charClass = null;
+                            success = true;
+                            return success;
                     }
                 }
+            }
 
-                Console.Clear();
-                string confirmDialog = string.Format(confirmCharacter, player.CharSheet) + string.Format(satisfied, player.Name);
-
-                while (!SelectBinary(confirmDialog)) ;
-
-                switch (Choice)
-                {
-                    default:
-                        success = false;
-                        break;
-                    case Choices.Yes:
-                        success = true;
-                        break;
-                    // If no, return to the start of the method.
-                    case Choices.No:
-                        Console.Clear();
-                        charName = null;
-                        charClass = null;
-                        success = false;
-                        continue;
-                    case Choices.Back:
-                        Console.Clear();
-                        charName = null;
-                        charClass = null;
-                        success = true;
-                        return success;
-                }
+            if (Key == ConsoleKey.Escape)
+            {
+                Choice = Choices.Back;
+                success = true;
             }
 
             return success;
@@ -526,18 +545,21 @@ namespace DuelingDuelsters.Classes
                         break;
                     }
                 case ConsoleKey.D1:
+                case ConsoleKey.NumPad1:
                     {
                         brain = Player.PlayerBrain.Computer;
                         success = true;
                         break;
                     }
                 case ConsoleKey.D2:
+                case ConsoleKey.NumPad2:
                     {
                         brain = Player.PlayerBrain.Human;
                         success = true;
                         break;
                     }
                 case ConsoleKey.D3:
+                case ConsoleKey.NumPad3:
                 case ConsoleKey.Escape:
                     {
                         brain = null;
@@ -663,6 +685,7 @@ namespace DuelingDuelsters.Classes
                     break;
                 // Swing sword.
                 case ConsoleKey.D1:
+                case ConsoleKey.NumPad1:
                     // Choose direction.
                     while (!SelectBinary(selectDirection));
                     switch (Choice)
@@ -681,6 +704,7 @@ namespace DuelingDuelsters.Classes
                     break;
                 // Block with shield.
                 case ConsoleKey.D2:
+                case ConsoleKey.NumPad2:
                     // Choose direction.
                     while (!SelectBinary(selectDirection)) ;
                     switch (Choice)
@@ -700,6 +724,7 @@ namespace DuelingDuelsters.Classes
                     break;
                 // Dodge
                 case ConsoleKey.D3:
+                case ConsoleKey.NumPad3:
                     // Choose direction.
                     while (!SelectBinary(selectDirection)) ;
                     switch (Choice)
@@ -718,8 +743,9 @@ namespace DuelingDuelsters.Classes
                     break;
                 // Help (if not medic) or Heal (if medic)
                 case ConsoleKey.D4:
+                case ConsoleKey.NumPad4:
                     // Open the help screen if not a medic.
-                    if (player.PlayerClass != "Medic")
+                    if (player.Class != Player.PlayerClass.Medic)
                     {
                         Console.Clear();
                         RunHelpScreen(GameLoop.GameState);
@@ -742,8 +768,9 @@ namespace DuelingDuelsters.Classes
                         break;
                     }
                 case ConsoleKey.D5:
+                case ConsoleKey.NumPad5:
                     // Open the help screen if a Medic.
-                    if (player.PlayerClass == "Medic")
+                    if (player.Class == Player.PlayerClass.Medic)
                     {
                         Console.Clear();
                         RunHelpScreen(GameLoop.GameState);
@@ -789,11 +816,11 @@ namespace DuelingDuelsters.Classes
             Random rand = new(time);
             int choice = 0;
 
-            if (player.PlayerClass != "Medic" || (player.PlayerClass == "Medic" && !player.CanHeal) || (player.PlayerClass == "Medic" && player.Health == player.MaxHealth))
+            if (player.Class != Player.PlayerClass.Medic || (player.Class == Player.PlayerClass.Medic && !player.CanHeal) || (player.Class == Player.PlayerClass.Medic && player.Health == player.MaxHealth))
             {
                 choice = rand.Next(0, 5);
             }
-            else if (player.PlayerClass == "Medic" && (player.Health < (player.MaxHealth / 2)))
+            else if (player.Class == Player.PlayerClass.Medic && (player.Health < (player.MaxHealth / 2)))
             {
                 choice = rand.Next(0, 8);
             }
@@ -880,6 +907,7 @@ namespace DuelingDuelsters.Classes
                     }
                 case ConsoleKey.Y:
                 case ConsoleKey.D1:
+                case ConsoleKey.NumPad1:
                     {
                         Choice = (Choices)6;
                         success = true;
@@ -887,6 +915,7 @@ namespace DuelingDuelsters.Classes
                     }
                 case ConsoleKey.N:
                 case ConsoleKey.D2:
+                case ConsoleKey.NumPad2:
                     {
                         Choice = (Choices)7;
                         success = true;

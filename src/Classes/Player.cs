@@ -27,21 +27,25 @@ namespace DuelingDuelsters.Classes
             get { return name; }
             set { name = value; }
         }
+
+        public enum PlayerClass
+        {
+            None,
+            Normie,
+            Fridge,
+            Leeroy,
+            Gymnast,
+            Medic
+        }
         
-        private string _playerClass;
+        private PlayerClass _class;
         /// <summary>
         /// Player's class.
         /// </summary>
-        public string? PlayerClass
+        public PlayerClass Class
         {
-            get { return _playerClass; }
-            set
-            {
-                if (value == "Normie" || value == "Fridge" || value == "Leeroy" || value == "Gymnast" || value == "Medic")
-                {
-                    _playerClass = value;
-                }
-            }
+            get { return _class; }
+            set { _class = value; }
         }
 
         /// <summary>
@@ -252,7 +256,7 @@ namespace DuelingDuelsters.Classes
         public Player()
         {
             Name = name;
-            PlayerClass = _playerClass;
+            _class = PlayerClass.None;
             ActionTaken = false;
             HealCount = 0;
         }
@@ -278,7 +282,7 @@ namespace DuelingDuelsters.Classes
             int charNameLength = Name.Length;
             string charHealth = $"Health: {Health} / {MaxHealth}";
             int charHealthLength = charHealth.Length;
-            string charClass = $"Class: {PlayerClass}";
+            string charClass = $"Class: {Class.ToString()}";
             int charClassLength = charClass.Length;
             string charAttack = $"Attack: {Attack}";
             int charAttackLength = charAttack.Length;
@@ -372,7 +376,7 @@ namespace DuelingDuelsters.Classes
             actions.Add(swingOption);
             actions.Add(blockOption);
             actions.Add(dodgeOption);
-            if (PlayerClass == "Medic")
+            if (Class == PlayerClass.Medic)
             {
                 actions.Add(healOption);
             }

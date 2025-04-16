@@ -143,61 +143,30 @@ namespace DuelingDuelsters.Classes
                     }
                     while (player1.Health > 0 && player2.Health > 0);
 
-                    // Set the victor
-                    string victor;
-                    if (player1.Health == 0 && player2.Health > 0)
-                    {
-                        victor = player2.Name;
-                    }
-                    else if (player2.Health == 0 && player1.Health > 0)
-                    {
-                        victor = player1.Name;
-                    }
-                    else
-                    {
-                        victor = "nobody";
-                    }
+                    match.DeclareVictor();
 
-                    // Capitalize victor for maximum victoriousness
-                    string upperVictor = victor.ToUpper();
-
-                    // Declare the victor for all to see
-                    Console.Clear();
-                    Console.WriteLine($"*** {victor} is victorious! ***\n\nAll hail the most dueling duelster of them all:\n\n*** {upperVictor} ***");
-                    Console.WriteLine("\n\n\n");
-
-                    // Write out post-match options
-                    string postMatchOptions = "What do you want to do next?\n\n1. Return to title\n2. Rematch\n3. Exit the game\n";
-                    Console.WriteLine(postMatchOptions);
-
-                    key = Console.ReadKey(true);
-
-                    // 1. Break out of the gameplay loop and return to the title screen.
-                    if (key.Key == ConsoleKey.D1)
+                    narrator.SelectBinary(Narrator.postMatchOptions);
+                    switch (narrator.Choice)
                     {
-                        break;
-                    }
-                    // 2. Rematch. Reset characters' health and reset the round counter.
-                    else if (key.Key == ConsoleKey.D2)
-                    {
-                        Console.Clear();
-                        player1.ResetCharacterHealth();
-                        player2.ResetCharacterHealth();
-                        match.RoundCounter = 1;
-                        continue;
-                    }
-                    // 3. Exit the game.
-                    else if (key.Key == ConsoleKey.D3)
-                    {
-                        Environment.Exit(0);
+                        // Return to title
+                        case ((Narrator.Choices)6):
+                        case (Narrator.Choices.Back):
+                            break;
+                        // Rematch
+                        case ((Narrator.Choices)7):
+                            Console.Clear();
+                            match.PlayerOne.ResetCharacterHealth();
+                            match.PlayerTwo.ResetCharacterHealth();
+                            match.RoundCounter = 1;
+                            continue;
                     }
                 }
-                while (key.Key != ConsoleKey.Escape);
+                while (narrator.Key != ConsoleKey.Escape);
                 // Return to title
                 Console.Clear();
                 continue;
             }
-            while (key.Key != ConsoleKey.Escape);
+            while (narrator.Key != ConsoleKey.Escape);
 
         }
 

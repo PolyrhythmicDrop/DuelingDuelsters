@@ -470,8 +470,8 @@ namespace DuelingDuelsters.Classes
             // Get the length of the current player names, health, and classes
             int p1CharNameLength = PlayerOne.Name.Length;
             int p2CharNameLength = PlayerTwo.Name.Length;
-            int p1ClassNameLength = PlayerOne.PlayerClass.Length;
-            int p2ClassNameLength = PlayerTwo.PlayerClass.Length;
+            int p1ClassNameLength = PlayerOne.Class.ToString().Length;
+            int p2ClassNameLength = PlayerTwo.Class.ToString().Length;
             // Get the length of both names + 40
             int headerLength = p1CharNameLength + p2CharNameLength + 40;
             // Create a string for the spaces between character names and left/right border
@@ -528,11 +528,11 @@ namespace DuelingDuelsters.Classes
             // Dashes underneath player names
             stringBuilder.AppendLine($"* {p1Dashes}{underNameBlanks}{p2Dashes} *");
             // Player class line
-            stringBuilder.AppendLine($"* {PlayerOne.PlayerClass}{classBlanks}{PlayerTwo.PlayerClass} *");
+            stringBuilder.AppendLine($"* {PlayerOne.Class.ToString()}{classBlanks}{PlayerTwo.Class.ToString()} *");
             // Health status line
             stringBuilder.AppendLine($"* {PlayerOne.HealthReadout}{healthBlanks}{PlayerTwo.HealthReadout} *");
             // Append heals remaining if a character is a medic.
-            if (_playerOne.PlayerClass == "Medic" && _playerTwo.PlayerClass != "Medic")
+            if (_playerOne.Class == Player.PlayerClass.Medic && _playerTwo.Class != Player.PlayerClass.Medic)
             {
                 int p1HealsLeft = 3 - _playerOne.HealCount;
                 string healsLeftString = $"Heals Left: {p1HealsLeft}";
@@ -541,7 +541,7 @@ namespace DuelingDuelsters.Classes
                 string healsLeftBlanks = new string(' ', headerLength - healsLeftLength - 4);
                 stringBuilder.AppendLine($"* {healsLeftString}{healsLeftBlanks} *");
             }
-            else if (_playerTwo.PlayerClass == "Medic" && _playerOne.PlayerClass != "Medic")
+            else if (_playerTwo.Class == Player.PlayerClass.Medic && _playerOne.Class != Player.PlayerClass.Medic)
             {
                 int p2HealsLeft = 3 - _playerTwo.HealCount;
                 string healsLeftString = $"Heals Left: {p2HealsLeft}";
@@ -550,7 +550,7 @@ namespace DuelingDuelsters.Classes
                 string healsLeftBlanks = new string(' ', headerLength - healsLeftLength - 4);
                 stringBuilder.AppendLine($"* {healsLeftBlanks}{healsLeftString} *");
             }
-            else if (_playerOne.PlayerClass == "Medic" && _playerTwo.PlayerClass == "Medic")
+            else if (_playerOne.Class == Player.PlayerClass.Medic && _playerTwo.Class == Player.PlayerClass.Medic)
             {
                 int p1HealsLeft = 3 - _playerOne.HealCount;
                 int p2HealsLeft = 3 - _playerTwo.HealCount;
@@ -572,6 +572,32 @@ namespace DuelingDuelsters.Classes
 
             // Return the built header
             return roundHeader;
+        }
+
+        public void DeclareVictor()
+        {
+            // Set the victor
+            string victor;
+            if (_playerOne.Health == 0 && _playerTwo.Health > 0)
+            {
+                victor = _playerOne.Name;
+            }
+            else if (_playerTwo.Health == 0 && _playerOne.Health > 0)
+            {
+                victor = _playerOne.Name;
+            }
+            else
+            {
+                victor = "nobody";
+            }
+
+            // Capitalize victor for maximum victoriousness
+            string upperVictor = victor.ToUpper();
+
+            // Declare the victor for all to see
+            Console.Clear();
+            Console.WriteLine(string.Format(Narrator.declareVictor, victor, upperVictor));
+            Console.WriteLine("\n\n\n");
         }
 
 
