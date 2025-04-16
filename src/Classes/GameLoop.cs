@@ -111,7 +111,7 @@ namespace DuelingDuelsters.Classes
                 if (narrator.Choice == Narrator.Choices.Back)
                 {
                     Console.Clear();
-                    goto PlayerCountSelect;
+                    goto CharacterCreation;
                 }
 
             PreMatchSummary:

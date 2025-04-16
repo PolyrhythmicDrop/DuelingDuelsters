@@ -350,33 +350,41 @@ namespace DuelingDuelsters.Classes
 
         public bool RunCharacterCreation(Player player, int playerNumber)
         {
-        StartCreateCharacter:
             bool success = false;
 
-            // while loop for character creation
+            // Create a character
             while (player.Name == null && player.Class == Player.PlayerClass.None)
             {
+
                 // Prompt to set the player's name.
                 do
                 {
                     Console.WriteLine(string.Format(createCharacter, playerNumber));
                     Console.WriteLine(selectName);
-                    player.Name = Console.ReadLine();
                 }
-                while (player.Name == null);
+                while (!SetPlayerName(player));
+
+                if (Choice == Choices.Back)
+                {
+                    success = true;
+                    Console.Clear();
+                    return success;
+                }
 
                 Console.Clear();
 
                 // User is prompted to enter their character's class.
                 do
                 {
-                    SetPlayerClass(player);
-                    if (player.Name == null && player.Class == Player.PlayerClass.None)
-                    {
-                        goto StartCreateCharacter;
-                    }
+                    Console.WriteLine(string.Format(selectClass, player.Name, normieDescription, fridgeDescription, leeroyDescription, gymnastDescription, medicDescription));
                 }
-                while (player.Class == Player.PlayerClass.None);
+                while (!SetPlayerClass(player));
+                // If player enters Escape during class selection, return to name entry.
+                if (Choice == Choices.Back)
+                {
+                    Console.Clear();
+                    continue;
+                }
 
                 // Confirm player name, class, and stats.
                 Console.Clear();
@@ -439,10 +447,54 @@ namespace DuelingDuelsters.Classes
 
         }
 
-        private void SetPlayerClass(Player player)
+        private bool SetPlayerName(Player player)
         {
-            // Write out the class descriptions for the player to choose from.
-            Console.WriteLine(string.Format(selectClass, player.Name, normieDescription, fridgeDescription, leeroyDescription, gymnastDescription, medicDescription));
+            bool success = false;
+
+            // Prompt to set the player's name.
+            do
+            {
+                try
+                {
+                    player.Name = ReadLineWithCancel();
+                    if (player.Name == null && Choice != Choices.Back)
+                    {
+                        throw new NullReferenceException("Player name cannot be null!");
+                    }
+                    else if (Choice == Choices.Back)
+                    {
+                        break;
+                    }
+                    else if (player.Name != null)
+                    {
+                        success = true;
+                    }
+                }
+                catch (NullReferenceException e)
+                {
+                    Console.WriteLine(e.Message);
+                    continue;
+                }
+            }
+            while (player.Name == null && Choice != Choices.Back);
+
+            // Return to player count select if player hits Esc while entering player name.
+            if (Choice == Choices.Back)
+            {
+                Console.Clear();
+                player.Name = null;
+                player.Class = Player.PlayerClass.None;
+                success = true;
+                return success;
+            }
+
+            return success;
+        }
+
+        private bool SetPlayerClass(Player player)
+        {
+            bool success = false;
+            Choice = Choices.Reset;
 
             _keyInfo = Console.ReadKey(true);
             // Set character stats based on chosen class
@@ -510,6 +562,7 @@ namespace DuelingDuelsters.Classes
                     {
                         player.Class = Player.PlayerClass.None;
                         player.Name = null;
+                        Choice = Choices.Back;
                         Console.Clear();
                         break;
                     }
@@ -518,6 +571,13 @@ namespace DuelingDuelsters.Classes
                         break;
                     }
             }
+
+            if (player.Class != Player.PlayerClass.None || Choice == Choices.Back)
+            {
+                success = true;
+            }
+
+            return success;
         }
         public bool RunPlayerCountMenu(out Player.PlayerBrain? brain)
         {
@@ -955,6 +1015,35 @@ namespace DuelingDuelsters.Classes
             streamReader.Dispose();
 
             return arenaBuilder.ToString();
+        }
+
+        private string? ReadLineWithCancel()
+        {
+            Choice = Choices.Reset;
+
+            string? result = null;
+
+            StringBuilder builder = new StringBuilder();
+
+            _keyInfo = Console.ReadKey(true);
+
+            while (Key != ConsoleKey.Enter && Key != ConsoleKey.Escape)
+            {
+                Console.Write(_keyInfo.KeyChar);
+                builder.Append(_keyInfo.KeyChar);
+                _keyInfo = Console.ReadKey(true);
+            }
+
+            if (Key == ConsoleKey.Enter)
+            {
+                result = builder.ToString();
+            }
+            else if (Key == ConsoleKey.Escape)
+            {
+                Choice = Choices.Back;
+            }
+
+            return result;
         }
     }
 }
