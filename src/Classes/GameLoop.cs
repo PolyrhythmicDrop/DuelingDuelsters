@@ -176,6 +176,7 @@ namespace DuelingDuelsters.Classes
             // ** Start of round loop **
             // Loop returns here if player selects Rematch after the round.
             MatchStart:
+                Console.Clear();
                 do
                 {
                     // Match plays out until one player's health reaches 0.

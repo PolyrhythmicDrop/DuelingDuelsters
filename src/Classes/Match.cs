@@ -92,7 +92,12 @@ namespace DuelingDuelsters.Classes
             P2HealP1Swing,
             P1FailedHealP2Swing,
             P2FailedHealP1Swing,
-            HealDodge
+            P1FailedHealP2Heal,
+            P2FailedHealP1Heal,
+            DoubleFailedHeal,
+            HealDodge,
+            HealCounter,
+            DoubleHeal
         }
 
         /// <summary>
@@ -100,38 +105,58 @@ namespace DuelingDuelsters.Classes
         /// </summary>
         public void PlayRound()
         {
+        P1ChooseAction:
             do
             {
+                Console.Clear();
                 Console.WriteLine(DrawRoundHeader());
             }
             while (!_narrator.RunPlayerActionSelect(_playerOne));
+            if (_narrator.Choice == Choices.Back)
+            {
+                _narrator.Choice = Choices.Reset;
+                Console.Clear();
+                goto P1ChooseAction;
+            }
 
             Console.Clear();
-
+        P2ChooseAction:
             do
             {
+                Console.Clear();
                 Console.WriteLine(DrawRoundHeader());
             }
             while (!_narrator.RunPlayerActionSelect(_playerTwo));
+            if (_narrator.Choice == Choices.Back)
+            {
+                _narrator.Choice = Choices.Reset;
+                Console.Clear();
+                goto P2ChooseAction;
+            }
 
-            _narrator.PressAnyKey();
+            //_narrator.PressAnyKey();
 
             GameLoop.GameState = State.OutcomeDisplay;
-
+            Console.Clear();
+            Console.WriteLine(DrawRoundHeader());
             do
             {
                 // Describe player individual actions
-                Console.WriteLine(_narrator.GetPlayerActionNarration(_playerOne));
-                Thread.Sleep(500);
+                Console.WriteLine("\n" + _narrator.GetPlayerActionNarration(_playerOne));
+                Thread.Sleep(700);
                 Console.WriteLine(_narrator.GetPlayerActionNarration(_playerTwo));
-                Thread.Sleep(500);
+                Thread.Sleep(700);
 
                 // Get the outcome.
                 Outcome actionKey = GetOutcome(_playerOne.ChosenAction, _playerTwo.ChosenAction);
                 // Get and print the narration for the given outcome.
                 Console.WriteLine(_narrator.GetOutcomeNarration(actionKey, _playerOne.Name, _playerTwo.Name));
+                Thread.Sleep(700);
                 // Process the outcome.
                 ProcessOutcome(actionKey);
+                Thread.Sleep(700);
+
+                _narrator.PressAnyKey();
                 // Increment the round counter.
                 RoundCounter++;
 
@@ -257,16 +282,16 @@ namespace DuelingDuelsters.Classes
             }
 
             // HEAL actions
-            // P1 heals and P2 does anything other than swing. P1 restores health and nothing happens to P2.
-            else if (actionOne == Player.Action.heal && (actionTwo != Player.Action.swingL && actionTwo != Player.Action.swingR))
+            // P1 heals and P2 does anything other than swing or heal. P1 restores health and nothing happens to P2.
+            else if (actionOne == Player.Action.heal && (actionTwo != Player.Action.swingL && actionTwo != Player.Action.swingR && actionTwo != Player.Action.heal))
             {
                 if (_playerOne.CanHeal)
                 { outcome = Outcome.P1HealP2Defend; }
                 else 
                 { outcome = Outcome.P1FailedHealP2Defend; }
             }
-            // P2 heals and P1 does anything other than swing. P2 restores health and nothing happens to P1.
-            else if (actionTwo == Player.Action.heal && (actionOne != Player.Action.swingL && actionOne != Player.Action.swingR))
+            // P2 heals and P1 does anything other than swing or heal. P2 restores health and nothing happens to P1.
+            else if (actionTwo == Player.Action.heal && (actionOne != Player.Action.swingL && actionOne != Player.Action.swingR && actionOne != Player.Action.heal))
             {
                 if (_playerTwo.CanHeal)
                 { outcome = Outcome.P2HealP1Defend; }
@@ -304,8 +329,32 @@ namespace DuelingDuelsters.Classes
                     outcome = Outcome.P2FailedHealP1Swing;
                 }
             }
+            // Both players attempt to heal.
+            else if (actionOne == Player.Action.heal && actionTwo == Player.Action.heal)
+            {
+                // Both players have heals remaining.
+                if (_playerOne.CanHeal && _playerTwo.CanHeal)
+                {
+                    outcome = Outcome.DoubleHeal;
+                }
+                // Only P1 has heals remaining
+                else if (_playerOne.CanHeal && !_playerTwo.CanHeal)
+                {
+                    outcome = Outcome.P2FailedHealP1Heal;
+                }
+                // Only P2 has heals remaining
+                else if (!_playerOne.CanHeal && _playerTwo.CanHeal)
+                {
+                    outcome = Outcome.P1FailedHealP2Heal;
+                }
+                // Neither player has heals remaining.
+                else if (!_playerOne.CanHeal && !_playerTwo.CanHeal)
+                {
+                    outcome = Outcome.DoubleFailedHeal;
+                }
+            }
 
-            return outcome;
+                return outcome;
         }
 
         private void ProcessOutcome(Outcome actionKey)
@@ -379,6 +428,13 @@ namespace DuelingDuelsters.Classes
                         _playerTwo.HealSelf();
                         AttemptHealCounter(_playerTwo, _playerOne);
                         break;
+                    case Outcome.P1FailedHealP2Heal:
+                    case Outcome.P2FailedHealP1Heal:
+                    case Outcome.DoubleFailedHeal:
+                    case Outcome.DoubleHeal:
+                        _playerOne.HealSelf();
+                        _playerTwo.HealSelf();
+                        break;
                 } 
             }
             catch (SystemException e)
@@ -416,6 +472,7 @@ namespace DuelingDuelsters.Classes
                     }
                     else
                     {
+                        Console.WriteLine(_narrator.GetOutcomeNarration(Outcome.HealCounter, healer.Name, counter.Name));
                         ApplyAttackResult(counter, healer);
                         break;
                     }

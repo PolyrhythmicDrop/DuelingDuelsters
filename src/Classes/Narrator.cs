@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Reflection;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -103,7 +104,7 @@ namespace DuelingDuelsters.Classes
 
         // ** Outcome Strings ** //
 
-        private const string swordClash = "The swords of {0} and {1} clash, the sound of ringing steel echoing throughout the arena!\nThe two combatants eye each other over their crossed blades.\nIs this the start of an enemies-to-lovers romance? Or another chapter in a long tale of bitter rivalry?\n{0} and {1} part with a puff of dust and return to their ready stances.\n";
+        private const string swordClash = "The swords of {0} and {1} clash, the sound of ringing steel echoing throughout the arena!\nThe two combatants eye each other over their crossed blades.\n\nIs this the start of an enemies-to-lovers romance? Or another chapter in a long tale of bitter rivalry?\n\n{0} and {1} part with a puff of dust and return to their ready stances.\n";
 
         private const string bothHit = "{0} and {1} slash each other at the same time, slicing through armor and egos!\n";
 
@@ -120,7 +121,11 @@ namespace DuelingDuelsters.Classes
         private const string failedHealandDefend = "{0} is out of snake oil, thoughts, and prayers! Too bad {1} only took a defensive action.\nThe crowd laughs in derision at the ill-prepared, tactically inept combatants.\n";
         private const string healAndSwing = "{0} recovers health! But {1} has a chance to tear off the Band-Aid...\n";
         private const string failedHealAndSwing = "{0} wastes a turn swatting the flies away from their empty medicine bag!\n{1} takes advantage of {0}'s lack of counting ability!\n";
-        private const string healDodge = "{0} uses advanced diagnostic technology to anticipate and dodge {1}'s attack at the last moment!\n{0} is as agile as a CAT scan!\n\n";
+        private const string healDodge = "{0} uses advanced diagnostic technology to anticipate and dodge {1}'s attack at the last moment!\n{0} is as agile as a CAT scan!\n";
+        private const string healCounter = "\n{0} is too woozy from pain meds to dodge {1}'s attack!\n{1} collects on {0}'s medical bills with a vengeance!\n";
+        private const string doubleHeal = "\n{0} and {1} engage in rigorous academic debate over the restorative properties of leeches!\nTheir humours are aligned but their ideas are not!\n";
+        private const string failedDoubleHeal = "\n{0} sighs luxuriously as a feeling of health and well-being washes over their battle-scarred body!\n{1} takes a long, sad look at their empty medical back and sharpens their sword, ready for revenge!\n";
+        private const string doubleFailedHeal = "\n{0} and {1} look at each other sheepishly. They may have doctorates from Duelster College, but they lack the ability to count!\nThe crowd boos and laughs at the inadequacy of {0} and {1}'s fancy book learning when it comes to arena smarts!\n\n";
 
         // ** Player Action Description Strings **
 
@@ -286,6 +291,21 @@ namespace DuelingDuelsters.Classes
                     case Match.Outcome.HealDodge:
                         narration = string.Format(healDodge, pOne, pTwo);
                         break;
+                    case Match.Outcome.HealCounter:
+                        narration = string.Format(healCounter, pOne, pTwo);
+                        break;
+                    case Match.Outcome.DoubleHeal:
+                        narration = string.Format(doubleHeal, pOne, pTwo);
+                        break;
+                    case Match.Outcome.P1FailedHealP2Heal:
+                        narration = string.Format(failedDoubleHeal, pTwo, pOne);
+                        break;
+                    case Match.Outcome.P2FailedHealP1Heal:
+                        narration = string.Format(failedDoubleHeal, pOne, pTwo);
+                        break;
+                    case Match.Outcome.DoubleFailedHeal:
+                        narration = string.Format(doubleFailedHeal, pOne, pTwo);
+                        break;
                     }
                 if (narration == null)
                 {
@@ -435,7 +455,7 @@ namespace DuelingDuelsters.Classes
 
             // Welcome the new character.
             Console.WriteLine(string.Format(welcomePlayer, player.Name, player.Class.ToString()));
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             Console.WriteLine(string.Format(enterArena, player.Name));
             Console.WriteLine(DrawArena());
@@ -711,6 +731,7 @@ namespace DuelingDuelsters.Classes
         /// </summary>
         public bool RunPlayerActionSelect(Player player)
         {
+            Choice = Choices.Reset;
             bool success = false;
             GameLoop.GameState = State.ActionSelect;
 
@@ -718,6 +739,11 @@ namespace DuelingDuelsters.Classes
             {
                 while (!HumanActionSelect(player));
                 if (Choice == Choices.Back)
+                {
+                    Console.Clear();
+                    return success;
+                }
+                else if (player.ActionTaken == true && player.ChosenAction != Player.Action.none)
                 {
                     success = true;
                     return success;
@@ -727,6 +753,8 @@ namespace DuelingDuelsters.Classes
             else if (player.Brain == Player.PlayerBrain.Computer)
             {
                 while (!ComputerActionSelect(player) && player.ActionTaken == false);
+                if (player.ChosenAction != Player.Action.none)
+                { success = true; }
             }
 
             return success;
@@ -747,6 +775,10 @@ namespace DuelingDuelsters.Classes
                 default:
                     success = false;
                     break;
+                // Escape to back out
+                case ConsoleKey.Escape:
+                    UndoActionSelection(player, out success);
+                    return success;
                 // Swing sword.
                 case ConsoleKey.D1:
                 case ConsoleKey.NumPad1:
@@ -754,10 +786,9 @@ namespace DuelingDuelsters.Classes
                     while (!SelectBinary(selectDirection));
                     switch (Choice)
                     {
-                        default:
-                            break;
                         case Choices.Back:
-                            goto ChooseAction;
+                            UndoActionSelection(player, out success);
+                            return success;
                         case Choices.Left:
                             player.ChosenAction = Player.Action.swingL;
                             break;
@@ -773,11 +804,9 @@ namespace DuelingDuelsters.Classes
                     while (!SelectBinary(selectDirection)) ;
                     switch (Choice)
                     {
-                        default:
-                            break;
                         case Choices.Back:
-                            // TODO: Reword these to return to the PlayRound() do loop so we can see the round header.
-                            goto ChooseAction;
+                            UndoActionSelection(player, out success);
+                            return success;
                         case Choices.Left:
                             player.ChosenAction = Player.Action.blockL;
                             break;
@@ -793,10 +822,9 @@ namespace DuelingDuelsters.Classes
                     while (!SelectBinary(selectDirection)) ;
                     switch (Choice)
                     {
-                        default:
-                            break;
                         case Choices.Back:
-                            goto ChooseAction;
+                            UndoActionSelection(player, out success);
+                            return success;
                         case Choices.Left:
                             player.ChosenAction = Player.Action.dodgeL;
                             break;
@@ -813,17 +841,20 @@ namespace DuelingDuelsters.Classes
                     {
                         Console.Clear();
                         RunHelpScreen(GameLoop.GameState);
-                        goto ChooseAction;
+                        UndoActionSelection(player, out success);
+                        return success;
                     }
                     else
                     {
-                    // Choose heal "direction". This doesn't actually matter, it's just to disguise the healer's action from the other player.
+                        // Choose heal "direction". This doesn't actually matter, it's just to disguise the healer's action from the other player.
+                        while (!SelectBinary(selectDirection));
                         switch (Choice)
                         {
                             default:
                                 break;
                             case Choices.Back:
-                                goto ChooseAction;
+                                UndoActionSelection(player, out success);
+                                return success;
                             case Choices.Left:
                             case Choices.Right:
                                 player.ChosenAction = Player.Action.heal;
@@ -838,7 +869,8 @@ namespace DuelingDuelsters.Classes
                     {
                         Console.Clear();
                         RunHelpScreen(GameLoop.GameState);
-                        goto ChooseAction;
+                        UndoActionSelection(player, out success);
+                        return success;
                     }
                     else
                     {
@@ -852,21 +884,23 @@ namespace DuelingDuelsters.Classes
                 while (!SelectBinary(confirmAction));
                 switch (Choice)
                 {
-                    default:
-                        break;
                     case Choices.Back:
+                        UndoActionSelection(player, out success);
+                        return success;
                     case Choices.No:
-                        player.ChosenAction = Player.Action.none;
-                        goto ChooseAction;
+                        UndoActionSelection(player, out success);
+                        return success;
                     case Choices.Yes:
+                        Choice = Choices.Reset;
                         player.ActionTaken = true;
                         success = true;
-                        break;
+                        return success;
                 }
             }
             else
             {
-                goto ChooseAction;
+                UndoActionSelection(player, out success);
+                return success;
             }
 
             return success;
@@ -918,6 +952,8 @@ namespace DuelingDuelsters.Classes
                     break;
             }
             player.ActionTaken = true;
+            
+            success = true;
 
             return success;
         }
@@ -1056,6 +1092,15 @@ namespace DuelingDuelsters.Classes
             }
 
             return result;
+        }
+
+        private void UndoActionSelection(Player player, out bool success)
+        {
+            Choice = Choices.Back;
+            player.ActionTaken = false;
+            player.ChosenAction = Player.Action.none;
+            Console.Clear();
+            success = true;
         }
     }
 }
