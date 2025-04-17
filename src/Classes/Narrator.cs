@@ -367,7 +367,7 @@ namespace DuelingDuelsters.Classes
                 if (Choice == Choices.Back)
                 {
                     success = true;
-                    Console.Clear();
+                    //Console.Clear();
                     return success;
                 }
 
@@ -481,7 +481,6 @@ namespace DuelingDuelsters.Classes
             // Return to player count select if player hits Esc while entering player name.
             if (Choice == Choices.Back)
             {
-                Console.Clear();
                 player.Name = null;
                 player.Class = Player.PlayerClass.None;
                 success = true;
@@ -560,10 +559,23 @@ namespace DuelingDuelsters.Classes
                 // Start over
                 case ConsoleKey.Escape:
                     {
-                        player.Class = Player.PlayerClass.None;
-                        player.Name = null;
-                        Choice = Choices.Back;
-                        Console.Clear();
+                        SelectBinary("Do you really want to reset your character? Y/n");
+                        switch (Choice)
+                        {
+                            case Choices.Yes:
+                                player.Class = Player.PlayerClass.None;
+                                player.Name = null;
+                                Choice = Choices.Back;
+                                Console.Clear();
+                                break;
+                            case Choices.No:
+                            case Choices.Back:
+                                Choice = Choices.Reset;
+                                Console.Clear();
+                                break;
+                            default:
+                                break;
+                        }
                         break;
                     }
                 default:

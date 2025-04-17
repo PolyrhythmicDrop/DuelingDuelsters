@@ -95,38 +95,80 @@ namespace DuelingDuelsters.Classes
                 Player player2 = new Player(brain);
                 Console.Clear();
 
-            CharacterCreation:
+            P1CharacterCreation:
                 GameState = State.CharacterCreation;
                 // Character creation for both players.
                 while (!narrator.RunCharacterCreation(player1, 1)) ;
                 if (narrator.Choice == Narrator.Choices.Back)
                 {
-                    Console.Clear();
-                    goto PlayerCountSelect;
+                    narrator.SelectBinary("Return to player selection? Y/n");
+                    switch (narrator.Choice)
+                    {
+                        default:
+                            narrator.Choice = Narrator.Choices.Reset;
+                            Console.Clear();
+                            goto P1CharacterCreation;
+                        case Narrator.Choices.Yes:
+                            narrator.Choice = Narrator.Choices.Reset;
+                            Console.Clear();
+                            goto PlayerCountSelect;                            
+                    }   
                 }
 
                 Console.Clear();
 
-                while (!narrator.RunCharacterCreation(player2, 2));
+            P2CharacterCreation:
+                while (!narrator.RunCharacterCreation(player2, 2)) ;
                 if (narrator.Choice == Narrator.Choices.Back)
                 {
-                    Console.Clear();
-                    goto CharacterCreation;
+                    // Confirm returning to the very start of character creation.
+                    narrator.SelectBinary($"Go back to character creation for {player1.Name}? Y/n");
+                    switch (narrator.Choice)
+                    {
+                        default:
+                            break;
+                        case Narrator.Choices.Yes:
+                            player1.Name = null;
+                            player1.Class = Player.PlayerClass.None;
+                            Console.Clear();
+                            goto P1CharacterCreation;
+                        case Narrator.Choices.No:
+                        case Narrator.Choices.Back:
+                            narrator.Choice = Narrator.Choices.Reset;
+                            Console.Clear();
+                            goto P2CharacterCreation;
+                    }
                 }
 
-            PreMatchSummary:
-
                 Match match = new Match(player1, player2, narrator);
+
+            PreMatchSummary:
                 Console.Clear();
                 do
                 {
                     Console.WriteLine(match.DrawRoundHeader());
                 }
                 while (!narrator.SelectBinary("\nAre you ready to duel like you've never duelled before?\n\n1. Yes, let's do this!\n2. No, let's start over."));
-                if (narrator.Choice == Narrator.Choices.Back || narrator.Choice == Narrator.Choices.No)
+                if (narrator.Choice != Narrator.Choices.Yes)
                 {
-                    Console.Clear();
-                    goto CharacterCreation;
+                    // Confirm returning to the very start of character creation.
+                    narrator.SelectBinary($"\nAre you sure you want to start over? Y/n");
+                    if (narrator.Choice == Narrator.Choices.Yes)
+                    {
+                        Console.Clear();
+                        player1.Name = null;
+                        player2.Name = null;
+                        player1.Class = Player.PlayerClass.None;
+                        player2.Class = Player.PlayerClass.None;
+                        match = null;
+                        goto P1CharacterCreation;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        goto PreMatchSummary;
+                    }
+                    
                 }
                 
                 Console.Clear();
