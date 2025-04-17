@@ -23,8 +23,8 @@ namespace DuelingDuelsters.Classes
 
         static void Main(string[] args)
         {
-            // Keep here for now to preserve other menus.
-            ConsoleKeyInfo key;
+            // UTF-8 encoding to support the character glyphs
+            Console.OutputEncoding = Encoding.UTF8;
 
             // Narrator to handle the menus and input.
             Narrator narrator = new Narrator();

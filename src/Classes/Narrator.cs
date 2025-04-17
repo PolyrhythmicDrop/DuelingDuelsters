@@ -67,7 +67,7 @@ namespace DuelingDuelsters.Classes
 
         private const string createCharacter = "*** PLAYER {0}, CREATE YOUR CHARACTER *** \n";
         private const string selectName = "\nEnter your character's name:\n";
-        private const string selectClass = "Welcome, {0}.\n\nPlease enter your character's class:\n\n1. {1}\n2. {2}\n3. {3}\n4. {4}\n5. {5}";
+        private const string selectClass = "Welcome, {0}.\n\nPlease enter your character's class:\n\n1. {1}\n2. {2}\n3. {3}\n4. {4}\n5. {5}\n6. {6}";
         private const string confirmCharacter = "\nLet's make sure you got everything right. Here's your character:\n\n{0}\n";
         private const string satisfied = "\nAre you satisfied with {0}? Y/n";
         private const string welcomePlayer = "Welcome our newest Duelster:\n\n~~ {0} the {1} ~~\n";
@@ -78,23 +78,24 @@ namespace DuelingDuelsters.Classes
         /// <summary>
         /// Description for Normie character class
         /// </summary>
-        private const string normieDescription = "Normie\n------\nAbsolutely average at absolutely everything.\nIf Mario were in this game, he would be a Normie.\n";
+        private const string normieDescription = "Normie\n------\n ♡ ☒☒☒☐☐ | ⛨  ☒☒☒☐☐ | ⚔  ☒☒☒☐☐ | 👟 ☒☒☒☐☐ \nIf Mario were in this game, he would be a Normie.\n";
         /// <summary>
         /// Description for Fridge character class
         /// </summary>
-        private const string fridgeDescription = "Fridge\n------\nHigh defense, low attack, average speed.\nCan take whatever you throw at them, but can have trouble dishing it out.\n";
+        private const string fridgeDescription = "Fridge\n------\n ♡ ☒☒☒☒☒ | ⛨  ☒☒☒☒☒ | ⚔  ☒☐☐☐☐ | 👟 ☒☐☐☐☐ \nCan take whatever you throw at them, but can have trouble dishing it out.\n";
         /// <summary>
         /// Description for Leeroy character class
         /// </summary>
-        private const string leeroyDescription = "Leeroy\n------\nHigh attack, low defense, average speed.\nExpert at bashin', smashin', and crashin', not so much at plannin'.\n";
+        private const string leeroyDescription = "Leeroy\n------\n ♡ ☒☒☒☐☐ | ⛨  ☒☐☐☐☐ | ⚔  ☒☒☒☒☒ | 👟 ☒☒☒☐☐ \nExpert at bashin', smashin', and crashin', not so much at plannin'.\n";
         /// <summary>
         /// Description for Gymnast character class
         /// </summary>
-        private const string gymnastDescription = "Gymnast\n-------\nHigh speed, low defense, average attack.\nNimble and acrobatic, the Gymnast can dance on the head of a pin, and also skewer their opponents with it.\n";
+        private const string gymnastDescription = "Gymnast\n-------\n ♡ ☒☒☒☐☐ | ⛨  ☒☒☐☐☐ | ⚔  ☒☒☐☐☐ | 👟 ☒☒☒☒☒ \nNimble and acrobatic, the Gymnast can dance on the head of a pin and also skewer their opponents with it.\n";
         /// <summary>
         /// Description for Medic character class
         /// </summary>
-        private const string medicDescription = "Medic\n-----\nHigh health, slightly lower attack, good speed, and average defense.\nThe only class that can heal, the Medic is durable and doesn't care one whit about the Hippocratic Oath.\n";
+        private const string medicDescription = "Medic\n-----\n ♡ ☒☒☒☒☐ | ⛨  ☒☒☒☐☐ | ⚔  ☒☒☒☐☐ | 👟 ☒☒☐☐☐ | ✜ \nThe only class that can heal, the Medic is durable and doesn't care one whit about the Hippocratic Oath.\n";
+        private const string randomDescription = "Random\n ♡ ????? | ⛨  ????? | ⚔  ????? | 👟 ????? \nRoll the dice and let the gods determine your fate.";
 
         // ** In-Round Menu Strings ** //
 
@@ -396,7 +397,7 @@ namespace DuelingDuelsters.Classes
                 // User is prompted to enter their character's class.
                 do
                 {
-                    Console.WriteLine(string.Format(selectClass, player.Name, normieDescription, fridgeDescription, leeroyDescription, gymnastDescription, medicDescription));
+                    Console.WriteLine(string.Format(selectClass, player.Name, normieDescription, fridgeDescription, leeroyDescription, gymnastDescription, medicDescription, randomDescription));
                 }
                 while (!SetPlayerClass(player));
                 // If player enters Escape during class selection, return to name entry.
@@ -526,7 +527,7 @@ namespace DuelingDuelsters.Classes
                         player.MaxHealth = 20;
                         player.Health = player.MaxHealth;
                         player.Attack = 10;
-                        player.Defense = 10;
+                        player.Defense = 8;
                         player.Speed = 5;
                         break;
                     }
@@ -538,7 +539,7 @@ namespace DuelingDuelsters.Classes
                         player.Health = player.MaxHealth;
                         player.Attack = 7;
                         player.Defense = 15;
-                        player.Speed = 5;
+                        player.Speed = 3;
                         break;
 
                     }
@@ -546,7 +547,7 @@ namespace DuelingDuelsters.Classes
                 case ConsoleKey.NumPad3:
                     {
                         player.Class = Player.PlayerClass.Leeroy;
-                        player.MaxHealth = 23;
+                        player.MaxHealth = 20;
                         player.Health = player.MaxHealth;
                         player.Attack = 15;
                         player.Defense = 5;
@@ -573,7 +574,14 @@ namespace DuelingDuelsters.Classes
                         player.Health = player.MaxHealth;
                         player.Attack = 9;
                         player.Defense = 8;
-                        player.Speed = 6;
+                        player.Speed = 4;
+                        break;
+                    }
+                case ConsoleKey.D6:
+                case ConsoleKey.NumPad6:
+                    // Randomize character choice.
+                    {
+                        RandomSetPlayerClass(player);
                         break;
                     }
                 // Start over
@@ -610,6 +618,68 @@ namespace DuelingDuelsters.Classes
             }
 
             return success;
+        }
+
+        private void RandomSetPlayerClass(Player player)
+        {
+            Random rand = new();
+            int choice = rand.Next(1, 5);
+            switch (choice)
+            {
+                case 1:
+                    {
+                        player.Class = Player.PlayerClass.Normie;
+                        player.MaxHealth = 20;
+                        player.Health = player.MaxHealth;
+                        player.Attack = 10;
+                        player.Defense = 8;
+                        player.Speed = 5;
+                        break;
+                    }
+                case 2:
+                    {
+                        player.Class = Player.PlayerClass.Fridge;
+                        player.MaxHealth = 30;
+                        player.Health = player.MaxHealth;
+                        player.Attack = 7;
+                        player.Defense = 15;
+                        player.Speed = 3;
+                        break;
+
+                    }
+                case 3:
+                    {
+                        player.Class = Player.PlayerClass.Leeroy;
+                        player.MaxHealth = 20;
+                        player.Health = player.MaxHealth;
+                        player.Attack = 15;
+                        player.Defense = 5;
+                        player.Speed = 6;
+                        break;
+                    }
+                case 4:
+                    {
+                        player.Class = Player.PlayerClass.Gymnast;
+                        player.MaxHealth = 20;
+                        player.Health = player.MaxHealth;
+                        player.Attack = 8;
+                        player.Defense = 6;
+                        player.Speed = 10;
+                        break;
+                    }
+
+                case 5:
+                    {
+                        player.Class = Player.PlayerClass.Medic;
+                        player.MaxHealth = 25;
+                        player.Health = player.MaxHealth;
+                        player.Attack = 9;
+                        player.Defense = 8;
+                        player.Speed = 4;
+                        break;
+                    }
+            }
+
         }
         public bool RunPlayerCountMenu(out Player.PlayerBrain? brain)
         {
