@@ -6,20 +6,28 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Platforms>AnyCPU;x64;x86</Platforms>
-    <StartupObject>DuelingDuelsters.GameLoop</StartupObject>
+    <StartupObject>DuelingDuelsters.Classes.GameLoop</StartupObject>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="banner.txt" />
+    <None Remove="res/banner.txt" />
+	<None Remove="res/arena-entrance.txt" />
     <None Remove="README.md" />
+	<None Remove="res/action-help.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="banner.txt">
+    <EmbeddedResource Include="res/banner.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="res/arena-entrance.txt">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+	<EmbeddedResource Include ="res/action-help.txt">
+		<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	</EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
