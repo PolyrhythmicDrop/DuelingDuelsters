@@ -321,6 +321,11 @@ namespace DuelingDuelsters.Classes
             return narration;
         }
 
+        /// <summary>
+        /// Draws the title screen menu and processes user input. 
+        /// </summary>
+        /// <returns><c>true</c> if the player made a valid selection. A <c>true</c> result also breaks the player out of the title menu loop.<br/>
+        /// <c>false</c> if the player did not make a valid selection. The title menu loop continues if <cref><c>RunTitleMenu()</c></cref> returns false.</returns>
         public bool RunTitleMenu()
         {
             bool success = false;
@@ -364,7 +369,6 @@ namespace DuelingDuelsters.Classes
                         break;
                     }
             }
-            Console.Clear();
             return success;
         }
 
@@ -781,7 +785,7 @@ namespace DuelingDuelsters.Classes
             string helpScreen = helpBuilder.ToString();
             if (helpScreen != null)
             {
-                GameLoop.GameState = State.HelpDisplay;
+                GameLoop.GameState = State.HelpScreen;
                 Console.WriteLine(helpScreen);
                 success = true;
             }
@@ -801,7 +805,6 @@ namespace DuelingDuelsters.Classes
         {
             Choice = Choices.Reset;
             bool success = false;
-            GameLoop.GameState = State.ActionSelect;
 
             if (player.Brain == Player.PlayerBrain.Human)
             {

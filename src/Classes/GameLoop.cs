@@ -6,59 +6,80 @@ using System.Xml.Serialization;
 
 namespace DuelingDuelsters.Classes
 {
+    /// <summary>
+    /// Available states of the game. The current game state affects the help screen shown when the user selects "Help".
+    /// </summary>
     public enum State
     {
+        /// <summary>
+        /// The game is in the title screen.
+        /// </summary>
         TitleScreen,
+        /// <summary>
+        /// The game is in the player count select menu. The player is choosing between single player and two player modes.
+        /// </summary>
         PlayerSelect,
+        /// <summary>
+        /// The game is in character creation. The player is selecting each character's name and class.
+        /// </summary>
         CharacterCreation,
+        /// <summary>
+        /// The game is in a match and the players are selecting their actions.
+        /// </summary>
         ActionSelect,
+        /// <summary>
+        /// The game is in a match and the outcome narration for the current game round is being displayed to the player(s).
+        /// </summary>
         OutcomeDisplay,
+        /// <summary>
+        /// The game is displaying the victor of the match.
+        /// </summary>
         VictoryScreen,
-        HelpDisplay
+        /// <summary>
+        /// The game is in a help screen.
+        /// </summary>
+        HelpScreen
     }
 
     
     
     internal static class GameLoop
     {
-        [SupportedOSPlatform("windows")]
-        internal static void AdjustConsoleWindow()
-        {
-            Console.SetBufferSize(Console.BufferWidth * 2, Console.BufferHeight * 2);
-            Console.SetWindowSize(Console.LargestWindowWidth / 2, Console.LargestWindowHeight / 2);
-            Console.Title = "Dueling Duelsters";
-        }
-
-
+        /// <summary>
+        /// The current state of the game.
+        /// </summary>
         public static State GameState;
 
         static void Main(string[] args)
         {
+            // Set initial variables:
+
             // UTF-8 encoding to support the character glyphs
             Console.OutputEncoding = Encoding.UTF8;
 
             // Narrator to handle the menus and input.
             Narrator narrator = new Narrator();
 
-            // Resize the console window to fit more text.
-            if (OperatingSystem.IsWindows())
-            { 
-                AdjustConsoleWindow(); 
-            }
+            // Create and assign the title banner.
+            string titleBanner = CreateTitleBanner();
 
             // Main game loop
             do
             {
+                // Label for the title screen.
             Title:
+
                 GameState = State.TitleScreen;
-                // Draw the title screen and create the initial narrator.
+
+                // Draw the title screen and enable input on the title menu.
                 do
                 {
-                    Console.WriteLine(DrawTitleScreen());
+                    Console.WriteLine(titleBanner);
                 }
                 while (!narrator.RunTitleMenu());
 
                 Console.Clear();
+
                 // Branch off into new game creation, help screen, or exit.
                 switch (narrator.Choice)
                 {
@@ -92,7 +113,7 @@ namespace DuelingDuelsters.Classes
 
                 do
                 {
-                    Console.WriteLine(DrawTitleScreen());
+                    Console.WriteLine(CreateTitleBanner());
                 }
                 while (!narrator.RunPlayerCountMenu(out nullableBrain));
 
@@ -235,9 +256,9 @@ namespace DuelingDuelsters.Classes
         }
 
         /// <summary>
-        /// Draws the title screen at the start of the game using a StringBuilder object.
+        /// Creates the title screen banner that is displayed at the start of the game.
         /// </summary>
-        static string DrawTitleScreen()
+        static private string CreateTitleBanner()
         {
             
             // Initial variables, including border, ASCII art, and spacing
@@ -268,7 +289,7 @@ namespace DuelingDuelsters.Classes
             StreamReader? streamReader = new StreamReader(stream);
 
             // Build the complete title screen string.
-            System.Text.StringBuilder titleBuilder = new System.Text.StringBuilder();
+            StringBuilder titleBuilder = new StringBuilder();
             // Top border
             titleBuilder.Append('*', width);
             titleBuilder.Append("\n");

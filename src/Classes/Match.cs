@@ -106,6 +106,8 @@ namespace DuelingDuelsters.Classes
         public void PlayRound()
         {
         P1ChooseAction:
+            // Change the state
+            GameLoop.GameState = State.ActionSelect;
             do
             {
                 Console.Clear();
@@ -633,6 +635,7 @@ namespace DuelingDuelsters.Classes
 
         public void DeclareVictor()
         {
+            GameLoop.GameState = State.VictoryScreen;
             // Set the victor
             string victor;
             if (_playerOne.Health == 0 && _playerTwo.Health > 0)
