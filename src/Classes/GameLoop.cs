@@ -1,8 +1,5 @@
 ﻿using System.Reflection;
-using System.Runtime.Versioning;
 using System.Text;
-using System.Xml;
-using System.Xml.Serialization;
 
 namespace DuelingDuelsters.Classes
 {
