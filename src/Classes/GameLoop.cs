@@ -187,7 +187,7 @@ namespace DuelingDuelsters.Classes
                 {
                     Console.WriteLine(match.DrawRoundHeader());
                 }
-                while (!narrator.SelectBinary("\nAre you ready to duel like you've never duelled before?\n\n1. Yes, let's do this!\n2. No, let's start over."));
+                while (!narrator.SelectBinary(Narrator.readyToDuel));
                 if (narrator.Choice != Narrator.Choices.Yes)
                 {
                     // Confirm returning to the very start of character creation.

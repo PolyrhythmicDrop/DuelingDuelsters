@@ -90,6 +90,11 @@ namespace DuelingDuelsters.Classes
         private const string medicDescription = "Medic\n-----\n ♡ ☒☒☒☒☐ | ⛨  ☒☒☒☐☐ | ⚔  ☒☒☒☐☐ | 👟 ☒☒☐☐☐ | ✜ \nThe only class that can heal, the Medic is durable and doesn't care one whit about the Hippocratic Oath.\n";
         private const string randomDescription = "Random\n ♡ ????? | ⛨  ????? | ⚔  ????? | 👟 ????? \nRoll the dice and let the gods determine your fate.";
 
+        /// <summary>
+        /// Confirmation that you are, in fact, ready to duel like your life depends on it (spoiler: it does).
+        /// </summary>
+        internal const string readyToDuel = "\nAre you ready to duel like you've never duelled before?\n\n1. Yes, let's do this!\n2.No, let's start over.";
+
         // ** In-Round Menu Strings ** //
 
         private const string selectDirection = "Which direction?\n1. Left\n2. Right\n";
