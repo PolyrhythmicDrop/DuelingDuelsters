@@ -37,7 +37,7 @@ namespace DuelingDuelsters.Classes
         // ** String Constants ** //
 
         // ~File Paths~ //
-        private const string readme = "DuelingDuelsters.README.md";
+        private const string titleHelp = "DuelingDuelsters.res.title-help.txt";
         private const string arenaPic = "DuelingDuelsters.res.arena-entrance.txt";
         private const string actionHelp = "DuelingDuelsters.res.action-help.txt";
 
@@ -740,7 +740,7 @@ namespace DuelingDuelsters.Classes
                     default:
                         throw new ArgumentNullException("state", "State cannot be null!");
                     case State.TitleScreen:
-                        filePath = readme;
+                        filePath = titleHelp;
                         break;
                     case State.ActionSelect:
                         filePath = actionHelp;

@@ -11,29 +11,26 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="res/banner.txt" />
-	<None Remove="res/arena-entrance.txt" />
-    <None Remove="README.md" />
-	<None Remove="res/action-help.txt" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="res/banner.txt" />
+		<None Remove="res/arena-entrance.txt" />
+		<None Remove="res/title-help.txt" />
+		<None Remove="res/action-help.txt" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="res/banner.txt">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="res/arena-entrance.txt">
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </EmbeddedResource>
-	<EmbeddedResource Include ="res/action-help.txt">
-		<CopyToOutputDirectory>Never</CopyToOutputDirectory>
-	</EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="README.md">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="res/banner.txt">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="res/arena-entrance.txt">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="res/title-help.txt">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include ="res/action-help.txt">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</EmbeddedResource>
+	</ItemGroup>
 
 </Project>

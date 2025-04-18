@@ -37,8 +37,6 @@ namespace DuelingDuelsters.Classes
         /// </summary>
         HelpScreen
     }
-
-    
     
     internal static class GameLoop
     {
