@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
@@ -16,8 +17,18 @@ namespace DuelingDuelsters.Classes
         HelpDisplay
     }
 
+    
+    
     internal static class GameLoop
     {
+        [SupportedOSPlatform("windows")]
+        internal static void AdjustConsoleWindow()
+        {
+            Console.SetBufferSize(Console.BufferWidth * 2, Console.BufferHeight * 2);
+            Console.SetWindowSize(Console.LargestWindowWidth / 2, Console.LargestWindowHeight / 2);
+            Console.Title = "Dueling Duelsters";
+        }
+
 
         public static State GameState;
 
@@ -28,6 +39,12 @@ namespace DuelingDuelsters.Classes
 
             // Narrator to handle the menus and input.
             Narrator narrator = new Narrator();
+
+            // Resize the console window to fit more text.
+            if (OperatingSystem.IsWindows())
+            { 
+                AdjustConsoleWindow(); 
+            }
 
             // Main game loop
             do
@@ -41,18 +58,22 @@ namespace DuelingDuelsters.Classes
                 }
                 while (!narrator.RunTitleMenu());
 
+                Console.Clear();
                 // Branch off into new game creation, help screen, or exit.
                 switch (narrator.Choice)
                 {
                     default:
+                        Console.Clear();
                         goto Title;
                     case Narrator.Choices.NewGame:
                     {
+                        Console.Clear();
                         break;
                     }
                     case Narrator.Choices.Help:
                     {
-                        while (!narrator.RunHelpScreen(GameState));
+                        Console.Clear();
+                        while (!narrator.RunHelpScreen());
                         Console.Clear();
                         goto Title;
                     }
@@ -63,8 +84,8 @@ namespace DuelingDuelsters.Classes
                     }
                 }
 
+            // Select single player or two player mode.
             PlayerCountSelect:
-                // Select single player or two player mode.
                 Player.PlayerBrain? nullableBrain;
                 Player.PlayerBrain brain;
                 GameState = State.PlayerSelect;
@@ -90,7 +111,7 @@ namespace DuelingDuelsters.Classes
                     goto Title;
                 }
 
-                // Ready the players    
+                // Create the Player objects and set their brain to human or computer    
                 Player player1 = new Player(Player.PlayerBrain.Human);
                 Player player2 = new Player(brain);
                 Console.Clear();

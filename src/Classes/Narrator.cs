@@ -67,7 +67,7 @@ namespace DuelingDuelsters.Classes
 
         private const string createCharacter = "*** PLAYER {0}, CREATE YOUR CHARACTER *** \n";
         private const string selectName = "\nEnter your character's name:\n";
-        private const string selectClass = "Welcome, {0}.\n\nPlease enter your character's class:\n\n1. {1}\n2. {2}\n3. {3}\n4. {4}\n5. {5}\n6. {6}";
+        private const string selectClass = "Welcome, {0}.\n\nSelect your class:\n\n1. {1}\n2. {2}\n3. {3}\n4. {4}\n5. {5}\n6. {6}";
         private const string confirmCharacter = "\nLet's make sure you got everything right. Here's your character:\n\n{0}\n";
         private const string satisfied = "\nAre you satisfied with {0}? Y/n";
         private const string welcomePlayer = "Welcome our newest Duelster:\n\n~~ {0} the {1} ~~\n";
@@ -339,7 +339,6 @@ namespace DuelingDuelsters.Classes
                 case ConsoleKey.NumPad1:
                     {
                         Choice = Choices.NewGame;
-                        Console.Clear();
                         success = true;
                         break;
                     }
@@ -726,17 +725,15 @@ namespace DuelingDuelsters.Classes
             return success;
         }
 
-        public bool RunHelpScreen(State state)
+        public bool RunHelpScreen()
         {
             bool success = false;
             string? filePath = null;
 
-            GameLoop.GameState = State.HelpDisplay;
-
             // Set the file path to use from the game's state.
             try
             {
-                switch (state)
+                switch (GameLoop.GameState)
                 {
                     default:
                         throw new ArgumentNullException("state", "State cannot be null!");
@@ -784,6 +781,7 @@ namespace DuelingDuelsters.Classes
             string helpScreen = helpBuilder.ToString();
             if (helpScreen != null)
             {
+                GameLoop.GameState = State.HelpDisplay;
                 Console.WriteLine(helpScreen);
                 success = true;
             }
@@ -834,7 +832,6 @@ namespace DuelingDuelsters.Classes
         {
             bool success = false;
 
-        ChooseAction:
             // Player is prompted to choose an action
             Console.WriteLine(string.Format(selectAction, player.Name));
             Console.WriteLine(player.ActionList);
@@ -910,7 +907,7 @@ namespace DuelingDuelsters.Classes
                     if (player.Class != Player.PlayerClass.Medic)
                     {
                         Console.Clear();
-                        RunHelpScreen(GameLoop.GameState);
+                        RunHelpScreen();
                         UndoActionSelection(player, out success);
                         return success;
                     }
@@ -938,7 +935,7 @@ namespace DuelingDuelsters.Classes
                     if (player.Class == Player.PlayerClass.Medic)
                     {
                         Console.Clear();
-                        RunHelpScreen(GameLoop.GameState);
+                        RunHelpScreen();
                         UndoActionSelection(player, out success);
                         return success;
                     }
