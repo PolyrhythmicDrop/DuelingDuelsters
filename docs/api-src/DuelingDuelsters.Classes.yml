@@ -1,0 +1,196 @@
+### YamlMime:ManagedReference
+items:
+- uid: DuelingDuelsters.Classes
+  commentId: N:DuelingDuelsters.Classes
+  id: DuelingDuelsters.Classes
+  children:
+  - DuelingDuelsters.Classes.GameLoop
+  - DuelingDuelsters.Classes.Match
+  - DuelingDuelsters.Classes.Match.Outcome
+  - DuelingDuelsters.Classes.Narrator
+  - DuelingDuelsters.Classes.Narrator.Choices
+  - DuelingDuelsters.Classes.Player
+  - DuelingDuelsters.Classes.Player.Action
+  - DuelingDuelsters.Classes.Player.PlayerBrain
+  - DuelingDuelsters.Classes.Player.PlayerClass
+  - DuelingDuelsters.Classes.State
+  langs:
+  - csharp
+  - vb
+  name: DuelingDuelsters.Classes
+  nameWithType: DuelingDuelsters.Classes
+  fullName: DuelingDuelsters.Classes
+  type: Namespace
+  assemblies:
+  - DuelingDuelsters
+references:
+- uid: DuelingDuelsters.Classes.State
+  commentId: T:DuelingDuelsters.Classes.State
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.State.html
+  name: State
+  nameWithType: State
+  fullName: DuelingDuelsters.Classes.State
+- uid: DuelingDuelsters.Classes.GameLoop
+  commentId: T:DuelingDuelsters.Classes.GameLoop
+  href: DuelingDuelsters.Classes.GameLoop.html
+  name: GameLoop
+  nameWithType: GameLoop
+  fullName: DuelingDuelsters.Classes.GameLoop
+- uid: DuelingDuelsters.Classes.Match
+  commentId: T:DuelingDuelsters.Classes.Match
+  href: DuelingDuelsters.Classes.Match.html
+  name: Match
+  nameWithType: Match
+  fullName: DuelingDuelsters.Classes.Match
+- uid: DuelingDuelsters.Classes.Match.Outcome
+  commentId: T:DuelingDuelsters.Classes.Match.Outcome
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Match.html
+  name: Match.Outcome
+  nameWithType: Match.Outcome
+  fullName: DuelingDuelsters.Classes.Match.Outcome
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Match
+    name: Match
+    href: DuelingDuelsters.Classes.Match.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Match.Outcome
+    name: Outcome
+    href: DuelingDuelsters.Classes.Match.Outcome.html
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Match
+    name: Match
+    href: DuelingDuelsters.Classes.Match.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Match.Outcome
+    name: Outcome
+    href: DuelingDuelsters.Classes.Match.Outcome.html
+- uid: DuelingDuelsters.Classes.Narrator
+  commentId: T:DuelingDuelsters.Classes.Narrator
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Narrator.html
+  name: Narrator
+  nameWithType: Narrator
+  fullName: DuelingDuelsters.Classes.Narrator
+- uid: DuelingDuelsters.Classes.Narrator.Choices
+  commentId: T:DuelingDuelsters.Classes.Narrator.Choices
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Narrator.html
+  name: Narrator.Choices
+  nameWithType: Narrator.Choices
+  fullName: DuelingDuelsters.Classes.Narrator.Choices
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Narrator
+    name: Narrator
+    href: DuelingDuelsters.Classes.Narrator.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Narrator.Choices
+    name: Choices
+    href: DuelingDuelsters.Classes.Narrator.Choices.html
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Narrator
+    name: Narrator
+    href: DuelingDuelsters.Classes.Narrator.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Narrator.Choices
+    name: Choices
+    href: DuelingDuelsters.Classes.Narrator.Choices.html
+- uid: DuelingDuelsters.Classes.Player
+  commentId: T:DuelingDuelsters.Classes.Player
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Player.html
+  name: Player
+  nameWithType: Player
+  fullName: DuelingDuelsters.Classes.Player
+- uid: DuelingDuelsters.Classes.Player.PlayerClass
+  commentId: T:DuelingDuelsters.Classes.Player.PlayerClass
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Player.html
+  name: Player.PlayerClass
+  nameWithType: Player.PlayerClass
+  fullName: DuelingDuelsters.Classes.Player.PlayerClass
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Player.PlayerClass
+    name: PlayerClass
+    href: DuelingDuelsters.Classes.Player.PlayerClass.html
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Player.PlayerClass
+    name: PlayerClass
+    href: DuelingDuelsters.Classes.Player.PlayerClass.html
+- uid: DuelingDuelsters.Classes.Player.PlayerBrain
+  commentId: T:DuelingDuelsters.Classes.Player.PlayerBrain
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Player.html
+  name: Player.PlayerBrain
+  nameWithType: Player.PlayerBrain
+  fullName: DuelingDuelsters.Classes.Player.PlayerBrain
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Player.PlayerBrain
+    name: PlayerBrain
+    href: DuelingDuelsters.Classes.Player.PlayerBrain.html
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Player.PlayerBrain
+    name: PlayerBrain
+    href: DuelingDuelsters.Classes.Player.PlayerBrain.html
+- uid: DuelingDuelsters.Classes.Player.Action
+  commentId: T:DuelingDuelsters.Classes.Player.Action
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Player.html
+  name: Player.Action
+  nameWithType: Player.Action
+  fullName: DuelingDuelsters.Classes.Player.Action
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Player.Action
+    name: Action
+    href: DuelingDuelsters.Classes.Player.Action.html
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Player.Action
+    name: Action
+    href: DuelingDuelsters.Classes.Player.Action.html
+- uid: DuelingDuelsters.Classes
+  commentId: N:DuelingDuelsters.Classes
+  href: DuelingDuelsters.html
+  name: DuelingDuelsters.Classes
+  nameWithType: DuelingDuelsters.Classes
+  fullName: DuelingDuelsters.Classes
+  spec.csharp:
+  - uid: DuelingDuelsters
+    name: DuelingDuelsters
+    href: DuelingDuelsters.html
+  - name: .
+  - uid: DuelingDuelsters.Classes
+    name: Classes
+    href: DuelingDuelsters.Classes.html
+  spec.vb:
+  - uid: DuelingDuelsters
+    name: DuelingDuelsters
+    href: DuelingDuelsters.html
+  - name: .
+  - uid: DuelingDuelsters.Classes
+    name: Classes
+    href: DuelingDuelsters.Classes.html

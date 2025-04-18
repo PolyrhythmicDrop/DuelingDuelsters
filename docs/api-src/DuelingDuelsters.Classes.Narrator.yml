@@ -1,0 +1,2879 @@
+### YamlMime:ManagedReference
+items:
+- uid: DuelingDuelsters.Classes.Narrator
+  commentId: T:DuelingDuelsters.Classes.Narrator
+  id: Narrator
+  parent: DuelingDuelsters.Classes
+  children:
+  - DuelingDuelsters.Classes.Narrator.Choice
+  - DuelingDuelsters.Classes.Narrator.ComputerActionSelect(DuelingDuelsters.Classes.Player)
+  - DuelingDuelsters.Classes.Narrator.DrawArena
+  - DuelingDuelsters.Classes.Narrator.GetOutcomeNarration(DuelingDuelsters.Classes.Match.Outcome,System.String,System.String)
+  - DuelingDuelsters.Classes.Narrator.GetPlayerActionNarration(DuelingDuelsters.Classes.Player)
+  - DuelingDuelsters.Classes.Narrator.HumanActionSelect(DuelingDuelsters.Classes.Player)
+  - DuelingDuelsters.Classes.Narrator.Key
+  - DuelingDuelsters.Classes.Narrator.KeyInfo
+  - DuelingDuelsters.Classes.Narrator.PressAnyKey
+  - DuelingDuelsters.Classes.Narrator.RandomSetPlayerClass(DuelingDuelsters.Classes.Player)
+  - DuelingDuelsters.Classes.Narrator.ReadLineWithCancel
+  - DuelingDuelsters.Classes.Narrator.RunCharacterCreation(DuelingDuelsters.Classes.Player,System.Int32)
+  - DuelingDuelsters.Classes.Narrator.RunHelpScreen
+  - DuelingDuelsters.Classes.Narrator.RunPlayerActionSelect(DuelingDuelsters.Classes.Player)
+  - DuelingDuelsters.Classes.Narrator.RunPlayerCountMenu(System.Nullable{DuelingDuelsters.Classes.Player.PlayerBrain}@)
+  - DuelingDuelsters.Classes.Narrator.RunTitleMenu
+  - DuelingDuelsters.Classes.Narrator.SelectBinary(System.String)
+  - DuelingDuelsters.Classes.Narrator.SetPlayerClass(DuelingDuelsters.Classes.Player)
+  - DuelingDuelsters.Classes.Narrator.SetPlayerName(DuelingDuelsters.Classes.Player)
+  - DuelingDuelsters.Classes.Narrator.UndoActionSelection(DuelingDuelsters.Classes.Player,System.Boolean@)
+  - DuelingDuelsters.Classes.Narrator._keyInfo
+  - DuelingDuelsters.Classes.Narrator.actionHelp
+  - DuelingDuelsters.Classes.Narrator.arenaPic
+  - DuelingDuelsters.Classes.Narrator.blocked
+  - DuelingDuelsters.Classes.Narrator.bothBlock
+  - DuelingDuelsters.Classes.Narrator.bothHit
+  - DuelingDuelsters.Classes.Narrator.confirmAction
+  - DuelingDuelsters.Classes.Narrator.confirmCharacter
+  - DuelingDuelsters.Classes.Narrator.createCharacter
+  - DuelingDuelsters.Classes.Narrator.declareVictor
+  - DuelingDuelsters.Classes.Narrator.dodgeBlock
+  - DuelingDuelsters.Classes.Narrator.dodgeLeft
+  - DuelingDuelsters.Classes.Narrator.dodgeRight
+  - DuelingDuelsters.Classes.Narrator.dodged
+  - DuelingDuelsters.Classes.Narrator.doubleDodge
+  - DuelingDuelsters.Classes.Narrator.doubleFailedHeal
+  - DuelingDuelsters.Classes.Narrator.doubleHeal
+  - DuelingDuelsters.Classes.Narrator.enterArena
+  - DuelingDuelsters.Classes.Narrator.exitGame
+  - DuelingDuelsters.Classes.Narrator.failedBlock
+  - DuelingDuelsters.Classes.Narrator.failedCounter
+  - DuelingDuelsters.Classes.Narrator.failedDodge
+  - DuelingDuelsters.Classes.Narrator.failedDodgeBlock
+  - DuelingDuelsters.Classes.Narrator.failedDoubleHeal
+  - DuelingDuelsters.Classes.Narrator.failedHeal
+  - DuelingDuelsters.Classes.Narrator.failedHealAndSwing
+  - DuelingDuelsters.Classes.Narrator.failedHealandDefend
+  - DuelingDuelsters.Classes.Narrator.fridgeDescription
+  - DuelingDuelsters.Classes.Narrator.guardLeft
+  - DuelingDuelsters.Classes.Narrator.guardRight
+  - DuelingDuelsters.Classes.Narrator.gymnastDescription
+  - DuelingDuelsters.Classes.Narrator.heal
+  - DuelingDuelsters.Classes.Narrator.healAndSwing
+  - DuelingDuelsters.Classes.Narrator.healCounter
+  - DuelingDuelsters.Classes.Narrator.healDodge
+  - DuelingDuelsters.Classes.Narrator.help
+  - DuelingDuelsters.Classes.Narrator.leeroyDescription
+  - DuelingDuelsters.Classes.Narrator.medicDescription
+  - DuelingDuelsters.Classes.Narrator.newGame
+  - DuelingDuelsters.Classes.Narrator.noAction
+  - DuelingDuelsters.Classes.Narrator.normieDescription
+  - DuelingDuelsters.Classes.Narrator.postMatchOptions
+  - DuelingDuelsters.Classes.Narrator.pressAnyKey
+  - DuelingDuelsters.Classes.Narrator.randomDescription
+  - DuelingDuelsters.Classes.Narrator.readme
+  - DuelingDuelsters.Classes.Narrator.readyToDuel
+  - DuelingDuelsters.Classes.Narrator.returnTitle
+  - DuelingDuelsters.Classes.Narrator.satisfied
+  - DuelingDuelsters.Classes.Narrator.selectAction
+  - DuelingDuelsters.Classes.Narrator.selectClass
+  - DuelingDuelsters.Classes.Narrator.selectDirection
+  - DuelingDuelsters.Classes.Narrator.selectName
+  - DuelingDuelsters.Classes.Narrator.singlePlayer
+  - DuelingDuelsters.Classes.Narrator.swingLeft
+  - DuelingDuelsters.Classes.Narrator.swingRight
+  - DuelingDuelsters.Classes.Narrator.swordClash
+  - DuelingDuelsters.Classes.Narrator.twoPlayer
+  - DuelingDuelsters.Classes.Narrator.uneventfulHeal
+  - DuelingDuelsters.Classes.Narrator.welcomePlayer
+  langs:
+  - csharp
+  - vb
+  name: Narrator
+  nameWithType: Narrator
+  fullName: DuelingDuelsters.Classes.Narrator
+  type: Class
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Narrator
+    path: src/Classes/Narrator.cs
+    startLine: 5
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: public class Narrator
+    content.vb: Public Class Narrator
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DuelingDuelsters.Classes.Narrator._keyInfo
+  commentId: F:DuelingDuelsters.Classes.Narrator._keyInfo
+  id: _keyInfo
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: _keyInfo
+  nameWithType: Narrator._keyInfo
+  fullName: DuelingDuelsters.Classes.Narrator._keyInfo
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: _keyInfo
+    path: src/Classes/Narrator.cs
+    startLine: 8
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private ConsoleKeyInfo _keyInfo
+    return:
+      type: System.ConsoleKeyInfo
+    content.vb: Private _keyInfo As ConsoleKeyInfo
+- uid: DuelingDuelsters.Classes.Narrator.KeyInfo
+  commentId: P:DuelingDuelsters.Classes.Narrator.KeyInfo
+  id: KeyInfo
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: KeyInfo
+  nameWithType: Narrator.KeyInfo
+  fullName: DuelingDuelsters.Classes.Narrator.KeyInfo
+  type: Property
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: KeyInfo
+    path: src/Classes/Narrator.cs
+    startLine: 9
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: public ConsoleKeyInfo KeyInfo { get; set; }
+    parameters: []
+    return:
+      type: System.ConsoleKeyInfo
+    content.vb: Public Property KeyInfo As ConsoleKeyInfo
+  overload: DuelingDuelsters.Classes.Narrator.KeyInfo*
+- uid: DuelingDuelsters.Classes.Narrator.Key
+  commentId: P:DuelingDuelsters.Classes.Narrator.Key
+  id: Key
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: Key
+  nameWithType: Narrator.Key
+  fullName: DuelingDuelsters.Classes.Narrator.Key
+  type: Property
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Key
+    path: src/Classes/Narrator.cs
+    startLine: 15
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: public ConsoleKey Key { get; }
+    parameters: []
+    return:
+      type: System.ConsoleKey
+    content.vb: Public ReadOnly Property Key As ConsoleKey
+  overload: DuelingDuelsters.Classes.Narrator.Key*
+- uid: DuelingDuelsters.Classes.Narrator.Choice
+  commentId: F:DuelingDuelsters.Classes.Narrator.Choice
+  id: Choice
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: Choice
+  nameWithType: Narrator.Choice
+  fullName: DuelingDuelsters.Classes.Narrator.Choice
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Choice
+    path: src/Classes/Narrator.cs
+    startLine: 34
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: public Narrator.Choices Choice
+    return:
+      type: DuelingDuelsters.Classes.Narrator.Choices
+    content.vb: Public Choice As Narrator.Choices
+- uid: DuelingDuelsters.Classes.Narrator.readme
+  commentId: F:DuelingDuelsters.Classes.Narrator.readme
+  id: readme
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: readme
+  nameWithType: Narrator.readme
+  fullName: DuelingDuelsters.Classes.Narrator.readme
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: readme
+    path: src/Classes/Narrator.cs
+    startLine: 39
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string readme = "DuelingDuelsters.README.md"
+    return:
+      type: System.String
+    content.vb: Private Const readme As String = "DuelingDuelsters.README.md"
+- uid: DuelingDuelsters.Classes.Narrator.arenaPic
+  commentId: F:DuelingDuelsters.Classes.Narrator.arenaPic
+  id: arenaPic
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: arenaPic
+  nameWithType: Narrator.arenaPic
+  fullName: DuelingDuelsters.Classes.Narrator.arenaPic
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: arenaPic
+    path: src/Classes/Narrator.cs
+    startLine: 40
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string arenaPic = "DuelingDuelsters.res.arena-entrance.txt"
+    return:
+      type: System.String
+    content.vb: Private Const arenaPic As String = "DuelingDuelsters.res.arena-entrance.txt"
+- uid: DuelingDuelsters.Classes.Narrator.actionHelp
+  commentId: F:DuelingDuelsters.Classes.Narrator.actionHelp
+  id: actionHelp
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: actionHelp
+  nameWithType: Narrator.actionHelp
+  fullName: DuelingDuelsters.Classes.Narrator.actionHelp
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: actionHelp
+    path: src/Classes/Narrator.cs
+    startLine: 41
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string actionHelp = "DuelingDuelsters.res.action-help.txt"
+    return:
+      type: System.String
+    content.vb: Private Const actionHelp As String = "DuelingDuelsters.res.action-help.txt"
+- uid: DuelingDuelsters.Classes.Narrator.newGame
+  commentId: F:DuelingDuelsters.Classes.Narrator.newGame
+  id: newGame
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: newGame
+  nameWithType: Narrator.newGame
+  fullName: DuelingDuelsters.Classes.Narrator.newGame
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: newGame
+    path: src/Classes/Narrator.cs
+    startLine: 45
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string newGame = "1. New Game\n"
+    return:
+      type: System.String
+    content.vb: Private Const newGame As String = "1. New Game" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.exitGame
+  commentId: F:DuelingDuelsters.Classes.Narrator.exitGame
+  id: exitGame
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: exitGame
+  nameWithType: Narrator.exitGame
+  fullName: DuelingDuelsters.Classes.Narrator.exitGame
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: exitGame
+    path: src/Classes/Narrator.cs
+    startLine: 46
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string exitGame = "2. Exit\n"
+    return:
+      type: System.String
+    content.vb: Private Const exitGame As String = "2. Exit" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.help
+  commentId: F:DuelingDuelsters.Classes.Narrator.help
+  id: help
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: help
+  nameWithType: Narrator.help
+  fullName: DuelingDuelsters.Classes.Narrator.help
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: help
+    path: src/Classes/Narrator.cs
+    startLine: 47
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string help = "3. Help\n"
+    return:
+      type: System.String
+    content.vb: Private Const help As String = "3. Help" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.pressAnyKey
+  commentId: F:DuelingDuelsters.Classes.Narrator.pressAnyKey
+  id: pressAnyKey
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: pressAnyKey
+  nameWithType: Narrator.pressAnyKey
+  fullName: DuelingDuelsters.Classes.Narrator.pressAnyKey
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: pressAnyKey
+    path: src/Classes/Narrator.cs
+    startLine: 50
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string pressAnyKey = "Press any key to continue..."
+    return:
+      type: System.String
+    content.vb: Private Const pressAnyKey As String = "Press any key to continue..."
+- uid: DuelingDuelsters.Classes.Narrator.singlePlayer
+  commentId: F:DuelingDuelsters.Classes.Narrator.singlePlayer
+  id: singlePlayer
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: singlePlayer
+  nameWithType: Narrator.singlePlayer
+  fullName: DuelingDuelsters.Classes.Narrator.singlePlayer
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: singlePlayer
+    path: src/Classes/Narrator.cs
+    startLine: 54
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string singlePlayer = "1. One Player\n"
+    return:
+      type: System.String
+    content.vb: Private Const singlePlayer As String = "1. One Player" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.twoPlayer
+  commentId: F:DuelingDuelsters.Classes.Narrator.twoPlayer
+  id: twoPlayer
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: twoPlayer
+  nameWithType: Narrator.twoPlayer
+  fullName: DuelingDuelsters.Classes.Narrator.twoPlayer
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: twoPlayer
+    path: src/Classes/Narrator.cs
+    startLine: 55
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string twoPlayer = "2. Two Players\n"
+    return:
+      type: System.String
+    content.vb: Private Const twoPlayer As String = "2. Two Players" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.returnTitle
+  commentId: F:DuelingDuelsters.Classes.Narrator.returnTitle
+  id: returnTitle
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: returnTitle
+  nameWithType: Narrator.returnTitle
+  fullName: DuelingDuelsters.Classes.Narrator.returnTitle
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: returnTitle
+    path: src/Classes/Narrator.cs
+    startLine: 56
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string returnTitle = "3. Back to Title\n"
+    return:
+      type: System.String
+    content.vb: Private Const returnTitle As String = "3. Back to Title" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.createCharacter
+  commentId: F:DuelingDuelsters.Classes.Narrator.createCharacter
+  id: createCharacter
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: createCharacter
+  nameWithType: Narrator.createCharacter
+  fullName: DuelingDuelsters.Classes.Narrator.createCharacter
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: createCharacter
+    path: src/Classes/Narrator.cs
+    startLine: 60
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string createCharacter = "*** PLAYER {0}, CREATE YOUR CHARACTER *** \n"
+    return:
+      type: System.String
+    content.vb: Private Const createCharacter As String = "*** PLAYER {0}, CREATE YOUR CHARACTER *** " & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.selectName
+  commentId: F:DuelingDuelsters.Classes.Narrator.selectName
+  id: selectName
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: selectName
+  nameWithType: Narrator.selectName
+  fullName: DuelingDuelsters.Classes.Narrator.selectName
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: selectName
+    path: src/Classes/Narrator.cs
+    startLine: 61
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string selectName = "\nEnter your character's name:\n"
+    return:
+      type: System.String
+    content.vb: Private Const selectName As String = vbLf & "Enter your character's name:" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.selectClass
+  commentId: F:DuelingDuelsters.Classes.Narrator.selectClass
+  id: selectClass
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: selectClass
+  nameWithType: Narrator.selectClass
+  fullName: DuelingDuelsters.Classes.Narrator.selectClass
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: selectClass
+    path: src/Classes/Narrator.cs
+    startLine: 62
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string selectClass = "Welcome, {0}.\n\nSelect your class:\n\n1. {1}\n2. {2}\n3. {3}\n4. {4}\n5. {5}\n6. {6}"
+    return:
+      type: System.String
+    content.vb: Private Const selectClass As String = "Welcome, {0}." & vbLf & vbLf & "Select your class:" & vbLf & vbLf & "1. {1}" & vbLf & "2. {2}" & vbLf & "3. {3}" & vbLf & "4. {4}" & vbLf & "5. {5}" & vbLf & "6. {6}"
+- uid: DuelingDuelsters.Classes.Narrator.confirmCharacter
+  commentId: F:DuelingDuelsters.Classes.Narrator.confirmCharacter
+  id: confirmCharacter
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: confirmCharacter
+  nameWithType: Narrator.confirmCharacter
+  fullName: DuelingDuelsters.Classes.Narrator.confirmCharacter
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: confirmCharacter
+    path: src/Classes/Narrator.cs
+    startLine: 63
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string confirmCharacter = "\nLet's make sure you got everything right. Here's your character:\n\n{0}\n"
+    return:
+      type: System.String
+    content.vb: Private Const confirmCharacter As String = vbLf & "Let's make sure you got everything right. Here's your character:" & vbLf & vbLf & "{0}" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.satisfied
+  commentId: F:DuelingDuelsters.Classes.Narrator.satisfied
+  id: satisfied
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: satisfied
+  nameWithType: Narrator.satisfied
+  fullName: DuelingDuelsters.Classes.Narrator.satisfied
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: satisfied
+    path: src/Classes/Narrator.cs
+    startLine: 64
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string satisfied = "\nAre you satisfied with {0}? Y/n"
+    return:
+      type: System.String
+    content.vb: Private Const satisfied As String = vbLf & "Are you satisfied with {0}? Y/n"
+- uid: DuelingDuelsters.Classes.Narrator.welcomePlayer
+  commentId: F:DuelingDuelsters.Classes.Narrator.welcomePlayer
+  id: welcomePlayer
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: welcomePlayer
+  nameWithType: Narrator.welcomePlayer
+  fullName: DuelingDuelsters.Classes.Narrator.welcomePlayer
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: welcomePlayer
+    path: src/Classes/Narrator.cs
+    startLine: 65
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string welcomePlayer = "Welcome our newest Duelster:\n\n~~ {0} the {1} ~~\n"
+    return:
+      type: System.String
+    content.vb: Private Const welcomePlayer As String = "Welcome our newest Duelster:" & vbLf & vbLf & "~~ {0} the {1} ~~" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.enterArena
+  commentId: F:DuelingDuelsters.Classes.Narrator.enterArena
+  id: enterArena
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: enterArena
+  nameWithType: Narrator.enterArena
+  fullName: DuelingDuelsters.Classes.Narrator.enterArena
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: enterArena
+    path: src/Classes/Narrator.cs
+    startLine: 66
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string enterArena = "{0} is entering the arena...\n"
+    return:
+      type: System.String
+    content.vb: Private Const enterArena As String = "{0} is entering the arena..." & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.normieDescription
+  commentId: F:DuelingDuelsters.Classes.Narrator.normieDescription
+  id: normieDescription
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: normieDescription
+  nameWithType: Narrator.normieDescription
+  fullName: DuelingDuelsters.Classes.Narrator.normieDescription
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: normieDescription
+    path: src/Classes/Narrator.cs
+    startLine: 73
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: Description for Normie character class
+  example: []
+  syntax:
+    content: "private const string normieDescription = \"Normie\\n------\\n ♡ ☒☒☒☐☐ | ⛨  ☒☒☒☐☐ | ⚔  ☒☒☒☐☐ | \U0001F45F ☒☒☒☐☐ \\nIf Mario were in this game, he would be a Normie.\\n\""
+    return:
+      type: System.String
+    content.vb: "Private Const normieDescription As String = \"Normie\" & vbLf & \"------\" & vbLf & \" ♡ ☒☒☒☐☐ | ⛨  ☒☒☒☐☐ | ⚔  ☒☒☒☐☐ | \U0001F45F ☒☒☒☐☐ \" & vbLf & \"If Mario were in this game, he would be a Normie.\" & vbLf"
+- uid: DuelingDuelsters.Classes.Narrator.fridgeDescription
+  commentId: F:DuelingDuelsters.Classes.Narrator.fridgeDescription
+  id: fridgeDescription
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: fridgeDescription
+  nameWithType: Narrator.fridgeDescription
+  fullName: DuelingDuelsters.Classes.Narrator.fridgeDescription
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: fridgeDescription
+    path: src/Classes/Narrator.cs
+    startLine: 77
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: Description for Fridge character class
+  example: []
+  syntax:
+    content: "private const string fridgeDescription = \"Fridge\\n------\\n ♡ ☒☒☒☒☒ | ⛨  ☒☒☒☒☒ | ⚔  ☒☐☐☐☐ | \U0001F45F ☒☐☐☐☐ \\nCan take whatever you throw at them, but can have trouble dishing it out.\\n\""
+    return:
+      type: System.String
+    content.vb: "Private Const fridgeDescription As String = \"Fridge\" & vbLf & \"------\" & vbLf & \" ♡ ☒☒☒☒☒ | ⛨  ☒☒☒☒☒ | ⚔  ☒☐☐☐☐ | \U0001F45F ☒☐☐☐☐ \" & vbLf & \"Can take whatever you throw at them, but can have trouble dishing it out.\" & vbLf"
+- uid: DuelingDuelsters.Classes.Narrator.leeroyDescription
+  commentId: F:DuelingDuelsters.Classes.Narrator.leeroyDescription
+  id: leeroyDescription
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: leeroyDescription
+  nameWithType: Narrator.leeroyDescription
+  fullName: DuelingDuelsters.Classes.Narrator.leeroyDescription
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: leeroyDescription
+    path: src/Classes/Narrator.cs
+    startLine: 81
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: Description for Leeroy character class
+  example: []
+  syntax:
+    content: "private const string leeroyDescription = \"Leeroy\\n------\\n ♡ ☒☒☒☐☐ | ⛨  ☒☐☐☐☐ | ⚔  ☒☒☒☒☒ | \U0001F45F ☒☒☒☐☐ \\nExpert at bashin', smashin', and crashin', not so much at plannin'.\\n\""
+    return:
+      type: System.String
+    content.vb: "Private Const leeroyDescription As String = \"Leeroy\" & vbLf & \"------\" & vbLf & \" ♡ ☒☒☒☐☐ | ⛨  ☒☐☐☐☐ | ⚔  ☒☒☒☒☒ | \U0001F45F ☒☒☒☐☐ \" & vbLf & \"Expert at bashin', smashin', and crashin', not so much at plannin'.\" & vbLf"
+- uid: DuelingDuelsters.Classes.Narrator.gymnastDescription
+  commentId: F:DuelingDuelsters.Classes.Narrator.gymnastDescription
+  id: gymnastDescription
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: gymnastDescription
+  nameWithType: Narrator.gymnastDescription
+  fullName: DuelingDuelsters.Classes.Narrator.gymnastDescription
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: gymnastDescription
+    path: src/Classes/Narrator.cs
+    startLine: 85
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: Description for Gymnast character class
+  example: []
+  syntax:
+    content: "private const string gymnastDescription = \"Gymnast\\n-------\\n ♡ ☒☒☒☐☐ | ⛨  ☒☒☐☐☐ | ⚔  ☒☒☐☐☐ | \U0001F45F ☒☒☒☒☒ \\nNimble and acrobatic, the Gymnast can dance on the head of a pin and also skewer their opponents with it.\\n\""
+    return:
+      type: System.String
+    content.vb: "Private Const gymnastDescription As String = \"Gymnast\" & vbLf & \"-------\" & vbLf & \" ♡ ☒☒☒☐☐ | ⛨  ☒☒☐☐☐ | ⚔  ☒☒☐☐☐ | \U0001F45F ☒☒☒☒☒ \" & vbLf & \"Nimble and acrobatic, the Gymnast can dance on the head of a pin and also skewer their opponents with it.\" & vbLf"
+- uid: DuelingDuelsters.Classes.Narrator.medicDescription
+  commentId: F:DuelingDuelsters.Classes.Narrator.medicDescription
+  id: medicDescription
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: medicDescription
+  nameWithType: Narrator.medicDescription
+  fullName: DuelingDuelsters.Classes.Narrator.medicDescription
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: medicDescription
+    path: src/Classes/Narrator.cs
+    startLine: 89
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: Description for Medic character class
+  example: []
+  syntax:
+    content: "private const string medicDescription = \"Medic\\n-----\\n ♡ ☒☒☒☒☐ | ⛨  ☒☒☒☐☐ | ⚔  ☒☒☒☐☐ | \U0001F45F ☒☒☐☐☐ | ✜ \\nThe only class that can heal, the Medic is durable and doesn't care one whit about the Hippocratic Oath.\\n\""
+    return:
+      type: System.String
+    content.vb: "Private Const medicDescription As String = \"Medic\" & vbLf & \"-----\" & vbLf & \" ♡ ☒☒☒☒☐ | ⛨  ☒☒☒☐☐ | ⚔  ☒☒☒☐☐ | \U0001F45F ☒☒☐☐☐ | ✜ \" & vbLf & \"The only class that can heal, the Medic is durable and doesn't care one whit about the Hippocratic Oath.\" & vbLf"
+- uid: DuelingDuelsters.Classes.Narrator.randomDescription
+  commentId: F:DuelingDuelsters.Classes.Narrator.randomDescription
+  id: randomDescription
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: randomDescription
+  nameWithType: Narrator.randomDescription
+  fullName: DuelingDuelsters.Classes.Narrator.randomDescription
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: randomDescription
+    path: src/Classes/Narrator.cs
+    startLine: 90
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: "private const string randomDescription = \"Random\\n ♡ ????? | ⛨  ????? | ⚔  ????? | \U0001F45F ????? \\nRoll the dice and let the gods determine your fate.\""
+    return:
+      type: System.String
+    content.vb: "Private Const randomDescription As String = \"Random\" & vbLf & \" ♡ ????? | ⛨  ????? | ⚔  ????? | \U0001F45F ????? \" & vbLf & \"Roll the dice and let the gods determine your fate.\""
+- uid: DuelingDuelsters.Classes.Narrator.readyToDuel
+  commentId: F:DuelingDuelsters.Classes.Narrator.readyToDuel
+  id: readyToDuel
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: readyToDuel
+  nameWithType: Narrator.readyToDuel
+  fullName: DuelingDuelsters.Classes.Narrator.readyToDuel
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: readyToDuel
+    path: src/Classes/Narrator.cs
+    startLine: 95
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: 'Confirmation that you are, in fact, ready to duel like your life depends on it (spoiler: it does).'
+  example: []
+  syntax:
+    content: internal const string readyToDuel = "\nAre you ready to duel like you've never duelled before?\n\n1. Yes, let's do this!\n2.No, let's start over."
+    return:
+      type: System.String
+    content.vb: Friend Const readyToDuel As String = vbLf & "Are you ready to duel like you've never duelled before?" & vbLf & vbLf & "1. Yes, let's do this!" & vbLf & "2.No, let's start over."
+- uid: DuelingDuelsters.Classes.Narrator.selectDirection
+  commentId: F:DuelingDuelsters.Classes.Narrator.selectDirection
+  id: selectDirection
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: selectDirection
+  nameWithType: Narrator.selectDirection
+  fullName: DuelingDuelsters.Classes.Narrator.selectDirection
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: selectDirection
+    path: src/Classes/Narrator.cs
+    startLine: 99
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string selectDirection = "Which direction?\n1. Left\n2. Right\n"
+    return:
+      type: System.String
+    content.vb: Private Const selectDirection As String = "Which direction?" & vbLf & "1. Left" & vbLf & "2. Right" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.selectAction
+  commentId: F:DuelingDuelsters.Classes.Narrator.selectAction
+  id: selectAction
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: selectAction
+  nameWithType: Narrator.selectAction
+  fullName: DuelingDuelsters.Classes.Narrator.selectAction
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: selectAction
+    path: src/Classes/Narrator.cs
+    startLine: 100
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string selectAction = "\n{0}, select an action:\n"
+    return:
+      type: System.String
+    content.vb: Private Const selectAction As String = vbLf & "{0}, select an action:" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.confirmAction
+  commentId: F:DuelingDuelsters.Classes.Narrator.confirmAction
+  id: confirmAction
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: confirmAction
+  nameWithType: Narrator.confirmAction
+  fullName: DuelingDuelsters.Classes.Narrator.confirmAction
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: confirmAction
+    path: src/Classes/Narrator.cs
+    startLine: 101
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string confirmAction = "Is this what you want to do? Y/n\n"
+    return:
+      type: System.String
+    content.vb: Private Const confirmAction As String = "Is this what you want to do? Y/n" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.swordClash
+  commentId: F:DuelingDuelsters.Classes.Narrator.swordClash
+  id: swordClash
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: swordClash
+  nameWithType: Narrator.swordClash
+  fullName: DuelingDuelsters.Classes.Narrator.swordClash
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: swordClash
+    path: src/Classes/Narrator.cs
+    startLine: 105
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string swordClash = "The swords of {0} and {1} clash, the sound of ringing steel echoing throughout the arena!\nThe two combatants eye each other over their crossed blades.\n\nIs this the start of an enemies-to-lovers romance? Or another chapter in a long tale of bitter rivalry?\n\n{0} and {1} part with a puff of dust and return to their ready stances.\n"
+    return:
+      type: System.String
+    content.vb: Private Const swordClash As String = "The swords of {0} and {1} clash, the sound of ringing steel echoing throughout the arena!" & vbLf & "The two combatants eye each other over their crossed blades." & vbLf & vbLf & "Is this the start of an enemies-to-lovers romance? Or another chapter in a long tale of bitter rivalry?" & vbLf & vbLf & "{0} and {1} part with a puff of dust and return to their ready stances." & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.bothHit
+  commentId: F:DuelingDuelsters.Classes.Narrator.bothHit
+  id: bothHit
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: bothHit
+  nameWithType: Narrator.bothHit
+  fullName: DuelingDuelsters.Classes.Narrator.bothHit
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: bothHit
+    path: src/Classes/Narrator.cs
+    startLine: 107
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string bothHit = "{0} and {1} slash each other at the same time, slicing through armor and egos!\n"
+    return:
+      type: System.String
+    content.vb: Private Const bothHit As String = "{0} and {1} slash each other at the same time, slicing through armor and egos!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.blocked
+  commentId: F:DuelingDuelsters.Classes.Narrator.blocked
+  id: blocked
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: blocked
+  nameWithType: Narrator.blocked
+  fullName: DuelingDuelsters.Classes.Narrator.blocked
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: blocked
+    path: src/Classes/Narrator.cs
+    startLine: 109
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string blocked = "{0} handily blocks {1}'s hardy blow!\n{1}'s arm shudders from the impact, staggering them!\n"
+    return:
+      type: System.String
+    content.vb: Private Const blocked As String = "{0} handily blocks {1}'s hardy blow!" & vbLf & "{1}'s arm shudders from the impact, staggering them!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.failedBlock
+  commentId: F:DuelingDuelsters.Classes.Narrator.failedBlock
+  id: failedBlock
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: failedBlock
+  nameWithType: Narrator.failedBlock
+  fullName: DuelingDuelsters.Classes.Narrator.failedBlock
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: failedBlock
+    path: src/Classes/Narrator.cs
+    startLine: 110
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string failedBlock = "{0}'s sword slices into {1}'s unguarded side!\n"
+    return:
+      type: System.String
+    content.vb: Private Const failedBlock As String = "{0}'s sword slices into {1}'s unguarded side!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.bothBlock
+  commentId: F:DuelingDuelsters.Classes.Narrator.bothBlock
+  id: bothBlock
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: bothBlock
+  nameWithType: Narrator.bothBlock
+  fullName: DuelingDuelsters.Classes.Narrator.bothBlock
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: bothBlock
+    path: src/Classes/Narrator.cs
+    startLine: 111
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string bothBlock = "{0} and {1} hide behind their shields, two turtles scared of the world outside their shells.\nMaybe they will find the courage to face each other in the next round!\n"
+    return:
+      type: System.String
+    content.vb: Private Const bothBlock As String = "{0} and {1} hide behind their shields, two turtles scared of the world outside their shells." & vbLf & "Maybe they will find the courage to face each other in the next round!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.failedDodge
+  commentId: F:DuelingDuelsters.Classes.Narrator.failedDodge
+  id: failedDodge
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: failedDodge
+  nameWithType: Narrator.failedDodge
+  fullName: DuelingDuelsters.Classes.Narrator.failedDodge
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: failedDodge
+    path: src/Classes/Narrator.cs
+    startLine: 112
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string failedDodge = "{0} tries to dodge directly into {1}'s attack!\nAn unfortunate blunder, the price of which {0} will pay in blood and shame!\n"
+    return:
+      type: System.String
+    content.vb: Private Const failedDodge As String = "{0} tries to dodge directly into {1}'s attack!" & vbLf & "An unfortunate blunder, the price of which {0} will pay in blood and shame!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.dodged
+  commentId: F:DuelingDuelsters.Classes.Narrator.dodged
+  id: dodged
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: dodged
+  nameWithType: Narrator.dodged
+  fullName: DuelingDuelsters.Classes.Narrator.dodged
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: dodged
+    path: src/Classes/Narrator.cs
+    startLine: 113
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string dodged = "{0} nimbly sidesteps {1}'s powerful attack!\n{0} uses their cat-like reflexes to mount a bewildering counterattack!\n"
+    return:
+      type: System.String
+    content.vb: Private Const dodged As String = "{0} nimbly sidesteps {1}'s powerful attack!" & vbLf & "{0} uses their cat-like reflexes to mount a bewildering counterattack!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.failedCounter
+  commentId: F:DuelingDuelsters.Classes.Narrator.failedCounter
+  id: failedCounter
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: failedCounter
+  nameWithType: Narrator.failedCounter
+  fullName: DuelingDuelsters.Classes.Narrator.failedCounter
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: failedCounter
+    path: src/Classes/Narrator.cs
+    startLine: 114
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string failedCounter = "{0} whiffs their counter in embarrassing fashion! {1} breathes a sigh of relief."
+    return:
+      type: System.String
+    content.vb: Private Const failedCounter As String = "{0} whiffs their counter in embarrassing fashion! {1} breathes a sigh of relief."
+- uid: DuelingDuelsters.Classes.Narrator.dodgeBlock
+  commentId: F:DuelingDuelsters.Classes.Narrator.dodgeBlock
+  id: dodgeBlock
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: dodgeBlock
+  nameWithType: Narrator.dodgeBlock
+  fullName: DuelingDuelsters.Classes.Narrator.dodgeBlock
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: dodgeBlock
+    path: src/Classes/Narrator.cs
+    startLine: 115
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string dodgeBlock = "{0} dodges toward {1}'s vulnerable side!\n{0} prepares to take advantage of the situation with extreme prejudice!\n"
+    return:
+      type: System.String
+    content.vb: Private Const dodgeBlock As String = "{0} dodges toward {1}'s vulnerable side!" & vbLf & "{0} prepares to take advantage of the situation with extreme prejudice!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.failedDodgeBlock
+  commentId: F:DuelingDuelsters.Classes.Narrator.failedDodgeBlock
+  id: failedDodgeBlock
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: failedDodgeBlock
+  nameWithType: Narrator.failedDodgeBlock
+  fullName: DuelingDuelsters.Classes.Narrator.failedDodgeBlock
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: failedDodgeBlock
+    path: src/Classes/Narrator.cs
+    startLine: 116
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string failedDodgeBlock = "{0} rolls their eyes at {1}'s fruitless dancing over the top of their mighty shield.\nThe crowd showers the combatants with boos, thirsting for blood, or at least a little less fancy footwork.\n"
+    return:
+      type: System.String
+    content.vb: Private Const failedDodgeBlock As String = "{0} rolls their eyes at {1}'s fruitless dancing over the top of their mighty shield." & vbLf & "The crowd showers the combatants with boos, thirsting for blood, or at least a little less fancy footwork." & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.doubleDodge
+  commentId: F:DuelingDuelsters.Classes.Narrator.doubleDodge
+  id: doubleDodge
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: doubleDodge
+  nameWithType: Narrator.doubleDodge
+  fullName: DuelingDuelsters.Classes.Narrator.doubleDodge
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: doubleDodge
+    path: src/Classes/Narrator.cs
+    startLine: 117
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string doubleDodge = "The crowd claps along to an unheard beat as {0} and {1} groove and wiggle across the battlefield, matching each other's steps in a deadly dance of martial prowess.\nNobody takes damage, but everybody has a good time.\n"
+    return:
+      type: System.String
+    content.vb: Private Const doubleDodge As String = "The crowd claps along to an unheard beat as {0} and {1} groove and wiggle across the battlefield, matching each other's steps in a deadly dance of martial prowess." & vbLf & "Nobody takes damage, but everybody has a good time." & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.uneventfulHeal
+  commentId: F:DuelingDuelsters.Classes.Narrator.uneventfulHeal
+  id: uneventfulHeal
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: uneventfulHeal
+  nameWithType: Narrator.uneventfulHeal
+  fullName: DuelingDuelsters.Classes.Narrator.uneventfulHeal
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: uneventfulHeal
+    path: src/Classes/Narrator.cs
+    startLine: 118
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string uneventfulHeal = "{0} miraculously heals their wounds with the power of science that could be mistaken for magic!\n{1}'s defensive actions are all for naught!\n"
+    return:
+      type: System.String
+    content.vb: Private Const uneventfulHeal As String = "{0} miraculously heals their wounds with the power of science that could be mistaken for magic!" & vbLf & "{1}'s defensive actions are all for naught!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.failedHealandDefend
+  commentId: F:DuelingDuelsters.Classes.Narrator.failedHealandDefend
+  id: failedHealandDefend
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: failedHealandDefend
+  nameWithType: Narrator.failedHealandDefend
+  fullName: DuelingDuelsters.Classes.Narrator.failedHealandDefend
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: failedHealandDefend
+    path: src/Classes/Narrator.cs
+    startLine: 119
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string failedHealandDefend = "{0} is out of snake oil, thoughts, and prayers! Too bad {1} only took a defensive action.\nThe crowd laughs in derision at the ill-prepared, tactically inept combatants.\n"
+    return:
+      type: System.String
+    content.vb: Private Const failedHealandDefend As String = "{0} is out of snake oil, thoughts, and prayers! Too bad {1} only took a defensive action." & vbLf & "The crowd laughs in derision at the ill-prepared, tactically inept combatants." & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.healAndSwing
+  commentId: F:DuelingDuelsters.Classes.Narrator.healAndSwing
+  id: healAndSwing
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: healAndSwing
+  nameWithType: Narrator.healAndSwing
+  fullName: DuelingDuelsters.Classes.Narrator.healAndSwing
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: healAndSwing
+    path: src/Classes/Narrator.cs
+    startLine: 120
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string healAndSwing = "{0} recovers health! But {1} has a chance to tear off the Band-Aid...\n"
+    return:
+      type: System.String
+    content.vb: Private Const healAndSwing As String = "{0} recovers health! But {1} has a chance to tear off the Band-Aid..." & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.failedHealAndSwing
+  commentId: F:DuelingDuelsters.Classes.Narrator.failedHealAndSwing
+  id: failedHealAndSwing
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: failedHealAndSwing
+  nameWithType: Narrator.failedHealAndSwing
+  fullName: DuelingDuelsters.Classes.Narrator.failedHealAndSwing
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: failedHealAndSwing
+    path: src/Classes/Narrator.cs
+    startLine: 121
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string failedHealAndSwing = "{0} wastes a turn swatting the flies away from their empty medicine bag!\n{1} takes advantage of {0}'s lack of counting ability!\n"
+    return:
+      type: System.String
+    content.vb: Private Const failedHealAndSwing As String = "{0} wastes a turn swatting the flies away from their empty medicine bag!" & vbLf & "{1} takes advantage of {0}'s lack of counting ability!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.healDodge
+  commentId: F:DuelingDuelsters.Classes.Narrator.healDodge
+  id: healDodge
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: healDodge
+  nameWithType: Narrator.healDodge
+  fullName: DuelingDuelsters.Classes.Narrator.healDodge
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: healDodge
+    path: src/Classes/Narrator.cs
+    startLine: 122
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string healDodge = "{0} uses advanced diagnostic technology to anticipate and dodge {1}'s attack at the last moment!\n{0} is as agile as a CAT scan!\n"
+    return:
+      type: System.String
+    content.vb: Private Const healDodge As String = "{0} uses advanced diagnostic technology to anticipate and dodge {1}'s attack at the last moment!" & vbLf & "{0} is as agile as a CAT scan!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.healCounter
+  commentId: F:DuelingDuelsters.Classes.Narrator.healCounter
+  id: healCounter
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: healCounter
+  nameWithType: Narrator.healCounter
+  fullName: DuelingDuelsters.Classes.Narrator.healCounter
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: healCounter
+    path: src/Classes/Narrator.cs
+    startLine: 123
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string healCounter = "\n{0} is too woozy from pain meds to dodge {1}'s attack!\n{1} collects on {0}'s medical bills with a vengeance!\n"
+    return:
+      type: System.String
+    content.vb: Private Const healCounter As String = vbLf & "{0} is too woozy from pain meds to dodge {1}'s attack!" & vbLf & "{1} collects on {0}'s medical bills with a vengeance!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.doubleHeal
+  commentId: F:DuelingDuelsters.Classes.Narrator.doubleHeal
+  id: doubleHeal
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: doubleHeal
+  nameWithType: Narrator.doubleHeal
+  fullName: DuelingDuelsters.Classes.Narrator.doubleHeal
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: doubleHeal
+    path: src/Classes/Narrator.cs
+    startLine: 124
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string doubleHeal = "\n{0} and {1} engage in rigorous academic debate over the restorative properties of leeches!\nTheir humours are aligned but their ideas are not!\n"
+    return:
+      type: System.String
+    content.vb: Private Const doubleHeal As String = vbLf & "{0} and {1} engage in rigorous academic debate over the restorative properties of leeches!" & vbLf & "Their humours are aligned but their ideas are not!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.failedDoubleHeal
+  commentId: F:DuelingDuelsters.Classes.Narrator.failedDoubleHeal
+  id: failedDoubleHeal
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: failedDoubleHeal
+  nameWithType: Narrator.failedDoubleHeal
+  fullName: DuelingDuelsters.Classes.Narrator.failedDoubleHeal
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: failedDoubleHeal
+    path: src/Classes/Narrator.cs
+    startLine: 125
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string failedDoubleHeal = "\n{0} sighs luxuriously as a feeling of health and well-being washes over their battle-scarred body!\n{1} takes a long, sad look at their empty medical back and sharpens their sword, ready for revenge!\n"
+    return:
+      type: System.String
+    content.vb: Private Const failedDoubleHeal As String = vbLf & "{0} sighs luxuriously as a feeling of health and well-being washes over their battle-scarred body!" & vbLf & "{1} takes a long, sad look at their empty medical back and sharpens their sword, ready for revenge!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.doubleFailedHeal
+  commentId: F:DuelingDuelsters.Classes.Narrator.doubleFailedHeal
+  id: doubleFailedHeal
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: doubleFailedHeal
+  nameWithType: Narrator.doubleFailedHeal
+  fullName: DuelingDuelsters.Classes.Narrator.doubleFailedHeal
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: doubleFailedHeal
+    path: src/Classes/Narrator.cs
+    startLine: 126
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string doubleFailedHeal = "\n{0} and {1} look at each other sheepishly. They may have doctorates from Duelster College, but they lack the ability to count!\nThe crowd boos and laughs at the inadequacy of {0} and {1}'s fancy book learning when it comes to arena smarts!\n\n"
+    return:
+      type: System.String
+    content.vb: Private Const doubleFailedHeal As String = vbLf & "{0} and {1} look at each other sheepishly. They may have doctorates from Duelster College, but they lack the ability to count!" & vbLf & "The crowd boos and laughs at the inadequacy of {0} and {1}'s fancy book learning when it comes to arena smarts!" & vbLf & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.swingLeft
+  commentId: F:DuelingDuelsters.Classes.Narrator.swingLeft
+  id: swingLeft
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: swingLeft
+  nameWithType: Narrator.swingLeft
+  fullName: DuelingDuelsters.Classes.Narrator.swingLeft
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: swingLeft
+    path: src/Classes/Narrator.cs
+    startLine: 130
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string swingLeft = "{0} swings their sword to their left!\n"
+    return:
+      type: System.String
+    content.vb: Private Const swingLeft As String = "{0} swings their sword to their left!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.swingRight
+  commentId: F:DuelingDuelsters.Classes.Narrator.swingRight
+  id: swingRight
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: swingRight
+  nameWithType: Narrator.swingRight
+  fullName: DuelingDuelsters.Classes.Narrator.swingRight
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: swingRight
+    path: src/Classes/Narrator.cs
+    startLine: 131
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string swingRight = "{0} swings their sword to their right!\n"
+    return:
+      type: System.String
+    content.vb: Private Const swingRight As String = "{0} swings their sword to their right!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.guardLeft
+  commentId: F:DuelingDuelsters.Classes.Narrator.guardLeft
+  id: guardLeft
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: guardLeft
+  nameWithType: Narrator.guardLeft
+  fullName: DuelingDuelsters.Classes.Narrator.guardLeft
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: guardLeft
+    path: src/Classes/Narrator.cs
+    startLine: 132
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string guardLeft = "{0} raises their shield and guards their left side!\n"
+    return:
+      type: System.String
+    content.vb: Private Const guardLeft As String = "{0} raises their shield and guards their left side!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.guardRight
+  commentId: F:DuelingDuelsters.Classes.Narrator.guardRight
+  id: guardRight
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: guardRight
+  nameWithType: Narrator.guardRight
+  fullName: DuelingDuelsters.Classes.Narrator.guardRight
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: guardRight
+    path: src/Classes/Narrator.cs
+    startLine: 133
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string guardRight = "{0} raises their shield and guards their right side!\n"
+    return:
+      type: System.String
+    content.vb: Private Const guardRight As String = "{0} raises their shield and guards their right side!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.dodgeLeft
+  commentId: F:DuelingDuelsters.Classes.Narrator.dodgeLeft
+  id: dodgeLeft
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: dodgeLeft
+  nameWithType: Narrator.dodgeLeft
+  fullName: DuelingDuelsters.Classes.Narrator.dodgeLeft
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: dodgeLeft
+    path: src/Classes/Narrator.cs
+    startLine: 134
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string dodgeLeft = "{0} quickly dodges to their left!\n"
+    return:
+      type: System.String
+    content.vb: Private Const dodgeLeft As String = "{0} quickly dodges to their left!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.dodgeRight
+  commentId: F:DuelingDuelsters.Classes.Narrator.dodgeRight
+  id: dodgeRight
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: dodgeRight
+  nameWithType: Narrator.dodgeRight
+  fullName: DuelingDuelsters.Classes.Narrator.dodgeRight
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: dodgeRight
+    path: src/Classes/Narrator.cs
+    startLine: 135
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string dodgeRight = "{0} quickly dodges to their right!\n"
+    return:
+      type: System.String
+    content.vb: Private Const dodgeRight As String = "{0} quickly dodges to their right!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.heal
+  commentId: F:DuelingDuelsters.Classes.Narrator.heal
+  id: heal
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: heal
+  nameWithType: Narrator.heal
+  fullName: DuelingDuelsters.Classes.Narrator.heal
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: heal
+    path: src/Classes/Narrator.cs
+    startLine: 136
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string heal = "{0} breaks out their emergency trauma kit!\nThey stitch up their gaping wounds and pour isopropyl alcohol over their head!\n"
+    return:
+      type: System.String
+    content.vb: Private Const heal As String = "{0} breaks out their emergency trauma kit!" & vbLf & "They stitch up their gaping wounds and pour isopropyl alcohol over their head!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.failedHeal
+  commentId: F:DuelingDuelsters.Classes.Narrator.failedHeal
+  id: failedHeal
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: failedHeal
+  nameWithType: Narrator.failedHeal
+  fullName: DuelingDuelsters.Classes.Narrator.failedHeal
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: failedHeal
+    path: src/Classes/Narrator.cs
+    startLine: 137
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string failedHeal = "{0} fumbles around in their medical bag for supplies, but they are fresh out!\n{0} can't heal for the rest of the match!\n"
+    return:
+      type: System.String
+    content.vb: Private Const failedHeal As String = "{0} fumbles around in their medical bag for supplies, but they are fresh out!" & vbLf & "{0} can't heal for the rest of the match!" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.noAction
+  commentId: F:DuelingDuelsters.Classes.Narrator.noAction
+  id: noAction
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: noAction
+  nameWithType: Narrator.noAction
+  fullName: DuelingDuelsters.Classes.Narrator.noAction
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: noAction
+    path: src/Classes/Narrator.cs
+    startLine: 138
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private const string noAction = "{0} does nothing! How could they be so irresponsible?\n"
+    return:
+      type: System.String
+    content.vb: Private Const noAction As String = "{0} does nothing! How could they be so irresponsible?" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.declareVictor
+  commentId: F:DuelingDuelsters.Classes.Narrator.declareVictor
+  id: declareVictor
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: declareVictor
+  nameWithType: Narrator.declareVictor
+  fullName: DuelingDuelsters.Classes.Narrator.declareVictor
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: declareVictor
+    path: src/Classes/Narrator.cs
+    startLine: 142
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: public const string declareVictor = "\n*** {0} is victorious! ***\n\nAll hail the most dueling duelster of them all:\n\n*** {1} ***\n"
+    return:
+      type: System.String
+    content.vb: Public Const declareVictor As String = vbLf & "*** {0} is victorious! ***" & vbLf & vbLf & "All hail the most dueling duelster of them all:" & vbLf & vbLf & "*** {1} ***" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.postMatchOptions
+  commentId: F:DuelingDuelsters.Classes.Narrator.postMatchOptions
+  id: postMatchOptions
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: postMatchOptions
+  nameWithType: Narrator.postMatchOptions
+  fullName: DuelingDuelsters.Classes.Narrator.postMatchOptions
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: postMatchOptions
+    path: src/Classes/Narrator.cs
+    startLine: 143
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: public const string postMatchOptions = "What do you want to do next?\n\n1. Return to title\n2. Rematch\n"
+    return:
+      type: System.String
+    content.vb: Public Const postMatchOptions As String = "What do you want to do next?" & vbLf & vbLf & "1. Return to title" & vbLf & "2. Rematch" & vbLf
+- uid: DuelingDuelsters.Classes.Narrator.GetPlayerActionNarration(DuelingDuelsters.Classes.Player)
+  commentId: M:DuelingDuelsters.Classes.Narrator.GetPlayerActionNarration(DuelingDuelsters.Classes.Player)
+  id: GetPlayerActionNarration(DuelingDuelsters.Classes.Player)
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: GetPlayerActionNarration(Player)
+  nameWithType: Narrator.GetPlayerActionNarration(Player)
+  fullName: DuelingDuelsters.Classes.Narrator.GetPlayerActionNarration(DuelingDuelsters.Classes.Player)
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: GetPlayerActionNarration
+    path: src/Classes/Narrator.cs
+    startLine: 145
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: public string GetPlayerActionNarration(Player player)
+    parameters:
+    - id: player
+      type: DuelingDuelsters.Classes.Player
+    return:
+      type: System.String
+    content.vb: Public Function GetPlayerActionNarration(player As Player) As String
+  overload: DuelingDuelsters.Classes.Narrator.GetPlayerActionNarration*
+- uid: DuelingDuelsters.Classes.Narrator.GetOutcomeNarration(DuelingDuelsters.Classes.Match.Outcome,System.String,System.String)
+  commentId: M:DuelingDuelsters.Classes.Narrator.GetOutcomeNarration(DuelingDuelsters.Classes.Match.Outcome,System.String,System.String)
+  id: GetOutcomeNarration(DuelingDuelsters.Classes.Match.Outcome,System.String,System.String)
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: GetOutcomeNarration(Outcome, string?, string?)
+  nameWithType: Narrator.GetOutcomeNarration(Match.Outcome, string?, string?)
+  fullName: DuelingDuelsters.Classes.Narrator.GetOutcomeNarration(DuelingDuelsters.Classes.Match.Outcome, string?, string?)
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: GetOutcomeNarration
+    path: src/Classes/Narrator.cs
+    startLine: 198
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: public string GetOutcomeNarration(Match.Outcome outcome, string? pOne, string? pTwo)
+    parameters:
+    - id: outcome
+      type: DuelingDuelsters.Classes.Match.Outcome
+    - id: pOne
+      type: System.String
+    - id: pTwo
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Function GetOutcomeNarration(outcome As Match.Outcome, pOne As String, pTwo As String) As String
+  overload: DuelingDuelsters.Classes.Narrator.GetOutcomeNarration*
+  nameWithType.vb: Narrator.GetOutcomeNarration(Match.Outcome, String, String)
+  fullName.vb: DuelingDuelsters.Classes.Narrator.GetOutcomeNarration(DuelingDuelsters.Classes.Match.Outcome, String, String)
+  name.vb: GetOutcomeNarration(Outcome, String, String)
+- uid: DuelingDuelsters.Classes.Narrator.RunTitleMenu
+  commentId: M:DuelingDuelsters.Classes.Narrator.RunTitleMenu
+  id: RunTitleMenu
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: RunTitleMenu()
+  nameWithType: Narrator.RunTitleMenu()
+  fullName: DuelingDuelsters.Classes.Narrator.RunTitleMenu()
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: RunTitleMenu
+    path: src/Classes/Narrator.cs
+    startLine: 326
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: Draws the title screen menu and processes user input.
+  example: []
+  syntax:
+    content: public bool RunTitleMenu()
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the player made a valid selection. A <code>true</code> result also breaks the player out of the title menu loop.<br />
+            <code>false</code> if the player did not make a valid selection. The title menu loop continues if <cref><code>RunTitleMenu()</code></cref> returns false.
+    content.vb: Public Function RunTitleMenu() As Boolean
+  overload: DuelingDuelsters.Classes.Narrator.RunTitleMenu*
+- uid: DuelingDuelsters.Classes.Narrator.RunCharacterCreation(DuelingDuelsters.Classes.Player,System.Int32)
+  commentId: M:DuelingDuelsters.Classes.Narrator.RunCharacterCreation(DuelingDuelsters.Classes.Player,System.Int32)
+  id: RunCharacterCreation(DuelingDuelsters.Classes.Player,System.Int32)
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: RunCharacterCreation(Player, int)
+  nameWithType: Narrator.RunCharacterCreation(Player, int)
+  fullName: DuelingDuelsters.Classes.Narrator.RunCharacterCreation(DuelingDuelsters.Classes.Player, int)
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: RunCharacterCreation
+    path: src/Classes/Narrator.cs
+    startLine: 372
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: public bool RunCharacterCreation(Player player, int playerNumber)
+    parameters:
+    - id: player
+      type: DuelingDuelsters.Classes.Player
+    - id: playerNumber
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function RunCharacterCreation(player As Player, playerNumber As Integer) As Boolean
+  overload: DuelingDuelsters.Classes.Narrator.RunCharacterCreation*
+  nameWithType.vb: Narrator.RunCharacterCreation(Player, Integer)
+  fullName.vb: DuelingDuelsters.Classes.Narrator.RunCharacterCreation(DuelingDuelsters.Classes.Player, Integer)
+  name.vb: RunCharacterCreation(Player, Integer)
+- uid: DuelingDuelsters.Classes.Narrator.SetPlayerName(DuelingDuelsters.Classes.Player)
+  commentId: M:DuelingDuelsters.Classes.Narrator.SetPlayerName(DuelingDuelsters.Classes.Player)
+  id: SetPlayerName(DuelingDuelsters.Classes.Player)
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: SetPlayerName(Player)
+  nameWithType: Narrator.SetPlayerName(Player)
+  fullName: DuelingDuelsters.Classes.Narrator.SetPlayerName(DuelingDuelsters.Classes.Player)
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: SetPlayerName
+    path: src/Classes/Narrator.cs
+    startLine: 471
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private bool SetPlayerName(Player player)
+    parameters:
+    - id: player
+      type: DuelingDuelsters.Classes.Player
+    return:
+      type: System.Boolean
+    content.vb: Private Function SetPlayerName(player As Player) As Boolean
+  overload: DuelingDuelsters.Classes.Narrator.SetPlayerName*
+- uid: DuelingDuelsters.Classes.Narrator.SetPlayerClass(DuelingDuelsters.Classes.Player)
+  commentId: M:DuelingDuelsters.Classes.Narrator.SetPlayerClass(DuelingDuelsters.Classes.Player)
+  id: SetPlayerClass(DuelingDuelsters.Classes.Player)
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: SetPlayerClass(Player)
+  nameWithType: Narrator.SetPlayerClass(Player)
+  fullName: DuelingDuelsters.Classes.Narrator.SetPlayerClass(DuelingDuelsters.Classes.Player)
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: SetPlayerClass
+    path: src/Classes/Narrator.cs
+    startLine: 514
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private bool SetPlayerClass(Player player)
+    parameters:
+    - id: player
+      type: DuelingDuelsters.Classes.Player
+    return:
+      type: System.Boolean
+    content.vb: Private Function SetPlayerClass(player As Player) As Boolean
+  overload: DuelingDuelsters.Classes.Narrator.SetPlayerClass*
+- uid: DuelingDuelsters.Classes.Narrator.RandomSetPlayerClass(DuelingDuelsters.Classes.Player)
+  commentId: M:DuelingDuelsters.Classes.Narrator.RandomSetPlayerClass(DuelingDuelsters.Classes.Player)
+  id: RandomSetPlayerClass(DuelingDuelsters.Classes.Player)
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: RandomSetPlayerClass(Player)
+  nameWithType: Narrator.RandomSetPlayerClass(Player)
+  fullName: DuelingDuelsters.Classes.Narrator.RandomSetPlayerClass(DuelingDuelsters.Classes.Player)
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: RandomSetPlayerClass
+    path: src/Classes/Narrator.cs
+    startLine: 623
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private void RandomSetPlayerClass(Player player)
+    parameters:
+    - id: player
+      type: DuelingDuelsters.Classes.Player
+    content.vb: Private Sub RandomSetPlayerClass(player As Player)
+  overload: DuelingDuelsters.Classes.Narrator.RandomSetPlayerClass*
+- uid: DuelingDuelsters.Classes.Narrator.RunPlayerCountMenu(System.Nullable{DuelingDuelsters.Classes.Player.PlayerBrain}@)
+  commentId: M:DuelingDuelsters.Classes.Narrator.RunPlayerCountMenu(System.Nullable{DuelingDuelsters.Classes.Player.PlayerBrain}@)
+  id: RunPlayerCountMenu(System.Nullable{DuelingDuelsters.Classes.Player.PlayerBrain}@)
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: RunPlayerCountMenu(out PlayerBrain?)
+  nameWithType: Narrator.RunPlayerCountMenu(out Player.PlayerBrain?)
+  fullName: DuelingDuelsters.Classes.Narrator.RunPlayerCountMenu(out DuelingDuelsters.Classes.Player.PlayerBrain?)
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: RunPlayerCountMenu
+    path: src/Classes/Narrator.cs
+    startLine: 684
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: public bool RunPlayerCountMenu(out Player.PlayerBrain? brain)
+    parameters:
+    - id: brain
+      type: System.Nullable{DuelingDuelsters.Classes.Player.PlayerBrain}
+    return:
+      type: System.Boolean
+    content.vb: Public Function RunPlayerCountMenu(brain As Player.PlayerBrain?) As Boolean
+  overload: DuelingDuelsters.Classes.Narrator.RunPlayerCountMenu*
+  nameWithType.vb: Narrator.RunPlayerCountMenu(Player.PlayerBrain?)
+  fullName.vb: DuelingDuelsters.Classes.Narrator.RunPlayerCountMenu(DuelingDuelsters.Classes.Player.PlayerBrain?)
+  name.vb: RunPlayerCountMenu(PlayerBrain?)
+- uid: DuelingDuelsters.Classes.Narrator.RunHelpScreen
+  commentId: M:DuelingDuelsters.Classes.Narrator.RunHelpScreen
+  id: RunHelpScreen
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: RunHelpScreen()
+  nameWithType: Narrator.RunHelpScreen()
+  fullName: DuelingDuelsters.Classes.Narrator.RunHelpScreen()
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: RunHelpScreen
+    path: src/Classes/Narrator.cs
+    startLine: 729
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: public bool RunHelpScreen()
+    return:
+      type: System.Boolean
+    content.vb: Public Function RunHelpScreen() As Boolean
+  overload: DuelingDuelsters.Classes.Narrator.RunHelpScreen*
+- uid: DuelingDuelsters.Classes.Narrator.RunPlayerActionSelect(DuelingDuelsters.Classes.Player)
+  commentId: M:DuelingDuelsters.Classes.Narrator.RunPlayerActionSelect(DuelingDuelsters.Classes.Player)
+  id: RunPlayerActionSelect(DuelingDuelsters.Classes.Player)
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: RunPlayerActionSelect(Player)
+  nameWithType: Narrator.RunPlayerActionSelect(Player)
+  fullName: DuelingDuelsters.Classes.Narrator.RunPlayerActionSelect(DuelingDuelsters.Classes.Player)
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: RunPlayerActionSelect
+    path: src/Classes/Narrator.cs
+    startLine: 801
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: Prompts the player to choose an action to take.
+  example: []
+  syntax:
+    content: public bool RunPlayerActionSelect(Player player)
+    parameters:
+    - id: player
+      type: DuelingDuelsters.Classes.Player
+    return:
+      type: System.Boolean
+    content.vb: Public Function RunPlayerActionSelect(player As Player) As Boolean
+  overload: DuelingDuelsters.Classes.Narrator.RunPlayerActionSelect*
+- uid: DuelingDuelsters.Classes.Narrator.HumanActionSelect(DuelingDuelsters.Classes.Player)
+  commentId: M:DuelingDuelsters.Classes.Narrator.HumanActionSelect(DuelingDuelsters.Classes.Player)
+  id: HumanActionSelect(DuelingDuelsters.Classes.Player)
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: HumanActionSelect(Player)
+  nameWithType: Narrator.HumanActionSelect(Player)
+  fullName: DuelingDuelsters.Classes.Narrator.HumanActionSelect(DuelingDuelsters.Classes.Player)
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: HumanActionSelect
+    path: src/Classes/Narrator.cs
+    startLine: 831
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: public bool HumanActionSelect(Player player)
+    parameters:
+    - id: player
+      type: DuelingDuelsters.Classes.Player
+    return:
+      type: System.Boolean
+    content.vb: Public Function HumanActionSelect(player As Player) As Boolean
+  overload: DuelingDuelsters.Classes.Narrator.HumanActionSelect*
+- uid: DuelingDuelsters.Classes.Narrator.ComputerActionSelect(DuelingDuelsters.Classes.Player)
+  commentId: M:DuelingDuelsters.Classes.Narrator.ComputerActionSelect(DuelingDuelsters.Classes.Player)
+  id: ComputerActionSelect(DuelingDuelsters.Classes.Player)
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: ComputerActionSelect(Player)
+  nameWithType: Narrator.ComputerActionSelect(Player)
+  fullName: DuelingDuelsters.Classes.Narrator.ComputerActionSelect(DuelingDuelsters.Classes.Player)
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: ComputerActionSelect
+    path: src/Classes/Narrator.cs
+    startLine: 976
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: public bool ComputerActionSelect(Player player)
+    parameters:
+    - id: player
+      type: DuelingDuelsters.Classes.Player
+    return:
+      type: System.Boolean
+    content.vb: Public Function ComputerActionSelect(player As Player) As Boolean
+  overload: DuelingDuelsters.Classes.Narrator.ComputerActionSelect*
+- uid: DuelingDuelsters.Classes.Narrator.PressAnyKey
+  commentId: M:DuelingDuelsters.Classes.Narrator.PressAnyKey
+  id: PressAnyKey
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: PressAnyKey()
+  nameWithType: Narrator.PressAnyKey()
+  fullName: DuelingDuelsters.Classes.Narrator.PressAnyKey()
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: PressAnyKey
+    path: src/Classes/Narrator.cs
+    startLine: 1028
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: public bool PressAnyKey()
+    return:
+      type: System.Boolean
+    content.vb: Public Function PressAnyKey() As Boolean
+  overload: DuelingDuelsters.Classes.Narrator.PressAnyKey*
+- uid: DuelingDuelsters.Classes.Narrator.SelectBinary(System.String)
+  commentId: M:DuelingDuelsters.Classes.Narrator.SelectBinary(System.String)
+  id: SelectBinary(System.String)
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: SelectBinary(string)
+  nameWithType: Narrator.SelectBinary(string)
+  fullName: DuelingDuelsters.Classes.Narrator.SelectBinary(string)
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: SelectBinary
+    path: src/Classes/Narrator.cs
+    startLine: 1060
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: Presents the player with a binary choice (yes/no, 1/2, left/right, etc.). Also provides the option of pressing Esc to go back.
+  example: []
+  syntax:
+    content: public bool SelectBinary(string dialog)
+    parameters:
+    - id: dialog
+      type: System.String
+      description: Dialog to display to the player. This also includes the choices they can select.
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Function SelectBinary(dialog As String) As Boolean
+  overload: DuelingDuelsters.Classes.Narrator.SelectBinary*
+  nameWithType.vb: Narrator.SelectBinary(String)
+  fullName.vb: DuelingDuelsters.Classes.Narrator.SelectBinary(String)
+  name.vb: SelectBinary(String)
+- uid: DuelingDuelsters.Classes.Narrator.DrawArena
+  commentId: M:DuelingDuelsters.Classes.Narrator.DrawArena
+  id: DrawArena
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: DrawArena()
+  nameWithType: Narrator.DrawArena()
+  fullName: DuelingDuelsters.Classes.Narrator.DrawArena()
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: DrawArena
+    path: src/Classes/Narrator.cs
+    startLine: 1103
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: public string DrawArena()
+    return:
+      type: System.String
+    content.vb: Public Function DrawArena() As String
+  overload: DuelingDuelsters.Classes.Narrator.DrawArena*
+- uid: DuelingDuelsters.Classes.Narrator.ReadLineWithCancel
+  commentId: M:DuelingDuelsters.Classes.Narrator.ReadLineWithCancel
+  id: ReadLineWithCancel
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: ReadLineWithCancel()
+  nameWithType: Narrator.ReadLineWithCancel()
+  fullName: DuelingDuelsters.Classes.Narrator.ReadLineWithCancel()
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: ReadLineWithCancel
+    path: src/Classes/Narrator.cs
+    startLine: 1135
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private string? ReadLineWithCancel()
+    return:
+      type: System.String
+    content.vb: Private Function ReadLineWithCancel() As String
+  overload: DuelingDuelsters.Classes.Narrator.ReadLineWithCancel*
+- uid: DuelingDuelsters.Classes.Narrator.UndoActionSelection(DuelingDuelsters.Classes.Player,System.Boolean@)
+  commentId: M:DuelingDuelsters.Classes.Narrator.UndoActionSelection(DuelingDuelsters.Classes.Player,System.Boolean@)
+  id: UndoActionSelection(DuelingDuelsters.Classes.Player,System.Boolean@)
+  parent: DuelingDuelsters.Classes.Narrator
+  langs:
+  - csharp
+  - vb
+  name: UndoActionSelection(Player, out bool)
+  nameWithType: Narrator.UndoActionSelection(Player, out bool)
+  fullName: DuelingDuelsters.Classes.Narrator.UndoActionSelection(DuelingDuelsters.Classes.Player, out bool)
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: UndoActionSelection
+    path: src/Classes/Narrator.cs
+    startLine: 1164
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private void UndoActionSelection(Player player, out bool success)
+    parameters:
+    - id: player
+      type: DuelingDuelsters.Classes.Player
+    - id: success
+      type: System.Boolean
+    content.vb: Private Sub UndoActionSelection(player As Player, success As Boolean)
+  overload: DuelingDuelsters.Classes.Narrator.UndoActionSelection*
+  nameWithType.vb: Narrator.UndoActionSelection(Player, Boolean)
+  fullName.vb: DuelingDuelsters.Classes.Narrator.UndoActionSelection(DuelingDuelsters.Classes.Player, Boolean)
+  name.vb: UndoActionSelection(Player, Boolean)
+references:
+- uid: DuelingDuelsters.Classes
+  commentId: N:DuelingDuelsters.Classes
+  href: DuelingDuelsters.html
+  name: DuelingDuelsters.Classes
+  nameWithType: DuelingDuelsters.Classes
+  fullName: DuelingDuelsters.Classes
+  spec.csharp:
+  - uid: DuelingDuelsters
+    name: DuelingDuelsters
+    href: DuelingDuelsters.html
+  - name: .
+  - uid: DuelingDuelsters.Classes
+    name: Classes
+    href: DuelingDuelsters.Classes.html
+  spec.vb:
+  - uid: DuelingDuelsters
+    name: DuelingDuelsters
+    href: DuelingDuelsters.html
+  - name: .
+  - uid: DuelingDuelsters.Classes
+    name: Classes
+    href: DuelingDuelsters.Classes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ConsoleKeyInfo
+  commentId: T:System.ConsoleKeyInfo
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.consolekeyinfo
+  name: ConsoleKeyInfo
+  nameWithType: ConsoleKeyInfo
+  fullName: System.ConsoleKeyInfo
+- uid: DuelingDuelsters.Classes.Narrator.KeyInfo*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.KeyInfo
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_KeyInfo
+  name: KeyInfo
+  nameWithType: Narrator.KeyInfo
+  fullName: DuelingDuelsters.Classes.Narrator.KeyInfo
+- uid: DuelingDuelsters.Classes.Narrator.Key*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.Key
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_Key
+  name: Key
+  nameWithType: Narrator.Key
+  fullName: DuelingDuelsters.Classes.Narrator.Key
+- uid: System.ConsoleKey
+  commentId: T:System.ConsoleKey
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.consolekey
+  name: ConsoleKey
+  nameWithType: ConsoleKey
+  fullName: System.ConsoleKey
+- uid: DuelingDuelsters.Classes.Narrator.Choices
+  commentId: T:DuelingDuelsters.Classes.Narrator.Choices
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Narrator.html
+  name: Narrator.Choices
+  nameWithType: Narrator.Choices
+  fullName: DuelingDuelsters.Classes.Narrator.Choices
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Narrator
+    name: Narrator
+    href: DuelingDuelsters.Classes.Narrator.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Narrator.Choices
+    name: Choices
+    href: DuelingDuelsters.Classes.Narrator.Choices.html
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Narrator
+    name: Narrator
+    href: DuelingDuelsters.Classes.Narrator.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Narrator.Choices
+    name: Choices
+    href: DuelingDuelsters.Classes.Narrator.Choices.html
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: DuelingDuelsters.Classes.Narrator.GetPlayerActionNarration*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.GetPlayerActionNarration
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_GetPlayerActionNarration_DuelingDuelsters_Classes_Player_
+  name: GetPlayerActionNarration
+  nameWithType: Narrator.GetPlayerActionNarration
+  fullName: DuelingDuelsters.Classes.Narrator.GetPlayerActionNarration
+- uid: DuelingDuelsters.Classes.Player
+  commentId: T:DuelingDuelsters.Classes.Player
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Player.html
+  name: Player
+  nameWithType: Player
+  fullName: DuelingDuelsters.Classes.Player
+- uid: DuelingDuelsters.Classes.Narrator.GetOutcomeNarration*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.GetOutcomeNarration
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_GetOutcomeNarration_DuelingDuelsters_Classes_Match_Outcome_System_String_System_String_
+  name: GetOutcomeNarration
+  nameWithType: Narrator.GetOutcomeNarration
+  fullName: DuelingDuelsters.Classes.Narrator.GetOutcomeNarration
+- uid: DuelingDuelsters.Classes.Match.Outcome
+  commentId: T:DuelingDuelsters.Classes.Match.Outcome
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Match.html
+  name: Match.Outcome
+  nameWithType: Match.Outcome
+  fullName: DuelingDuelsters.Classes.Match.Outcome
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Match
+    name: Match
+    href: DuelingDuelsters.Classes.Match.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Match.Outcome
+    name: Outcome
+    href: DuelingDuelsters.Classes.Match.Outcome.html
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Match
+    name: Match
+    href: DuelingDuelsters.Classes.Match.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Match.Outcome
+    name: Outcome
+    href: DuelingDuelsters.Classes.Match.Outcome.html
+- uid: DuelingDuelsters.Classes.Narrator.RunTitleMenu*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.RunTitleMenu
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_RunTitleMenu
+  name: RunTitleMenu
+  nameWithType: Narrator.RunTitleMenu
+  fullName: DuelingDuelsters.Classes.Narrator.RunTitleMenu
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: DuelingDuelsters.Classes.Narrator.RunCharacterCreation*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.RunCharacterCreation
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_RunCharacterCreation_DuelingDuelsters_Classes_Player_System_Int32_
+  name: RunCharacterCreation
+  nameWithType: Narrator.RunCharacterCreation
+  fullName: DuelingDuelsters.Classes.Narrator.RunCharacterCreation
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: DuelingDuelsters.Classes.Narrator.SetPlayerName*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.SetPlayerName
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_SetPlayerName_DuelingDuelsters_Classes_Player_
+  name: SetPlayerName
+  nameWithType: Narrator.SetPlayerName
+  fullName: DuelingDuelsters.Classes.Narrator.SetPlayerName
+- uid: DuelingDuelsters.Classes.Narrator.SetPlayerClass*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.SetPlayerClass
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_SetPlayerClass_DuelingDuelsters_Classes_Player_
+  name: SetPlayerClass
+  nameWithType: Narrator.SetPlayerClass
+  fullName: DuelingDuelsters.Classes.Narrator.SetPlayerClass
+- uid: DuelingDuelsters.Classes.Narrator.RandomSetPlayerClass*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.RandomSetPlayerClass
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_RandomSetPlayerClass_DuelingDuelsters_Classes_Player_
+  name: RandomSetPlayerClass
+  nameWithType: Narrator.RandomSetPlayerClass
+  fullName: DuelingDuelsters.Classes.Narrator.RandomSetPlayerClass
+- uid: DuelingDuelsters.Classes.Narrator.RunPlayerCountMenu*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.RunPlayerCountMenu
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_RunPlayerCountMenu_System_Nullable_DuelingDuelsters_Classes_Player_PlayerBrain___
+  name: RunPlayerCountMenu
+  nameWithType: Narrator.RunPlayerCountMenu
+  fullName: DuelingDuelsters.Classes.Narrator.RunPlayerCountMenu
+- uid: System.Nullable{DuelingDuelsters.Classes.Player.PlayerBrain}
+  commentId: T:System.Nullable{DuelingDuelsters.Classes.Player.PlayerBrain}
+  parent: System
+  definition: System.Nullable`1
+  href: DuelingDuelsters.Classes.Player.html
+  name: Player.PlayerBrain?
+  nameWithType: Player.PlayerBrain?
+  fullName: DuelingDuelsters.Classes.Player.PlayerBrain?
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Player.PlayerBrain
+    name: PlayerBrain
+    href: DuelingDuelsters.Classes.Player.PlayerBrain.html
+  - name: '?'
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Player.PlayerBrain
+    name: PlayerBrain
+    href: DuelingDuelsters.Classes.Player.PlayerBrain.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: DuelingDuelsters.Classes.Narrator.RunHelpScreen*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.RunHelpScreen
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_RunHelpScreen
+  name: RunHelpScreen
+  nameWithType: Narrator.RunHelpScreen
+  fullName: DuelingDuelsters.Classes.Narrator.RunHelpScreen
+- uid: DuelingDuelsters.Classes.Narrator.RunPlayerActionSelect*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.RunPlayerActionSelect
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_RunPlayerActionSelect_DuelingDuelsters_Classes_Player_
+  name: RunPlayerActionSelect
+  nameWithType: Narrator.RunPlayerActionSelect
+  fullName: DuelingDuelsters.Classes.Narrator.RunPlayerActionSelect
+- uid: DuelingDuelsters.Classes.Narrator.HumanActionSelect*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.HumanActionSelect
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_HumanActionSelect_DuelingDuelsters_Classes_Player_
+  name: HumanActionSelect
+  nameWithType: Narrator.HumanActionSelect
+  fullName: DuelingDuelsters.Classes.Narrator.HumanActionSelect
+- uid: DuelingDuelsters.Classes.Narrator.ComputerActionSelect*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.ComputerActionSelect
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_ComputerActionSelect_DuelingDuelsters_Classes_Player_
+  name: ComputerActionSelect
+  nameWithType: Narrator.ComputerActionSelect
+  fullName: DuelingDuelsters.Classes.Narrator.ComputerActionSelect
+- uid: DuelingDuelsters.Classes.Narrator.PressAnyKey*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.PressAnyKey
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_PressAnyKey
+  name: PressAnyKey
+  nameWithType: Narrator.PressAnyKey
+  fullName: DuelingDuelsters.Classes.Narrator.PressAnyKey
+- uid: DuelingDuelsters.Classes.Narrator.SelectBinary*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.SelectBinary
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_SelectBinary_System_String_
+  name: SelectBinary
+  nameWithType: Narrator.SelectBinary
+  fullName: DuelingDuelsters.Classes.Narrator.SelectBinary
+- uid: DuelingDuelsters.Classes.Narrator.DrawArena*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.DrawArena
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_DrawArena
+  name: DrawArena
+  nameWithType: Narrator.DrawArena
+  fullName: DuelingDuelsters.Classes.Narrator.DrawArena
+- uid: DuelingDuelsters.Classes.Narrator.ReadLineWithCancel*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.ReadLineWithCancel
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_ReadLineWithCancel
+  name: ReadLineWithCancel
+  nameWithType: Narrator.ReadLineWithCancel
+  fullName: DuelingDuelsters.Classes.Narrator.ReadLineWithCancel
+- uid: DuelingDuelsters.Classes.Narrator.UndoActionSelection*
+  commentId: Overload:DuelingDuelsters.Classes.Narrator.UndoActionSelection
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_UndoActionSelection_DuelingDuelsters_Classes_Player_System_Boolean__
+  name: UndoActionSelection
+  nameWithType: Narrator.UndoActionSelection
+  fullName: DuelingDuelsters.Classes.Narrator.UndoActionSelection

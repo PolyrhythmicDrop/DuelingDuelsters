@@ -1,0 +1,236 @@
+### YamlMime:ManagedReference
+items:
+- uid: DuelingDuelsters.Classes.Player.PlayerClass
+  commentId: T:DuelingDuelsters.Classes.Player.PlayerClass
+  id: Player.PlayerClass
+  parent: DuelingDuelsters.Classes
+  children:
+  - DuelingDuelsters.Classes.Player.PlayerClass.Fridge
+  - DuelingDuelsters.Classes.Player.PlayerClass.Gymnast
+  - DuelingDuelsters.Classes.Player.PlayerClass.Leeroy
+  - DuelingDuelsters.Classes.Player.PlayerClass.Medic
+  - DuelingDuelsters.Classes.Player.PlayerClass.None
+  - DuelingDuelsters.Classes.Player.PlayerClass.Normie
+  langs:
+  - csharp
+  - vb
+  name: Player.PlayerClass
+  nameWithType: Player.PlayerClass
+  fullName: DuelingDuelsters.Classes.Player.PlayerClass
+  type: Enum
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: PlayerClass
+    path: src/Classes/Player.cs
+    startLine: 24
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: public enum Player.PlayerClass
+    content.vb: Public Enum Player.PlayerClass
+- uid: DuelingDuelsters.Classes.Player.PlayerClass.None
+  commentId: F:DuelingDuelsters.Classes.Player.PlayerClass.None
+  id: None
+  parent: DuelingDuelsters.Classes.Player.PlayerClass
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: Player.PlayerClass.None
+  fullName: DuelingDuelsters.Classes.Player.PlayerClass.None
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: None
+    path: src/Classes/Player.cs
+    startLine: 26
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: None = 0
+    return:
+      type: DuelingDuelsters.Classes.Player.PlayerClass
+- uid: DuelingDuelsters.Classes.Player.PlayerClass.Normie
+  commentId: F:DuelingDuelsters.Classes.Player.PlayerClass.Normie
+  id: Normie
+  parent: DuelingDuelsters.Classes.Player.PlayerClass
+  langs:
+  - csharp
+  - vb
+  name: Normie
+  nameWithType: Player.PlayerClass.Normie
+  fullName: DuelingDuelsters.Classes.Player.PlayerClass.Normie
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Normie
+    path: src/Classes/Player.cs
+    startLine: 27
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: Normie = 1
+    return:
+      type: DuelingDuelsters.Classes.Player.PlayerClass
+- uid: DuelingDuelsters.Classes.Player.PlayerClass.Fridge
+  commentId: F:DuelingDuelsters.Classes.Player.PlayerClass.Fridge
+  id: Fridge
+  parent: DuelingDuelsters.Classes.Player.PlayerClass
+  langs:
+  - csharp
+  - vb
+  name: Fridge
+  nameWithType: Player.PlayerClass.Fridge
+  fullName: DuelingDuelsters.Classes.Player.PlayerClass.Fridge
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Fridge
+    path: src/Classes/Player.cs
+    startLine: 28
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: Fridge = 2
+    return:
+      type: DuelingDuelsters.Classes.Player.PlayerClass
+- uid: DuelingDuelsters.Classes.Player.PlayerClass.Leeroy
+  commentId: F:DuelingDuelsters.Classes.Player.PlayerClass.Leeroy
+  id: Leeroy
+  parent: DuelingDuelsters.Classes.Player.PlayerClass
+  langs:
+  - csharp
+  - vb
+  name: Leeroy
+  nameWithType: Player.PlayerClass.Leeroy
+  fullName: DuelingDuelsters.Classes.Player.PlayerClass.Leeroy
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Leeroy
+    path: src/Classes/Player.cs
+    startLine: 29
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: Leeroy = 3
+    return:
+      type: DuelingDuelsters.Classes.Player.PlayerClass
+- uid: DuelingDuelsters.Classes.Player.PlayerClass.Gymnast
+  commentId: F:DuelingDuelsters.Classes.Player.PlayerClass.Gymnast
+  id: Gymnast
+  parent: DuelingDuelsters.Classes.Player.PlayerClass
+  langs:
+  - csharp
+  - vb
+  name: Gymnast
+  nameWithType: Player.PlayerClass.Gymnast
+  fullName: DuelingDuelsters.Classes.Player.PlayerClass.Gymnast
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Gymnast
+    path: src/Classes/Player.cs
+    startLine: 30
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: Gymnast = 4
+    return:
+      type: DuelingDuelsters.Classes.Player.PlayerClass
+- uid: DuelingDuelsters.Classes.Player.PlayerClass.Medic
+  commentId: F:DuelingDuelsters.Classes.Player.PlayerClass.Medic
+  id: Medic
+  parent: DuelingDuelsters.Classes.Player.PlayerClass
+  langs:
+  - csharp
+  - vb
+  name: Medic
+  nameWithType: Player.PlayerClass.Medic
+  fullName: DuelingDuelsters.Classes.Player.PlayerClass.Medic
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Medic
+    path: src/Classes/Player.cs
+    startLine: 31
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: Medic = 5
+    return:
+      type: DuelingDuelsters.Classes.Player.PlayerClass
+references:
+- uid: DuelingDuelsters.Classes
+  commentId: N:DuelingDuelsters.Classes
+  href: DuelingDuelsters.html
+  name: DuelingDuelsters.Classes
+  nameWithType: DuelingDuelsters.Classes
+  fullName: DuelingDuelsters.Classes
+  spec.csharp:
+  - uid: DuelingDuelsters
+    name: DuelingDuelsters
+    href: DuelingDuelsters.html
+  - name: .
+  - uid: DuelingDuelsters.Classes
+    name: Classes
+    href: DuelingDuelsters.Classes.html
+  spec.vb:
+  - uid: DuelingDuelsters
+    name: DuelingDuelsters
+    href: DuelingDuelsters.html
+  - name: .
+  - uid: DuelingDuelsters.Classes
+    name: Classes
+    href: DuelingDuelsters.Classes.html
+- uid: DuelingDuelsters.Classes.Player.PlayerClass
+  commentId: T:DuelingDuelsters.Classes.Player.PlayerClass
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Player.html
+  name: Player.PlayerClass
+  nameWithType: Player.PlayerClass
+  fullName: DuelingDuelsters.Classes.Player.PlayerClass
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Player.PlayerClass
+    name: PlayerClass
+    href: DuelingDuelsters.Classes.Player.PlayerClass.html
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Player.PlayerClass
+    name: PlayerClass
+    href: DuelingDuelsters.Classes.Player.PlayerClass.html

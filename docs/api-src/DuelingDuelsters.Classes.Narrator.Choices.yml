@@ -1,0 +1,344 @@
+### YamlMime:ManagedReference
+items:
+- uid: DuelingDuelsters.Classes.Narrator.Choices
+  commentId: T:DuelingDuelsters.Classes.Narrator.Choices
+  id: Narrator.Choices
+  parent: DuelingDuelsters.Classes
+  children:
+  - DuelingDuelsters.Classes.Narrator.Choices.Back
+  - DuelingDuelsters.Classes.Narrator.Choices.Exit
+  - DuelingDuelsters.Classes.Narrator.Choices.Help
+  - DuelingDuelsters.Classes.Narrator.Choices.Left
+  - DuelingDuelsters.Classes.Narrator.Choices.NewGame
+  - DuelingDuelsters.Classes.Narrator.Choices.No
+  - DuelingDuelsters.Classes.Narrator.Choices.Reset
+  - DuelingDuelsters.Classes.Narrator.Choices.ReturnToTitle
+  - DuelingDuelsters.Classes.Narrator.Choices.Right
+  - DuelingDuelsters.Classes.Narrator.Choices.Yes
+  langs:
+  - csharp
+  - vb
+  name: Narrator.Choices
+  nameWithType: Narrator.Choices
+  fullName: DuelingDuelsters.Classes.Narrator.Choices
+  type: Enum
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Choices
+    path: src/Classes/Narrator.cs
+    startLine: 20
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: public enum Narrator.Choices
+    content.vb: Public Enum Narrator.Choices
+- uid: DuelingDuelsters.Classes.Narrator.Choices.Reset
+  commentId: F:DuelingDuelsters.Classes.Narrator.Choices.Reset
+  id: Reset
+  parent: DuelingDuelsters.Classes.Narrator.Choices
+  langs:
+  - csharp
+  - vb
+  name: Reset
+  nameWithType: Narrator.Choices.Reset
+  fullName: DuelingDuelsters.Classes.Narrator.Choices.Reset
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Reset
+    path: src/Classes/Narrator.cs
+    startLine: 22
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: Reset = 0
+    return:
+      type: DuelingDuelsters.Classes.Narrator.Choices
+- uid: DuelingDuelsters.Classes.Narrator.Choices.NewGame
+  commentId: F:DuelingDuelsters.Classes.Narrator.Choices.NewGame
+  id: NewGame
+  parent: DuelingDuelsters.Classes.Narrator.Choices
+  langs:
+  - csharp
+  - vb
+  name: NewGame
+  nameWithType: Narrator.Choices.NewGame
+  fullName: DuelingDuelsters.Classes.Narrator.Choices.NewGame
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: NewGame
+    path: src/Classes/Narrator.cs
+    startLine: 23
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: NewGame = 1
+    return:
+      type: DuelingDuelsters.Classes.Narrator.Choices
+- uid: DuelingDuelsters.Classes.Narrator.Choices.Help
+  commentId: F:DuelingDuelsters.Classes.Narrator.Choices.Help
+  id: Help
+  parent: DuelingDuelsters.Classes.Narrator.Choices
+  langs:
+  - csharp
+  - vb
+  name: Help
+  nameWithType: Narrator.Choices.Help
+  fullName: DuelingDuelsters.Classes.Narrator.Choices.Help
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Help
+    path: src/Classes/Narrator.cs
+    startLine: 24
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: Help = 2
+    return:
+      type: DuelingDuelsters.Classes.Narrator.Choices
+- uid: DuelingDuelsters.Classes.Narrator.Choices.Exit
+  commentId: F:DuelingDuelsters.Classes.Narrator.Choices.Exit
+  id: Exit
+  parent: DuelingDuelsters.Classes.Narrator.Choices
+  langs:
+  - csharp
+  - vb
+  name: Exit
+  nameWithType: Narrator.Choices.Exit
+  fullName: DuelingDuelsters.Classes.Narrator.Choices.Exit
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Exit
+    path: src/Classes/Narrator.cs
+    startLine: 25
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: Exit = 3
+    return:
+      type: DuelingDuelsters.Classes.Narrator.Choices
+- uid: DuelingDuelsters.Classes.Narrator.Choices.ReturnToTitle
+  commentId: F:DuelingDuelsters.Classes.Narrator.Choices.ReturnToTitle
+  id: ReturnToTitle
+  parent: DuelingDuelsters.Classes.Narrator.Choices
+  langs:
+  - csharp
+  - vb
+  name: ReturnToTitle
+  nameWithType: Narrator.Choices.ReturnToTitle
+  fullName: DuelingDuelsters.Classes.Narrator.Choices.ReturnToTitle
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: ReturnToTitle
+    path: src/Classes/Narrator.cs
+    startLine: 26
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: ReturnToTitle = 4
+    return:
+      type: DuelingDuelsters.Classes.Narrator.Choices
+- uid: DuelingDuelsters.Classes.Narrator.Choices.Back
+  commentId: F:DuelingDuelsters.Classes.Narrator.Choices.Back
+  id: Back
+  parent: DuelingDuelsters.Classes.Narrator.Choices
+  langs:
+  - csharp
+  - vb
+  name: Back
+  nameWithType: Narrator.Choices.Back
+  fullName: DuelingDuelsters.Classes.Narrator.Choices.Back
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Back
+    path: src/Classes/Narrator.cs
+    startLine: 27
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: Back = 5
+    return:
+      type: DuelingDuelsters.Classes.Narrator.Choices
+- uid: DuelingDuelsters.Classes.Narrator.Choices.Yes
+  commentId: F:DuelingDuelsters.Classes.Narrator.Choices.Yes
+  id: Yes
+  parent: DuelingDuelsters.Classes.Narrator.Choices
+  langs:
+  - csharp
+  - vb
+  name: Yes
+  nameWithType: Narrator.Choices.Yes
+  fullName: DuelingDuelsters.Classes.Narrator.Choices.Yes
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Yes
+    path: src/Classes/Narrator.cs
+    startLine: 28
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: Yes = 6
+    return:
+      type: DuelingDuelsters.Classes.Narrator.Choices
+- uid: DuelingDuelsters.Classes.Narrator.Choices.Left
+  commentId: F:DuelingDuelsters.Classes.Narrator.Choices.Left
+  id: Left
+  parent: DuelingDuelsters.Classes.Narrator.Choices
+  langs:
+  - csharp
+  - vb
+  name: Left
+  nameWithType: Narrator.Choices.Left
+  fullName: DuelingDuelsters.Classes.Narrator.Choices.Left
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Left
+    path: src/Classes/Narrator.cs
+    startLine: 29
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: Left = 6
+    return:
+      type: DuelingDuelsters.Classes.Narrator.Choices
+- uid: DuelingDuelsters.Classes.Narrator.Choices.No
+  commentId: F:DuelingDuelsters.Classes.Narrator.Choices.No
+  id: No
+  parent: DuelingDuelsters.Classes.Narrator.Choices
+  langs:
+  - csharp
+  - vb
+  name: No
+  nameWithType: Narrator.Choices.No
+  fullName: DuelingDuelsters.Classes.Narrator.Choices.No
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: No
+    path: src/Classes/Narrator.cs
+    startLine: 30
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: No = 7
+    return:
+      type: DuelingDuelsters.Classes.Narrator.Choices
+- uid: DuelingDuelsters.Classes.Narrator.Choices.Right
+  commentId: F:DuelingDuelsters.Classes.Narrator.Choices.Right
+  id: Right
+  parent: DuelingDuelsters.Classes.Narrator.Choices
+  langs:
+  - csharp
+  - vb
+  name: Right
+  nameWithType: Narrator.Choices.Right
+  fullName: DuelingDuelsters.Classes.Narrator.Choices.Right
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Narrator.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Right
+    path: src/Classes/Narrator.cs
+    startLine: 31
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: Right = 7
+    return:
+      type: DuelingDuelsters.Classes.Narrator.Choices
+references:
+- uid: DuelingDuelsters.Classes
+  commentId: N:DuelingDuelsters.Classes
+  href: DuelingDuelsters.html
+  name: DuelingDuelsters.Classes
+  nameWithType: DuelingDuelsters.Classes
+  fullName: DuelingDuelsters.Classes
+  spec.csharp:
+  - uid: DuelingDuelsters
+    name: DuelingDuelsters
+    href: DuelingDuelsters.html
+  - name: .
+  - uid: DuelingDuelsters.Classes
+    name: Classes
+    href: DuelingDuelsters.Classes.html
+  spec.vb:
+  - uid: DuelingDuelsters
+    name: DuelingDuelsters
+    href: DuelingDuelsters.html
+  - name: .
+  - uid: DuelingDuelsters.Classes
+    name: Classes
+    href: DuelingDuelsters.Classes.html
+- uid: DuelingDuelsters.Classes.Narrator.Choices
+  commentId: T:DuelingDuelsters.Classes.Narrator.Choices
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Narrator.html
+  name: Narrator.Choices
+  nameWithType: Narrator.Choices
+  fullName: DuelingDuelsters.Classes.Narrator.Choices
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Narrator
+    name: Narrator
+    href: DuelingDuelsters.Classes.Narrator.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Narrator.Choices
+    name: Choices
+    href: DuelingDuelsters.Classes.Narrator.Choices.html
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Narrator
+    name: Narrator
+    href: DuelingDuelsters.Classes.Narrator.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Narrator.Choices
+    name: Choices
+    href: DuelingDuelsters.Classes.Narrator.Choices.html

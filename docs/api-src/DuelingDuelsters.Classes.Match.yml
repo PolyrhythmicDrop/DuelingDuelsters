@@ -1,0 +1,969 @@
+### YamlMime:ManagedReference
+items:
+- uid: DuelingDuelsters.Classes.Match
+  commentId: T:DuelingDuelsters.Classes.Match
+  id: Match
+  parent: DuelingDuelsters.Classes
+  children:
+  - DuelingDuelsters.Classes.Match.#ctor(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Narrator)
+  - DuelingDuelsters.Classes.Match.ApplyAttackResult(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)
+  - DuelingDuelsters.Classes.Match.AttemptHealCounter(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)
+  - DuelingDuelsters.Classes.Match.CounterAttack(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)
+  - DuelingDuelsters.Classes.Match.DeclareVictor
+  - DuelingDuelsters.Classes.Match.DrawRoundHeader
+  - DuelingDuelsters.Classes.Match.GetOutcome(DuelingDuelsters.Classes.Player.Action,DuelingDuelsters.Classes.Player.Action)
+  - DuelingDuelsters.Classes.Match.PlayRound
+  - DuelingDuelsters.Classes.Match.PlayerOne
+  - DuelingDuelsters.Classes.Match.PlayerTwo
+  - DuelingDuelsters.Classes.Match.ProcessOutcome(DuelingDuelsters.Classes.Match.Outcome)
+  - DuelingDuelsters.Classes.Match.RoundCounter
+  - DuelingDuelsters.Classes.Match._narrator
+  - DuelingDuelsters.Classes.Match._playerOne
+  - DuelingDuelsters.Classes.Match._playerTwo
+  - DuelingDuelsters.Classes.Match.rng
+  langs:
+  - csharp
+  - vb
+  name: Match
+  nameWithType: Match
+  fullName: DuelingDuelsters.Classes.Match
+  type: Class
+  source:
+    remote:
+      path: src/Classes/Match.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Match
+    path: src/Classes/Match.cs
+    startLine: 9
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: Contains data about the current match, including player information, and the number of rounds since the match started. A Match object contains methods for processing player actions and generating the results of each round.
+  example: []
+  syntax:
+    content: public class Match
+    content.vb: Public Class Match
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: DuelingDuelsters.Classes.Match.#ctor(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Narrator)
+  commentId: M:DuelingDuelsters.Classes.Match.#ctor(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Narrator)
+  id: '#ctor(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Narrator)'
+  parent: DuelingDuelsters.Classes.Match
+  langs:
+  - csharp
+  - vb
+  name: Match(Player, Player, Narrator)
+  nameWithType: Match.Match(Player, Player, Narrator)
+  fullName: DuelingDuelsters.Classes.Match.Match(DuelingDuelsters.Classes.Player, DuelingDuelsters.Classes.Player, DuelingDuelsters.Classes.Narrator)
+  type: Constructor
+  source:
+    remote:
+      path: src/Classes/Match.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: .ctor
+    path: src/Classes/Match.cs
+    startLine: 18
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: Instantiates a new Match object.
+  example: []
+  syntax:
+    content: public Match(Player playerOne, Player playerTwo, Narrator narrator)
+    parameters:
+    - id: playerOne
+      type: DuelingDuelsters.Classes.Player
+      description: Player One, the first player.
+    - id: playerTwo
+      type: DuelingDuelsters.Classes.Player
+      description: Player Two, the second player.
+    - id: narrator
+      type: DuelingDuelsters.Classes.Narrator
+      description: Narrator, containing all the string constants and menus.
+    content.vb: Public Sub New(playerOne As Player, playerTwo As Player, narrator As Narrator)
+  overload: DuelingDuelsters.Classes.Match.#ctor*
+  nameWithType.vb: Match.New(Player, Player, Narrator)
+  fullName.vb: DuelingDuelsters.Classes.Match.New(DuelingDuelsters.Classes.Player, DuelingDuelsters.Classes.Player, DuelingDuelsters.Classes.Narrator)
+  name.vb: New(Player, Player, Narrator)
+- uid: DuelingDuelsters.Classes.Match._playerOne
+  commentId: F:DuelingDuelsters.Classes.Match._playerOne
+  id: _playerOne
+  parent: DuelingDuelsters.Classes.Match
+  langs:
+  - csharp
+  - vb
+  name: _playerOne
+  nameWithType: Match._playerOne
+  fullName: DuelingDuelsters.Classes.Match._playerOne
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Match.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: _playerOne
+    path: src/Classes/Match.cs
+    startLine: 27
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private Player _playerOne
+    return:
+      type: DuelingDuelsters.Classes.Player
+    content.vb: Private _playerOne As Player
+- uid: DuelingDuelsters.Classes.Match.PlayerOne
+  commentId: P:DuelingDuelsters.Classes.Match.PlayerOne
+  id: PlayerOne
+  parent: DuelingDuelsters.Classes.Match
+  langs:
+  - csharp
+  - vb
+  name: PlayerOne
+  nameWithType: Match.PlayerOne
+  fullName: DuelingDuelsters.Classes.Match.PlayerOne
+  type: Property
+  source:
+    remote:
+      path: src/Classes/Match.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: PlayerOne
+    path: src/Classes/Match.cs
+    startLine: 31
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The first player.
+  example: []
+  syntax:
+    content: public Player PlayerOne { get; set; }
+    parameters: []
+    return:
+      type: DuelingDuelsters.Classes.Player
+    content.vb: Public Property PlayerOne As Player
+  overload: DuelingDuelsters.Classes.Match.PlayerOne*
+- uid: DuelingDuelsters.Classes.Match._playerTwo
+  commentId: F:DuelingDuelsters.Classes.Match._playerTwo
+  id: _playerTwo
+  parent: DuelingDuelsters.Classes.Match
+  langs:
+  - csharp
+  - vb
+  name: _playerTwo
+  nameWithType: Match._playerTwo
+  fullName: DuelingDuelsters.Classes.Match._playerTwo
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Match.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: _playerTwo
+    path: src/Classes/Match.cs
+    startLine: 37
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private Player _playerTwo
+    return:
+      type: DuelingDuelsters.Classes.Player
+    content.vb: Private _playerTwo As Player
+- uid: DuelingDuelsters.Classes.Match.PlayerTwo
+  commentId: P:DuelingDuelsters.Classes.Match.PlayerTwo
+  id: PlayerTwo
+  parent: DuelingDuelsters.Classes.Match
+  langs:
+  - csharp
+  - vb
+  name: PlayerTwo
+  nameWithType: Match.PlayerTwo
+  fullName: DuelingDuelsters.Classes.Match.PlayerTwo
+  type: Property
+  source:
+    remote:
+      path: src/Classes/Match.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: PlayerTwo
+    path: src/Classes/Match.cs
+    startLine: 41
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The second player.
+  example: []
+  syntax:
+    content: public Player PlayerTwo { get; set; }
+    parameters: []
+    return:
+      type: DuelingDuelsters.Classes.Player
+    content.vb: Public Property PlayerTwo As Player
+  overload: DuelingDuelsters.Classes.Match.PlayerTwo*
+- uid: DuelingDuelsters.Classes.Match.RoundCounter
+  commentId: P:DuelingDuelsters.Classes.Match.RoundCounter
+  id: RoundCounter
+  parent: DuelingDuelsters.Classes.Match
+  langs:
+  - csharp
+  - vb
+  name: RoundCounter
+  nameWithType: Match.RoundCounter
+  fullName: DuelingDuelsters.Classes.Match.RoundCounter
+  type: Property
+  source:
+    remote:
+      path: src/Classes/Match.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: RoundCounter
+    path: src/Classes/Match.cs
+    startLine: 50
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The current round number. The round counter ticks up after each player's action is processed and the round results are returned.
+  example: []
+  syntax:
+    content: public int RoundCounter { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property RoundCounter As Integer
+  overload: DuelingDuelsters.Classes.Match.RoundCounter*
+- uid: DuelingDuelsters.Classes.Match.rng
+  commentId: F:DuelingDuelsters.Classes.Match.rng
+  id: rng
+  parent: DuelingDuelsters.Classes.Match
+  langs:
+  - csharp
+  - vb
+  name: rng
+  nameWithType: Match.rng
+  fullName: DuelingDuelsters.Classes.Match.rng
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Match.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: rng
+    path: src/Classes/Match.cs
+    startLine: 56
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: Random number generator instance. Used to figuratively roll dice to decide hits, damage, and more.
+  example: []
+  syntax:
+    content: private readonly Random rng
+    return:
+      type: System.Random
+    content.vb: Private ReadOnly rng As Random
+- uid: DuelingDuelsters.Classes.Match._narrator
+  commentId: F:DuelingDuelsters.Classes.Match._narrator
+  id: _narrator
+  parent: DuelingDuelsters.Classes.Match
+  langs:
+  - csharp
+  - vb
+  name: _narrator
+  nameWithType: Match._narrator
+  fullName: DuelingDuelsters.Classes.Match._narrator
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Match.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: _narrator
+    path: src/Classes/Match.cs
+    startLine: 58
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private Narrator _narrator
+    return:
+      type: DuelingDuelsters.Classes.Narrator
+    content.vb: Private _narrator As Narrator
+- uid: DuelingDuelsters.Classes.Match.PlayRound
+  commentId: M:DuelingDuelsters.Classes.Match.PlayRound
+  id: PlayRound
+  parent: DuelingDuelsters.Classes.Match
+  langs:
+  - csharp
+  - vb
+  name: PlayRound()
+  nameWithType: Match.PlayRound()
+  fullName: DuelingDuelsters.Classes.Match.PlayRound()
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Match.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: PlayRound
+    path: src/Classes/Match.cs
+    startLine: 100
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: Plays out the round based on each player's actions.
+  example: []
+  syntax:
+    content: public void PlayRound()
+    content.vb: Public Sub PlayRound()
+  overload: DuelingDuelsters.Classes.Match.PlayRound*
+- uid: DuelingDuelsters.Classes.Match.GetOutcome(DuelingDuelsters.Classes.Player.Action,DuelingDuelsters.Classes.Player.Action)
+  commentId: M:DuelingDuelsters.Classes.Match.GetOutcome(DuelingDuelsters.Classes.Player.Action,DuelingDuelsters.Classes.Player.Action)
+  id: GetOutcome(DuelingDuelsters.Classes.Player.Action,DuelingDuelsters.Classes.Player.Action)
+  parent: DuelingDuelsters.Classes.Match
+  langs:
+  - csharp
+  - vb
+  name: GetOutcome(Action, Action)
+  nameWithType: Match.GetOutcome(Player.Action, Player.Action)
+  fullName: DuelingDuelsters.Classes.Match.GetOutcome(DuelingDuelsters.Classes.Player.Action, DuelingDuelsters.Classes.Player.Action)
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Match.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: GetOutcome
+    path: src/Classes/Match.cs
+    startLine: 166
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private Match.Outcome GetOutcome(Player.Action actionOne, Player.Action actionTwo)
+    parameters:
+    - id: actionOne
+      type: DuelingDuelsters.Classes.Player.Action
+    - id: actionTwo
+      type: DuelingDuelsters.Classes.Player.Action
+    return:
+      type: DuelingDuelsters.Classes.Match.Outcome
+    content.vb: Private Function GetOutcome(actionOne As Player.Action, actionTwo As Player.Action) As Match.Outcome
+  overload: DuelingDuelsters.Classes.Match.GetOutcome*
+- uid: DuelingDuelsters.Classes.Match.ProcessOutcome(DuelingDuelsters.Classes.Match.Outcome)
+  commentId: M:DuelingDuelsters.Classes.Match.ProcessOutcome(DuelingDuelsters.Classes.Match.Outcome)
+  id: ProcessOutcome(DuelingDuelsters.Classes.Match.Outcome)
+  parent: DuelingDuelsters.Classes.Match
+  langs:
+  - csharp
+  - vb
+  name: ProcessOutcome(Outcome)
+  nameWithType: Match.ProcessOutcome(Match.Outcome)
+  fullName: DuelingDuelsters.Classes.Match.ProcessOutcome(DuelingDuelsters.Classes.Match.Outcome)
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Match.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: ProcessOutcome
+    path: src/Classes/Match.cs
+    startLine: 356
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private void ProcessOutcome(Match.Outcome actionKey)
+    parameters:
+    - id: actionKey
+      type: DuelingDuelsters.Classes.Match.Outcome
+    content.vb: Private Sub ProcessOutcome(actionKey As Match.Outcome)
+  overload: DuelingDuelsters.Classes.Match.ProcessOutcome*
+- uid: DuelingDuelsters.Classes.Match.CounterAttack(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)
+  commentId: M:DuelingDuelsters.Classes.Match.CounterAttack(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)
+  id: CounterAttack(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)
+  parent: DuelingDuelsters.Classes.Match
+  langs:
+  - csharp
+  - vb
+  name: CounterAttack(Player, Player)
+  nameWithType: Match.CounterAttack(Player, Player)
+  fullName: DuelingDuelsters.Classes.Match.CounterAttack(DuelingDuelsters.Classes.Player, DuelingDuelsters.Classes.Player)
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Match.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: CounterAttack
+    path: src/Classes/Match.cs
+    startLine: 442
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private void CounterAttack(Player atkPlayer, Player defPlayer)
+    parameters:
+    - id: atkPlayer
+      type: DuelingDuelsters.Classes.Player
+    - id: defPlayer
+      type: DuelingDuelsters.Classes.Player
+    content.vb: Private Sub CounterAttack(atkPlayer As Player, defPlayer As Player)
+  overload: DuelingDuelsters.Classes.Match.CounterAttack*
+- uid: DuelingDuelsters.Classes.Match.AttemptHealCounter(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)
+  commentId: M:DuelingDuelsters.Classes.Match.AttemptHealCounter(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)
+  id: AttemptHealCounter(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)
+  parent: DuelingDuelsters.Classes.Match
+  langs:
+  - csharp
+  - vb
+  name: AttemptHealCounter(Player, Player)
+  nameWithType: Match.AttemptHealCounter(Player, Player)
+  fullName: DuelingDuelsters.Classes.Match.AttemptHealCounter(DuelingDuelsters.Classes.Player, DuelingDuelsters.Classes.Player)
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Match.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: AttemptHealCounter
+    path: src/Classes/Match.cs
+    startLine: 456
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: private void AttemptHealCounter(Player healer, Player counter)
+    parameters:
+    - id: healer
+      type: DuelingDuelsters.Classes.Player
+    - id: counter
+      type: DuelingDuelsters.Classes.Player
+    content.vb: Private Sub AttemptHealCounter(healer As Player, counter As Player)
+  overload: DuelingDuelsters.Classes.Match.AttemptHealCounter*
+- uid: DuelingDuelsters.Classes.Match.ApplyAttackResult(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)
+  commentId: M:DuelingDuelsters.Classes.Match.ApplyAttackResult(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)
+  id: ApplyAttackResult(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)
+  parent: DuelingDuelsters.Classes.Match
+  langs:
+  - csharp
+  - vb
+  name: ApplyAttackResult(Player, Player)
+  nameWithType: Match.ApplyAttackResult(Player, Player)
+  fullName: DuelingDuelsters.Classes.Match.ApplyAttackResult(DuelingDuelsters.Classes.Player, DuelingDuelsters.Classes.Player)
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Match.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: ApplyAttackResult
+    path: src/Classes/Match.cs
+    startLine: 486
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: Calculates damage to a defending player after a successful attack by an attacking player, calculates whether the hit crits and for how much damage, and then applies the damage to the defending player.
+  example: []
+  syntax:
+    content: private void ApplyAttackResult(Player atkPlayer, Player defPlayer)
+    parameters:
+    - id: atkPlayer
+      type: DuelingDuelsters.Classes.Player
+      description: The attacking player.
+    - id: defPlayer
+      type: DuelingDuelsters.Classes.Player
+      description: The defending player.
+    content.vb: Private Sub ApplyAttackResult(atkPlayer As Player, defPlayer As Player)
+  overload: DuelingDuelsters.Classes.Match.ApplyAttackResult*
+- uid: DuelingDuelsters.Classes.Match.DrawRoundHeader
+  commentId: M:DuelingDuelsters.Classes.Match.DrawRoundHeader
+  id: DrawRoundHeader
+  parent: DuelingDuelsters.Classes.Match
+  langs:
+  - csharp
+  - vb
+  name: DrawRoundHeader()
+  nameWithType: Match.DrawRoundHeader()
+  fullName: DuelingDuelsters.Classes.Match.DrawRoundHeader()
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Match.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: DrawRoundHeader
+    path: src/Classes/Match.cs
+    startLine: 521
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: Draws the round header during a match using data from the players.
+  example: []
+  syntax:
+    content: public string DrawRoundHeader()
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Function DrawRoundHeader() As String
+  overload: DuelingDuelsters.Classes.Match.DrawRoundHeader*
+- uid: DuelingDuelsters.Classes.Match.DeclareVictor
+  commentId: M:DuelingDuelsters.Classes.Match.DeclareVictor
+  id: DeclareVictor
+  parent: DuelingDuelsters.Classes.Match
+  langs:
+  - csharp
+  - vb
+  name: DeclareVictor()
+  nameWithType: Match.DeclareVictor()
+  fullName: DuelingDuelsters.Classes.Match.DeclareVictor()
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Match.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: DeclareVictor
+    path: src/Classes/Match.cs
+    startLine: 630
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  syntax:
+    content: public void DeclareVictor()
+    content.vb: Public Sub DeclareVictor()
+  overload: DuelingDuelsters.Classes.Match.DeclareVictor*
+references:
+- uid: DuelingDuelsters.Classes
+  commentId: N:DuelingDuelsters.Classes
+  href: DuelingDuelsters.html
+  name: DuelingDuelsters.Classes
+  nameWithType: DuelingDuelsters.Classes
+  fullName: DuelingDuelsters.Classes
+  spec.csharp:
+  - uid: DuelingDuelsters
+    name: DuelingDuelsters
+    href: DuelingDuelsters.html
+  - name: .
+  - uid: DuelingDuelsters.Classes
+    name: Classes
+    href: DuelingDuelsters.Classes.html
+  spec.vb:
+  - uid: DuelingDuelsters
+    name: DuelingDuelsters
+    href: DuelingDuelsters.html
+  - name: .
+  - uid: DuelingDuelsters.Classes
+    name: Classes
+    href: DuelingDuelsters.Classes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: DuelingDuelsters.Classes.Match.#ctor*
+  commentId: Overload:DuelingDuelsters.Classes.Match.#ctor
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match__ctor_DuelingDuelsters_Classes_Player_DuelingDuelsters_Classes_Player_DuelingDuelsters_Classes_Narrator_
+  name: Match
+  nameWithType: Match.Match
+  fullName: DuelingDuelsters.Classes.Match.Match
+  nameWithType.vb: Match.New
+  fullName.vb: DuelingDuelsters.Classes.Match.New
+  name.vb: New
+- uid: DuelingDuelsters.Classes.Player
+  commentId: T:DuelingDuelsters.Classes.Player
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Player.html
+  name: Player
+  nameWithType: Player
+  fullName: DuelingDuelsters.Classes.Player
+- uid: DuelingDuelsters.Classes.Narrator
+  commentId: T:DuelingDuelsters.Classes.Narrator
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Narrator.html
+  name: Narrator
+  nameWithType: Narrator
+  fullName: DuelingDuelsters.Classes.Narrator
+- uid: DuelingDuelsters.Classes.Match.PlayerOne*
+  commentId: Overload:DuelingDuelsters.Classes.Match.PlayerOne
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_PlayerOne
+  name: PlayerOne
+  nameWithType: Match.PlayerOne
+  fullName: DuelingDuelsters.Classes.Match.PlayerOne
+- uid: DuelingDuelsters.Classes.Match.PlayerTwo*
+  commentId: Overload:DuelingDuelsters.Classes.Match.PlayerTwo
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_PlayerTwo
+  name: PlayerTwo
+  nameWithType: Match.PlayerTwo
+  fullName: DuelingDuelsters.Classes.Match.PlayerTwo
+- uid: DuelingDuelsters.Classes.Match.RoundCounter*
+  commentId: Overload:DuelingDuelsters.Classes.Match.RoundCounter
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_RoundCounter
+  name: RoundCounter
+  nameWithType: Match.RoundCounter
+  fullName: DuelingDuelsters.Classes.Match.RoundCounter
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Random
+  commentId: T:System.Random
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.random
+  name: Random
+  nameWithType: Random
+  fullName: System.Random
+- uid: DuelingDuelsters.Classes.Match.PlayRound*
+  commentId: Overload:DuelingDuelsters.Classes.Match.PlayRound
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_PlayRound
+  name: PlayRound
+  nameWithType: Match.PlayRound
+  fullName: DuelingDuelsters.Classes.Match.PlayRound
+- uid: DuelingDuelsters.Classes.Match.GetOutcome*
+  commentId: Overload:DuelingDuelsters.Classes.Match.GetOutcome
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_GetOutcome_DuelingDuelsters_Classes_Player_Action_DuelingDuelsters_Classes_Player_Action_
+  name: GetOutcome
+  nameWithType: Match.GetOutcome
+  fullName: DuelingDuelsters.Classes.Match.GetOutcome
+- uid: DuelingDuelsters.Classes.Player.Action
+  commentId: T:DuelingDuelsters.Classes.Player.Action
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Player.html
+  name: Player.Action
+  nameWithType: Player.Action
+  fullName: DuelingDuelsters.Classes.Player.Action
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Player.Action
+    name: Action
+    href: DuelingDuelsters.Classes.Player.Action.html
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Player.Action
+    name: Action
+    href: DuelingDuelsters.Classes.Player.Action.html
+- uid: DuelingDuelsters.Classes.Match.Outcome
+  commentId: T:DuelingDuelsters.Classes.Match.Outcome
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Match.html
+  name: Match.Outcome
+  nameWithType: Match.Outcome
+  fullName: DuelingDuelsters.Classes.Match.Outcome
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Match
+    name: Match
+    href: DuelingDuelsters.Classes.Match.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Match.Outcome
+    name: Outcome
+    href: DuelingDuelsters.Classes.Match.Outcome.html
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Match
+    name: Match
+    href: DuelingDuelsters.Classes.Match.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Match.Outcome
+    name: Outcome
+    href: DuelingDuelsters.Classes.Match.Outcome.html
+- uid: DuelingDuelsters.Classes.Match.ProcessOutcome*
+  commentId: Overload:DuelingDuelsters.Classes.Match.ProcessOutcome
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_ProcessOutcome_DuelingDuelsters_Classes_Match_Outcome_
+  name: ProcessOutcome
+  nameWithType: Match.ProcessOutcome
+  fullName: DuelingDuelsters.Classes.Match.ProcessOutcome
+- uid: DuelingDuelsters.Classes.Match.CounterAttack*
+  commentId: Overload:DuelingDuelsters.Classes.Match.CounterAttack
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_CounterAttack_DuelingDuelsters_Classes_Player_DuelingDuelsters_Classes_Player_
+  name: CounterAttack
+  nameWithType: Match.CounterAttack
+  fullName: DuelingDuelsters.Classes.Match.CounterAttack
+- uid: DuelingDuelsters.Classes.Match.AttemptHealCounter*
+  commentId: Overload:DuelingDuelsters.Classes.Match.AttemptHealCounter
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_AttemptHealCounter_DuelingDuelsters_Classes_Player_DuelingDuelsters_Classes_Player_
+  name: AttemptHealCounter
+  nameWithType: Match.AttemptHealCounter
+  fullName: DuelingDuelsters.Classes.Match.AttemptHealCounter
+- uid: DuelingDuelsters.Classes.Match.ApplyAttackResult*
+  commentId: Overload:DuelingDuelsters.Classes.Match.ApplyAttackResult
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_ApplyAttackResult_DuelingDuelsters_Classes_Player_DuelingDuelsters_Classes_Player_
+  name: ApplyAttackResult
+  nameWithType: Match.ApplyAttackResult
+  fullName: DuelingDuelsters.Classes.Match.ApplyAttackResult
+- uid: DuelingDuelsters.Classes.Match.DrawRoundHeader*
+  commentId: Overload:DuelingDuelsters.Classes.Match.DrawRoundHeader
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_DrawRoundHeader
+  name: DrawRoundHeader
+  nameWithType: Match.DrawRoundHeader
+  fullName: DuelingDuelsters.Classes.Match.DrawRoundHeader
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: DuelingDuelsters.Classes.Match.DeclareVictor*
+  commentId: Overload:DuelingDuelsters.Classes.Match.DeclareVictor
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_DeclareVictor
+  name: DeclareVictor
+  nameWithType: Match.DeclareVictor
+  fullName: DuelingDuelsters.Classes.Match.DeclareVictor

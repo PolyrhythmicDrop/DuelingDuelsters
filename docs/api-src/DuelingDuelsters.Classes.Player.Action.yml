@@ -1,0 +1,308 @@
+### YamlMime:ManagedReference
+items:
+- uid: DuelingDuelsters.Classes.Player.Action
+  commentId: T:DuelingDuelsters.Classes.Player.Action
+  id: Player.Action
+  parent: DuelingDuelsters.Classes
+  children:
+  - DuelingDuelsters.Classes.Player.Action.blockL
+  - DuelingDuelsters.Classes.Player.Action.blockR
+  - DuelingDuelsters.Classes.Player.Action.dodgeL
+  - DuelingDuelsters.Classes.Player.Action.dodgeR
+  - DuelingDuelsters.Classes.Player.Action.heal
+  - DuelingDuelsters.Classes.Player.Action.none
+  - DuelingDuelsters.Classes.Player.Action.swingL
+  - DuelingDuelsters.Classes.Player.Action.swingR
+  langs:
+  - csharp
+  - vb
+  name: Player.Action
+  nameWithType: Player.Action
+  fullName: DuelingDuelsters.Classes.Player.Action
+  type: Enum
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Action
+    path: src/Classes/Player.cs
+    startLine: 137
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: All possible player actions as enums.
+  example: []
+  syntax:
+    content: public enum Player.Action
+    content.vb: Public Enum Player.Action
+- uid: DuelingDuelsters.Classes.Player.Action.none
+  commentId: F:DuelingDuelsters.Classes.Player.Action.none
+  id: none
+  parent: DuelingDuelsters.Classes.Player.Action
+  langs:
+  - csharp
+  - vb
+  name: none
+  nameWithType: Player.Action.none
+  fullName: DuelingDuelsters.Classes.Player.Action.none
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: none
+    path: src/Classes/Player.cs
+    startLine: 142
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: No action has been taken.
+  example: []
+  syntax:
+    content: none = 0
+    return:
+      type: DuelingDuelsters.Classes.Player.Action
+- uid: DuelingDuelsters.Classes.Player.Action.swingR
+  commentId: F:DuelingDuelsters.Classes.Player.Action.swingR
+  id: swingR
+  parent: DuelingDuelsters.Classes.Player.Action
+  langs:
+  - csharp
+  - vb
+  name: swingR
+  nameWithType: Player.Action.swingR
+  fullName: DuelingDuelsters.Classes.Player.Action.swingR
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: swingR
+    path: src/Classes/Player.cs
+    startLine: 146
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The player swings right.
+  example: []
+  syntax:
+    content: swingR = 1
+    return:
+      type: DuelingDuelsters.Classes.Player.Action
+- uid: DuelingDuelsters.Classes.Player.Action.swingL
+  commentId: F:DuelingDuelsters.Classes.Player.Action.swingL
+  id: swingL
+  parent: DuelingDuelsters.Classes.Player.Action
+  langs:
+  - csharp
+  - vb
+  name: swingL
+  nameWithType: Player.Action.swingL
+  fullName: DuelingDuelsters.Classes.Player.Action.swingL
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: swingL
+    path: src/Classes/Player.cs
+    startLine: 150
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The player swings left.
+  example: []
+  syntax:
+    content: swingL = 2
+    return:
+      type: DuelingDuelsters.Classes.Player.Action
+- uid: DuelingDuelsters.Classes.Player.Action.blockR
+  commentId: F:DuelingDuelsters.Classes.Player.Action.blockR
+  id: blockR
+  parent: DuelingDuelsters.Classes.Player.Action
+  langs:
+  - csharp
+  - vb
+  name: blockR
+  nameWithType: Player.Action.blockR
+  fullName: DuelingDuelsters.Classes.Player.Action.blockR
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: blockR
+    path: src/Classes/Player.cs
+    startLine: 154
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The player blocks right.
+  example: []
+  syntax:
+    content: blockR = 3
+    return:
+      type: DuelingDuelsters.Classes.Player.Action
+- uid: DuelingDuelsters.Classes.Player.Action.blockL
+  commentId: F:DuelingDuelsters.Classes.Player.Action.blockL
+  id: blockL
+  parent: DuelingDuelsters.Classes.Player.Action
+  langs:
+  - csharp
+  - vb
+  name: blockL
+  nameWithType: Player.Action.blockL
+  fullName: DuelingDuelsters.Classes.Player.Action.blockL
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: blockL
+    path: src/Classes/Player.cs
+    startLine: 158
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The player blocks left.
+  example: []
+  syntax:
+    content: blockL = 4
+    return:
+      type: DuelingDuelsters.Classes.Player.Action
+- uid: DuelingDuelsters.Classes.Player.Action.dodgeR
+  commentId: F:DuelingDuelsters.Classes.Player.Action.dodgeR
+  id: dodgeR
+  parent: DuelingDuelsters.Classes.Player.Action
+  langs:
+  - csharp
+  - vb
+  name: dodgeR
+  nameWithType: Player.Action.dodgeR
+  fullName: DuelingDuelsters.Classes.Player.Action.dodgeR
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: dodgeR
+    path: src/Classes/Player.cs
+    startLine: 162
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The player dodges right.
+  example: []
+  syntax:
+    content: dodgeR = 5
+    return:
+      type: DuelingDuelsters.Classes.Player.Action
+- uid: DuelingDuelsters.Classes.Player.Action.dodgeL
+  commentId: F:DuelingDuelsters.Classes.Player.Action.dodgeL
+  id: dodgeL
+  parent: DuelingDuelsters.Classes.Player.Action
+  langs:
+  - csharp
+  - vb
+  name: dodgeL
+  nameWithType: Player.Action.dodgeL
+  fullName: DuelingDuelsters.Classes.Player.Action.dodgeL
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: dodgeL
+    path: src/Classes/Player.cs
+    startLine: 166
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The player dodges left.
+  example: []
+  syntax:
+    content: dodgeL = 6
+    return:
+      type: DuelingDuelsters.Classes.Player.Action
+- uid: DuelingDuelsters.Classes.Player.Action.heal
+  commentId: F:DuelingDuelsters.Classes.Player.Action.heal
+  id: heal
+  parent: DuelingDuelsters.Classes.Player.Action
+  langs:
+  - csharp
+  - vb
+  name: heal
+  nameWithType: Player.Action.heal
+  fullName: DuelingDuelsters.Classes.Player.Action.heal
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: heal
+    path: src/Classes/Player.cs
+    startLine: 170
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The player heals.
+  example: []
+  syntax:
+    content: heal = 7
+    return:
+      type: DuelingDuelsters.Classes.Player.Action
+references:
+- uid: DuelingDuelsters.Classes
+  commentId: N:DuelingDuelsters.Classes
+  href: DuelingDuelsters.html
+  name: DuelingDuelsters.Classes
+  nameWithType: DuelingDuelsters.Classes
+  fullName: DuelingDuelsters.Classes
+  spec.csharp:
+  - uid: DuelingDuelsters
+    name: DuelingDuelsters
+    href: DuelingDuelsters.html
+  - name: .
+  - uid: DuelingDuelsters.Classes
+    name: Classes
+    href: DuelingDuelsters.Classes.html
+  spec.vb:
+  - uid: DuelingDuelsters
+    name: DuelingDuelsters
+    href: DuelingDuelsters.html
+  - name: .
+  - uid: DuelingDuelsters.Classes
+    name: Classes
+    href: DuelingDuelsters.Classes.html
+- uid: DuelingDuelsters.Classes.Player.Action
+  commentId: T:DuelingDuelsters.Classes.Player.Action
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Player.html
+  name: Player.Action
+  nameWithType: Player.Action
+  fullName: DuelingDuelsters.Classes.Player.Action
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Player.Action
+    name: Action
+    href: DuelingDuelsters.Classes.Player.Action.html
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Player.Action
+    name: Action
+    href: DuelingDuelsters.Classes.Player.Action.html
