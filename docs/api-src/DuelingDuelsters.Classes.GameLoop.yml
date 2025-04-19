@@ -6,7 +6,6 @@ items:
   parent: DuelingDuelsters.Classes
   children:
   - DuelingDuelsters.Classes.GameLoop.CreateTitleBanner
-  - DuelingDuelsters.Classes.GameLoop.DrawPreMatchSummary(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)
   - DuelingDuelsters.Classes.GameLoop.GameState
   - DuelingDuelsters.Classes.GameLoop.Main(System.String[])
   langs:
@@ -23,7 +22,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: GameLoop
     path: src/Classes/GameLoop.cs
-    startLine: 42
+    startLine: 40
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -58,7 +57,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: GameState
     path: src/Classes/GameLoop.cs
-    startLine: 47
+    startLine: 45
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -87,7 +86,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Main
     path: src/Classes/GameLoop.cs
-    startLine: 49
+    startLine: 47
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -119,7 +118,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: CreateTitleBanner
     path: src/Classes/GameLoop.cs
-    startLine: 257
+    startLine: 254
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -131,41 +130,6 @@ items:
       type: System.String
     content.vb: Private Shared Function CreateTitleBanner() As String
   overload: DuelingDuelsters.Classes.GameLoop.CreateTitleBanner*
-- uid: DuelingDuelsters.Classes.GameLoop.DrawPreMatchSummary(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)
-  commentId: M:DuelingDuelsters.Classes.GameLoop.DrawPreMatchSummary(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)
-  id: DrawPreMatchSummary(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)
-  parent: DuelingDuelsters.Classes.GameLoop
-  langs:
-  - csharp
-  - vb
-  name: DrawPreMatchSummary(Player, Player)
-  nameWithType: GameLoop.DrawPreMatchSummary(Player, Player)
-  fullName: DuelingDuelsters.Classes.GameLoop.DrawPreMatchSummary(DuelingDuelsters.Classes.Player, DuelingDuelsters.Classes.Player)
-  type: Method
-  source:
-    remote:
-      path: src/Classes/GameLoop.cs
-      branch: documentation
-      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
-    id: DrawPreMatchSummary
-    path: src/Classes/GameLoop.cs
-    startLine: 326
-  assemblies:
-  - DuelingDuelsters
-  namespace: DuelingDuelsters.Classes
-  summary: Draws the pre-match summary, including each player's name and character sheet.
-  example: []
-  syntax:
-    content: public static void DrawPreMatchSummary(Player playerOne, Player playerTwo)
-    parameters:
-    - id: playerOne
-      type: DuelingDuelsters.Classes.Player
-      description: Player one.
-    - id: playerTwo
-      type: DuelingDuelsters.Classes.Player
-      description: Player two.
-    content.vb: Public Shared Sub DrawPreMatchSummary(playerOne As Player, playerTwo As Player)
-  overload: DuelingDuelsters.Classes.GameLoop.DrawPreMatchSummary*
 references:
 - uid: DuelingDuelsters.Classes
   commentId: N:DuelingDuelsters.Classes
@@ -479,16 +443,3 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: DuelingDuelsters.Classes.GameLoop.DrawPreMatchSummary*
-  commentId: Overload:DuelingDuelsters.Classes.GameLoop.DrawPreMatchSummary
-  href: DuelingDuelsters.Classes.GameLoop.html#DuelingDuelsters_Classes_GameLoop_DrawPreMatchSummary_DuelingDuelsters_Classes_Player_DuelingDuelsters_Classes_Player_
-  name: DrawPreMatchSummary
-  nameWithType: GameLoop.DrawPreMatchSummary
-  fullName: DuelingDuelsters.Classes.GameLoop.DrawPreMatchSummary
-- uid: DuelingDuelsters.Classes.Player
-  commentId: T:DuelingDuelsters.Classes.Player
-  parent: DuelingDuelsters.Classes
-  href: DuelingDuelsters.Classes.Player.html
-  name: Player
-  nameWithType: Player
-  fullName: DuelingDuelsters.Classes.Player

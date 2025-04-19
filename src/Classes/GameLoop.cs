@@ -47,7 +47,6 @@ namespace DuelingDuelsters.Classes
 
         static void Main(string[] args)
         {
-            // Set initial variables:
 
             // UTF-8 encoding to support the character glyphs
             Console.OutputEncoding = Encoding.UTF8;
@@ -108,7 +107,7 @@ namespace DuelingDuelsters.Classes
 
                 do
                 {
-                    Console.WriteLine(CreateTitleBanner());
+                    Console.WriteLine(titleBanner);
                 }
                 while (!narrator.RunPlayerCountMenu(out nullableBrain));
 
@@ -278,7 +277,7 @@ namespace DuelingDuelsters.Classes
             {
                 Console.WriteLine(e.Message);
                 // If, for some reason, we couldn't load the banner, simply display the title of the game.
-                return ("Dueling Duelsters");
+                return "Dueling Duelsters";
             }
 
             StreamReader? streamReader = new StreamReader(stream);
@@ -316,20 +315,5 @@ namespace DuelingDuelsters.Classes
             string splashScreen = titleBuilder.ToString();
             return splashScreen;
         }
-
-        /// <summary>
-        /// Draws the pre-match summary, including each player's name and character sheet.
-        /// </summary>
-        /// <param name="playerOne">Player one.</param>
-        /// <param name="playerTwo">Player two.</param>
-        public static void DrawPreMatchSummary(Player playerOne, Player playerTwo)
-        {
-            Console.Clear();
-            Console.WriteLine("\nLet's get ready to D U E L!!!\n");
-            Console.WriteLine(playerOne.CharSheet);
-            Console.WriteLine("\n** VS. **\n");
-            Console.WriteLine(playerTwo.CharSheet);
-        }
-
     }
 }

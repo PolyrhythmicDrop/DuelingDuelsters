@@ -5,17 +5,17 @@ namespace DuelingDuelsters.Classes
 {
 
     /// <summary>
-    /// Contains data about the current match, including player information, and the number of rounds since the match started. A Match object contains methods for processing player actions and generating the results of each round.
+    /// Manages data about the current match, including the two players, their stats, and the number of rounds since the match started. A <c>Match</c> object contains methods for processing player actions and generating the results of each round.
     /// </summary>
     public class Match
     {
 
         /// <summary>
-        /// Instantiates a new Match object.
+        /// Instantiates a new Match object with two <see cref="Player"/> characters and a <see cref="Narrator"/>.<br/>Sets the <see cref="RoundCounter"/> to <c>1</c> and initializes the match's <see cref="rng"/> member.
         /// </summary>
         /// <param name="playerOne">Player One, the first player.</param>
         /// <param name="playerTwo">Player Two, the second player.</param>
-        /// <param name="narrator">Narrator, containing all the string constants and menus.</param>
+        /// <param name="narrator"><see cref="Narrator"/> object to manage all the action menus and outcome strings.</param>
         public Match(Player playerOne, Player playerTwo, Narrator narrator)
         {
             _playerOne = playerOne;
@@ -25,9 +25,11 @@ namespace DuelingDuelsters.Classes
             rng = new Random();
         }
 
+        /// <exclude />
         private Player _playerOne;
+
         /// <summary>
-        /// The first player.
+        /// The first player. This player is always human-controlled.
         /// </summary>
         public Player PlayerOne
         {
@@ -35,9 +37,11 @@ namespace DuelingDuelsters.Classes
             set { _playerOne = value; }
         }
 
+        /// <exclude />
         private Player _playerTwo;
+
         /// <summary>
-        /// The second player.
+        /// The second player. This player can be controlled by a human or by the game's AI, determined by the player's <see cref="Player.Brain"/>.
         /// </summary>
         public Player PlayerTwo
         {
@@ -46,57 +50,172 @@ namespace DuelingDuelsters.Classes
         }
 
         /// <summary>
-        /// The current round number. The round counter ticks up after each player's action is processed and the round results are returned.
+        /// The current round number.
+        /// <para>
+        /// The <c>RoundCounter</c> ticks up after each player's action is processed and the round results are returned. The <c>RoundCounter</c> is reset to <c>1</c> at the start of a match.
+        /// </para>
         /// </summary>
         public int RoundCounter
-        { get; set;}
+        { get; set; }
 
         /// <summary>
-        /// Random number generator instance. Used to figuratively roll dice to decide hits, damage, and more.
+        /// The match's random number generator instance. Used to figuratively roll the dice to decide hits, damage, and more.
+        /// <para>
+        /// The RNG is seeded with the current date and time every time a new match is begun.
+        /// </para>
         /// </summary>
         private readonly Random rng;
 
+        /// <exclude />
         private Narrator _narrator;
 
+        /// <summary>
+        /// Available outcomes for a round. 
+        /// <para>
+        /// An <c>Outcome</c> is decided by a combination of the two player's chosen <see cref="Player.Action"> Action</see>, the directions of those actions, and dice rolls performed by the <see cref="Match">Match</see>'s <see cref="rng"/> member.
+        /// </para> 
+        /// <para>
+        /// After the round <c>Outcome</c> is determined, it is used to get narration strings from the <see cref="Narrator"/>, calculate damage, counters, and heals, and set the stage for the next round.
+        /// </para> 
+        /// </summary>
         public enum Outcome
         {
+            /// <summary>
+            /// The default action. The <c>Outcome</c> is reset to <c>None</c> at the start of the round.
+            /// </summary>
             None,
+            /// <summary>
+            /// <see cref="PlayerOne">Player One</see> and <see cref="PlayerTwo">Player Two</see> swing in the same direction. Neither player takes damage.
+            /// </summary>
             SwordClash,
+            /// <summary>
+            /// <see cref="PlayerOne">Player One</see> and <see cref="PlayerTwo">Player Two</see> swing in opposite directions. Both players take full damage and have a chance to crit. 
+            /// </summary>
             BothHit,
+            /// <summary>
+            /// <see cref="PlayerOne">Player One</see> swings and <see cref="PlayerTwo">Player Two</see> blocks in the same direction. <see cref="PlayerOne">Player One</see> is staggered.
+            /// </summary>
             P1Blocked,
+            /// <summary>
+            /// <see cref="PlayerTwo">Player Two</see> swings and <see cref="PlayerOne">Player One</see> blocks in the same direction. <see cref="PlayerTwo">Player Two</see> is staggered.
+            /// </summary>
             P2Blocked,
+            /// <summary>
+            /// <see cref="PlayerTwo">Player Two</see> swings and <see cref="PlayerOne">Player One</see> blocks in the opposite direction. <see cref="PlayerOne">Player One</see> takes damage.
+            /// </summary>
             P1FailedBlock,
+            /// <summary>
+            /// <see cref="PlayerOne">Player One</see> swings and <see cref="PlayerTwo">Player Two</see> blocks in the opposite direction. <see cref="PlayerTwo">Player Two</see> takes damage.
+            /// </summary>
             P2FailedBlock,
+            /// <summary>
+            /// Both players block in any direction. Neither player takes damage or is staggered.
+            /// </summary>
             BothBlock,
+            /// <summary>
+            /// <see cref="PlayerTwo">Player Two</see> swings and <see cref="PlayerOne">Player One</see> dodges in the opposite direction. <see cref="PlayerTwo">Player Two</see> gets an automatic critical hit.
+            /// </summary>
             P1FailedDodge,
+            /// <summary>
+            /// <see cref="PlayerOne">Player One</see> swings and <see cref="PlayerTwo">Player Two</see> dodges in the opposite direction. <see cref="PlayerOne">Player One</see> gets an automatic crit.
+            /// </summary>
             P2FailedDodge,
+            /// <summary>
+            /// <see cref="PlayerTwo">Player Two</see> swings and <see cref="PlayerOne">Player One</see> dodges in the same direction. <see cref="PlayerOne">Player One</see> gets the chance to counter, and a higher chance to land a critical hit on that counter.
+            /// </summary>
             P1Dodge,
+            /// <summary>
+            /// <see cref="PlayerOne">Player One</see> swings and <see cref="PlayerTwo">Player Two</see> dodges in the same direction. <see cref="PlayerTwo">Player Two</see> gets the chance to counter, and a higher chance to land a critical hit on that counter.
+            /// </summary>
             P2Dodge,
+            /// <summary>
+            /// <see cref="PlayerOne">Player One</see> fails a counter. This Outcome is only used to get narration. 
+            /// </summary>
             P1FailedCounter,
+            /// <summary>
+            /// <see cref="PlayerTwo">Player Two</see> fails a counter. This Outcome is only used to get narration. 
+            /// </summary>
             P2FailedCounter,
+            /// <summary>
+            /// <see cref="PlayerTwo">Player Two</see> blocks and <see cref="PlayerOne">Player One</see> dodges in the same direction. <see cref="PlayerOne">Player One</see> gets chance to counter, though they cannot land a critical hit and the damage is reduced by half.
+            /// </summary>
             P1DodgeBlock,
+            /// <summary>
+            /// <see cref="PlayerOne">Player One</see> blocks and <see cref="PlayerTwo">Player Two</see> dodges in the same direction. <see cref="PlayerTwo">Player Two</see> gets chance to counter, though they cannot land a critical hit and the damage is reduced by half.
+            /// </summary>
             P2DodgeBlock,
+            /// <summary>
+            /// <see cref="PlayerOne">Player One</see> blocks and <see cref="PlayerTwo">Player Two</see> dodges in the opposite direction. Neither player takes damage.
+            /// </summary>
             P1BlockP2Dodge,
+            /// <summary>
+            /// <see cref="PlayerTwo">Player Two</see> blocks and <see cref="PlayerOne">Player One</see> dodges in the opposite direction. Neither player takes damage.
+            /// </summary>
             P2BlockP1Dodge,
+            /// <summary>
+            /// Both players dodge. Nobody takes damage.
+            /// </summary>
             DoubleDodge,
+            /// <summary>
+            /// <see cref="PlayerOne">Player One</see> heals and <see cref="PlayerTwo">Player Two</see> defends or dodges. <see cref="PlayerOne">Player One</see> restores health and nothing happens to <see cref="PlayerTwo">Player Two</see>.
+            /// </summary>
             P1HealP2Defend,
+            /// <summary>
+            /// <see cref="PlayerTwo">Player Two</see> heals and <see cref="PlayerOne">Player One</see> blocks or dodges. <see cref="PlayerTwo">Player Two</see> restores health and nothing happens to <see cref="PlayerOne">Player One</see>.
+            /// </summary>
             P2HealP1Defend,
+            /// <summary>
+            /// <see cref="PlayerOne">Player One</see> fails to heal and <see cref="PlayerTwo">Player Two</see> blocks or dodges. A wasted turn for both players.
+            /// </summary>
             P1FailedHealP2Defend,
+            /// <summary>
+            /// <see cref="PlayerTwo">Player Two</see> fails to heal and <see cref="PlayerOne">Player One</see> blocks or dodges. A wasted turn for both players.
+            /// </summary>
             P2FailedHealP1Defend,
+            /// <summary>
+            /// <see cref="PlayerOne">Player One</see> heals and <see cref="PlayerTwo">Player Two</see> swings. <see cref="PlayerOne">Player One</see> restores health and has a chance to dodge <see cref="PlayerTwo">Player Two</see>'s attack.
+            /// </summary>
             P1HealP2Swing,
+            /// <summary>
+            /// <see cref="PlayerTwo">Player Two</see> heals and <see cref="PlayerOne">Player One</see> swings. <see cref="PlayerTwo">Player Two</see> restores health and has a chance to dodge <see cref="PlayerOne">Player One</see>'s attack.
+            /// </summary>
             P2HealP1Swing,
+            /// <summary>
+            /// <see cref="PlayerOne">Player One</see> fails to heal and <see cref="PlayerTwo">Player Two</see> swings. Player Two has a chance for a critical hit.
+            /// </summary>
             P1FailedHealP2Swing,
+            /// <summary>
+            /// <see cref="PlayerTwo">Player Two</see> fails to heal and <see cref="PlayerOne">Player One</see> swings. Player One has a chance for a critical hit.
+            /// </summary>
             P2FailedHealP1Swing,
+            /// <summary>
+            /// <see cref="PlayerOne">Player One</see> fails to heal and <see cref="PlayerTwo">Player Two</see> heals.
+            /// </summary>
             P1FailedHealP2Heal,
+            /// <summary>
+            /// <see cref="PlayerTwo">Player Two</see> fails to heal and <see cref="PlayerOne">Player One</see> heals.
+            /// </summary>
             P2FailedHealP1Heal,
+            /// <summary>
+            /// Both players fail to heal. A wasted turn for both players.
+            /// </summary>
             DoubleFailedHeal,
+            /// <summary>
+            /// The healing player dodges the attacking player's counterattack.
+            /// </summary>
             HealDodge,
+            /// <summary>
+            /// The healing player gets hit by the attacking player's counterattack.
+            /// </summary>
             HealCounter,
+            /// <summary>
+            /// Both players successfully heal on the same turn.
+            /// </summary>
             DoubleHeal
         }
 
         /// <summary>
-        /// Plays out the round based on each player's actions.
+        /// The main gameplay loop for a round of a match. Each player selects their actions using the <see cref="Narrator.RunPlayerActionSelect(Player)"></see> method. The selected actions are then narrated and processed into <see cref="Outcome"/> data. The <c>Outcome</c> data is then processed and narrated to the players.
         /// </summary>
         public void PlayRound()
         {
@@ -131,227 +250,221 @@ namespace DuelingDuelsters.Classes
                 goto P2ChooseAction;
             }
 
-            //_narrator.PressAnyKey();
-
             GameLoop.GameState = State.OutcomeDisplay;
             Console.Clear();
             Console.WriteLine(DrawRoundHeader());
-            do
-            {
-                // Describe player individual actions
-                Console.WriteLine("\n" + _narrator.GetPlayerActionNarration(_playerOne));
-                Thread.Sleep(700);
-                Console.WriteLine(_narrator.GetPlayerActionNarration(_playerTwo));
-                Thread.Sleep(700);
 
-                // Get the outcome.
-                Outcome actionKey = GetOutcome(_playerOne.ChosenAction, _playerTwo.ChosenAction);
-                // Get and print the narration for the given outcome.
-                Console.WriteLine(_narrator.GetOutcomeNarration(actionKey, _playerOne.Name, _playerTwo.Name));
-                Thread.Sleep(700);
-                // Process the outcome.
-                ProcessOutcome(actionKey);
-                Thread.Sleep(700);
+            ProcessRound();
 
-                _narrator.PressAnyKey();
-                // Increment the round counter.
-                RoundCounter++;
+            // Increment the round counter.
+            RoundCounter++;
 
-                // Reset player actions for the next round.
-                _playerOne.ActionTaken = false;
-                _playerTwo.ActionTaken = false;
-            }
-            while (_playerOne.ActionTaken == true && _playerTwo.ActionTaken == true);
+            // Reset player actions for the next round.
+            _playerOne.ActionTaken = false;
+            _playerTwo.ActionTaken = false;
+        }
+
+        /// <summary>
+        /// Processes the round's actions and outcomes.
+        /// <list type="bullet">
+        /// <item>
+        /// <description>Actions are narrated using the <see cref="Narrator.GetPlayerActionNarration(Player)"></see> method.</description>
+        /// </item>
+        /// <item>
+        /// <description>The round's <see cref="Outcome"></see> is generated using the <see cref="GetOutcome(Player.Action, Player.Action)"></see> method.</description>
+        /// </item>
+        /// <item>
+        /// <description>The Outcome is narrated using the <see cref="Narrator.GetOutcomeNarration(Outcome, string?, string?)"></see> method.</description>
+        /// </item>
+        /// <item>
+        /// <description>The Outcome is processed using <see cref="Match.ProcessOutcome(Outcome)"></see> method.</description>
+        /// </item>
+        /// </list>
+        /// </summary>
+        private void ProcessRound()
+        {
+            // Describe player individual actions
+            Console.WriteLine("\n" + _narrator.GetPlayerActionNarration(_playerOne));
+            Thread.Sleep(700);
+            Console.WriteLine(_narrator.GetPlayerActionNarration(_playerTwo));
+            Thread.Sleep(700);
+
+            // Get the outcome.
+            Outcome actionKey = GetOutcome(_playerOne.ChosenAction, _playerTwo.ChosenAction);
+            // Get and print the narration for the given outcome.
+            Console.WriteLine(_narrator.GetOutcomeNarration(actionKey, _playerOne.Name, _playerTwo.Name));
+            Thread.Sleep(700);
+            // Process the outcome.
+            ProcessOutcome(actionKey);
+            Thread.Sleep(700);
+
+            _narrator.PressAnyKey();
+
         }
 
         private Outcome GetOutcome(Player.Action actionOne, Player.Action actionTwo)
         {
             Outcome outcome = Outcome.None;
-           
-            // SWING actions
-            // Player One and Player Two swing in the same direction. Neither player takes damage.
-            if ((actionOne == Player.Action.swingL && actionTwo == Player.Action.swingL) || 
+
+            // ** Double SWING Outcomes **
+
+            if ((actionOne == Player.Action.swingL && actionTwo == Player.Action.swingL) ||
                 (actionOne == Player.Action.swingR && actionTwo == Player.Action.swingR))
             {
                 outcome = Outcome.SwordClash;
             }
-            // Player One and Player Two swing in opposite directions. Both players take full damage and have a chance to crit. 
-            else if ((actionOne == Player.Action.swingL && actionTwo == Player.Action.swingR) || 
+            else if ((actionOne == Player.Action.swingL && actionTwo == Player.Action.swingR) ||
                 (actionOne == Player.Action.swingR && actionTwo == Player.Action.swingL))
             {
                 outcome = Outcome.BothHit;
             }
 
-            // SWING + BLOCK actions
-            // P1 swings and P2 blocks in the same direction.  P1 is staggered.
-            else if ((actionOne == Player.Action.swingL && actionTwo == Player.Action.blockL) || 
+            // ** SWING + BLOCK Outcomes **
+
+            else if ((actionOne == Player.Action.swingL && actionTwo == Player.Action.blockL) ||
                 (actionOne == Player.Action.swingR && actionTwo == Player.Action.blockR))
             {
-                outcome = Outcome.P1Blocked;                
+                outcome = Outcome.P1Blocked;
             }
-            // P2 swings and P1 blocks in the same direction. P2 is staggered.
-            else if ((actionTwo == Player.Action.swingL && actionOne == Player.Action.blockL) || 
+            else if ((actionTwo == Player.Action.swingL && actionOne == Player.Action.blockL) ||
                 (actionTwo == Player.Action.swingR && actionOne == Player.Action.blockR))
             {
                 outcome = Outcome.P2Blocked;
             }
-            // P2 swings and P1 blocks in the opposite direction. P1 takes damage.
-            else if ((actionTwo == Player.Action.swingL && actionOne == Player.Action.blockR) || 
+            else if ((actionTwo == Player.Action.swingL && actionOne == Player.Action.blockR) ||
                 (actionTwo == Player.Action.swingR && actionOne == Player.Action.blockL))
             {
                 outcome = Outcome.P1FailedBlock;
             }
-            // P1 swings and P2 blocks in the opposite direction. P2 takes damage.
-            else if ((actionOne == Player.Action.swingL && actionTwo == Player.Action.blockR) || 
+            else if ((actionOne == Player.Action.swingL && actionTwo == Player.Action.blockR) ||
                 (actionOne == Player.Action.swingR && actionTwo == Player.Action.blockL))
             {
                 outcome = Outcome.P2FailedBlock;
             }
 
-            // Double BLOCK action
-            // Both players block in any direction. Neither player takes damage or is staggered.
-            else if ((actionOne == Player.Action.blockL || actionOne == Player.Action.blockR) && 
+            // ** Double BLOCK Outcome **
+
+            else if ((actionOne == Player.Action.blockL || actionOne == Player.Action.blockR) &&
                 (actionTwo == Player.Action.blockL || actionTwo == Player.Action.blockR))
             {
                 outcome = Outcome.BothBlock;
             }
 
-            // SWING + DODGE actions
-            // P2 swings and P1 dodges in the opposite direction. P2 gets an automatic crit.
-            else if ((actionTwo == Player.Action.swingL && actionOne == Player.Action.dodgeR) || 
+            // ** SWING + DODGE Outcomes **
+
+            else if ((actionTwo == Player.Action.swingL && actionOne == Player.Action.dodgeR) ||
                 (actionTwo == Player.Action.swingR && actionOne == Player.Action.dodgeL))
             {
                 outcome = Outcome.P1FailedDodge;
             }
-            // P1 swings and P2 dodges in the opposite direction. P1 gets an automatic crit.
-            else if ((actionOne == Player.Action.swingL && actionTwo == Player.Action.dodgeR) || 
+            else if ((actionOne == Player.Action.swingL && actionTwo == Player.Action.dodgeR) ||
                 (actionOne == Player.Action.swingR && actionTwo == Player.Action.dodgeL))
             {
                 outcome = Outcome.P2FailedDodge;
             }
-            // P2 swings and P1 dodges in the same direction.
-            // P1 gets the chance to counter, and a higher chance to crit on that counter.
             else if ((actionTwo == Player.Action.swingL && actionOne == Player.Action.dodgeL) ||
                 (actionTwo == Player.Action.swingR && actionOne == Player.Action.dodgeR))
             {
                 outcome = Outcome.P1Dodge;
             }
-            // P1 swings and P2 dodges in the same direction.
-            // P2 gets the chance to counter, and a higher chance to crit on that counter.
-            else if ((actionOne == Player.Action.swingL && actionTwo == Player.Action.dodgeL) || 
+            else if ((actionOne == Player.Action.swingL && actionTwo == Player.Action.dodgeL) ||
                 (actionOne == Player.Action.swingR && actionTwo == Player.Action.dodgeR))
             {
                 outcome = Outcome.P2Dodge;
             }
 
-            // BLOCK + DODGE actions
-            // P2 blocks and P1 dodges in the same direction. P1 gets chance to counter, though they cannot crit and the damage is reduced by half.
-            else if ((actionTwo == Player.Action.blockL && actionOne == Player.Action.dodgeL) || 
+            // ** BLOCK + DODGE Outcomes **
+
+            else if ((actionTwo == Player.Action.blockL && actionOne == Player.Action.dodgeL) ||
                 (actionTwo == Player.Action.blockR && actionOne == Player.Action.dodgeR))
             {
                 outcome = Outcome.P1DodgeBlock;
             }
-            // P1 blocks and P2 dodges in the same direction. P2 gets chance to counter, though they cannot crit and the damage is reduced by half.
-            else if ((actionOne == Player.Action.blockL && actionTwo == Player.Action.dodgeL) || 
+            else if ((actionOne == Player.Action.blockL && actionTwo == Player.Action.dodgeL) ||
                 (actionOne == Player.Action.blockR && actionTwo == Player.Action.dodgeR))
             {
                 outcome = Outcome.P2DodgeBlock;
             }
-            // P1 blocks and P2 dodges in the opposite direction. Neither player takes damage.
             else if ((actionOne == Player.Action.blockL && actionTwo == Player.Action.dodgeR) ||
                 (actionOne == Player.Action.blockR && actionTwo == Player.Action.dodgeL))
             {
                 outcome = Outcome.P1BlockP2Dodge;
             }
-            // P2 blocks and P1 dodges in the opposite direction. Neither player takes damage.
-            else if ((actionTwo == Player.Action.blockL && actionOne == Player.Action.dodgeR) || 
+            else if ((actionTwo == Player.Action.blockL && actionOne == Player.Action.dodgeR) ||
                 (actionTwo == Player.Action.blockR && actionOne == Player.Action.dodgeL))
             {
                 outcome = Outcome.P2BlockP1Dodge;
             }
 
-            // Double DODGE action
-            // Both players dodge. Nobody takes damage.
+            // ** Double DODGE Outcomes ** 
+
             else if ((actionOne == Player.Action.dodgeL || actionOne == Player.Action.dodgeR) &&
                 (actionTwo == Player.Action.dodgeL || actionTwo == Player.Action.dodgeR))
             {
                 outcome = Outcome.DoubleDodge;
             }
 
-            // HEAL actions
-            // P1 heals and P2 does anything other than swing or heal. P1 restores health and nothing happens to P2.
+            // ** HEAL Outcomes **
+
             else if (actionOne == Player.Action.heal && (actionTwo != Player.Action.swingL && actionTwo != Player.Action.swingR && actionTwo != Player.Action.heal))
             {
                 if (_playerOne.CanHeal)
                 { outcome = Outcome.P1HealP2Defend; }
-                else 
+                else
                 { outcome = Outcome.P1FailedHealP2Defend; }
             }
-            // P2 heals and P1 does anything other than swing or heal. P2 restores health and nothing happens to P1.
             else if (actionTwo == Player.Action.heal && (actionOne != Player.Action.swingL && actionOne != Player.Action.swingR && actionOne != Player.Action.heal))
             {
                 if (_playerTwo.CanHeal)
                 { outcome = Outcome.P2HealP1Defend; }
-                else 
+                else
                 { outcome = Outcome.P2FailedHealP1Defend; }
             }
-
-            // P1 heals and P2 swings. P1 restores health and has a chance to dodge P2's attack.
             else if (actionOne == Player.Action.heal && (actionTwo == Player.Action.swingL || actionTwo == Player.Action.swingR))
             {
-                // P1 heals because they have healed less than 3 times. P2 has a chance to land an attack.
                 if (_playerOne.CanHeal)
                 {
                     outcome = Outcome.P1HealP2Swing;
-                    
+
                 }
-                // P1 cannot heal because they have healed 3 times. P2 counters.
                 else
                 {
                     outcome = Outcome.P1FailedHealP2Swing;
                 }
             }
-            // P2 heals and P1 swings. P2 restores health and has a chance to dodge P1's attack.
             else if (actionTwo == Player.Action.heal && (actionOne == Player.Action.swingL || actionOne == Player.Action.swingR))
             {
-                // P2 heals because they have healed less than 3 times. P1 has a chance to land an attack.
                 if (_playerTwo.CanHeal)
                 {
                     outcome = Outcome.P2HealP1Swing;
 
                 }
-                // P2 cannot heal because they have healed 3 times. P1 counters.
                 else
                 {
                     outcome = Outcome.P2FailedHealP1Swing;
                 }
             }
-            // Both players attempt to heal.
             else if (actionOne == Player.Action.heal && actionTwo == Player.Action.heal)
             {
-                // Both players have heals remaining.
                 if (_playerOne.CanHeal && _playerTwo.CanHeal)
                 {
                     outcome = Outcome.DoubleHeal;
                 }
-                // Only P1 has heals remaining
                 else if (_playerOne.CanHeal && !_playerTwo.CanHeal)
                 {
                     outcome = Outcome.P2FailedHealP1Heal;
                 }
-                // Only P2 has heals remaining
                 else if (!_playerOne.CanHeal && _playerTwo.CanHeal)
                 {
                     outcome = Outcome.P1FailedHealP2Heal;
                 }
-                // Neither player has heals remaining.
                 else if (!_playerOne.CanHeal && !_playerTwo.CanHeal)
                 {
                     outcome = Outcome.DoubleFailedHeal;
                 }
             }
 
-                return outcome;
+            return outcome;
         }
 
         private void ProcessOutcome(Outcome actionKey)
@@ -432,7 +545,7 @@ namespace DuelingDuelsters.Classes
                         _playerOne.HealSelf();
                         _playerTwo.HealSelf();
                         break;
-                } 
+                }
             }
             catch (SystemException e)
             {
@@ -454,6 +567,11 @@ namespace DuelingDuelsters.Classes
             }
         }
 
+        /// <summary>
+        /// Hello, <see cref="Player"/> 
+        /// </summary>
+        /// <param name="healer"></param>
+        /// <param name="counter"></param>
         private void AttemptHealCounter(Player healer, Player counter)
         {
             // P1 has a chance to dodge P2's attack if they successfully heal and roll a 6 or greater.
@@ -478,18 +596,18 @@ namespace DuelingDuelsters.Classes
                     break;
             }
         }
-        
+
         /// <summary>
         /// Calculates damage to a defending player after a successful attack by an attacking player, calculates whether the hit crits and for how much damage, and then applies the damage to the defending player.
         /// </summary>
         /// <param name="atkPlayer">The attacking player.</param>
         /// <param name="defPlayer">The defending player.</param>
         private void ApplyAttackResult(Player atkPlayer, Player defPlayer)
-        { 
+        {
             // Calculate attacking player one's base damage
             int atkBaseDamage = atkPlayer.CalculateBaseDamage(defPlayer);
             // Divide base damage by two if the defending player is blocking during a counter.
-            if (atkPlayer.IsCountering == true && (defPlayer.ChosenAction == Player.Action.blockR || defPlayer.ChosenAction == Player.Action.blockL)) 
+            if (atkPlayer.IsCountering == true && (defPlayer.ChosenAction == Player.Action.blockR || defPlayer.ChosenAction == Player.Action.blockL))
             {
                 atkBaseDamage = atkBaseDamage / 2;
             }
@@ -498,7 +616,7 @@ namespace DuelingDuelsters.Classes
             // Calculate whether attacking has succeeded in a critical hit
             bool isCrit = atkPlayer.IsCrit(defPlayer);
             // If the critical hit is successful, calculate the crit damage and print critical hit message
-            if (isCrit) 
+            if (isCrit)
             {
                 Console.WriteLine($"{atkPlayer.Name} scores a **CRITICAL HIT!**");
                 Thread.Sleep(500);
@@ -506,7 +624,8 @@ namespace DuelingDuelsters.Classes
                 // If staggered and then hit, defending player is no longer staggered.
                 defPlayer.IsStaggered = false;
             }
-            else { critDamage = 0; };
+            else { critDamage = 0; }
+            ;
             // Get the total damage amount
             int atkTotalDamageGiven = atkBaseDamage + critDamage;
             // Print damage taken by defending player
@@ -535,7 +654,7 @@ namespace DuelingDuelsters.Classes
             // Get length of versus.
             int versusLength = versus.Length;
             // Create a string for the spaces between character names, include room for the VS.
-            System.String nameBlanks = new string(' ', ((headerLength - (p1CharNameLength + p2CharNameLength)) / 2 ) - 4);
+            System.String nameBlanks = new string(' ', ((headerLength - (p1CharNameLength + p2CharNameLength)) / 2) - 4);
             // Create a string for the space between dashes under character names
             System.String underNameBlanks = new string(' ', headerLength - (p1CharNameLength + p2CharNameLength) - 4);
             // Get lengths for P1 & P2 health statuses
@@ -554,7 +673,7 @@ namespace DuelingDuelsters.Classes
             int roundOddSpace = headerLength % 2 == 0 ? 0 : 1;
             string roundOddMod = new string(' ', roundOddSpace);
             // Create string for spaces before and after the round readout
-            string roundBlanks = new string(' ', (headerLength / 2 ) - (roundReadoutLength / 2) - (versusLength / 2 ));
+            string roundBlanks = new string(' ', (headerLength / 2) - (roundReadoutLength / 2) - (versusLength / 2));
             // Create string for blank spaces between character classes
             string classBlanks = new string(' ', (headerLength - (p1ClassNameLength + p2ClassNameLength) - 4));
 

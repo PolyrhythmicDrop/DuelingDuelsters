@@ -5,8 +5,8 @@ items:
   id: Player.PlayerBrain
   parent: DuelingDuelsters.Classes
   children:
-  - DuelingDuelsters.Classes.Player.PlayerBrain.Computer
   - DuelingDuelsters.Classes.Player.PlayerBrain.Human
+  - DuelingDuelsters.Classes.Player.PlayerBrain.Computer
   langs:
   - csharp
   - vb

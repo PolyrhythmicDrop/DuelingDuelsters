@@ -69,7 +69,6 @@ items:
   - DuelingDuelsters.Classes.Narrator.postMatchOptions
   - DuelingDuelsters.Classes.Narrator.pressAnyKey
   - DuelingDuelsters.Classes.Narrator.randomDescription
-  - DuelingDuelsters.Classes.Narrator.readme
   - DuelingDuelsters.Classes.Narrator.readyToDuel
   - DuelingDuelsters.Classes.Narrator.returnTitle
   - DuelingDuelsters.Classes.Narrator.satisfied
@@ -81,6 +80,7 @@ items:
   - DuelingDuelsters.Classes.Narrator.swingLeft
   - DuelingDuelsters.Classes.Narrator.swingRight
   - DuelingDuelsters.Classes.Narrator.swordClash
+  - DuelingDuelsters.Classes.Narrator.titleHelp
   - DuelingDuelsters.Classes.Narrator.twoPlayer
   - DuelingDuelsters.Classes.Narrator.uneventfulHeal
   - DuelingDuelsters.Classes.Narrator.welcomePlayer
@@ -227,33 +227,33 @@ items:
     return:
       type: DuelingDuelsters.Classes.Narrator.Choices
     content.vb: Public Choice As Narrator.Choices
-- uid: DuelingDuelsters.Classes.Narrator.readme
-  commentId: F:DuelingDuelsters.Classes.Narrator.readme
-  id: readme
+- uid: DuelingDuelsters.Classes.Narrator.titleHelp
+  commentId: F:DuelingDuelsters.Classes.Narrator.titleHelp
+  id: titleHelp
   parent: DuelingDuelsters.Classes.Narrator
   langs:
   - csharp
   - vb
-  name: readme
-  nameWithType: Narrator.readme
-  fullName: DuelingDuelsters.Classes.Narrator.readme
+  name: titleHelp
+  nameWithType: Narrator.titleHelp
+  fullName: DuelingDuelsters.Classes.Narrator.titleHelp
   type: Field
   source:
     remote:
       path: src/Classes/Narrator.cs
       branch: documentation
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
-    id: readme
+    id: titleHelp
     path: src/Classes/Narrator.cs
     startLine: 39
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
   syntax:
-    content: private const string readme = "DuelingDuelsters.README.md"
+    content: private const string titleHelp = "DuelingDuelsters.res.title-help.txt"
     return:
       type: System.String
-    content.vb: Private Const readme As String = "DuelingDuelsters.README.md"
+    content.vb: Private Const titleHelp As String = "DuelingDuelsters.res.title-help.txt"
 - uid: DuelingDuelsters.Classes.Narrator.arenaPic
   commentId: F:DuelingDuelsters.Classes.Narrator.arenaPic
   id: arenaPic

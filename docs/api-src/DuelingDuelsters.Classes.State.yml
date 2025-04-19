@@ -5,13 +5,13 @@ items:
   id: State
   parent: DuelingDuelsters.Classes
   children:
-  - DuelingDuelsters.Classes.State.ActionSelect
-  - DuelingDuelsters.Classes.State.CharacterCreation
-  - DuelingDuelsters.Classes.State.HelpScreen
-  - DuelingDuelsters.Classes.State.OutcomeDisplay
-  - DuelingDuelsters.Classes.State.PlayerSelect
   - DuelingDuelsters.Classes.State.TitleScreen
+  - DuelingDuelsters.Classes.State.PlayerSelect
+  - DuelingDuelsters.Classes.State.CharacterCreation
+  - DuelingDuelsters.Classes.State.ActionSelect
+  - DuelingDuelsters.Classes.State.OutcomeDisplay
   - DuelingDuelsters.Classes.State.VictoryScreen
+  - DuelingDuelsters.Classes.State.HelpScreen
   langs:
   - csharp
   - vb

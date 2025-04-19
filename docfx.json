@@ -12,7 +12,8 @@
       ],
       "output": "docs/api-src",
       "memberLayout": "samePage",
-      "includePrivateMembers": true
+      "includePrivateMembers": true,
+      "enumSortOrder": "declaringOrder"
     }
   ],
   "build": {

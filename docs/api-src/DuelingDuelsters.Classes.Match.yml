@@ -16,10 +16,8 @@ items:
   - DuelingDuelsters.Classes.Match.PlayerOne
   - DuelingDuelsters.Classes.Match.PlayerTwo
   - DuelingDuelsters.Classes.Match.ProcessOutcome(DuelingDuelsters.Classes.Match.Outcome)
+  - DuelingDuelsters.Classes.Match.ProcessRound
   - DuelingDuelsters.Classes.Match.RoundCounter
-  - DuelingDuelsters.Classes.Match._narrator
-  - DuelingDuelsters.Classes.Match._playerOne
-  - DuelingDuelsters.Classes.Match._playerTwo
   - DuelingDuelsters.Classes.Match.rng
   langs:
   - csharp
@@ -39,7 +37,7 @@ items:
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Contains data about the current match, including player information, and the number of rounds since the match started. A Match object contains methods for processing player actions and generating the results of each round.
+  summary: Manages data about the current match, including the two players, their stats, and the number of rounds since the match started. A <code>Match</code> object contains methods for processing player actions and generating the results of each round.
   example: []
   syntax:
     content: public class Match
@@ -76,7 +74,7 @@ items:
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Instantiates a new Match object.
+  summary: Instantiates a new Match object with two <xref href="DuelingDuelsters.Classes.Player" data-throw-if-not-resolved="false"></xref> characters and a <xref href="DuelingDuelsters.Classes.Narrator" data-throw-if-not-resolved="false"></xref>.<br />Sets the <xref href="DuelingDuelsters.Classes.Match.RoundCounter" data-throw-if-not-resolved="false"></xref> to <code>1</code> and initializes the match's <xref href="DuelingDuelsters.Classes.Match.rng" data-throw-if-not-resolved="false"></xref> member.
   example: []
   syntax:
     content: public Match(Player playerOne, Player playerTwo, Narrator narrator)
@@ -89,39 +87,12 @@ items:
       description: Player Two, the second player.
     - id: narrator
       type: DuelingDuelsters.Classes.Narrator
-      description: Narrator, containing all the string constants and menus.
+      description: <xref href="DuelingDuelsters.Classes.Narrator" data-throw-if-not-resolved="false"></xref> object to manage all the action menus and outcome strings.
     content.vb: Public Sub New(playerOne As Player, playerTwo As Player, narrator As Narrator)
   overload: DuelingDuelsters.Classes.Match.#ctor*
   nameWithType.vb: Match.New(Player, Player, Narrator)
   fullName.vb: DuelingDuelsters.Classes.Match.New(DuelingDuelsters.Classes.Player, DuelingDuelsters.Classes.Player, DuelingDuelsters.Classes.Narrator)
   name.vb: New(Player, Player, Narrator)
-- uid: DuelingDuelsters.Classes.Match._playerOne
-  commentId: F:DuelingDuelsters.Classes.Match._playerOne
-  id: _playerOne
-  parent: DuelingDuelsters.Classes.Match
-  langs:
-  - csharp
-  - vb
-  name: _playerOne
-  nameWithType: Match._playerOne
-  fullName: DuelingDuelsters.Classes.Match._playerOne
-  type: Field
-  source:
-    remote:
-      path: src/Classes/Match.cs
-      branch: documentation
-      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
-    id: _playerOne
-    path: src/Classes/Match.cs
-    startLine: 27
-  assemblies:
-  - DuelingDuelsters
-  namespace: DuelingDuelsters.Classes
-  syntax:
-    content: private Player _playerOne
-    return:
-      type: DuelingDuelsters.Classes.Player
-    content.vb: Private _playerOne As Player
 - uid: DuelingDuelsters.Classes.Match.PlayerOne
   commentId: P:DuelingDuelsters.Classes.Match.PlayerOne
   id: PlayerOne
@@ -140,11 +111,11 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: PlayerOne
     path: src/Classes/Match.cs
-    startLine: 31
+    startLine: 33
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: The first player.
+  summary: The first player. This player is always human-controlled.
   example: []
   syntax:
     content: public Player PlayerOne { get; set; }
@@ -153,33 +124,6 @@ items:
       type: DuelingDuelsters.Classes.Player
     content.vb: Public Property PlayerOne As Player
   overload: DuelingDuelsters.Classes.Match.PlayerOne*
-- uid: DuelingDuelsters.Classes.Match._playerTwo
-  commentId: F:DuelingDuelsters.Classes.Match._playerTwo
-  id: _playerTwo
-  parent: DuelingDuelsters.Classes.Match
-  langs:
-  - csharp
-  - vb
-  name: _playerTwo
-  nameWithType: Match._playerTwo
-  fullName: DuelingDuelsters.Classes.Match._playerTwo
-  type: Field
-  source:
-    remote:
-      path: src/Classes/Match.cs
-      branch: documentation
-      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
-    id: _playerTwo
-    path: src/Classes/Match.cs
-    startLine: 37
-  assemblies:
-  - DuelingDuelsters
-  namespace: DuelingDuelsters.Classes
-  syntax:
-    content: private Player _playerTwo
-    return:
-      type: DuelingDuelsters.Classes.Player
-    content.vb: Private _playerTwo As Player
 - uid: DuelingDuelsters.Classes.Match.PlayerTwo
   commentId: P:DuelingDuelsters.Classes.Match.PlayerTwo
   id: PlayerTwo
@@ -198,11 +142,11 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: PlayerTwo
     path: src/Classes/Match.cs
-    startLine: 41
+    startLine: 45
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: The second player.
+  summary: The second player. This player can be controlled by a human or by the game's AI, determined by the player's <xref href="DuelingDuelsters.Classes.Player.Brain" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public Player PlayerTwo { get; set; }
@@ -229,11 +173,18 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: RoundCounter
     path: src/Classes/Match.cs
-    startLine: 50
+    startLine: 57
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: The current round number. The round counter ticks up after each player's action is processed and the round results are returned.
+  summary: >-
+    The current round number.
+
+    <p>
+
+    The <code>RoundCounter</code> ticks up after each player's action is processed and the round results are returned. The <code>RoundCounter</code> is reset to <code>1</code> at the start of a match.
+
+    </p>
   example: []
   syntax:
     content: public int RoundCounter { get; set; }
@@ -260,44 +211,24 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: rng
     path: src/Classes/Match.cs
-    startLine: 56
+    startLine: 66
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Random number generator instance. Used to figuratively roll dice to decide hits, damage, and more.
+  summary: >-
+    The match's random number generator instance. Used to figuratively roll the dice to decide hits, damage, and more.
+
+    <p>
+
+    The RNG is seeded with the current date and time every time a new match is begun.
+
+    </p>
   example: []
   syntax:
     content: private readonly Random rng
     return:
       type: System.Random
     content.vb: Private ReadOnly rng As Random
-- uid: DuelingDuelsters.Classes.Match._narrator
-  commentId: F:DuelingDuelsters.Classes.Match._narrator
-  id: _narrator
-  parent: DuelingDuelsters.Classes.Match
-  langs:
-  - csharp
-  - vb
-  name: _narrator
-  nameWithType: Match._narrator
-  fullName: DuelingDuelsters.Classes.Match._narrator
-  type: Field
-  source:
-    remote:
-      path: src/Classes/Match.cs
-      branch: documentation
-      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
-    id: _narrator
-    path: src/Classes/Match.cs
-    startLine: 58
-  assemblies:
-  - DuelingDuelsters
-  namespace: DuelingDuelsters.Classes
-  syntax:
-    content: private Narrator _narrator
-    return:
-      type: DuelingDuelsters.Classes.Narrator
-    content.vb: Private _narrator As Narrator
 - uid: DuelingDuelsters.Classes.Match.PlayRound
   commentId: M:DuelingDuelsters.Classes.Match.PlayRound
   id: PlayRound
@@ -316,16 +247,47 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: PlayRound
     path: src/Classes/Match.cs
-    startLine: 100
+    startLine: 219
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Plays out the round based on each player's actions.
+  summary: The main gameplay loop for a round of a match. Each player selects their actions using the <xref href="DuelingDuelsters.Classes.Narrator.RunPlayerActionSelect(DuelingDuelsters.Classes.Player)" data-throw-if-not-resolved="false"></xref> method. The selected actions are then narrated and processed into <xref href="DuelingDuelsters.Classes.Match.Outcome" data-throw-if-not-resolved="false"></xref> data. The <code>Outcome</code> data is then processed and narrated to the players.
   example: []
   syntax:
     content: public void PlayRound()
     content.vb: Public Sub PlayRound()
   overload: DuelingDuelsters.Classes.Match.PlayRound*
+- uid: DuelingDuelsters.Classes.Match.ProcessRound
+  commentId: M:DuelingDuelsters.Classes.Match.ProcessRound
+  id: ProcessRound
+  parent: DuelingDuelsters.Classes.Match
+  langs:
+  - csharp
+  - vb
+  name: ProcessRound()
+  nameWithType: Match.ProcessRound()
+  fullName: DuelingDuelsters.Classes.Match.ProcessRound()
+  type: Method
+  source:
+    remote:
+      path: src/Classes/Match.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: ProcessRound
+    path: src/Classes/Match.cs
+    startLine: 283
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: >-
+    Processes the round's actions and outcomes.
+
+    <ul><li>Actions are narrated using the <xref href="DuelingDuelsters.Classes.Narrator.GetPlayerActionNarration(DuelingDuelsters.Classes.Player)" data-throw-if-not-resolved="false"></xref> method.</li><li>The round's <xref href="DuelingDuelsters.Classes.Match.Outcome" data-throw-if-not-resolved="false"></xref> is generated using the <xref href="DuelingDuelsters.Classes.Match.GetOutcome(DuelingDuelsters.Classes.Player.Action%2cDuelingDuelsters.Classes.Player.Action)" data-throw-if-not-resolved="false"></xref> method.</li><li>The Outcome is narrated using the <xref href="DuelingDuelsters.Classes.Narrator.GetOutcomeNarration(DuelingDuelsters.Classes.Match.Outcome%2cSystem.String%2cSystem.String)" data-throw-if-not-resolved="false"></xref> method.</li><li>The Outcome is processed using <xref href="DuelingDuelsters.Classes.Match.ProcessOutcome(DuelingDuelsters.Classes.Match.Outcome)" data-throw-if-not-resolved="false"></xref> method.</li></ul>
+  example: []
+  syntax:
+    content: private void ProcessRound()
+    content.vb: Private Sub ProcessRound()
+  overload: DuelingDuelsters.Classes.Match.ProcessRound*
 - uid: DuelingDuelsters.Classes.Match.GetOutcome(DuelingDuelsters.Classes.Player.Action,DuelingDuelsters.Classes.Player.Action)
   commentId: M:DuelingDuelsters.Classes.Match.GetOutcome(DuelingDuelsters.Classes.Player.Action,DuelingDuelsters.Classes.Player.Action)
   id: GetOutcome(DuelingDuelsters.Classes.Player.Action,DuelingDuelsters.Classes.Player.Action)
@@ -344,7 +306,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: GetOutcome
     path: src/Classes/Match.cs
-    startLine: 166
+    startLine: 304
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -377,7 +339,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ProcessOutcome
     path: src/Classes/Match.cs
-    startLine: 356
+    startLine: 469
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -406,7 +368,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: CounterAttack
     path: src/Classes/Match.cs
-    startLine: 442
+    startLine: 555
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -437,17 +399,21 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: AttemptHealCounter
     path: src/Classes/Match.cs
-    startLine: 456
+    startLine: 574
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: Hello, <xref href="DuelingDuelsters.Classes.Player" data-throw-if-not-resolved="false"></xref>
+  example: []
   syntax:
     content: private void AttemptHealCounter(Player healer, Player counter)
     parameters:
     - id: healer
       type: DuelingDuelsters.Classes.Player
+      description: ''
     - id: counter
       type: DuelingDuelsters.Classes.Player
+      description: ''
     content.vb: Private Sub AttemptHealCounter(healer As Player, counter As Player)
   overload: DuelingDuelsters.Classes.Match.AttemptHealCounter*
 - uid: DuelingDuelsters.Classes.Match.ApplyAttackResult(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)
@@ -468,7 +434,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ApplyAttackResult
     path: src/Classes/Match.cs
-    startLine: 486
+    startLine: 604
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -503,7 +469,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: DrawRoundHeader
     path: src/Classes/Match.cs
-    startLine: 521
+    startLine: 640
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -534,7 +500,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: DeclareVictor
     path: src/Classes/Match.cs
-    startLine: 630
+    startLine: 749
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -802,15 +768,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: DuelingDuelsters.Classes.Match.#ctor*
-  commentId: Overload:DuelingDuelsters.Classes.Match.#ctor
-  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match__ctor_DuelingDuelsters_Classes_Player_DuelingDuelsters_Classes_Player_DuelingDuelsters_Classes_Narrator_
-  name: Match
-  nameWithType: Match.Match
-  fullName: DuelingDuelsters.Classes.Match.Match
-  nameWithType.vb: Match.New
-  fullName.vb: DuelingDuelsters.Classes.Match.New
-  name.vb: New
 - uid: DuelingDuelsters.Classes.Player
   commentId: T:DuelingDuelsters.Classes.Player
   parent: DuelingDuelsters.Classes
@@ -825,12 +782,39 @@ references:
   name: Narrator
   nameWithType: Narrator
   fullName: DuelingDuelsters.Classes.Narrator
+- uid: DuelingDuelsters.Classes.Match.RoundCounter
+  commentId: P:DuelingDuelsters.Classes.Match.RoundCounter
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_RoundCounter
+  name: RoundCounter
+  nameWithType: Match.RoundCounter
+  fullName: DuelingDuelsters.Classes.Match.RoundCounter
+- uid: DuelingDuelsters.Classes.Match.rng
+  commentId: F:DuelingDuelsters.Classes.Match.rng
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_rng
+  name: rng
+  nameWithType: Match.rng
+  fullName: DuelingDuelsters.Classes.Match.rng
+- uid: DuelingDuelsters.Classes.Match.#ctor*
+  commentId: Overload:DuelingDuelsters.Classes.Match.#ctor
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match__ctor_DuelingDuelsters_Classes_Player_DuelingDuelsters_Classes_Player_DuelingDuelsters_Classes_Narrator_
+  name: Match
+  nameWithType: Match.Match
+  fullName: DuelingDuelsters.Classes.Match.Match
+  nameWithType.vb: Match.New
+  fullName.vb: DuelingDuelsters.Classes.Match.New
+  name.vb: New
 - uid: DuelingDuelsters.Classes.Match.PlayerOne*
   commentId: Overload:DuelingDuelsters.Classes.Match.PlayerOne
   href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_PlayerOne
   name: PlayerOne
   nameWithType: Match.PlayerOne
   fullName: DuelingDuelsters.Classes.Match.PlayerOne
+- uid: DuelingDuelsters.Classes.Player.Brain
+  commentId: F:DuelingDuelsters.Classes.Player.Brain
+  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_Brain
+  name: Brain
+  nameWithType: Player.Brain
+  fullName: DuelingDuelsters.Classes.Player.Brain
 - uid: DuelingDuelsters.Classes.Match.PlayerTwo*
   commentId: Overload:DuelingDuelsters.Classes.Match.PlayerTwo
   href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_PlayerTwo
@@ -862,12 +846,199 @@ references:
   name: Random
   nameWithType: Random
   fullName: System.Random
+- uid: DuelingDuelsters.Classes.Narrator.RunPlayerActionSelect(DuelingDuelsters.Classes.Player)
+  commentId: M:DuelingDuelsters.Classes.Narrator.RunPlayerActionSelect(DuelingDuelsters.Classes.Player)
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_RunPlayerActionSelect_DuelingDuelsters_Classes_Player_
+  name: RunPlayerActionSelect(Player)
+  nameWithType: Narrator.RunPlayerActionSelect(Player)
+  fullName: DuelingDuelsters.Classes.Narrator.RunPlayerActionSelect(DuelingDuelsters.Classes.Player)
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Narrator.RunPlayerActionSelect(DuelingDuelsters.Classes.Player)
+    name: RunPlayerActionSelect
+    href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_RunPlayerActionSelect_DuelingDuelsters_Classes_Player_
+  - name: (
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: )
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Narrator.RunPlayerActionSelect(DuelingDuelsters.Classes.Player)
+    name: RunPlayerActionSelect
+    href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_RunPlayerActionSelect_DuelingDuelsters_Classes_Player_
+  - name: (
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: )
+- uid: DuelingDuelsters.Classes.Match.Outcome
+  commentId: T:DuelingDuelsters.Classes.Match.Outcome
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Match.html
+  name: Match.Outcome
+  nameWithType: Match.Outcome
+  fullName: DuelingDuelsters.Classes.Match.Outcome
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Match
+    name: Match
+    href: DuelingDuelsters.Classes.Match.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Match.Outcome
+    name: Outcome
+    href: DuelingDuelsters.Classes.Match.Outcome.html
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Match
+    name: Match
+    href: DuelingDuelsters.Classes.Match.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Match.Outcome
+    name: Outcome
+    href: DuelingDuelsters.Classes.Match.Outcome.html
 - uid: DuelingDuelsters.Classes.Match.PlayRound*
   commentId: Overload:DuelingDuelsters.Classes.Match.PlayRound
   href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_PlayRound
   name: PlayRound
   nameWithType: Match.PlayRound
   fullName: DuelingDuelsters.Classes.Match.PlayRound
+- uid: DuelingDuelsters.Classes.Narrator.GetPlayerActionNarration(DuelingDuelsters.Classes.Player)
+  commentId: M:DuelingDuelsters.Classes.Narrator.GetPlayerActionNarration(DuelingDuelsters.Classes.Player)
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_GetPlayerActionNarration_DuelingDuelsters_Classes_Player_
+  name: GetPlayerActionNarration(Player)
+  nameWithType: Narrator.GetPlayerActionNarration(Player)
+  fullName: DuelingDuelsters.Classes.Narrator.GetPlayerActionNarration(DuelingDuelsters.Classes.Player)
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Narrator.GetPlayerActionNarration(DuelingDuelsters.Classes.Player)
+    name: GetPlayerActionNarration
+    href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_GetPlayerActionNarration_DuelingDuelsters_Classes_Player_
+  - name: (
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: )
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Narrator.GetPlayerActionNarration(DuelingDuelsters.Classes.Player)
+    name: GetPlayerActionNarration
+    href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_GetPlayerActionNarration_DuelingDuelsters_Classes_Player_
+  - name: (
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: )
+- uid: DuelingDuelsters.Classes.Match.GetOutcome(DuelingDuelsters.Classes.Player.Action,DuelingDuelsters.Classes.Player.Action)
+  commentId: M:DuelingDuelsters.Classes.Match.GetOutcome(DuelingDuelsters.Classes.Player.Action,DuelingDuelsters.Classes.Player.Action)
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_GetOutcome_DuelingDuelsters_Classes_Player_Action_DuelingDuelsters_Classes_Player_Action_
+  name: GetOutcome(Action, Action)
+  nameWithType: Match.GetOutcome(Player.Action, Player.Action)
+  fullName: DuelingDuelsters.Classes.Match.GetOutcome(DuelingDuelsters.Classes.Player.Action, DuelingDuelsters.Classes.Player.Action)
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Match.GetOutcome(DuelingDuelsters.Classes.Player.Action,DuelingDuelsters.Classes.Player.Action)
+    name: GetOutcome
+    href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_GetOutcome_DuelingDuelsters_Classes_Player_Action_DuelingDuelsters_Classes_Player_Action_
+  - name: (
+  - uid: DuelingDuelsters.Classes.Player.Action
+    name: Action
+    href: DuelingDuelsters.Classes.Player.Action.html
+  - name: ','
+  - name: " "
+  - uid: DuelingDuelsters.Classes.Player.Action
+    name: Action
+    href: DuelingDuelsters.Classes.Player.Action.html
+  - name: )
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Match.GetOutcome(DuelingDuelsters.Classes.Player.Action,DuelingDuelsters.Classes.Player.Action)
+    name: GetOutcome
+    href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_GetOutcome_DuelingDuelsters_Classes_Player_Action_DuelingDuelsters_Classes_Player_Action_
+  - name: (
+  - uid: DuelingDuelsters.Classes.Player.Action
+    name: Action
+    href: DuelingDuelsters.Classes.Player.Action.html
+  - name: ','
+  - name: " "
+  - uid: DuelingDuelsters.Classes.Player.Action
+    name: Action
+    href: DuelingDuelsters.Classes.Player.Action.html
+  - name: )
+- uid: DuelingDuelsters.Classes.Narrator.GetOutcomeNarration(DuelingDuelsters.Classes.Match.Outcome,System.String,System.String)
+  commentId: M:DuelingDuelsters.Classes.Narrator.GetOutcomeNarration(DuelingDuelsters.Classes.Match.Outcome,System.String,System.String)
+  isExternal: true
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_GetOutcomeNarration_DuelingDuelsters_Classes_Match_Outcome_System_String_System_String_
+  name: GetOutcomeNarration(Outcome, string, string)
+  nameWithType: Narrator.GetOutcomeNarration(Match.Outcome, string, string)
+  fullName: DuelingDuelsters.Classes.Narrator.GetOutcomeNarration(DuelingDuelsters.Classes.Match.Outcome, string, string)
+  nameWithType.vb: Narrator.GetOutcomeNarration(Match.Outcome, String, String)
+  fullName.vb: DuelingDuelsters.Classes.Narrator.GetOutcomeNarration(DuelingDuelsters.Classes.Match.Outcome, String, String)
+  name.vb: GetOutcomeNarration(Outcome, String, String)
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Narrator.GetOutcomeNarration(DuelingDuelsters.Classes.Match.Outcome,System.String,System.String)
+    name: GetOutcomeNarration
+    href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_GetOutcomeNarration_DuelingDuelsters_Classes_Match_Outcome_System_String_System_String_
+  - name: (
+  - uid: DuelingDuelsters.Classes.Match.Outcome
+    name: Outcome
+    href: DuelingDuelsters.Classes.Match.Outcome.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Narrator.GetOutcomeNarration(DuelingDuelsters.Classes.Match.Outcome,System.String,System.String)
+    name: GetOutcomeNarration
+    href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_GetOutcomeNarration_DuelingDuelsters_Classes_Match_Outcome_System_String_System_String_
+  - name: (
+  - uid: DuelingDuelsters.Classes.Match.Outcome
+    name: Outcome
+    href: DuelingDuelsters.Classes.Match.Outcome.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: DuelingDuelsters.Classes.Match.ProcessOutcome(DuelingDuelsters.Classes.Match.Outcome)
+  commentId: M:DuelingDuelsters.Classes.Match.ProcessOutcome(DuelingDuelsters.Classes.Match.Outcome)
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_ProcessOutcome_DuelingDuelsters_Classes_Match_Outcome_
+  name: ProcessOutcome(Outcome)
+  nameWithType: Match.ProcessOutcome(Match.Outcome)
+  fullName: DuelingDuelsters.Classes.Match.ProcessOutcome(DuelingDuelsters.Classes.Match.Outcome)
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Match.ProcessOutcome(DuelingDuelsters.Classes.Match.Outcome)
+    name: ProcessOutcome
+    href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_ProcessOutcome_DuelingDuelsters_Classes_Match_Outcome_
+  - name: (
+  - uid: DuelingDuelsters.Classes.Match.Outcome
+    name: Outcome
+    href: DuelingDuelsters.Classes.Match.Outcome.html
+  - name: )
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Match.ProcessOutcome(DuelingDuelsters.Classes.Match.Outcome)
+    name: ProcessOutcome
+    href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_ProcessOutcome_DuelingDuelsters_Classes_Match_Outcome_
+  - name: (
+  - uid: DuelingDuelsters.Classes.Match.Outcome
+    name: Outcome
+    href: DuelingDuelsters.Classes.Match.Outcome.html
+  - name: )
+- uid: DuelingDuelsters.Classes.Match.ProcessRound*
+  commentId: Overload:DuelingDuelsters.Classes.Match.ProcessRound
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_ProcessRound
+  name: ProcessRound
+  nameWithType: Match.ProcessRound
+  fullName: DuelingDuelsters.Classes.Match.ProcessRound
 - uid: DuelingDuelsters.Classes.Match.GetOutcome*
   commentId: Overload:DuelingDuelsters.Classes.Match.GetOutcome
   href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_GetOutcome_DuelingDuelsters_Classes_Player_Action_DuelingDuelsters_Classes_Player_Action_
@@ -897,29 +1068,6 @@ references:
   - uid: DuelingDuelsters.Classes.Player.Action
     name: Action
     href: DuelingDuelsters.Classes.Player.Action.html
-- uid: DuelingDuelsters.Classes.Match.Outcome
-  commentId: T:DuelingDuelsters.Classes.Match.Outcome
-  parent: DuelingDuelsters.Classes
-  href: DuelingDuelsters.Classes.Match.html
-  name: Match.Outcome
-  nameWithType: Match.Outcome
-  fullName: DuelingDuelsters.Classes.Match.Outcome
-  spec.csharp:
-  - uid: DuelingDuelsters.Classes.Match
-    name: Match
-    href: DuelingDuelsters.Classes.Match.html
-  - name: .
-  - uid: DuelingDuelsters.Classes.Match.Outcome
-    name: Outcome
-    href: DuelingDuelsters.Classes.Match.Outcome.html
-  spec.vb:
-  - uid: DuelingDuelsters.Classes.Match
-    name: Match
-    href: DuelingDuelsters.Classes.Match.html
-  - name: .
-  - uid: DuelingDuelsters.Classes.Match.Outcome
-    name: Outcome
-    href: DuelingDuelsters.Classes.Match.Outcome.html
 - uid: DuelingDuelsters.Classes.Match.ProcessOutcome*
   commentId: Overload:DuelingDuelsters.Classes.Match.ProcessOutcome
   href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_ProcessOutcome_DuelingDuelsters_Classes_Match_Outcome_

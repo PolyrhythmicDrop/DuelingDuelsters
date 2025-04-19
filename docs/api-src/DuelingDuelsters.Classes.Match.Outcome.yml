@@ -5,39 +5,39 @@ items:
   id: Match.Outcome
   parent: DuelingDuelsters.Classes
   children:
-  - DuelingDuelsters.Classes.Match.Outcome.BothBlock
-  - DuelingDuelsters.Classes.Match.Outcome.BothHit
-  - DuelingDuelsters.Classes.Match.Outcome.DoubleDodge
-  - DuelingDuelsters.Classes.Match.Outcome.DoubleFailedHeal
-  - DuelingDuelsters.Classes.Match.Outcome.DoubleHeal
-  - DuelingDuelsters.Classes.Match.Outcome.HealCounter
-  - DuelingDuelsters.Classes.Match.Outcome.HealDodge
   - DuelingDuelsters.Classes.Match.Outcome.None
-  - DuelingDuelsters.Classes.Match.Outcome.P1BlockP2Dodge
-  - DuelingDuelsters.Classes.Match.Outcome.P1Blocked
-  - DuelingDuelsters.Classes.Match.Outcome.P1Dodge
-  - DuelingDuelsters.Classes.Match.Outcome.P1DodgeBlock
-  - DuelingDuelsters.Classes.Match.Outcome.P1FailedBlock
-  - DuelingDuelsters.Classes.Match.Outcome.P1FailedCounter
-  - DuelingDuelsters.Classes.Match.Outcome.P1FailedDodge
-  - DuelingDuelsters.Classes.Match.Outcome.P1FailedHealP2Defend
-  - DuelingDuelsters.Classes.Match.Outcome.P1FailedHealP2Heal
-  - DuelingDuelsters.Classes.Match.Outcome.P1FailedHealP2Swing
-  - DuelingDuelsters.Classes.Match.Outcome.P1HealP2Defend
-  - DuelingDuelsters.Classes.Match.Outcome.P1HealP2Swing
-  - DuelingDuelsters.Classes.Match.Outcome.P2BlockP1Dodge
-  - DuelingDuelsters.Classes.Match.Outcome.P2Blocked
-  - DuelingDuelsters.Classes.Match.Outcome.P2Dodge
-  - DuelingDuelsters.Classes.Match.Outcome.P2DodgeBlock
-  - DuelingDuelsters.Classes.Match.Outcome.P2FailedBlock
-  - DuelingDuelsters.Classes.Match.Outcome.P2FailedCounter
-  - DuelingDuelsters.Classes.Match.Outcome.P2FailedDodge
-  - DuelingDuelsters.Classes.Match.Outcome.P2FailedHealP1Defend
-  - DuelingDuelsters.Classes.Match.Outcome.P2FailedHealP1Heal
-  - DuelingDuelsters.Classes.Match.Outcome.P2FailedHealP1Swing
-  - DuelingDuelsters.Classes.Match.Outcome.P2HealP1Defend
-  - DuelingDuelsters.Classes.Match.Outcome.P2HealP1Swing
   - DuelingDuelsters.Classes.Match.Outcome.SwordClash
+  - DuelingDuelsters.Classes.Match.Outcome.BothHit
+  - DuelingDuelsters.Classes.Match.Outcome.P1Blocked
+  - DuelingDuelsters.Classes.Match.Outcome.P2Blocked
+  - DuelingDuelsters.Classes.Match.Outcome.P1FailedBlock
+  - DuelingDuelsters.Classes.Match.Outcome.P2FailedBlock
+  - DuelingDuelsters.Classes.Match.Outcome.BothBlock
+  - DuelingDuelsters.Classes.Match.Outcome.P1FailedDodge
+  - DuelingDuelsters.Classes.Match.Outcome.P2FailedDodge
+  - DuelingDuelsters.Classes.Match.Outcome.P1Dodge
+  - DuelingDuelsters.Classes.Match.Outcome.P2Dodge
+  - DuelingDuelsters.Classes.Match.Outcome.P1FailedCounter
+  - DuelingDuelsters.Classes.Match.Outcome.P2FailedCounter
+  - DuelingDuelsters.Classes.Match.Outcome.P1DodgeBlock
+  - DuelingDuelsters.Classes.Match.Outcome.P2DodgeBlock
+  - DuelingDuelsters.Classes.Match.Outcome.P1BlockP2Dodge
+  - DuelingDuelsters.Classes.Match.Outcome.P2BlockP1Dodge
+  - DuelingDuelsters.Classes.Match.Outcome.DoubleDodge
+  - DuelingDuelsters.Classes.Match.Outcome.P1HealP2Defend
+  - DuelingDuelsters.Classes.Match.Outcome.P2HealP1Defend
+  - DuelingDuelsters.Classes.Match.Outcome.P1FailedHealP2Defend
+  - DuelingDuelsters.Classes.Match.Outcome.P2FailedHealP1Defend
+  - DuelingDuelsters.Classes.Match.Outcome.P1HealP2Swing
+  - DuelingDuelsters.Classes.Match.Outcome.P2HealP1Swing
+  - DuelingDuelsters.Classes.Match.Outcome.P1FailedHealP2Swing
+  - DuelingDuelsters.Classes.Match.Outcome.P2FailedHealP1Swing
+  - DuelingDuelsters.Classes.Match.Outcome.P1FailedHealP2Heal
+  - DuelingDuelsters.Classes.Match.Outcome.P2FailedHealP1Heal
+  - DuelingDuelsters.Classes.Match.Outcome.DoubleFailedHeal
+  - DuelingDuelsters.Classes.Match.Outcome.HealDodge
+  - DuelingDuelsters.Classes.Match.Outcome.HealCounter
+  - DuelingDuelsters.Classes.Match.Outcome.DoubleHeal
   langs:
   - csharp
   - vb
@@ -52,10 +52,25 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Outcome
     path: src/Classes/Match.cs
-    startLine: 60
+    startLine: 80
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: >-
+    Available outcomes for a round. 
+
+    <p>
+
+    An <code>Outcome</code> is decided by a combination of the two player's chosen <xref href="DuelingDuelsters.Classes.Player.Action?text=+Action" data-throw-if-not-resolved="false"></xref>, the directions of those actions, and dice rolls performed by the <xref href="DuelingDuelsters.Classes.Match?text=Match" data-throw-if-not-resolved="false"></xref>'s <xref href="DuelingDuelsters.Classes.Match.rng" data-throw-if-not-resolved="false"></xref> member.
+
+    </p> 
+
+    <p>
+
+    After the round <code>Outcome</code> is determined, it is used to get narration strings from the <xref href="DuelingDuelsters.Classes.Narrator" data-throw-if-not-resolved="false"></xref>, calculate damage, counters, and heals, and set the stage for the next round.
+
+    </p>
+  example: []
   syntax:
     content: public enum Match.Outcome
     content.vb: Public Enum Match.Outcome
@@ -77,10 +92,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: None
     path: src/Classes/Match.cs
-    startLine: 62
+    startLine: 85
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: The default action. The <code>Outcome</code> is reset to <code>None</code> at the start of the round.
+  example: []
   syntax:
     content: None = 0
     return:
@@ -103,10 +120,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: SwordClash
     path: src/Classes/Match.cs
-    startLine: 63
+    startLine: 89
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> and <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> swing in the same direction. Neither player takes damage.
+  example: []
   syntax:
     content: SwordClash = 1
     return:
@@ -129,10 +148,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: BothHit
     path: src/Classes/Match.cs
-    startLine: 64
+    startLine: 93
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> and <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> swing in opposite directions. Both players take full damage and have a chance to crit.
+  example: []
   syntax:
     content: BothHit = 2
     return:
@@ -155,10 +176,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1Blocked
     path: src/Classes/Match.cs
-    startLine: 65
+    startLine: 97
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> swings and <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> blocks in the same direction. <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> is staggered.
+  example: []
   syntax:
     content: P1Blocked = 3
     return:
@@ -181,10 +204,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2Blocked
     path: src/Classes/Match.cs
-    startLine: 66
+    startLine: 101
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> swings and <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> blocks in the same direction. <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> is staggered.
+  example: []
   syntax:
     content: P2Blocked = 4
     return:
@@ -207,10 +232,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1FailedBlock
     path: src/Classes/Match.cs
-    startLine: 67
+    startLine: 105
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> swings and <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> blocks in the opposite direction. <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> takes damage.
+  example: []
   syntax:
     content: P1FailedBlock = 5
     return:
@@ -233,10 +260,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2FailedBlock
     path: src/Classes/Match.cs
-    startLine: 68
+    startLine: 109
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> swings and <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> blocks in the opposite direction. <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> takes damage.
+  example: []
   syntax:
     content: P2FailedBlock = 6
     return:
@@ -259,10 +288,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: BothBlock
     path: src/Classes/Match.cs
-    startLine: 69
+    startLine: 113
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: Both players block in any direction. Neither player takes damage or is staggered.
+  example: []
   syntax:
     content: BothBlock = 7
     return:
@@ -285,10 +316,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1FailedDodge
     path: src/Classes/Match.cs
-    startLine: 70
+    startLine: 117
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> swings and <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> dodges in the opposite direction. <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> gets an automatic critical hit.
+  example: []
   syntax:
     content: P1FailedDodge = 8
     return:
@@ -311,10 +344,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2FailedDodge
     path: src/Classes/Match.cs
-    startLine: 71
+    startLine: 121
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> swings and <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> dodges in the opposite direction. <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> gets an automatic crit.
+  example: []
   syntax:
     content: P2FailedDodge = 9
     return:
@@ -337,10 +372,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1Dodge
     path: src/Classes/Match.cs
-    startLine: 72
+    startLine: 125
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> swings and <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> dodges in the same direction. <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> gets the chance to counter, and a higher chance to land a critical hit on that counter.
+  example: []
   syntax:
     content: P1Dodge = 10
     return:
@@ -363,10 +400,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2Dodge
     path: src/Classes/Match.cs
-    startLine: 73
+    startLine: 129
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> swings and <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> dodges in the same direction. <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> gets the chance to counter, and a higher chance to land a critical hit on that counter.
+  example: []
   syntax:
     content: P2Dodge = 11
     return:
@@ -389,10 +428,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1FailedCounter
     path: src/Classes/Match.cs
-    startLine: 74
+    startLine: 133
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> fails a counter. This Outcome is only used to get narration.
+  example: []
   syntax:
     content: P1FailedCounter = 12
     return:
@@ -415,10 +456,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2FailedCounter
     path: src/Classes/Match.cs
-    startLine: 75
+    startLine: 137
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> fails a counter. This Outcome is only used to get narration.
+  example: []
   syntax:
     content: P2FailedCounter = 13
     return:
@@ -441,10 +484,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1DodgeBlock
     path: src/Classes/Match.cs
-    startLine: 76
+    startLine: 141
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> blocks and <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> dodges in the same direction. <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> gets chance to counter, though they cannot land a critical hit and the damage is reduced by half.
+  example: []
   syntax:
     content: P1DodgeBlock = 14
     return:
@@ -467,10 +512,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2DodgeBlock
     path: src/Classes/Match.cs
-    startLine: 77
+    startLine: 145
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> blocks and <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> dodges in the same direction. <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> gets chance to counter, though they cannot land a critical hit and the damage is reduced by half.
+  example: []
   syntax:
     content: P2DodgeBlock = 15
     return:
@@ -493,10 +540,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1BlockP2Dodge
     path: src/Classes/Match.cs
-    startLine: 78
+    startLine: 149
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> blocks and <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> dodges in the opposite direction. Neither player takes damage.
+  example: []
   syntax:
     content: P1BlockP2Dodge = 16
     return:
@@ -519,10 +568,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2BlockP1Dodge
     path: src/Classes/Match.cs
-    startLine: 79
+    startLine: 153
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> blocks and <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> dodges in the opposite direction. Neither player takes damage.
+  example: []
   syntax:
     content: P2BlockP1Dodge = 17
     return:
@@ -545,10 +596,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: DoubleDodge
     path: src/Classes/Match.cs
-    startLine: 80
+    startLine: 157
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: Both players dodge. Nobody takes damage.
+  example: []
   syntax:
     content: DoubleDodge = 18
     return:
@@ -571,10 +624,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1HealP2Defend
     path: src/Classes/Match.cs
-    startLine: 81
+    startLine: 161
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> heals and <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> defends or dodges. <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> restores health and nothing happens to <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: P1HealP2Defend = 19
     return:
@@ -597,10 +652,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2HealP1Defend
     path: src/Classes/Match.cs
-    startLine: 82
+    startLine: 165
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> heals and <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> blocks or dodges. <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> restores health and nothing happens to <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: P2HealP1Defend = 20
     return:
@@ -623,10 +680,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1FailedHealP2Defend
     path: src/Classes/Match.cs
-    startLine: 83
+    startLine: 169
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> fails to heal and <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> blocks or dodges. A wasted turn for both players.
+  example: []
   syntax:
     content: P1FailedHealP2Defend = 21
     return:
@@ -649,10 +708,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2FailedHealP1Defend
     path: src/Classes/Match.cs
-    startLine: 84
+    startLine: 173
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> fails to heal and <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> blocks or dodges. A wasted turn for both players.
+  example: []
   syntax:
     content: P2FailedHealP1Defend = 22
     return:
@@ -675,10 +736,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1HealP2Swing
     path: src/Classes/Match.cs
-    startLine: 85
+    startLine: 177
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> heals and <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> swings. <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> restores health and has a chance to dodge <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref>'s attack.
+  example: []
   syntax:
     content: P1HealP2Swing = 23
     return:
@@ -701,10 +764,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2HealP1Swing
     path: src/Classes/Match.cs
-    startLine: 86
+    startLine: 181
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> heals and <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> swings. <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> restores health and has a chance to dodge <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref>'s attack.
+  example: []
   syntax:
     content: P2HealP1Swing = 24
     return:
@@ -727,10 +792,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1FailedHealP2Swing
     path: src/Classes/Match.cs
-    startLine: 87
+    startLine: 185
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> fails to heal and <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> swings. Player Two has a chance for a critical hit.
+  example: []
   syntax:
     content: P1FailedHealP2Swing = 25
     return:
@@ -753,10 +820,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2FailedHealP1Swing
     path: src/Classes/Match.cs
-    startLine: 88
+    startLine: 189
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> fails to heal and <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> swings. Player One has a chance for a critical hit.
+  example: []
   syntax:
     content: P2FailedHealP1Swing = 26
     return:
@@ -779,10 +848,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1FailedHealP2Heal
     path: src/Classes/Match.cs
-    startLine: 89
+    startLine: 193
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> fails to heal and <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> heals.
+  example: []
   syntax:
     content: P1FailedHealP2Heal = 27
     return:
@@ -805,10 +876,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2FailedHealP1Heal
     path: src/Classes/Match.cs
-    startLine: 90
+    startLine: 197
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: <xref href="DuelingDuelsters.Classes.Match.PlayerTwo?text=Player+Two" data-throw-if-not-resolved="false"></xref> fails to heal and <xref href="DuelingDuelsters.Classes.Match.PlayerOne?text=Player+One" data-throw-if-not-resolved="false"></xref> heals.
+  example: []
   syntax:
     content: P2FailedHealP1Heal = 28
     return:
@@ -831,10 +904,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: DoubleFailedHeal
     path: src/Classes/Match.cs
-    startLine: 91
+    startLine: 201
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: Both players fail to heal. A wasted turn for both players.
+  example: []
   syntax:
     content: DoubleFailedHeal = 29
     return:
@@ -857,10 +932,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: HealDodge
     path: src/Classes/Match.cs
-    startLine: 92
+    startLine: 205
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: The healing player dodges the attacking player's counterattack.
+  example: []
   syntax:
     content: HealDodge = 30
     return:
@@ -883,10 +960,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: HealCounter
     path: src/Classes/Match.cs
-    startLine: 93
+    startLine: 209
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: The healing player gets hit by the attacking player's counterattack.
+  example: []
   syntax:
     content: HealCounter = 31
     return:
@@ -909,15 +988,59 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: DoubleHeal
     path: src/Classes/Match.cs
-    startLine: 94
+    startLine: 213
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: Both players successfully heal on the same turn.
+  example: []
   syntax:
     content: DoubleHeal = 32
     return:
       type: DuelingDuelsters.Classes.Match.Outcome
 references:
+- uid: DuelingDuelsters.Classes.Player.Action
+  commentId: T:DuelingDuelsters.Classes.Player.Action
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Player.html
+  name: Player.Action
+  nameWithType: Player.Action
+  fullName: DuelingDuelsters.Classes.Player.Action
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Player.Action
+    name: Action
+    href: DuelingDuelsters.Classes.Player.Action.html
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Player.Action
+    name: Action
+    href: DuelingDuelsters.Classes.Player.Action.html
+- uid: DuelingDuelsters.Classes.Match
+  commentId: T:DuelingDuelsters.Classes.Match
+  href: DuelingDuelsters.Classes.Match.html
+  name: Match
+  nameWithType: Match
+  fullName: DuelingDuelsters.Classes.Match
+- uid: DuelingDuelsters.Classes.Match.rng
+  commentId: F:DuelingDuelsters.Classes.Match.rng
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_rng
+  name: rng
+  nameWithType: Match.rng
+  fullName: DuelingDuelsters.Classes.Match.rng
+- uid: DuelingDuelsters.Classes.Narrator
+  commentId: T:DuelingDuelsters.Classes.Narrator
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Narrator.html
+  name: Narrator
+  nameWithType: Narrator
+  fullName: DuelingDuelsters.Classes.Narrator
 - uid: DuelingDuelsters.Classes
   commentId: N:DuelingDuelsters.Classes
   href: DuelingDuelsters.html
@@ -963,3 +1086,15 @@ references:
   - uid: DuelingDuelsters.Classes.Match.Outcome
     name: Outcome
     href: DuelingDuelsters.Classes.Match.Outcome.html
+- uid: DuelingDuelsters.Classes.Match.PlayerOne
+  commentId: P:DuelingDuelsters.Classes.Match.PlayerOne
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_PlayerOne
+  name: PlayerOne
+  nameWithType: Match.PlayerOne
+  fullName: DuelingDuelsters.Classes.Match.PlayerOne
+- uid: DuelingDuelsters.Classes.Match.PlayerTwo
+  commentId: P:DuelingDuelsters.Classes.Match.PlayerTwo
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_PlayerTwo
+  name: PlayerTwo
+  nameWithType: Match.PlayerTwo
+  fullName: DuelingDuelsters.Classes.Match.PlayerTwo

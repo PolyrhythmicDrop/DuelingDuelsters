@@ -5,14 +5,14 @@ items:
   id: Player.Action
   parent: DuelingDuelsters.Classes
   children:
-  - DuelingDuelsters.Classes.Player.Action.blockL
-  - DuelingDuelsters.Classes.Player.Action.blockR
-  - DuelingDuelsters.Classes.Player.Action.dodgeL
-  - DuelingDuelsters.Classes.Player.Action.dodgeR
-  - DuelingDuelsters.Classes.Player.Action.heal
   - DuelingDuelsters.Classes.Player.Action.none
-  - DuelingDuelsters.Classes.Player.Action.swingL
   - DuelingDuelsters.Classes.Player.Action.swingR
+  - DuelingDuelsters.Classes.Player.Action.swingL
+  - DuelingDuelsters.Classes.Player.Action.blockR
+  - DuelingDuelsters.Classes.Player.Action.blockL
+  - DuelingDuelsters.Classes.Player.Action.dodgeR
+  - DuelingDuelsters.Classes.Player.Action.dodgeL
+  - DuelingDuelsters.Classes.Player.Action.heal
   langs:
   - csharp
   - vb

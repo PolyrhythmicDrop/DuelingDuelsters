@@ -5,12 +5,12 @@ items:
   id: Player.PlayerClass
   parent: DuelingDuelsters.Classes
   children:
-  - DuelingDuelsters.Classes.Player.PlayerClass.Fridge
-  - DuelingDuelsters.Classes.Player.PlayerClass.Gymnast
-  - DuelingDuelsters.Classes.Player.PlayerClass.Leeroy
-  - DuelingDuelsters.Classes.Player.PlayerClass.Medic
   - DuelingDuelsters.Classes.Player.PlayerClass.None
   - DuelingDuelsters.Classes.Player.PlayerClass.Normie
+  - DuelingDuelsters.Classes.Player.PlayerClass.Fridge
+  - DuelingDuelsters.Classes.Player.PlayerClass.Leeroy
+  - DuelingDuelsters.Classes.Player.PlayerClass.Gymnast
+  - DuelingDuelsters.Classes.Player.PlayerClass.Medic
   langs:
   - csharp
   - vb

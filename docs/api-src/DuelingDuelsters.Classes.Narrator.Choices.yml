@@ -5,16 +5,16 @@ items:
   id: Narrator.Choices
   parent: DuelingDuelsters.Classes
   children:
-  - DuelingDuelsters.Classes.Narrator.Choices.Back
-  - DuelingDuelsters.Classes.Narrator.Choices.Exit
-  - DuelingDuelsters.Classes.Narrator.Choices.Help
-  - DuelingDuelsters.Classes.Narrator.Choices.Left
-  - DuelingDuelsters.Classes.Narrator.Choices.NewGame
-  - DuelingDuelsters.Classes.Narrator.Choices.No
   - DuelingDuelsters.Classes.Narrator.Choices.Reset
+  - DuelingDuelsters.Classes.Narrator.Choices.NewGame
+  - DuelingDuelsters.Classes.Narrator.Choices.Help
+  - DuelingDuelsters.Classes.Narrator.Choices.Exit
   - DuelingDuelsters.Classes.Narrator.Choices.ReturnToTitle
-  - DuelingDuelsters.Classes.Narrator.Choices.Right
+  - DuelingDuelsters.Classes.Narrator.Choices.Back
   - DuelingDuelsters.Classes.Narrator.Choices.Yes
+  - DuelingDuelsters.Classes.Narrator.Choices.Left
+  - DuelingDuelsters.Classes.Narrator.Choices.No
+  - DuelingDuelsters.Classes.Narrator.Choices.Right
   langs:
   - csharp
   - vb
