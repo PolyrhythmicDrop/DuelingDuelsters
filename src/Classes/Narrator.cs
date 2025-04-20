@@ -3,6 +3,12 @@ using System.Text;
 
 namespace DuelingDuelsters.Classes
 {
+    /// <summary>
+    /// Manages menus, user input, and almost all of the strings in the game.
+    /// <para>
+    /// The <c>Narrator</c> class defines methods for running each menu in the game, selecting from binary options, retrieving narration strings based on a round's <see cref="Match.Outcome">Outcome</see>, and reading user input.
+    /// </para>
+    /// </summary>
     public class Narrator
     {
 
@@ -36,27 +42,30 @@ namespace DuelingDuelsters.Classes
 
         // ** String Constants ** //
 
-        // ~File Paths~ //
+        // ~ File Paths ~ //
+
+        /// <exclude />
         private const string titleHelp = "DuelingDuelsters.res.title-help.txt";
+        /// <exclude />
         private const string arenaPic = "DuelingDuelsters.res.arena-entrance.txt";
+        /// <exclude />
         private const string actionHelp = "DuelingDuelsters.res.action-help.txt";
 
-        // ~Title Screen~ //
+        // ~ Title Screen ~ //
 
         private const string newGame = "1. New Game\n";
         private const string exitGame = "2. Exit\n";
         private const string help = "3. Help\n";
 
-        // Press any key to continue
         private const string pressAnyKey = "Press any key to continue...";
 
-        // ~Player Count Select Screen~ //
+        // ~ Player Count Select Screen ~ //
 
         private const string singlePlayer = "1. One Player\n";
         private const string twoPlayer = "2. Two Players\n";
         private const string returnTitle = "3. Back to Title\n";
 
-        // ** Character Creation Screen ** //
+        // ~ Character Creation Screen ~ //
 
         private const string createCharacter = "*** PLAYER {0}, CREATE YOUR CHARACTER *** \n";
         private const string selectName = "\nEnter your character's name:\n";

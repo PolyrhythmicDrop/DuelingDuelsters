@@ -11,7 +11,7 @@
   "DuelingDuelsters.Classes.Match.CounterAttack(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)": "DuelingDuelsters.Classes.Match.yml",
   "DuelingDuelsters.Classes.Match.DeclareVictor": "DuelingDuelsters.Classes.Match.yml",
   "DuelingDuelsters.Classes.Match.DrawRoundHeader": "DuelingDuelsters.Classes.Match.yml",
-  "DuelingDuelsters.Classes.Match.GetOutcome(DuelingDuelsters.Classes.Player.Action,DuelingDuelsters.Classes.Player.Action)": "DuelingDuelsters.Classes.Match.yml",
+  "DuelingDuelsters.Classes.Match.GetOutcome": "DuelingDuelsters.Classes.Match.yml",
   "DuelingDuelsters.Classes.Match.Outcome": "DuelingDuelsters.Classes.Match.Outcome.yml",
   "DuelingDuelsters.Classes.Match.Outcome.BothBlock": "DuelingDuelsters.Classes.Match.Outcome.yml",
   "DuelingDuelsters.Classes.Match.Outcome.BothHit": "DuelingDuelsters.Classes.Match.Outcome.yml",
