@@ -77,25 +77,10 @@ namespace DuelingDuelsters.Classes
 
         // ~ Class Summaries ~ //
 
-        /// <summary>
-        /// Description for Normie character class
-        /// </summary>
         private const string normieDescription = "Normie\n------\n ♡ ☒☒☒☐☐ | ⛨  ☒☒☒☐☐ | ⚔  ☒☒☒☐☐ | 👟 ☒☒☒☐☐ \nIf Mario were in this game, he would be a Normie.\n";
-        /// <summary>
-        /// Description for Fridge character class
-        /// </summary>
         private const string fridgeDescription = "Fridge\n------\n ♡ ☒☒☒☒☒ | ⛨  ☒☒☒☒☒ | ⚔  ☒☐☐☐☐ | 👟 ☒☐☐☐☐ \nCan take whatever you throw at them, but can have trouble dishing it out.\n";
-        /// <summary>
-        /// Description for Leeroy character class
-        /// </summary>
         private const string leeroyDescription = "Leeroy\n------\n ♡ ☒☒☒☐☐ | ⛨  ☒☐☐☐☐ | ⚔  ☒☒☒☒☒ | 👟 ☒☒☒☐☐ \nExpert at bashin', smashin', and crashin', not so much at plannin'.\n";
-        /// <summary>
-        /// Description for Gymnast character class
-        /// </summary>
         private const string gymnastDescription = "Gymnast\n-------\n ♡ ☒☒☒☐☐ | ⛨  ☒☒☐☐☐ | ⚔  ☒☒☐☐☐ | 👟 ☒☒☒☒☒ \nNimble and acrobatic, the Gymnast can dance on the head of a pin and also skewer their opponents with it.\n";
-        /// <summary>
-        /// Description for Medic character class
-        /// </summary>
         private const string medicDescription = "Medic\n-----\n ♡ ☒☒☒☒☐ | ⛨  ☒☒☒☐☐ | ⚔  ☒☒☒☐☐ | 👟 ☒☒☐☐☐ | ✜ \nThe only class that can heal, the Medic is durable and doesn't care one whit about the Hippocratic Oath.\n";
         private const string randomDescription = "Random\n ♡ ????? | ⛨  ????? | ⚔  ????? | 👟 ????? \nRoll the dice and let the gods determine your fate.";
 
@@ -104,13 +89,13 @@ namespace DuelingDuelsters.Classes
         /// </summary>
         internal const string readyToDuel = "\nAre you ready to duel like you've never duelled before?\n\n1. Yes, let's do this!\n2.No, let's start over.";
 
-        // ** In-Round Menu Strings ** //
+        // ~ In-Round Menu Strings ~ //
 
         private const string selectDirection = "Which direction?\n1. Left\n2. Right\n";
         private const string selectAction = "\n{0}, select an action:\n";
         private const string confirmAction = "Is this what you want to do? Y/n\n";
 
-        // ** Outcome Strings ** //
+        // ~ Outcome Strings ~ //
 
         private const string swordClash = "The swords of {0} and {1} clash, the sound of ringing steel echoing throughout the arena!\nThe two combatants eye each other over their crossed blades.\n\nIs this the start of an enemies-to-lovers romance? Or another chapter in a long tale of bitter rivalry?\n\n{0} and {1} part with a puff of dust and return to their ready stances.\n";
 

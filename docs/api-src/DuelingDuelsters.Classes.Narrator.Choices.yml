@@ -29,7 +29,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Choices
     path: src/Classes/Narrator.cs
-    startLine: 20
+    startLine: 26
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -54,7 +54,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Reset
     path: src/Classes/Narrator.cs
-    startLine: 22
+    startLine: 28
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -80,7 +80,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: NewGame
     path: src/Classes/Narrator.cs
-    startLine: 23
+    startLine: 29
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -106,7 +106,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Help
     path: src/Classes/Narrator.cs
-    startLine: 24
+    startLine: 30
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -132,7 +132,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Exit
     path: src/Classes/Narrator.cs
-    startLine: 25
+    startLine: 31
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -158,7 +158,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ReturnToTitle
     path: src/Classes/Narrator.cs
-    startLine: 26
+    startLine: 32
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -184,7 +184,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Back
     path: src/Classes/Narrator.cs
-    startLine: 27
+    startLine: 33
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -210,7 +210,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Yes
     path: src/Classes/Narrator.cs
-    startLine: 28
+    startLine: 34
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -236,7 +236,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Left
     path: src/Classes/Narrator.cs
-    startLine: 29
+    startLine: 35
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -262,7 +262,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: No
     path: src/Classes/Narrator.cs
-    startLine: 30
+    startLine: 36
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -288,7 +288,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Right
     path: src/Classes/Narrator.cs
-    startLine: 31
+    startLine: 37
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
