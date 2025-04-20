@@ -52,7 +52,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Outcome
     path: src/Classes/Match.cs
-    startLine: 80
+    startLine: 83
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -92,7 +92,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: None
     path: src/Classes/Match.cs
-    startLine: 85
+    startLine: 88
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -120,7 +120,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: SwordClash
     path: src/Classes/Match.cs
-    startLine: 89
+    startLine: 92
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -148,7 +148,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: BothHit
     path: src/Classes/Match.cs
-    startLine: 93
+    startLine: 96
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -176,7 +176,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1Blocked
     path: src/Classes/Match.cs
-    startLine: 97
+    startLine: 100
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -204,7 +204,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2Blocked
     path: src/Classes/Match.cs
-    startLine: 101
+    startLine: 104
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -232,7 +232,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1FailedBlock
     path: src/Classes/Match.cs
-    startLine: 105
+    startLine: 108
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -260,7 +260,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2FailedBlock
     path: src/Classes/Match.cs
-    startLine: 109
+    startLine: 112
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -288,7 +288,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: BothBlock
     path: src/Classes/Match.cs
-    startLine: 113
+    startLine: 116
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -316,7 +316,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1FailedDodge
     path: src/Classes/Match.cs
-    startLine: 117
+    startLine: 120
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -344,7 +344,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2FailedDodge
     path: src/Classes/Match.cs
-    startLine: 121
+    startLine: 124
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -372,7 +372,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1Dodge
     path: src/Classes/Match.cs
-    startLine: 125
+    startLine: 128
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -400,7 +400,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2Dodge
     path: src/Classes/Match.cs
-    startLine: 129
+    startLine: 132
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -428,7 +428,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1FailedCounter
     path: src/Classes/Match.cs
-    startLine: 133
+    startLine: 136
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -456,7 +456,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2FailedCounter
     path: src/Classes/Match.cs
-    startLine: 137
+    startLine: 140
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -484,7 +484,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1DodgeBlock
     path: src/Classes/Match.cs
-    startLine: 141
+    startLine: 144
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -512,7 +512,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2DodgeBlock
     path: src/Classes/Match.cs
-    startLine: 145
+    startLine: 148
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -540,7 +540,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1BlockP2Dodge
     path: src/Classes/Match.cs
-    startLine: 149
+    startLine: 152
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -568,7 +568,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2BlockP1Dodge
     path: src/Classes/Match.cs
-    startLine: 153
+    startLine: 156
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -596,7 +596,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: DoubleDodge
     path: src/Classes/Match.cs
-    startLine: 157
+    startLine: 160
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -624,7 +624,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1HealP2Defend
     path: src/Classes/Match.cs
-    startLine: 161
+    startLine: 164
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -652,7 +652,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2HealP1Defend
     path: src/Classes/Match.cs
-    startLine: 165
+    startLine: 168
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -680,7 +680,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1FailedHealP2Defend
     path: src/Classes/Match.cs
-    startLine: 169
+    startLine: 172
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -708,7 +708,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2FailedHealP1Defend
     path: src/Classes/Match.cs
-    startLine: 173
+    startLine: 176
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -736,7 +736,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1HealP2Swing
     path: src/Classes/Match.cs
-    startLine: 177
+    startLine: 180
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -764,7 +764,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2HealP1Swing
     path: src/Classes/Match.cs
-    startLine: 181
+    startLine: 184
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -792,7 +792,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1FailedHealP2Swing
     path: src/Classes/Match.cs
-    startLine: 185
+    startLine: 188
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -820,7 +820,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2FailedHealP1Swing
     path: src/Classes/Match.cs
-    startLine: 189
+    startLine: 192
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -848,7 +848,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1FailedHealP2Heal
     path: src/Classes/Match.cs
-    startLine: 193
+    startLine: 196
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -876,7 +876,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2FailedHealP1Heal
     path: src/Classes/Match.cs
-    startLine: 197
+    startLine: 200
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -904,7 +904,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: DoubleFailedHeal
     path: src/Classes/Match.cs
-    startLine: 201
+    startLine: 204
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -932,7 +932,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: HealDodge
     path: src/Classes/Match.cs
-    startLine: 205
+    startLine: 208
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -960,7 +960,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: HealCounter
     path: src/Classes/Match.cs
-    startLine: 209
+    startLine: 212
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -988,7 +988,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: DoubleHeal
     path: src/Classes/Match.cs
-    startLine: 213
+    startLine: 216
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
