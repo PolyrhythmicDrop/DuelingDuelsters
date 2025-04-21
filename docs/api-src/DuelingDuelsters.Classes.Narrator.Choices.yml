@@ -29,10 +29,16 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Choices
     path: src/Classes/Narrator.cs
-    startLine: 26
+    startLine: 49
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: Available selections the player can make in certain menus. <code>Choices</code> are typically used to pass menu selections to scopes outside a <xref href="DuelingDuelsters.Classes.Narrator?text=Narrator" data-throw-if-not-resolved="false"></xref> object or menu.
+  remarks: >-
+    > [!NOTE]
+
+    > Two pairs of Choices (<xref href="DuelingDuelsters.Classes.Narrator.Choices.Yes?text=Yes" data-throw-if-not-resolved="false"></xref> and <xref href="DuelingDuelsters.Classes.Narrator.Choices.Left?text=Left" data-throw-if-not-resolved="false"></xref>; <xref href="DuelingDuelsters.Classes.Narrator.Choices.No?text=No" data-throw-if-not-resolved="false"></xref> and <xref href="DuelingDuelsters.Classes.Narrator.Choices.Right?text=Right" data-throw-if-not-resolved="false"></xref>) have the same underlying <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">int</a> value. This allows the <xref href="DuelingDuelsters.Classes.Narrator.SelectBinary(System.String)" data-throw-if-not-resolved="false"></xref> method to be used for both affirmative menus (<code>"Yes/No"</code>) and action direction menus (<code>"Left/Right"</code>) during a game round while preserving code readability.
+  example: []
   syntax:
     content: public enum Narrator.Choices
     content.vb: Public Enum Narrator.Choices
@@ -54,10 +60,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Reset
     path: src/Classes/Narrator.cs
-    startLine: 28
+    startLine: 54
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: The default <code>Choice</code>, typically used for error checking, validation, and initialization.
+  example: []
   syntax:
     content: Reset = 0
     return:
@@ -80,10 +88,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: NewGame
     path: src/Classes/Narrator.cs
-    startLine: 29
+    startLine: 58
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: The player has selected the <code>New Game</code> option in the title menu.
+  example: []
   syntax:
     content: NewGame = 1
     return:
@@ -106,10 +116,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Help
     path: src/Classes/Narrator.cs
-    startLine: 30
+    startLine: 62
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: The player has selected the <code>Help</code> option. This typically runs a help menu for the given <xref href="DuelingDuelsters.Classes.GameLoop.GameState?text=GameState" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: Help = 2
     return:
@@ -132,10 +144,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Exit
     path: src/Classes/Narrator.cs
-    startLine: 31
+    startLine: 66
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: The player has chosen to exit the game.
+  example: []
   syntax:
     content: Exit = 3
     return:
@@ -158,10 +172,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ReturnToTitle
     path: src/Classes/Narrator.cs
-    startLine: 32
+    startLine: 70
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: The player has chosen to return to the title screen.
+  example: []
   syntax:
     content: ReturnToTitle = 4
     return:
@@ -184,10 +200,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Back
     path: src/Classes/Narrator.cs
-    startLine: 33
+    startLine: 74
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: The player has selected the Back option, pressed the Escape key, or otherwise attempted to cancel an input or go back to a different menu.
+  example: []
   syntax:
     content: Back = 5
     return:
@@ -210,10 +228,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Yes
     path: src/Classes/Narrator.cs
-    startLine: 34
+    startLine: 78
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: The player has selected a positive or first option, either a <code>Yes</code> or a <code>1</code>.
+  example: []
   syntax:
     content: Yes = 6
     return:
@@ -236,10 +256,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Left
     path: src/Classes/Narrator.cs
-    startLine: 35
+    startLine: 82
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: The player has selected an action and set the direction for the action to <code>Left</code>.
+  example: []
   syntax:
     content: Left = 6
     return:
@@ -262,10 +284,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: No
     path: src/Classes/Narrator.cs
-    startLine: 36
+    startLine: 86
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: The player has selected a negative option or alternate option, either a <code>No</code> or a <code>2</code>.
+  example: []
   syntax:
     content: No = 7
     return:
@@ -288,15 +312,78 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Right
     path: src/Classes/Narrator.cs
-    startLine: 37
+    startLine: 90
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: The player has selected an action and set the direction for the action to <code>Right</code>.
+  example: []
   syntax:
     content: Right = 7
     return:
       type: DuelingDuelsters.Classes.Narrator.Choices
 references:
+- uid: DuelingDuelsters.Classes.Narrator
+  commentId: T:DuelingDuelsters.Classes.Narrator
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Narrator.html
+  name: Narrator
+  nameWithType: Narrator
+  fullName: DuelingDuelsters.Classes.Narrator
+- uid: DuelingDuelsters.Classes.Narrator.Choices.Yes
+  commentId: F:DuelingDuelsters.Classes.Narrator.Choices.Yes
+  href: DuelingDuelsters.Classes.Narrator.Choices.html#DuelingDuelsters_Classes_Narrator_Choices_Yes
+  name: Yes
+  nameWithType: Narrator.Choices.Yes
+  fullName: DuelingDuelsters.Classes.Narrator.Choices.Yes
+- uid: DuelingDuelsters.Classes.Narrator.Choices.Left
+  commentId: F:DuelingDuelsters.Classes.Narrator.Choices.Left
+  href: DuelingDuelsters.Classes.Narrator.Choices.html#DuelingDuelsters_Classes_Narrator_Choices_Left
+  name: Left
+  nameWithType: Narrator.Choices.Left
+  fullName: DuelingDuelsters.Classes.Narrator.Choices.Left
+- uid: DuelingDuelsters.Classes.Narrator.Choices.No
+  commentId: F:DuelingDuelsters.Classes.Narrator.Choices.No
+  href: DuelingDuelsters.Classes.Narrator.Choices.html#DuelingDuelsters_Classes_Narrator_Choices_No
+  name: No
+  nameWithType: Narrator.Choices.No
+  fullName: DuelingDuelsters.Classes.Narrator.Choices.No
+- uid: DuelingDuelsters.Classes.Narrator.Choices.Right
+  commentId: F:DuelingDuelsters.Classes.Narrator.Choices.Right
+  href: DuelingDuelsters.Classes.Narrator.Choices.html#DuelingDuelsters_Classes_Narrator_Choices_Right
+  name: Right
+  nameWithType: Narrator.Choices.Right
+  fullName: DuelingDuelsters.Classes.Narrator.Choices.Right
+- uid: DuelingDuelsters.Classes.Narrator.SelectBinary(System.String)
+  commentId: M:DuelingDuelsters.Classes.Narrator.SelectBinary(System.String)
+  isExternal: true
+  href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_SelectBinary_System_String_
+  name: SelectBinary(string)
+  nameWithType: Narrator.SelectBinary(string)
+  fullName: DuelingDuelsters.Classes.Narrator.SelectBinary(string)
+  nameWithType.vb: Narrator.SelectBinary(String)
+  fullName.vb: DuelingDuelsters.Classes.Narrator.SelectBinary(String)
+  name.vb: SelectBinary(String)
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Narrator.SelectBinary(System.String)
+    name: SelectBinary
+    href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_SelectBinary_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Narrator.SelectBinary(System.String)
+    name: SelectBinary
+    href: DuelingDuelsters.Classes.Narrator.html#DuelingDuelsters_Classes_Narrator_SelectBinary_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
 - uid: DuelingDuelsters.Classes
   commentId: N:DuelingDuelsters.Classes
   href: DuelingDuelsters.html
@@ -342,3 +429,9 @@ references:
   - uid: DuelingDuelsters.Classes.Narrator.Choices
     name: Choices
     href: DuelingDuelsters.Classes.Narrator.Choices.html
+- uid: DuelingDuelsters.Classes.GameLoop.GameState
+  commentId: F:DuelingDuelsters.Classes.GameLoop.GameState
+  href: DuelingDuelsters.Classes.GameLoop.html#DuelingDuelsters_Classes_GameLoop_GameState
+  name: GameState
+  nameWithType: GameLoop.GameState
+  fullName: DuelingDuelsters.Classes.GameLoop.GameState
