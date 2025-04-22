@@ -156,14 +156,14 @@ namespace DuelingDuelsters.Classes
         /// <exclude />
         private const string gymnastDescription = "Gymnast\n-------\n ♡ ☒☒☒☐☐ | ⛨  ☒☒☐☐☐ | ⚔  ☒☒☐☐☐ | 👟 ☒☒☒☒☒ \nNimble and acrobatic, the Gymnast can dance on the head of a pin and also skewer their opponents with it.\n";
         /// <exclude />
-        private const string medicDescription = "Medic\n-----\n ♡ ☒☒☒☒☐ | ⛨  ☒☒☒☐☐ | ⚔  ☒☒☒☐☐ | 👟 ☒☒☐☐☐ | ✜ \nThe only class that can heal, the Medic is durable and doesn't care one whit about the Hippocratic Oath.\n";
+        private const string medicDescription = "Medic\n------\n ♡ ☒☒☒☒☐ | ⛨  ☒☒☒☐☐ | ⚔  ☒☒☒☐☐ | 👟 ☒☒☐☐☐ | ✜ \nThe only class that can heal, the Medic is durable and doesn't care one whit about the Hippocratic Oath.\n";
         /// <exclude />
-        private const string randomDescription = "Random\n ♡ ????? | ⛨  ????? | ⚔  ????? | 👟 ????? \nRoll the dice and let the gods determine your fate.";
+        private const string randomDescription = "Random\n------\n ♡ ????? | ⛨  ????? | ⚔  ????? | 👟 ????? \nRoll the dice and let the gods determine your fate.";
 
         /// <summary>
         /// Confirmation that you are, in fact, ready to duel like your life depends on it (spoiler: it does).
         /// </summary>
-        internal const string readyToDuel = "\nAre you ready to duel like you've never duelled before?\n\n1. Yes, let's do this!\n2.No, let's start over.";
+        internal const string readyToDuel = "\nAre you ready to duel like you've never duelled before?\n\n1. Yes, let's do this!\n2. No, let's start over.";
 
         // ~ In-Round Menu Strings ~ //
 
@@ -774,8 +774,7 @@ namespace DuelingDuelsters.Classes
         /// <param name="player">The player whose class is randomized.</param>
         private void RandomSetPlayerClass(Player player)
         {
-            Random rand = new();
-            int choice = rand.Next(1, 5);
+            int choice = Match.rng.Next(1, 5);
             switch (choice)
             {
                 case 1:

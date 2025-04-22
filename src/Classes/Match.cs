@@ -25,7 +25,6 @@ namespace DuelingDuelsters.Classes
             _playerTwo = playerTwo;
             _narrator = narrator;
             RoundCounter = 1;
-            rng = new Random();
         }
 
         /// <exclude />
@@ -64,10 +63,10 @@ namespace DuelingDuelsters.Classes
         /// <summary>
         /// The match's random number generator instance. Used to figuratively roll the dice to decide hits, damage, and more.
         /// <para>
-        /// The RNG is seeded with the current date and time every time a new match is begun.
+        /// The RNG is seeded with the current date and time when a new <c>Match</c> object is created.
         /// </para>
         /// </summary>
-        private readonly Random rng;
+        public static readonly Random rng = new Random();
 
         /// <exclude />
         private Narrator _narrator;
@@ -1251,7 +1250,7 @@ namespace DuelingDuelsters.Classes
             // Append heals remaining if a character is a medic.
             if (_playerOne.Class == Player.PlayerClass.Medic && _playerTwo.Class != Player.PlayerClass.Medic)
             {
-                int p1HealsLeft = 3 - _playerOne.HealCount;
+                int p1HealsLeft = 3 - _playerOne.HealsPerformed;
                 string healsLeftString = $"Heals Left: {p1HealsLeft}";
                 int healsLeftLength = healsLeftString.Length;
                 // Create a string for the space between player heals left sections.
@@ -1260,7 +1259,7 @@ namespace DuelingDuelsters.Classes
             }
             else if (_playerTwo.Class == Player.PlayerClass.Medic && _playerOne.Class != Player.PlayerClass.Medic)
             {
-                int p2HealsLeft = 3 - _playerTwo.HealCount;
+                int p2HealsLeft = 3 - _playerTwo.HealsPerformed;
                 string healsLeftString = $"Heals Left: {p2HealsLeft}";
                 int healsLeftLength = healsLeftString.Length;
                 // Create a string for the space between player heals left sections.
@@ -1269,8 +1268,8 @@ namespace DuelingDuelsters.Classes
             }
             else if (_playerOne.Class == Player.PlayerClass.Medic && _playerTwo.Class == Player.PlayerClass.Medic)
             {
-                int p1HealsLeft = 3 - _playerOne.HealCount;
-                int p2HealsLeft = 3 - _playerTwo.HealCount;
+                int p1HealsLeft = 3 - _playerOne.HealsPerformed;
+                int p2HealsLeft = 3 - _playerTwo.HealsPerformed;
                 string p1healsLeftString = $"Heals Left: {p1HealsLeft}";
                 string p2healsLeftString = $"Heals Left: {p2HealsLeft}";
                 int p1healsLeftLength = p1healsLeftString.Length;

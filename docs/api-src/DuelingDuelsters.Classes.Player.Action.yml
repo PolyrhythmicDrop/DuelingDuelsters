@@ -27,11 +27,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Action
     path: src/Classes/Player.cs
-    startLine: 137
+    startLine: 177
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: All possible player actions as enums.
+  summary: The available actions a <xref href="DuelingDuelsters.Classes.Player?text=Player" data-throw-if-not-resolved="false"></xref> can take. Each action consists of an act combined with a direction.
+  remarks: An <xref href="DuelingDuelsters.Classes.Match.Outcome?text=Outcome" data-throw-if-not-resolved="false"></xref> is generated based on a combination of both player's selected <code>Action</code>.
   example: []
   syntax:
     content: public enum Player.Action
@@ -54,11 +55,11 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: none
     path: src/Classes/Player.cs
-    startLine: 142
+    startLine: 182
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: No action has been taken.
+  summary: No action has been taken. This is the default Action, used for error checking and initialization.
   example: []
   syntax:
     content: none = 0
@@ -82,11 +83,11 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: swingR
     path: src/Classes/Player.cs
-    startLine: 146
+    startLine: 186
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: The player swings right.
+  summary: The player swings their sword to the right.
   example: []
   syntax:
     content: swingR = 1
@@ -110,11 +111,11 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: swingL
     path: src/Classes/Player.cs
-    startLine: 150
+    startLine: 190
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: The player swings left.
+  summary: The player swings their sword to the left.
   example: []
   syntax:
     content: swingL = 2
@@ -138,11 +139,11 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: blockR
     path: src/Classes/Player.cs
-    startLine: 154
+    startLine: 194
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: The player blocks right.
+  summary: The player blocks to the right.
   example: []
   syntax:
     content: blockR = 3
@@ -166,11 +167,11 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: blockL
     path: src/Classes/Player.cs
-    startLine: 158
+    startLine: 198
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: The player blocks left.
+  summary: The player blocks to the left.
   example: []
   syntax:
     content: blockL = 4
@@ -194,11 +195,11 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: dodgeR
     path: src/Classes/Player.cs
-    startLine: 162
+    startLine: 202
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: The player dodges right.
+  summary: The player dodges to the right.
   example: []
   syntax:
     content: dodgeR = 5
@@ -222,11 +223,11 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: dodgeL
     path: src/Classes/Player.cs
-    startLine: 166
+    startLine: 206
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: The player dodges left.
+  summary: The player dodges to the left.
   example: []
   syntax:
     content: dodgeL = 6
@@ -250,17 +251,47 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: heal
     path: src/Classes/Player.cs
-    startLine: 170
+    startLine: 210
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: The player heals.
+  summary: The player heals in any direction.
   example: []
   syntax:
     content: heal = 7
     return:
       type: DuelingDuelsters.Classes.Player.Action
 references:
+- uid: DuelingDuelsters.Classes.Player
+  commentId: T:DuelingDuelsters.Classes.Player
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Player.html
+  name: Player
+  nameWithType: Player
+  fullName: DuelingDuelsters.Classes.Player
+- uid: DuelingDuelsters.Classes.Match.Outcome
+  commentId: T:DuelingDuelsters.Classes.Match.Outcome
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Match.html
+  name: Match.Outcome
+  nameWithType: Match.Outcome
+  fullName: DuelingDuelsters.Classes.Match.Outcome
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Match
+    name: Match
+    href: DuelingDuelsters.Classes.Match.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Match.Outcome
+    name: Outcome
+    href: DuelingDuelsters.Classes.Match.Outcome.html
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Match
+    name: Match
+    href: DuelingDuelsters.Classes.Match.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Match.Outcome
+    name: Outcome
+    href: DuelingDuelsters.Classes.Match.Outcome.html
 - uid: DuelingDuelsters.Classes
   commentId: N:DuelingDuelsters.Classes
   href: DuelingDuelsters.html

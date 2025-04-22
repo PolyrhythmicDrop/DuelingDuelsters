@@ -25,10 +25,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: PlayerClass
     path: src/Classes/Player.cs
-    startLine: 24
+    startLine: 36
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: Available classes for a player. Each class has its own strengths and weaknesses.
+  example: []
   syntax:
     content: public enum Player.PlayerClass
     content.vb: Public Enum Player.PlayerClass
@@ -50,10 +52,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: None
     path: src/Classes/Player.cs
-    startLine: 26
+    startLine: 41
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: The default class, used for error checking and initialization.
+  example: []
   syntax:
     content: None = 0
     return:
@@ -76,10 +80,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Normie
     path: src/Classes/Player.cs
-    startLine: 27
+    startLine: 45
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: Neutral class with average stats all around.
+  example: []
   syntax:
     content: Normie = 1
     return:
@@ -102,10 +108,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Fridge
     path: src/Classes/Player.cs
-    startLine: 28
+    startLine: 49
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: Defense-oriented class with high health and defensive stats, but low speed and attack. Great for blocking and taking advantage of staggered opponents.
+  example: []
   syntax:
     content: Fridge = 2
     return:
@@ -128,10 +136,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Leeroy
     path: src/Classes/Player.cs
-    startLine: 29
+    startLine: 53
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: Attack-oriented class with high attack, average speed and health, but low defense. Great for endlessly swinging a sword.
+  example: []
   syntax:
     content: Leeroy = 3
     return:
@@ -154,10 +164,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Gymnast
     path: src/Classes/Player.cs
-    startLine: 30
+    startLine: 57
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: Speed-oriented class with high speed, average health and defense, and low attack. Great for counterattacks and dodges.
+  example: []
   syntax:
     content: Gymnast = 4
     return:
@@ -180,10 +192,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Medic
     path: src/Classes/Player.cs
-    startLine: 31
+    startLine: 61
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: The only class that can heal. Generally average stats, with the exception of slightly higher health. Great for staying alive and outlasting opponents.
+  example: []
   syntax:
     content: Medic = 5
     return:

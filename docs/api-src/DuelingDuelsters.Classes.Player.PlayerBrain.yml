@@ -21,11 +21,11 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: PlayerBrain
     path: src/Classes/Player.cs
-    startLine: 47
+    startLine: 78
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: The possible types of brain controlling the player, human or computer.
+  summary: Available types of brain controlling the player, human or computer.
   example: []
   syntax:
     content: public enum Player.PlayerBrain
@@ -48,10 +48,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Human
     path: src/Classes/Player.cs
-    startLine: 49
+    startLine: 83
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: The player is controlled by a human.
+  example: []
   syntax:
     content: Human = 0
     return:
@@ -74,10 +76,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Computer
     path: src/Classes/Player.cs
-    startLine: 50
+    startLine: 87
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: The player is controlled by AI. Used in single-player matches.
+  example: []
   syntax:
     content: Computer = 1
     return:

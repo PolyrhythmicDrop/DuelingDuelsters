@@ -5,7 +5,6 @@ items:
   id: Player
   parent: DuelingDuelsters.Classes
   children:
-  - DuelingDuelsters.Classes.Player.#ctor
   - DuelingDuelsters.Classes.Player.#ctor(DuelingDuelsters.Classes.Player.PlayerBrain)
   - DuelingDuelsters.Classes.Player.ActionList
   - DuelingDuelsters.Classes.Player.ActionTaken
@@ -21,8 +20,8 @@ items:
   - DuelingDuelsters.Classes.Player.ChosenAction
   - DuelingDuelsters.Classes.Player.Class
   - DuelingDuelsters.Classes.Player.Defense
-  - DuelingDuelsters.Classes.Player.HealCount
   - DuelingDuelsters.Classes.Player.HealSelf
+  - DuelingDuelsters.Classes.Player.HealsPerformed
   - DuelingDuelsters.Classes.Player.Health
   - DuelingDuelsters.Classes.Player.HealthReadout
   - DuelingDuelsters.Classes.Player.IsCounter
@@ -34,15 +33,6 @@ items:
   - DuelingDuelsters.Classes.Player.Name
   - DuelingDuelsters.Classes.Player.ResetCharacterHealth
   - DuelingDuelsters.Classes.Player.Speed
-  - DuelingDuelsters.Classes.Player._baseDamage
-  - DuelingDuelsters.Classes.Player._class
-  - DuelingDuelsters.Classes.Player._healCount
-  - DuelingDuelsters.Classes.Player._health
-  - DuelingDuelsters.Classes.Player._healthReadout
-  - DuelingDuelsters.Classes.Player.charSheet
-  - DuelingDuelsters.Classes.Player.key
-  - DuelingDuelsters.Classes.Player.name
-  - DuelingDuelsters.Classes.Player.rng
   langs:
   - csharp
   - vb
@@ -61,7 +51,7 @@ items:
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Class for player characters. Handles stats and actions for player characters.
+  summary: Contains and manages player character stats, AI, class details, actions, and other data.
   example: []
   syntax:
     content: public class Player
@@ -94,47 +84,23 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: .ctor
     path: src/Classes/Player.cs
-    startLine: 9
+    startLine: 13
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: Default constructor for a <code>Player</code> object.
+  example: []
   syntax:
     content: public Player(Player.PlayerBrain brain)
     parameters:
     - id: brain
       type: DuelingDuelsters.Classes.Player.PlayerBrain
+      description: ''
     content.vb: Public Sub New(brain As Player.PlayerBrain)
   overload: DuelingDuelsters.Classes.Player.#ctor*
   nameWithType.vb: Player.New(Player.PlayerBrain)
   fullName.vb: DuelingDuelsters.Classes.Player.New(DuelingDuelsters.Classes.Player.PlayerBrain)
   name.vb: New(PlayerBrain)
-- uid: DuelingDuelsters.Classes.Player.name
-  commentId: F:DuelingDuelsters.Classes.Player.name
-  id: name
-  parent: DuelingDuelsters.Classes.Player
-  langs:
-  - csharp
-  - vb
-  name: name
-  nameWithType: Player.name
-  fullName: DuelingDuelsters.Classes.Player.name
-  type: Field
-  source:
-    remote:
-      path: src/Classes/Player.cs
-      branch: documentation
-      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
-    id: name
-    path: src/Classes/Player.cs
-    startLine: 14
-  assemblies:
-  - DuelingDuelsters
-  namespace: DuelingDuelsters.Classes
-  syntax:
-    content: private string name
-    return:
-      type: System.String
-    content.vb: Private name As String
 - uid: DuelingDuelsters.Classes.Player.Name
   commentId: P:DuelingDuelsters.Classes.Player.Name
   id: Name
@@ -153,11 +119,11 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Name
     path: src/Classes/Player.cs
-    startLine: 18
+    startLine: 27
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Player's name
+  summary: The player's name, chosen during character creation.
   example: []
   syntax:
     content: public string Name { get; set; }
@@ -166,33 +132,6 @@ items:
       type: System.String
     content.vb: Public Property Name As String
   overload: DuelingDuelsters.Classes.Player.Name*
-- uid: DuelingDuelsters.Classes.Player._class
-  commentId: F:DuelingDuelsters.Classes.Player._class
-  id: _class
-  parent: DuelingDuelsters.Classes.Player
-  langs:
-  - csharp
-  - vb
-  name: _class
-  nameWithType: Player._class
-  fullName: DuelingDuelsters.Classes.Player._class
-  type: Field
-  source:
-    remote:
-      path: src/Classes/Player.cs
-      branch: documentation
-      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
-    id: _class
-    path: src/Classes/Player.cs
-    startLine: 34
-  assemblies:
-  - DuelingDuelsters
-  namespace: DuelingDuelsters.Classes
-  syntax:
-    content: private Player.PlayerClass _class
-    return:
-      type: DuelingDuelsters.Classes.Player.PlayerClass
-    content.vb: Private _class As Player.PlayerClass
 - uid: DuelingDuelsters.Classes.Player.Class
   commentId: P:DuelingDuelsters.Classes.Player.Class
   id: Class
@@ -211,11 +150,11 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Class
     path: src/Classes/Player.cs
-    startLine: 38
+    startLine: 69
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Player's class.
+  summary: The player's chosen class, set during character creation.
   example: []
   syntax:
     content: public Player.PlayerClass Class { get; set; }
@@ -242,44 +181,17 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Brain
     path: src/Classes/Player.cs
-    startLine: 56
+    startLine: 93
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: This player's brain.
+  summary: This player's brain, set during player count selection.
   example: []
   syntax:
     content: public Player.PlayerBrain Brain
     return:
       type: DuelingDuelsters.Classes.Player.PlayerBrain
     content.vb: Public Brain As Player.PlayerBrain
-- uid: DuelingDuelsters.Classes.Player._health
-  commentId: F:DuelingDuelsters.Classes.Player._health
-  id: _health
-  parent: DuelingDuelsters.Classes.Player
-  langs:
-  - csharp
-  - vb
-  name: _health
-  nameWithType: Player._health
-  fullName: DuelingDuelsters.Classes.Player._health
-  type: Field
-  source:
-    remote:
-      path: src/Classes/Player.cs
-      branch: documentation
-      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
-    id: _health
-    path: src/Classes/Player.cs
-    startLine: 58
-  assemblies:
-  - DuelingDuelsters
-  namespace: DuelingDuelsters.Classes
-  syntax:
-    content: private int _health
-    return:
-      type: System.Int32
-    content.vb: Private _health As Integer
 - uid: DuelingDuelsters.Classes.Player.Health
   commentId: P:DuelingDuelsters.Classes.Player.Health
   id: Health
@@ -298,11 +210,11 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Health
     path: src/Classes/Player.cs
-    startLine: 62
+    startLine: 100
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Player's current health
+  summary: The player's current health. The player's <code>Health</code> value cannot be less than 0 or higher than the player's <xref href="DuelingDuelsters.Classes.Player.MaxHealth?text=MaxHealth" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public int Health { get; set; }
@@ -329,11 +241,11 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: MaxHealth
     path: src/Classes/Player.cs
-    startLine: 81
+    startLine: 118
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Player's maximum health
+  summary: The player's maximum health. Each class has a different <code>MaxHealth</code>.
   example: []
   syntax:
     content: public int MaxHealth { get; set; }
@@ -342,35 +254,6 @@ items:
       type: System.Int32
     content.vb: Public Property MaxHealth As Integer
   overload: DuelingDuelsters.Classes.Player.MaxHealth*
-- uid: DuelingDuelsters.Classes.Player._healthReadout
-  commentId: F:DuelingDuelsters.Classes.Player._healthReadout
-  id: _healthReadout
-  parent: DuelingDuelsters.Classes.Player
-  langs:
-  - csharp
-  - vb
-  name: _healthReadout
-  nameWithType: Player._healthReadout
-  fullName: DuelingDuelsters.Classes.Player._healthReadout
-  type: Field
-  source:
-    remote:
-      path: src/Classes/Player.cs
-      branch: documentation
-      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
-    id: _healthReadout
-    path: src/Classes/Player.cs
-    startLine: 86
-  assemblies:
-  - DuelingDuelsters
-  namespace: DuelingDuelsters.Classes
-  summary: "Player's health readout: Health / MaxHealth"
-  example: []
-  syntax:
-    content: private string _healthReadout
-    return:
-      type: System.String
-    content.vb: Private _healthReadout As String
 - uid: DuelingDuelsters.Classes.Player.HealthReadout
   commentId: P:DuelingDuelsters.Classes.Player.HealthReadout
   id: HealthReadout
@@ -389,10 +272,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: HealthReadout
     path: src/Classes/Player.cs
-    startLine: 87
+    startLine: 126
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: The player's health readout, displayed on the round header while a match is in progress. This helps the player keep track of their health during a match so they can act accordingly.
+  example: []
   syntax:
     content: public string HealthReadout { get; }
     parameters: []
@@ -418,11 +303,18 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Attack
     path: src/Classes/Player.cs
-    startLine: 100
+    startLine: 142
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Player's attack
+  summary: >-
+    The player's attack statistic. The higher the <code>Attack</code>, the more damage the player does with each hit. 
+
+    <p>
+
+    The player's <code>Attack</code> value is used to calculate base damage and critical damage.
+
+    </p>
   example: []
   syntax:
     content: public int Attack { get; set; }
@@ -449,11 +341,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Defense
     path: src/Classes/Player.cs
-    startLine: 105
+    startLine: 148
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Player's defense
+  summary: The player's defense statistic. The higher the <code>Defense</code>, the less damage the player takes when they are hit.
+  remarks: <code>Defense</code> does not apply to critical hit damage! Skilled players can use this fact to their advantage when playing against a Fridge character.
   example: []
   syntax:
     content: public int Defense { get; set; }
@@ -480,11 +373,18 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Speed
     path: src/Classes/Player.cs
-    startLine: 110
+    startLine: 156
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Player's speed
+  summary: >-
+    The player's speed statistic. 
+
+    <p>
+
+    The higher the <code>Speed</code>, the more likely the player is to land critical hits and execute counterattacks on successful dodges.
+
+    </p>
   example: []
   syntax:
     content: public int Speed { get; set; }
@@ -493,33 +393,6 @@ items:
       type: System.Int32
     content.vb: Public Property Speed As Integer
   overload: DuelingDuelsters.Classes.Player.Speed*
-- uid: DuelingDuelsters.Classes.Player.charSheet
-  commentId: F:DuelingDuelsters.Classes.Player.charSheet
-  id: charSheet
-  parent: DuelingDuelsters.Classes.Player
-  langs:
-  - csharp
-  - vb
-  name: charSheet
-  nameWithType: Player.charSheet
-  fullName: DuelingDuelsters.Classes.Player.charSheet
-  type: Field
-  source:
-    remote:
-      path: src/Classes/Player.cs
-      branch: documentation
-      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
-    id: charSheet
-    path: src/Classes/Player.cs
-    startLine: 113
-  assemblies:
-  - DuelingDuelsters
-  namespace: DuelingDuelsters.Classes
-  syntax:
-    content: private string charSheet
-    return:
-      type: System.String
-    content.vb: Private charSheet As String
 - uid: DuelingDuelsters.Classes.Player.CharSheet
   commentId: P:DuelingDuelsters.Classes.Player.CharSheet
   id: CharSheet
@@ -538,18 +411,18 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: CharSheet
     path: src/Classes/Player.cs
-    startLine: 117
+    startLine: 161
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: The character's character sheet. The sheet is built every time it's retrieved.
+  summary: The player's character sheet. The sheet is built using the player's current health and stats every time it is retrieved.
   example: []
   syntax:
-    content: public string CharSheet { get; set; }
+    content: public string CharSheet { get; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property CharSheet As String
+    content.vb: Public ReadOnly Property CharSheet As String
   overload: DuelingDuelsters.Classes.Player.CharSheet*
 - uid: DuelingDuelsters.Classes.Player.ActionList
   commentId: F:DuelingDuelsters.Classes.Player.ActionList
@@ -569,46 +442,17 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ActionList
     path: src/Classes/Player.cs
-    startLine: 126
+    startLine: 171
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: A list of actions the player can select from during action selection. This list is generated after the player selects a class.
+  example: []
   syntax:
     content: public string ActionList
     return:
       type: System.String
     content.vb: Public ActionList As String
-- uid: DuelingDuelsters.Classes.Player.ActionTaken
-  commentId: P:DuelingDuelsters.Classes.Player.ActionTaken
-  id: ActionTaken
-  parent: DuelingDuelsters.Classes.Player
-  langs:
-  - csharp
-  - vb
-  name: ActionTaken
-  nameWithType: Player.ActionTaken
-  fullName: DuelingDuelsters.Classes.Player.ActionTaken
-  type: Property
-  source:
-    remote:
-      path: src/Classes/Player.cs
-      branch: documentation
-      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
-    id: ActionTaken
-    path: src/Classes/Player.cs
-    startLine: 132
-  assemblies:
-  - DuelingDuelsters
-  namespace: DuelingDuelsters.Classes
-  summary: 'Action taken flag: True if the player has taken an action, false if they have not'
-  example: []
-  syntax:
-    content: public bool ActionTaken { get; set; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public Property ActionTaken As Boolean
-  overload: DuelingDuelsters.Classes.Player.ActionTaken*
 - uid: DuelingDuelsters.Classes.Player.ChosenAction
   commentId: P:DuelingDuelsters.Classes.Player.ChosenAction
   id: ChosenAction
@@ -627,11 +471,11 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ChosenAction
     path: src/Classes/Player.cs
-    startLine: 176
+    startLine: 216
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: The action the player has chosen.
+  summary: The <code>Action</code> the player has chosen this round.
   example: []
   syntax:
     content: public Player.Action ChosenAction { get; set; }
@@ -640,33 +484,6 @@ items:
       type: DuelingDuelsters.Classes.Player.Action
     content.vb: Public Property ChosenAction As Player.Action
   overload: DuelingDuelsters.Classes.Player.ChosenAction*
-- uid: DuelingDuelsters.Classes.Player._baseDamage
-  commentId: F:DuelingDuelsters.Classes.Player._baseDamage
-  id: _baseDamage
-  parent: DuelingDuelsters.Classes.Player
-  langs:
-  - csharp
-  - vb
-  name: _baseDamage
-  nameWithType: Player._baseDamage
-  fullName: DuelingDuelsters.Classes.Player._baseDamage
-  type: Field
-  source:
-    remote:
-      path: src/Classes/Player.cs
-      branch: documentation
-      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
-    id: _baseDamage
-    path: src/Classes/Player.cs
-    startLine: 180
-  assemblies:
-  - DuelingDuelsters
-  namespace: DuelingDuelsters.Classes
-  syntax:
-    content: private int _baseDamage
-    return:
-      type: System.Int32
-    content.vb: Private _baseDamage As Integer
 - uid: DuelingDuelsters.Classes.Player.BaseDamage
   commentId: P:DuelingDuelsters.Classes.Player.BaseDamage
   id: BaseDamage
@@ -685,11 +502,11 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: BaseDamage
     path: src/Classes/Player.cs
-    startLine: 184
+    startLine: 224
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: The base damage for this player.
+  summary: The base damage for this player. BaseDamage is calculated using the attacking player's <xref href="DuelingDuelsters.Classes.Player.Attack?text=Attack" data-throw-if-not-resolved="false"></xref> and the defending player's <xref href="DuelingDuelsters.Classes.Player.Defense?text=Defense" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public int BaseDamage { get; set; }
@@ -698,6 +515,46 @@ items:
       type: System.Int32
     content.vb: Public Property BaseDamage As Integer
   overload: DuelingDuelsters.Classes.Player.BaseDamage*
+- uid: DuelingDuelsters.Classes.Player.ActionTaken
+  commentId: P:DuelingDuelsters.Classes.Player.ActionTaken
+  id: ActionTaken
+  parent: DuelingDuelsters.Classes.Player
+  langs:
+  - csharp
+  - vb
+  name: ActionTaken
+  nameWithType: Player.ActionTaken
+  fullName: DuelingDuelsters.Classes.Player.ActionTaken
+  type: Property
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: ActionTaken
+    path: src/Classes/Player.cs
+    startLine: 245
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: >-
+    Flag that indicates whether or not the player has selected an action this round.
+
+    <p>
+
+    <code>true</code> if the player has selected an action.<br />
+
+    <code>false</code> if the player have not selected an action.
+
+    </p>
+  example: []
+  syntax:
+    content: public bool ActionTaken { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property ActionTaken As Boolean
+  overload: DuelingDuelsters.Classes.Player.ActionTaken*
 - uid: DuelingDuelsters.Classes.Player.IsStaggered
   commentId: P:DuelingDuelsters.Classes.Player.IsStaggered
   id: IsStaggered
@@ -716,11 +573,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: IsStaggered
     path: src/Classes/Player.cs
-    startLine: 201
+    startLine: 252
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Flag for whether or not the player is staggered.
+  summary: Flag that indicates whether or not the player is staggered.
+  remarks: A player becomes staggered when the player's attack is blocked by a defending player. A staggered player is more susceptible to a critical hit if they are attacked in the next round.
   example: []
   syntax:
     content: public bool IsStaggered { get; set; }
@@ -747,11 +605,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: IsCountering
     path: src/Classes/Player.cs
-    startLine: 207
+    startLine: 259
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Flag for whether or not the player is countering.
+  summary: Flag the indicates whether or not the player is countering.
+  remarks: Players have a chance to counter when they successfully <xref href="DuelingDuelsters.Classes.Player.Action.dodgeL?text=dodge" data-throw-if-not-resolved="false"></xref> an attack. Countering players score an automatic critical hit on their opponents.
   example: []
   syntax:
     content: public bool IsCountering { get; set; }
@@ -778,11 +637,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: IsHealing
     path: src/Classes/Player.cs
-    startLine: 213
+    startLine: 266
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Flag for whether or not the player is healing.
+  summary: Flag that indicates whether or not the player is healing.
+  remarks: Healing players are susceptible to counterattacks if the other player took a <xref href="DuelingDuelsters.Classes.Player.Action.swingL?text=swing" data-throw-if-not-resolved="false"></xref> Action during the same round.
   example: []
   syntax:
     content: public bool IsHealing { get; set; }
@@ -791,66 +651,38 @@ items:
       type: System.Boolean
     content.vb: Public Property IsHealing As Boolean
   overload: DuelingDuelsters.Classes.Player.IsHealing*
-- uid: DuelingDuelsters.Classes.Player._healCount
-  commentId: F:DuelingDuelsters.Classes.Player._healCount
-  id: _healCount
+- uid: DuelingDuelsters.Classes.Player.HealsPerformed
+  commentId: P:DuelingDuelsters.Classes.Player.HealsPerformed
+  id: HealsPerformed
   parent: DuelingDuelsters.Classes.Player
   langs:
   - csharp
   - vb
-  name: _healCount
-  nameWithType: Player._healCount
-  fullName: DuelingDuelsters.Classes.Player._healCount
-  type: Field
-  source:
-    remote:
-      path: src/Classes/Player.cs
-      branch: documentation
-      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
-    id: _healCount
-    path: src/Classes/Player.cs
-    startLine: 219
-  assemblies:
-  - DuelingDuelsters
-  namespace: DuelingDuelsters.Classes
-  summary: Heal count. Medics can only heal 3 times per match.
-  example: []
-  syntax:
-    content: private int _healCount
-    return:
-      type: System.Int32
-    content.vb: Private _healCount As Integer
-- uid: DuelingDuelsters.Classes.Player.HealCount
-  commentId: P:DuelingDuelsters.Classes.Player.HealCount
-  id: HealCount
-  parent: DuelingDuelsters.Classes.Player
-  langs:
-  - csharp
-  - vb
-  name: HealCount
-  nameWithType: Player.HealCount
-  fullName: DuelingDuelsters.Classes.Player.HealCount
+  name: HealsPerformed
+  nameWithType: Player.HealsPerformed
+  fullName: DuelingDuelsters.Classes.Player.HealsPerformed
   type: Property
   source:
     remote:
       path: src/Classes/Player.cs
       branch: documentation
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
-    id: HealCount
+    id: HealsPerformed
     path: src/Classes/Player.cs
-    startLine: 223
+    startLine: 275
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Heal count. Medics can only heal 3 times per match.
+  summary: The number of times the player has healed during the match.
+  remarks: A player's <code>HealsPerformed</code> starts at <code>0</code> and increments every time the player heals. When <code>HealsPerformed</code> reaches <code>3</code>, the player's <xref href="DuelingDuelsters.Classes.Player.CanHeal?text=CanHeal" data-throw-if-not-resolved="false"></xref> flag changes to <code>false</code> and the player can no longer heal for the rest of the match.
   example: []
   syntax:
-    content: public int HealCount { get; set; }
+    content: public int HealsPerformed { get; set; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Property HealCount As Integer
-  overload: DuelingDuelsters.Classes.Player.HealCount*
+    content.vb: Public Property HealsPerformed As Integer
+  overload: DuelingDuelsters.Classes.Player.HealsPerformed*
 - uid: DuelingDuelsters.Classes.Player.CanHeal
   commentId: P:DuelingDuelsters.Classes.Player.CanHeal
   id: CanHeal
@@ -869,10 +701,13 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: CanHeal
     path: src/Classes/Player.cs
-    startLine: 239
+    startLine: 295
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
+  summary: Flag that indicates whether or not the player can heal.
+  remarks: <code>CanHeal</code> is <code>true</code> as long as <xref href="DuelingDuelsters.Classes.Player.HealsPerformed?text=HealsPerformed" data-throw-if-not-resolved="false"></xref> is less than 3.
+  example: []
   syntax:
     content: public bool CanHeal { get; }
     parameters: []
@@ -880,95 +715,6 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property CanHeal As Boolean
   overload: DuelingDuelsters.Classes.Player.CanHeal*
-- uid: DuelingDuelsters.Classes.Player.#ctor
-  commentId: M:DuelingDuelsters.Classes.Player.#ctor
-  id: '#ctor'
-  parent: DuelingDuelsters.Classes.Player
-  langs:
-  - csharp
-  - vb
-  name: Player()
-  nameWithType: Player.Player()
-  fullName: DuelingDuelsters.Classes.Player.Player()
-  type: Constructor
-  source:
-    remote:
-      path: src/Classes/Player.cs
-      branch: documentation
-      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
-    id: .ctor
-    path: src/Classes/Player.cs
-    startLine: 249
-  assemblies:
-  - DuelingDuelsters
-  namespace: DuelingDuelsters.Classes
-  summary: Empty constructor class for each player.
-  example: []
-  syntax:
-    content: public Player()
-    content.vb: Public Sub New()
-  overload: DuelingDuelsters.Classes.Player.#ctor*
-  nameWithType.vb: Player.New()
-  fullName.vb: DuelingDuelsters.Classes.Player.New()
-  name.vb: New()
-- uid: DuelingDuelsters.Classes.Player.key
-  commentId: F:DuelingDuelsters.Classes.Player.key
-  id: key
-  parent: DuelingDuelsters.Classes.Player
-  langs:
-  - csharp
-  - vb
-  name: key
-  nameWithType: Player.key
-  fullName: DuelingDuelsters.Classes.Player.key
-  type: Field
-  source:
-    remote:
-      path: src/Classes/Player.cs
-      branch: documentation
-      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
-    id: key
-    path: src/Classes/Player.cs
-    startLine: 260
-  assemblies:
-  - DuelingDuelsters
-  namespace: DuelingDuelsters.Classes
-  summary: Key info
-  example: []
-  syntax:
-    content: private ConsoleKeyInfo key
-    return:
-      type: System.ConsoleKeyInfo
-    content.vb: Private key As ConsoleKeyInfo
-- uid: DuelingDuelsters.Classes.Player.rng
-  commentId: F:DuelingDuelsters.Classes.Player.rng
-  id: rng
-  parent: DuelingDuelsters.Classes.Player
-  langs:
-  - csharp
-  - vb
-  name: rng
-  nameWithType: Player.rng
-  fullName: DuelingDuelsters.Classes.Player.rng
-  type: Field
-  source:
-    remote:
-      path: src/Classes/Player.cs
-      branch: documentation
-      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
-    id: rng
-    path: src/Classes/Player.cs
-    startLine: 265
-  assemblies:
-  - DuelingDuelsters
-  namespace: DuelingDuelsters.Classes
-  summary: Random number generator
-  example: []
-  syntax:
-    content: private readonly Random rng
-    return:
-      type: System.Random
-    content.vb: Private ReadOnly rng As Random
 - uid: DuelingDuelsters.Classes.Player.BuildCharacterSheet
   commentId: M:DuelingDuelsters.Classes.Player.BuildCharacterSheet
   id: BuildCharacterSheet
@@ -987,11 +733,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: BuildCharacterSheet
     path: src/Classes/Player.cs
-    startLine: 272
+    startLine: 305
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
   summary: Builds a character sheet for the character.
+  remarks: This method runs when the value of <xref href="DuelingDuelsters.Classes.Player.CharSheet?text=CharSheet" data-throw-if-not-resolved="false"></xref> is read, typically at the start of a round.
   example: []
   syntax:
     content: public string BuildCharacterSheet()
@@ -1018,11 +765,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: BuildActionList
     path: src/Classes/Player.cs
-    startLine: 356
+    startLine: 390
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Builds a set of actions for the player to choose from. Different actions are available depending on the player's class. Sets the actions to the player's ActionList variable.
+  summary: Builds a set of actions for the player to choose from and sets the <xref href="DuelingDuelsters.Classes.Player.ActionList" data-throw-if-not-resolved="false"></xref> member variable to the resulting string. Different actions are available depending on the player's class.
+  remarks: This method is run once for each player after character creation.
   example: []
   syntax:
     content: public void BuildActionList()
@@ -1046,11 +794,12 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ResetCharacterHealth
     path: src/Classes/Player.cs
-    startLine: 393
+    startLine: 428
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Resets the character to their default health and stats for a rematch.
+  summary: Resets the player's health to their <xref href="DuelingDuelsters.Classes.Player.MaxHealth" data-throw-if-not-resolved="false"></xref>.
+  remarks: This method is called at the start of a rematch.
   example: []
   syntax:
     content: public void ResetCharacterHealth()
@@ -1074,11 +823,11 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: CalculateBaseDamage
     path: src/Classes/Player.cs
-    startLine: 405
+    startLine: 438
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Calculate base damage for the attacking player.
+  summary: Calculates base damage for this player. Base damage is calculated using the player's <xref href="DuelingDuelsters.Classes.Player.Attack?text=Attack" data-throw-if-not-resolved="false"></xref> and the <xref href="DuelingDuelsters.Classes.Player.Defense?text=Defense" data-throw-if-not-resolved="false"></xref> of the <code class="paramref">defPlayer</code>.
   example: []
   syntax:
     content: public int CalculateBaseDamage(Player defPlayer)
@@ -1109,21 +858,26 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: IsCrit
     path: src/Classes/Player.cs
-    startLine: 417
+    startLine: 464
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Calculate whether or not a hit is a critical hit.
+  summary: Determines whether or not the player lands a critical hit.
+  remarks: >-
+    The player's chance to land a critical hit rises if the player's <xref href="DuelingDuelsters.Classes.Player.IsCountering?text=IsCountering" data-throw-if-not-resolved="false"></xref> flag is set to <code>true</code>. A critical hit is successful if:
+         <ul><li>The player rolls a `12` or greater on their critical roll (determined by <xref href="DuelingDuelsters.Classes.Match.rng?text=RNG" data-throw-if-not-resolved="false"></xref>) and the <code class="paramref">defPlayer</code> is not blocking.</li><li>The defending player is staggered (<code class="paramref">defPlayer</code>.<xref href="DuelingDuelsters.Classes.Player.IsStaggered?text=IsStaggered" data-throw-if-not-resolved="false"></xref><code> = true</code>).</li><li>The defending player dodges into the attack.</li></ul>
   example: []
   syntax:
     content: public bool IsCrit(Player defPlayer)
     parameters:
     - id: defPlayer
       type: DuelingDuelsters.Classes.Player
-      description: The defending player. Used to determine stagger condition.
+      description: The defending player.
     return:
       type: System.Boolean
-      description: true = Critical hit.
+      description: >-
+        <code>true</code> if the player successfully landed a critical hit.<br />
+            <code>false</code> if the player did not land a critical hit.
     content.vb: Public Function IsCrit(defPlayer As Player) As Boolean
   overload: DuelingDuelsters.Classes.Player.IsCrit*
 - uid: DuelingDuelsters.Classes.Player.CalculateCritDamage
@@ -1144,17 +898,18 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: CalculateCritDamage
     path: src/Classes/Player.cs
-    startLine: 435
+    startLine: 483
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Calculate damage for a critical hit. Critical hits ignore opposing player's defense, and the damage is applied after base damage is calculated. Critical damage is based on RNG + player's attack / 3.
+  summary: Calculates damage for a critical hit.
+  remarks: Critical hits ignore opposing player's defense, and critical hit damage is applied on top of any base damage. Critical hit damage is based on <xref href="DuelingDuelsters.Classes.Match.rng?text=RNG" data-throw-if-not-resolved="false"></xref> and the player's <xref href="DuelingDuelsters.Classes.Player.Attack?text=Attack" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public int CalculateCritDamage()
     return:
       type: System.Int32
-      description: ''
+      description: Critical hit damage.
     content.vb: Public Function CalculateCritDamage() As Integer
   overload: DuelingDuelsters.Classes.Player.CalculateCritDamage*
 - uid: DuelingDuelsters.Classes.Player.IsCounter
@@ -1175,17 +930,20 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: IsCounter
     path: src/Classes/Player.cs
-    startLine: 445
+    startLine: 495
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Roll to determine whether or not a round results in a counter.
+  summary: Determines whether or not the player successfully executes a counterattack. The player's <xref href="DuelingDuelsters.Classes.Player.IsCountering?text=IsCountering" data-throw-if-not-resolved="false"></xref> variable is set to the result.
+  remarks: A counterattack's success is based on <xref href="DuelingDuelsters.Classes.Match.rng?text=RNG" data-throw-if-not-resolved="false"></xref> and the player's <xref href="DuelingDuelsters.Classes.Player.Speed?text=Speed" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public bool IsCounter()
     return:
       type: System.Boolean
-      description: True = The player counters.
+      description: >-
+        <code>true</code> if the player successfully counters.<br />
+            <code>false</code> if the player does not successfully counter.
     content.vb: Public Function IsCounter() As Boolean
   overload: DuelingDuelsters.Classes.Player.IsCounter*
 - uid: DuelingDuelsters.Classes.Player.HealSelf
@@ -1206,11 +964,11 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: HealSelf
     path: src/Classes/Player.cs
-    startLine: 457
+    startLine: 506
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Calculate heal amount, set heal flag for actions.
+  summary: Heals the player if they have heals remaining.
   example: []
   syntax:
     content: public void HealSelf()
@@ -1508,6 +1266,12 @@ references:
   - uid: DuelingDuelsters.Classes.Player.PlayerBrain
     name: PlayerBrain
     href: DuelingDuelsters.Classes.Player.PlayerBrain.html
+- uid: DuelingDuelsters.Classes.Player.Name*
+  commentId: Overload:DuelingDuelsters.Classes.Player.Name
+  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_Name
+  name: Name
+  nameWithType: Player.Name
+  fullName: DuelingDuelsters.Classes.Player.Name
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -1519,12 +1283,12 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: DuelingDuelsters.Classes.Player.Name*
-  commentId: Overload:DuelingDuelsters.Classes.Player.Name
-  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_Name
-  name: Name
-  nameWithType: Player.Name
-  fullName: DuelingDuelsters.Classes.Player.Name
+- uid: DuelingDuelsters.Classes.Player.Class*
+  commentId: Overload:DuelingDuelsters.Classes.Player.Class
+  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_Class
+  name: Class
+  nameWithType: Player.Class
+  fullName: DuelingDuelsters.Classes.Player.Class
 - uid: DuelingDuelsters.Classes.Player.PlayerClass
   commentId: T:DuelingDuelsters.Classes.Player.PlayerClass
   parent: DuelingDuelsters.Classes
@@ -1548,12 +1312,18 @@ references:
   - uid: DuelingDuelsters.Classes.Player.PlayerClass
     name: PlayerClass
     href: DuelingDuelsters.Classes.Player.PlayerClass.html
-- uid: DuelingDuelsters.Classes.Player.Class*
-  commentId: Overload:DuelingDuelsters.Classes.Player.Class
-  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_Class
-  name: Class
-  nameWithType: Player.Class
-  fullName: DuelingDuelsters.Classes.Player.Class
+- uid: DuelingDuelsters.Classes.Player.MaxHealth
+  commentId: P:DuelingDuelsters.Classes.Player.MaxHealth
+  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_MaxHealth
+  name: MaxHealth
+  nameWithType: Player.MaxHealth
+  fullName: DuelingDuelsters.Classes.Player.MaxHealth
+- uid: DuelingDuelsters.Classes.Player.Health*
+  commentId: Overload:DuelingDuelsters.Classes.Player.Health
+  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_Health
+  name: Health
+  nameWithType: Player.Health
+  fullName: DuelingDuelsters.Classes.Player.Health
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -1565,12 +1335,6 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: DuelingDuelsters.Classes.Player.Health*
-  commentId: Overload:DuelingDuelsters.Classes.Player.Health
-  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_Health
-  name: Health
-  nameWithType: Player.Health
-  fullName: DuelingDuelsters.Classes.Player.Health
 - uid: DuelingDuelsters.Classes.Player.MaxHealth*
   commentId: Overload:DuelingDuelsters.Classes.Player.MaxHealth
   href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_MaxHealth
@@ -1607,23 +1371,6 @@ references:
   name: CharSheet
   nameWithType: Player.CharSheet
   fullName: DuelingDuelsters.Classes.Player.CharSheet
-- uid: DuelingDuelsters.Classes.Player.ActionTaken*
-  commentId: Overload:DuelingDuelsters.Classes.Player.ActionTaken
-  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_ActionTaken
-  name: ActionTaken
-  nameWithType: Player.ActionTaken
-  fullName: DuelingDuelsters.Classes.Player.ActionTaken
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: DuelingDuelsters.Classes.Player.ChosenAction*
   commentId: Overload:DuelingDuelsters.Classes.Player.ChosenAction
   href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_ChosenAction
@@ -1653,64 +1400,113 @@ references:
   - uid: DuelingDuelsters.Classes.Player.Action
     name: Action
     href: DuelingDuelsters.Classes.Player.Action.html
+- uid: DuelingDuelsters.Classes.Player.Attack
+  commentId: P:DuelingDuelsters.Classes.Player.Attack
+  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_Attack
+  name: Attack
+  nameWithType: Player.Attack
+  fullName: DuelingDuelsters.Classes.Player.Attack
+- uid: DuelingDuelsters.Classes.Player.Defense
+  commentId: P:DuelingDuelsters.Classes.Player.Defense
+  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_Defense
+  name: Defense
+  nameWithType: Player.Defense
+  fullName: DuelingDuelsters.Classes.Player.Defense
 - uid: DuelingDuelsters.Classes.Player.BaseDamage*
   commentId: Overload:DuelingDuelsters.Classes.Player.BaseDamage
   href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_BaseDamage
   name: BaseDamage
   nameWithType: Player.BaseDamage
   fullName: DuelingDuelsters.Classes.Player.BaseDamage
+- uid: DuelingDuelsters.Classes.Player.ActionTaken*
+  commentId: Overload:DuelingDuelsters.Classes.Player.ActionTaken
+  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_ActionTaken
+  name: ActionTaken
+  nameWithType: Player.ActionTaken
+  fullName: DuelingDuelsters.Classes.Player.ActionTaken
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: DuelingDuelsters.Classes.Player.IsStaggered*
   commentId: Overload:DuelingDuelsters.Classes.Player.IsStaggered
   href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_IsStaggered
   name: IsStaggered
   nameWithType: Player.IsStaggered
   fullName: DuelingDuelsters.Classes.Player.IsStaggered
+- uid: DuelingDuelsters.Classes.Player.Action.dodgeL
+  commentId: F:DuelingDuelsters.Classes.Player.Action.dodgeL
+  href: DuelingDuelsters.Classes.Player.Action.html#DuelingDuelsters_Classes_Player_Action_dodgeL
+  name: dodgeL
+  nameWithType: Player.Action.dodgeL
+  fullName: DuelingDuelsters.Classes.Player.Action.dodgeL
 - uid: DuelingDuelsters.Classes.Player.IsCountering*
   commentId: Overload:DuelingDuelsters.Classes.Player.IsCountering
   href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_IsCountering
   name: IsCountering
   nameWithType: Player.IsCountering
   fullName: DuelingDuelsters.Classes.Player.IsCountering
+- uid: DuelingDuelsters.Classes.Player.Action.swingL
+  commentId: F:DuelingDuelsters.Classes.Player.Action.swingL
+  href: DuelingDuelsters.Classes.Player.Action.html#DuelingDuelsters_Classes_Player_Action_swingL
+  name: swingL
+  nameWithType: Player.Action.swingL
+  fullName: DuelingDuelsters.Classes.Player.Action.swingL
 - uid: DuelingDuelsters.Classes.Player.IsHealing*
   commentId: Overload:DuelingDuelsters.Classes.Player.IsHealing
   href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_IsHealing
   name: IsHealing
   nameWithType: Player.IsHealing
   fullName: DuelingDuelsters.Classes.Player.IsHealing
-- uid: DuelingDuelsters.Classes.Player.HealCount*
-  commentId: Overload:DuelingDuelsters.Classes.Player.HealCount
-  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_HealCount
-  name: HealCount
-  nameWithType: Player.HealCount
-  fullName: DuelingDuelsters.Classes.Player.HealCount
+- uid: DuelingDuelsters.Classes.Player.CanHeal
+  commentId: P:DuelingDuelsters.Classes.Player.CanHeal
+  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_CanHeal
+  name: CanHeal
+  nameWithType: Player.CanHeal
+  fullName: DuelingDuelsters.Classes.Player.CanHeal
+- uid: DuelingDuelsters.Classes.Player.HealsPerformed*
+  commentId: Overload:DuelingDuelsters.Classes.Player.HealsPerformed
+  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_HealsPerformed
+  name: HealsPerformed
+  nameWithType: Player.HealsPerformed
+  fullName: DuelingDuelsters.Classes.Player.HealsPerformed
+- uid: DuelingDuelsters.Classes.Player.HealsPerformed
+  commentId: P:DuelingDuelsters.Classes.Player.HealsPerformed
+  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_HealsPerformed
+  name: HealsPerformed
+  nameWithType: Player.HealsPerformed
+  fullName: DuelingDuelsters.Classes.Player.HealsPerformed
 - uid: DuelingDuelsters.Classes.Player.CanHeal*
   commentId: Overload:DuelingDuelsters.Classes.Player.CanHeal
   href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_CanHeal
   name: CanHeal
   nameWithType: Player.CanHeal
   fullName: DuelingDuelsters.Classes.Player.CanHeal
-- uid: System.ConsoleKeyInfo
-  commentId: T:System.ConsoleKeyInfo
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.consolekeyinfo
-  name: ConsoleKeyInfo
-  nameWithType: ConsoleKeyInfo
-  fullName: System.ConsoleKeyInfo
-- uid: System.Random
-  commentId: T:System.Random
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.random
-  name: Random
-  nameWithType: Random
-  fullName: System.Random
+- uid: DuelingDuelsters.Classes.Player.CharSheet
+  commentId: P:DuelingDuelsters.Classes.Player.CharSheet
+  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_CharSheet
+  name: CharSheet
+  nameWithType: Player.CharSheet
+  fullName: DuelingDuelsters.Classes.Player.CharSheet
 - uid: DuelingDuelsters.Classes.Player.BuildCharacterSheet*
   commentId: Overload:DuelingDuelsters.Classes.Player.BuildCharacterSheet
   href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_BuildCharacterSheet
   name: BuildCharacterSheet
   nameWithType: Player.BuildCharacterSheet
   fullName: DuelingDuelsters.Classes.Player.BuildCharacterSheet
+- uid: DuelingDuelsters.Classes.Player.ActionList
+  commentId: F:DuelingDuelsters.Classes.Player.ActionList
+  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_ActionList
+  name: ActionList
+  nameWithType: Player.ActionList
+  fullName: DuelingDuelsters.Classes.Player.ActionList
 - uid: DuelingDuelsters.Classes.Player.BuildActionList*
   commentId: Overload:DuelingDuelsters.Classes.Player.BuildActionList
   href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_BuildActionList
@@ -1736,6 +1532,24 @@ references:
   name: Player
   nameWithType: Player
   fullName: DuelingDuelsters.Classes.Player
+- uid: DuelingDuelsters.Classes.Player.IsCountering
+  commentId: P:DuelingDuelsters.Classes.Player.IsCountering
+  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_IsCountering
+  name: IsCountering
+  nameWithType: Player.IsCountering
+  fullName: DuelingDuelsters.Classes.Player.IsCountering
+- uid: DuelingDuelsters.Classes.Match.rng
+  commentId: F:DuelingDuelsters.Classes.Match.rng
+  href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_rng
+  name: rng
+  nameWithType: Match.rng
+  fullName: DuelingDuelsters.Classes.Match.rng
+- uid: DuelingDuelsters.Classes.Player.IsStaggered
+  commentId: P:DuelingDuelsters.Classes.Player.IsStaggered
+  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_IsStaggered
+  name: IsStaggered
+  nameWithType: Player.IsStaggered
+  fullName: DuelingDuelsters.Classes.Player.IsStaggered
 - uid: DuelingDuelsters.Classes.Player.IsCrit*
   commentId: Overload:DuelingDuelsters.Classes.Player.IsCrit
   href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_IsCrit_DuelingDuelsters_Classes_Player_
@@ -1748,6 +1562,12 @@ references:
   name: CalculateCritDamage
   nameWithType: Player.CalculateCritDamage
   fullName: DuelingDuelsters.Classes.Player.CalculateCritDamage
+- uid: DuelingDuelsters.Classes.Player.Speed
+  commentId: P:DuelingDuelsters.Classes.Player.Speed
+  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_Speed
+  name: Speed
+  nameWithType: Player.Speed
+  fullName: DuelingDuelsters.Classes.Player.Speed
 - uid: DuelingDuelsters.Classes.Player.IsCounter*
   commentId: Overload:DuelingDuelsters.Classes.Player.IsCounter
   href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_IsCounter

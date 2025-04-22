@@ -116,7 +116,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: PlayerOne
     path: src/Classes/Match.cs
-    startLine: 36
+    startLine: 35
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -147,7 +147,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: PlayerTwo
     path: src/Classes/Match.cs
-    startLine: 48
+    startLine: 47
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -178,7 +178,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: RoundCounter
     path: src/Classes/Match.cs
-    startLine: 60
+    startLine: 59
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -216,7 +216,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: rng
     path: src/Classes/Match.cs
-    startLine: 69
+    startLine: 68
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -225,15 +225,15 @@ items:
 
     <p>
 
-    The RNG is seeded with the current date and time every time a new match is begun.
+    The RNG is seeded with the current date and time when a new <code>Match</code> object is created.
 
     </p>
   example: []
   syntax:
-    content: private readonly Random rng
+    content: public static readonly Random rng
     return:
       type: System.Random
-    content.vb: Private ReadOnly rng As Random
+    content.vb: Public Shared ReadOnly rng As Random
 - uid: DuelingDuelsters.Classes.Match.PlayRound
   commentId: M:DuelingDuelsters.Classes.Match.PlayRound
   id: PlayRound
@@ -252,7 +252,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: PlayRound
     path: src/Classes/Match.cs
-    startLine: 704
+    startLine: 703
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -283,7 +283,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ProcessRound
     path: src/Classes/Match.cs
-    startLine: 770
+    startLine: 769
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -314,7 +314,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: GetOutcome
     path: src/Classes/Match.cs
-    startLine: 796
+    startLine: 795
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -346,7 +346,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ProcessOutcome
     path: src/Classes/Match.cs
-    startLine: 971
+    startLine: 970
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -389,7 +389,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: CounterAttack
     path: src/Classes/Match.cs
-    startLine: 1072
+    startLine: 1071
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -431,7 +431,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: AttemptHealCounter
     path: src/Classes/Match.cs
-    startLine: 1111
+    startLine: 1110
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -476,7 +476,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ApplyAttackResult
     path: src/Classes/Match.cs
-    startLine: 1154
+    startLine: 1153
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -515,7 +515,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: DrawRoundHeader
     path: src/Classes/Match.cs
-    startLine: 1184
+    startLine: 1183
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -546,7 +546,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: DeclareVictor
     path: src/Classes/Match.cs
-    startLine: 1298
+    startLine: 1297
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
