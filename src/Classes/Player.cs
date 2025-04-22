@@ -446,18 +446,21 @@ namespace DuelingDuelsters.Classes
         /// <summary>
         /// Determines whether or not the player lands a critical hit.
         /// </summary>
-        /// <remarks>The player's chance to land a critical hit rises if the player's <see cref="IsCountering">IsCountering</see> flag is set to <c>true</c>. A critical hit is successful if:
+        /// <remarks>The player's chance to land a critical hit rises if the player's <see cref="IsCountering">IsCountering</see> flag is set to <c>true</c>. A higher <see cref="Speed">Speed</see> stat also increases the chance for a critical hit.
+        /// <para>
+        /// A critical hit is successful if:
         /// <list type="bullet">
         ///  <item>
         ///    <description>The player rolls a `12` or greater on their critical roll (determined by <see cref="Match.rng">RNG</see>) and the <paramref name="defPlayer"/> is not blocking.</description>
         ///  </item>
         ///  <item>
-        ///    <description>The defending player is staggered (<paramref name="defPlayer"/>.<see cref="IsStaggered">IsStaggered</see><c> = true</c>).</description>
+        ///    <description>The defending player is staggered.</description>
         ///  </item>
         ///  <item>
         ///    <description>The defending player dodges into the attack.</description>
         ///  </item>
         /// </list>
+        /// </para>
         /// </remarks>
         /// <param name="defPlayer">The defending player.</param>
         /// <returns><c>true</c> if the player successfully landed a critical hit.<br/>

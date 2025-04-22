@@ -858,14 +858,17 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: IsCrit
     path: src/Classes/Player.cs
-    startLine: 464
+    startLine: 467
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
   summary: Determines whether or not the player lands a critical hit.
   remarks: >-
-    The player's chance to land a critical hit rises if the player's <xref href="DuelingDuelsters.Classes.Player.IsCountering?text=IsCountering" data-throw-if-not-resolved="false"></xref> flag is set to <code>true</code>. A critical hit is successful if:
+    The player's chance to land a critical hit rises if the player's <xref href="DuelingDuelsters.Classes.Player.IsCountering?text=IsCountering" data-throw-if-not-resolved="false"></xref> flag is set to <code>true</code>. A higher <xref href="DuelingDuelsters.Classes.Player.Speed?text=Speed" data-throw-if-not-resolved="false"></xref> stat also increases the chance for a critical hit.
+         <p>
+         A critical hit is successful if:
          <ul><li>The player rolls a `12` or greater on their critical roll (determined by <xref href="DuelingDuelsters.Classes.Match.rng?text=RNG" data-throw-if-not-resolved="false"></xref>) and the <code class="paramref">defPlayer</code> is not blocking.</li><li>The defending player is staggered (<code class="paramref">defPlayer</code>.<xref href="DuelingDuelsters.Classes.Player.IsStaggered?text=IsStaggered" data-throw-if-not-resolved="false"></xref><code> = true</code>).</li><li>The defending player dodges into the attack.</li></ul>
+         </p>
   example: []
   syntax:
     content: public bool IsCrit(Player defPlayer)
@@ -898,7 +901,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: CalculateCritDamage
     path: src/Classes/Player.cs
-    startLine: 483
+    startLine: 486
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -930,7 +933,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: IsCounter
     path: src/Classes/Player.cs
-    startLine: 495
+    startLine: 498
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -964,7 +967,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: HealSelf
     path: src/Classes/Player.cs
-    startLine: 506
+    startLine: 509
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -1538,6 +1541,12 @@ references:
   name: IsCountering
   nameWithType: Player.IsCountering
   fullName: DuelingDuelsters.Classes.Player.IsCountering
+- uid: DuelingDuelsters.Classes.Player.Speed
+  commentId: P:DuelingDuelsters.Classes.Player.Speed
+  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_Speed
+  name: Speed
+  nameWithType: Player.Speed
+  fullName: DuelingDuelsters.Classes.Player.Speed
 - uid: DuelingDuelsters.Classes.Match.rng
   commentId: F:DuelingDuelsters.Classes.Match.rng
   href: DuelingDuelsters.Classes.Match.html#DuelingDuelsters_Classes_Match_rng
@@ -1562,12 +1571,6 @@ references:
   name: CalculateCritDamage
   nameWithType: Player.CalculateCritDamage
   fullName: DuelingDuelsters.Classes.Player.CalculateCritDamage
-- uid: DuelingDuelsters.Classes.Player.Speed
-  commentId: P:DuelingDuelsters.Classes.Player.Speed
-  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_Speed
-  name: Speed
-  nameWithType: Player.Speed
-  fullName: DuelingDuelsters.Classes.Player.Speed
 - uid: DuelingDuelsters.Classes.Player.IsCounter*
   commentId: Overload:DuelingDuelsters.Classes.Player.IsCounter
   href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_IsCounter
