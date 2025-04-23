@@ -26,7 +26,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: State
     path: src/Classes/GameLoop.cs
-    startLine: 8
+    startLine: 9
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -53,7 +53,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: TitleScreen
     path: src/Classes/GameLoop.cs
-    startLine: 13
+    startLine: 14
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -81,7 +81,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: PlayerSelect
     path: src/Classes/GameLoop.cs
-    startLine: 17
+    startLine: 18
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -109,7 +109,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: CharacterCreation
     path: src/Classes/GameLoop.cs
-    startLine: 21
+    startLine: 22
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -137,7 +137,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ActionSelect
     path: src/Classes/GameLoop.cs
-    startLine: 25
+    startLine: 26
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -165,7 +165,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: OutcomeDisplay
     path: src/Classes/GameLoop.cs
-    startLine: 29
+    startLine: 30
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -193,7 +193,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: VictoryScreen
     path: src/Classes/GameLoop.cs
-    startLine: 33
+    startLine: 34
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -221,7 +221,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: HelpScreen
     path: src/Classes/GameLoop.cs
-    startLine: 37
+    startLine: 38
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes

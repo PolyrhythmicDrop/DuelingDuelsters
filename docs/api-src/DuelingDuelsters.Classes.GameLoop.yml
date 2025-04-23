@@ -22,7 +22,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: GameLoop
     path: src/Classes/GameLoop.cs
-    startLine: 40
+    startLine: 41
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -57,7 +57,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: GameState
     path: src/Classes/GameLoop.cs
-    startLine: 45
+    startLine: 46
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -86,7 +86,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Main
     path: src/Classes/GameLoop.cs
-    startLine: 47
+    startLine: 48
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -118,7 +118,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: CreateTitleBanner
     path: src/Classes/GameLoop.cs
-    startLine: 254
+    startLine: 257
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes

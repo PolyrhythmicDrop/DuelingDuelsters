@@ -752,7 +752,7 @@ namespace DuelingDuelsters.Classes
 
         /// <summary>
         /// Processes the round's actions and outcomes.
-        /// <list type="bullet">
+        /// <list type="number">
         /// <item>
         /// <description>Each player's chosen <see cref="Player.Action">Action</see> is narrated using the <see cref="Narrator.GetPlayerActionNarration(Player)"></see> method.</description>
         /// </item>
