@@ -867,7 +867,7 @@ items:
     The player's chance to land a critical hit rises if the player's <xref href="DuelingDuelsters.Classes.Player.IsCountering?text=IsCountering" data-throw-if-not-resolved="false"></xref> flag is set to <code>true</code>. A higher <xref href="DuelingDuelsters.Classes.Player.Speed?text=Speed" data-throw-if-not-resolved="false"></xref> stat also increases the chance for a critical hit.
          <p>
          A critical hit is successful if:
-         <ul><li>The player rolls a `12` or greater on their critical roll (determined by <xref href="DuelingDuelsters.Classes.Match.rng?text=RNG" data-throw-if-not-resolved="false"></xref>) and the <code class="paramref">defPlayer</code> is not blocking.</li><li>The defending player is staggered (<code class="paramref">defPlayer</code>.<xref href="DuelingDuelsters.Classes.Player.IsStaggered?text=IsStaggered" data-throw-if-not-resolved="false"></xref><code> = true</code>).</li><li>The defending player dodges into the attack.</li></ul>
+         <ul><li>The player rolls a `12` or greater on their critical roll (determined by <xref href="DuelingDuelsters.Classes.Match.rng?text=RNG" data-throw-if-not-resolved="false"></xref>) and the <code class="paramref">defPlayer</code> is not blocking.</li><li>The defending player is staggered.</li><li>The defending player dodges into the attack.</li></ul>
          </p>
   example: []
   syntax:
@@ -1553,12 +1553,6 @@ references:
   name: rng
   nameWithType: Match.rng
   fullName: DuelingDuelsters.Classes.Match.rng
-- uid: DuelingDuelsters.Classes.Player.IsStaggered
-  commentId: P:DuelingDuelsters.Classes.Player.IsStaggered
-  href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_IsStaggered
-  name: IsStaggered
-  nameWithType: Player.IsStaggered
-  fullName: DuelingDuelsters.Classes.Player.IsStaggered
 - uid: DuelingDuelsters.Classes.Player.IsCrit*
   commentId: Overload:DuelingDuelsters.Classes.Player.IsCrit
   href: DuelingDuelsters.Classes.Player.html#DuelingDuelsters_Classes_Player_IsCrit_DuelingDuelsters_Classes_Player_

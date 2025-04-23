@@ -1,7 +1,7 @@
 - name: Dueling Duelsters
   href: index.md
   items:
-  - name: Game Guide
+  - name: Player Guide
     href: docs/articles/toc.yml
   - name: API Reference
     href: docs/api/toc.yml

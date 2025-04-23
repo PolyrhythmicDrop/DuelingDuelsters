@@ -148,7 +148,7 @@ namespace DuelingDuelsters.Classes
         // ~ Class Summaries ~ //
 
         /// <exclude />
-        private const string normieDescription = "Normie\n------\n ♡ ☒☒☒☐☐ | ⛨  ☒☒☒☐☐ | ⚔  ☒☒☒☐☐ | 👟 ☒☒☒☐☐ \nIf Mario were in this game, he would be a Normie.\n";
+        private const string normieDescription = "Normie\n------\n ♡ ☒☒☒☐☐ | ⛨  ☒☒☒☐☐ | ⚔  ☒☒☒☐☐ | 👟 ☒☒☒☐☐ \nAbsolutely average at absolutely everything. If Mario was in this game, he would be a Normie.\n";
         /// <exclude />
         private const string fridgeDescription = "Fridge\n------\n ♡ ☒☒☒☒☒ | ⛨  ☒☒☒☒☒ | ⚔  ☒☐☐☐☐ | 👟 ☒☐☐☐☐ \nCan take whatever you throw at them, but can have trouble dishing it out.\n";
         /// <exclude />
