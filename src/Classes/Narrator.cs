@@ -245,7 +245,7 @@ namespace DuelingDuelsters.Classes
         /// <summary>
         /// String constant that declares the victor at the end of a match.
         /// </summary>
-        public const string declareVictor = "\n*** {0} is victorious! ***\n\nAll hail the most dueling duelster of them all:\n\n*** {1} ***\n";
+        public const string declareVictor = "\n*** {0} is victorious! ***\n\nAll hail the most dueling Duelster of them all:\n\n*** {1} ***\n";
         /// <summary>
         /// Dialog that displays at the end of each match. Provides follow-up options for the player.
         /// </summary>
@@ -696,10 +696,10 @@ namespace DuelingDuelsters.Classes
                 case ConsoleKey.NumPad3:
                     {
                         player.Class = Player.PlayerClass.Leeroy;
-                        player.MaxHealth = 20;
+                        player.MaxHealth = 16;
                         player.Health = player.MaxHealth;
-                        player.Attack = 15;
-                        player.Defense = 5;
+                        player.Attack = 16;
+                        player.Defense = 4;
                         player.Speed = 6;
                         break;
                     }
@@ -707,11 +707,11 @@ namespace DuelingDuelsters.Classes
                 case ConsoleKey.NumPad4:
                     {
                         player.Class = Player.PlayerClass.Gymnast;
-                        player.MaxHealth = 20;
+                        player.MaxHealth = 18;
                         player.Health = player.MaxHealth;
                         player.Attack = 8;
                         player.Defense = 6;
-                        player.Speed = 10;
+                        player.Speed = 12;
                         break;
                     }
 

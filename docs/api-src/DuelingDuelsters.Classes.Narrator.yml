@@ -221,10 +221,10 @@ items:
   summary: String constant that declares the victor at the end of a match.
   example: []
   syntax:
-    content: public const string declareVictor = "\n*** {0} is victorious! ***\n\nAll hail the most dueling duelster of them all:\n\n*** {1} ***\n"
+    content: public const string declareVictor = "\n*** {0} is victorious! ***\n\nAll hail the most dueling Duelster of them all:\n\n*** {1} ***\n"
     return:
       type: System.String
-    content.vb: Public Const declareVictor As String = vbLf & "*** {0} is victorious! ***" & vbLf & vbLf & "All hail the most dueling duelster of them all:" & vbLf & vbLf & "*** {1} ***" & vbLf
+    content.vb: Public Const declareVictor As String = vbLf & "*** {0} is victorious! ***" & vbLf & vbLf & "All hail the most dueling Duelster of them all:" & vbLf & vbLf & "*** {1} ***" & vbLf
 - uid: DuelingDuelsters.Classes.Narrator.postMatchOptions
   commentId: F:DuelingDuelsters.Classes.Narrator.postMatchOptions
   id: postMatchOptions
@@ -547,7 +547,7 @@ items:
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
-  summary: Menu for selecting the number of players in a match. If the player selects single player, the passed <code class="paramref">brain</code> is converted to a <code>Computer</code> brain. If the player selects two player, the passed <code class="paramref">brain</code> is converted a <code>Human</code> brain.
+  summary: Menu for selecting the number of players in a match. If the player selects single player, the passed <code class="paramref">brain</code> is converted to a <code>Computer</code> brain. If the player selects two player, the passed <code class="paramref">brain</code> is converted to a <code>Human</code> brain.
   example: []
   syntax:
     content: public bool RunPlayerCountMenu(out Player.PlayerBrain? brain)
