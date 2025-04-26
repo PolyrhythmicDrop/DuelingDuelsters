@@ -453,6 +453,7 @@ namespace DuelingDuelsters.Classes
                 default:
                     {
                         success = false;
+                        Console.Clear();
                         break;
                     }
                 // If the user selects "New Game", begin character creation for Player 1.

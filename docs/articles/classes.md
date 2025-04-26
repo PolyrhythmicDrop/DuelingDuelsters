@@ -4,7 +4,7 @@ uid: classes
 
 # Classes
 
-In Dueling Duelsters, a character's class determines their statistics, their effectiveness at performing certain actions, and their strengths and weaknesses. Selecting the right class for your playstyle is an important step toward becoming a champion Duelster.
+In Dueling Duelsters, a character's class determines their [statistics](uid:stats), their effectiveness at performing certain [actions](uid:actions), and their strengths and weaknesses. Selecting the right class for your playstyle is an important step toward becoming a champion Duelster.
 
 There are currently five classes in Dueling Duelsters:
 
@@ -80,7 +80,12 @@ A Medic combines the endurance of a Fridge with the versatility of a Normie. The
 
 ![Screenshot from Dueling Duelsters showing the description of the Medic class. The description reads "The only class that can heal, the Medic is durable and doesn't care one whit about the Hippocratic Oath."](~/docs/images/dueling-duelsters-medic-class.png)
 
-The Medic is a good all-around character with a few special tricks up their sleeve. They won't dazzle you with speed, intimidate you with giant swords, or impress you with heavy armor, but they can snatch victory from the jaws of defeat with a well-placed heal. However, healing can leave the Medic open to a counterattack (especially against a fast opponent like the Gymnast) and they can only heal three times per match. As long as they keep track of how many heals they have remaining, the Medic can hit hard when they need to, defend against a wide range of attacks, and come out the victor through attrition and a healthy dose of smarts.
+The Medic is a good all-around character with a few special tricks up their sleeve. They won't dazzle you with speed, intimidate you with giant swords, or impress you with heavy armor, but they can snatch victory from the jaws of defeat with a well-placed heal. However, healing can leave the Medic open to a counterattack, especially against a fast opponent like a Gymnast. As long as they keep track of how many heals they have remaining, the Medic can hit hard when they need to, defend against a wide range of attacks, and come out the victor through attrition and a healthy dose of smarts.
+
+> [!WARNING]
+> Medics can only heal **three times** per match. After that, the player can still select the Heal action, but the action has no effect and opens the player up to a counterattack. Keep an eye on your Medic's `Heals Left` counter to avoid this unfortunate blunder!
+>
+> ![Screenshot from Dueling Duelsters showing a Medic's character sheet in a round header. The Medic is named "WideEyedGreenhornDuelster". The player's "Heals Left" counter is circled in aqua and has the number 3 next to it.](~/docs/images/heals-left.png)
 
 ### Statistics
 

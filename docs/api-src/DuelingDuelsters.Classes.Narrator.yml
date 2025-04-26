@@ -391,7 +391,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: RunCharacterCreation
     path: src/Classes/Narrator.cs
-    startLine: 508
+    startLine: 509
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -437,7 +437,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: SetPlayerName
     path: src/Classes/Narrator.cs
-    startLine: 612
+    startLine: 613
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -474,7 +474,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: SetPlayerClass
     path: src/Classes/Narrator.cs
-    startLine: 662
+    startLine: 663
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -511,7 +511,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: RandomSetPlayerClass
     path: src/Classes/Narrator.cs
-    startLine: 774
+    startLine: 775
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -543,7 +543,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: RunPlayerCountMenu
     path: src/Classes/Narrator.cs
-    startLine: 840
+    startLine: 841
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -583,7 +583,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: RunHelpScreen
     path: src/Classes/Narrator.cs
-    startLine: 890
+    startLine: 891
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -616,7 +616,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: RunPlayerActionSelect
     path: src/Classes/Narrator.cs
-    startLine: 974
+    startLine: 975
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -660,7 +660,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: HumanActionSelect
     path: src/Classes/Narrator.cs
-    startLine: 1010
+    startLine: 1011
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -697,7 +697,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ComputerActionSelect
     path: src/Classes/Narrator.cs
-    startLine: 1162
+    startLine: 1163
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -735,7 +735,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: PressAnyKey
     path: src/Classes/Narrator.cs
-    startLine: 1218
+    startLine: 1219
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -768,7 +768,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: SelectBinary
     path: src/Classes/Narrator.cs
-    startLine: 1251
+    startLine: 1252
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -808,7 +808,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: DrawArena
     path: src/Classes/Narrator.cs
-    startLine: 1299
+    startLine: 1300
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -840,7 +840,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ReadLineWithCancel
     path: src/Classes/Narrator.cs
-    startLine: 1336
+    startLine: 1337
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -872,7 +872,7 @@ items:
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: UndoActionSelection
     path: src/Classes/Narrator.cs
-    startLine: 1371
+    startLine: 1372
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes

@@ -470,7 +470,7 @@ namespace DuelingDuelsters.Classes
             int critRoll = Match.rng.Next(0, 20) + (Speed / 2);
             // increase chance to crit if attacking player is countering and the defending player is not blocking.
             if (IsCountering == true && (defPlayer.ChosenAction != Action.blockL && defPlayer.ChosenAction != Action.blockR))
-            { critRoll = critRoll + 5; }
+            { critRoll += 5; }
             // Crit is successful if the crit roll is >= 12, if the defending player is staggered, or if the defending player is dodging.
             if (critRoll >= 12 || defPlayer.IsStaggered == true || (defPlayer.ChosenAction == Action.dodgeL || defPlayer.ChosenAction == Action.dodgeR))
             { return true; }
