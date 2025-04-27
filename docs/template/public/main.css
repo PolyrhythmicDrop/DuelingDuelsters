@@ -1,0 +1,7 @@
+p img {
+    padding: inherit;
+    margin: auto;
+    text-align: center;
+    align-content: center;
+    display: block;
+}
