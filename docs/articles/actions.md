@@ -4,7 +4,7 @@ uid: actions
 
 # Actions
 
-At the start of a round, each player selects an **action**. Actions are a Duelster's primary way of interacting with the world and dominating their opponents. Understanding what actions to take in certain situations is essential to surviving long enough to be crowned the most dueling Duelster of them all.
+At the start of a round, each player selects an **action**. Understanding what actions to take in certain situations is essential to surviving long enough to be crowned the most dueling Duelster of them all.
 
 > [!NOTE]
 > Each player's actions during a round combine to form the round's outcome. For more information on what combinations of actions result in each outcome, refer to [Outcomes in the API Reference section](xref:DuelingDuelsters.Classes.Match.Outcome).
