@@ -15,16 +15,23 @@ h4 + p img {
 }
 
 h1 {
-    padding-bottom: 2%;
+    padding-bottom: 3%;
     font-size: xxx-large;
     font-size-adjust: initial;
     font-style: inherit;
 }
 
-h2, h3 {
+h2 {
+    font-size: xx-large;
+    padding-bottom: 2%;
+    border-bottom: thin solid rgb(9, 94, 136);
+}
+
+h3 {
+    font-size: x-large;
     padding-bottom: 1%;
     margin-top: 30;
-    border-bottom: thin dashed #095e88;
+    border-bottom: thin dashed rgb(9, 94, 136);
 }
 
 div.alert.alert-info {
