@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using Microsoft.VisualBasic.FileIO;
+using System.Reflection;
 using System.Text;
 
 namespace DuelingDuelsters.Classes
@@ -37,8 +38,6 @@ namespace DuelingDuelsters.Classes
         /// </summary>
         HelpScreen
     }
-
-    
     
     internal static class GameLoop
     {
@@ -49,7 +48,6 @@ namespace DuelingDuelsters.Classes
 
         static void Main(string[] args)
         {
-            // Set initial variables:
 
             // UTF-8 encoding to support the character glyphs
             Console.OutputEncoding = Encoding.UTF8;
@@ -110,7 +108,7 @@ namespace DuelingDuelsters.Classes
 
                 do
                 {
-                    Console.WriteLine(CreateTitleBanner());
+                    Console.WriteLine(titleBanner);
                 }
                 while (!narrator.RunPlayerCountMenu(out nullableBrain));
 
@@ -223,7 +221,7 @@ namespace DuelingDuelsters.Classes
                     {
                         match.PlayRound();
                     }
-                    while (player1.Health > 0 && player2.Health > 0);
+                    while (match.PlayerOne.Health > 0 && match.PlayerTwo.Health > 0);
 
                     match.DeclareVictor();
 
@@ -233,7 +231,9 @@ namespace DuelingDuelsters.Classes
                         // Return to title
                         case ((Narrator.Choices)6):
                         case (Narrator.Choices.Back):
-                            break;
+                            Console.Clear();
+                            match = null;
+                            goto Title;
                         // Rematch
                         case ((Narrator.Choices)7):
                             Console.Clear();
@@ -261,7 +261,7 @@ namespace DuelingDuelsters.Classes
             // Initial variables, including border, ASCII art, and spacing
             int width = 82;
             int sideBorderWidth = width - 2;
-            string copyright = "\u00a9 2024 Hobby Horse Studios, absolutely no rights reserved.";
+            string copyright = "\u00a9 2024 Waterspark Studios, absolutely no rights reserved.";
             int copyrightLength = copyright.Length;
             int copyrightSpaceLength = sideBorderWidth - copyrightLength - 2;
             string copyrightSpaces = new string(' ', copyrightSpaceLength);
@@ -280,7 +280,7 @@ namespace DuelingDuelsters.Classes
             {
                 Console.WriteLine(e.Message);
                 // If, for some reason, we couldn't load the banner, simply display the title of the game.
-                return ("Dueling Duelsters");
+                return "Dueling Duelsters";
             }
 
             StreamReader? streamReader = new StreamReader(stream);
@@ -318,20 +318,5 @@ namespace DuelingDuelsters.Classes
             string splashScreen = titleBuilder.ToString();
             return splashScreen;
         }
-
-        /// <summary>
-        /// Draws the pre-match summary, including each player's name and character sheet.
-        /// </summary>
-        /// <param name="playerOne">Player one.</param>
-        /// <param name="playerTwo">Player two.</param>
-        public static void DrawPreMatchSummary(Player playerOne, Player playerTwo)
-        {
-            Console.Clear();
-            Console.WriteLine("\nLet's get ready to D U E L!!!\n");
-            Console.WriteLine(playerOne.CharSheet);
-            Console.WriteLine("\n** VS. **\n");
-            Console.WriteLine(playerTwo.CharSheet);
-        }
-
     }
 }

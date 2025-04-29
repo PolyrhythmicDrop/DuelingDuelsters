@@ -3,38 +3,69 @@
 namespace DuelingDuelsters.Classes
 {
     /// <summary>
-    /// Class for player characters. Handles stats and actions for player characters.
+    /// Contains and manages player character stats, AI, class details, actions, and other data.
     /// </summary>
     public class Player
     {
+        /// <summary>
+        /// Default constructor for a <c>Player</c> object.
+        /// </summary>
+        /// <param name="brain"></param>
         public Player(PlayerBrain brain)
         {
             Brain = brain;
+            Name = _name;
+            _class = PlayerClass.None;
+            ActionTaken = false;
+            HealsPerformed = 0;
         }
         
-        private string name;
+        /// <exclude />
+        private string _name;
         /// <summary>
-        /// Player's name
+        /// The player's name, chosen during character creation.
         /// </summary>
         public string Name
         {
-            get { return name; }
-            set { name = value; }
+            get { return _name; }
+            set { _name = value; }
         }
 
+        /// <summary>
+        /// Available classes for a player. Each class has its own strengths and weaknesses.
+        /// </summary>
         public enum PlayerClass
         {
+            /// <summary>
+            /// The default class, used for error checking and initialization.
+            /// </summary>
             None,
+            /// <summary>
+            /// Neutral class with average stats all around.
+            /// </summary>
             Normie,
+            /// <summary>
+            /// Defense-oriented class with high health and defensive stats, but low speed and attack. Great for blocking and taking advantage of staggered opponents.
+            /// </summary>
             Fridge,
+            /// <summary>
+            /// Attack-oriented class with high attack, average speed and health, but low defense. Great for endlessly swinging a sword.
+            /// </summary>
             Leeroy,
+            /// <summary>
+            /// Speed-oriented class with high speed, average health and defense, and low attack. Great for counterattacks and dodges.
+            /// </summary>
             Gymnast,
+            /// <summary>
+            /// The only class that can heal. Generally average stats, with the exception of slightly higher health. Great for staying alive and outlasting opponents.
+            /// </summary>
             Medic
         }
         
+        /// <exclude />
         private PlayerClass _class;
         /// <summary>
-        /// Player's class.
+        /// The player's chosen class, set during character creation.
         /// </summary>
         public PlayerClass Class
         {
@@ -43,28 +74,33 @@ namespace DuelingDuelsters.Classes
         }
 
         /// <summary>
-        /// The possible types of brain controlling the player, human or computer.
+        /// Available types of brain controlling the player, human or computer.
         /// </summary>
         public enum PlayerBrain
         {
+            /// <summary>
+            /// The player is controlled by a human. 
+            /// </summary>
             Human,
+            /// <summary>
+            /// The player is controlled by AI. Used in single-player matches.
+            /// </summary>
             Computer
         }
 
         /// <summary>
-        /// This player's brain.
+        /// This player's brain, set during player count selection.
         /// </summary>
         public PlayerBrain Brain;
         
+        /// <exclude />
         private int _health;
         /// <summary>
-        /// Player's current health
+        /// The player's current health. The player's <c>Health</c> value cannot be less than 0 or higher than the player's <see cref="MaxHealth">MaxHealth</see>.
         /// </summary>
         public int Health
         {
             get { return _health; }
-            // Set health to 0 if value set would be less than or equal to 0. Health cannot be negative.
-            // Also make sure health cannot surpass maximum health, for healing purposes.
             set
             {
                 if (value <= 0)
@@ -76,15 +112,18 @@ namespace DuelingDuelsters.Classes
                 else { _health = value; }
             }
         }
+
         /// <summary>
-        /// Player's maximum health
+        /// The player's maximum health. Each class has a different <c>MaxHealth</c>.
         /// </summary>
         public int MaxHealth
         { get; set; }
-        /// <summary>
-        /// Player's health readout: Health / MaxHealth
-        /// </summary>
+        
+        /// <exclude />
         private string _healthReadout;
+        /// <summary>
+        /// The player's health readout, displayed on the round header while a match is in progress. This helps the player keep track of their health during a match so they can act accordingly.
+        /// </summary>
         public string HealthReadout
         {
             get
@@ -96,24 +135,29 @@ namespace DuelingDuelsters.Classes
             }
         }
         /// <summary>
-        /// Player's attack
+        /// The player's attack statistic. The higher the <c>Attack</c>, the more damage the player does with each hit. 
+        /// <para>
+        /// The player's <c>Attack</c> value is used to calculate base damage and critical damage.
+        /// </para>
         /// </summary>
         public int Attack
         { get; set; }
         /// <summary>
-        /// Player's defense
+        /// The player's defense statistic. The higher the <c>Defense</c>, the less damage the player takes when they are hit. 
         /// </summary>
+        /// <remarks><c>Defense</c> does not apply to critical hit damage! Skilled players can use this fact to their advantage when playing against a Fridge character.</remarks>
         public int Defense
         { get; set; }
         /// <summary>
-        /// Player's speed
+        /// The player's speed statistic. 
+        /// <para>
+        /// The higher the <c>Speed</c>, the more likely the player is to land critical hits and execute counterattacks on successful dodges.
+        /// </para>
         /// </summary>
         public int Speed
         { get; set; }
-
-        private string charSheet;
         /// <summary>
-        /// The character's character sheet. The sheet is built every time it's retrieved.
+        /// The player's character sheet. The sheet is built using the player's current health and stats every time it is retrieved.
         /// </summary>
         public string CharSheet
         {
@@ -121,71 +165,67 @@ namespace DuelingDuelsters.Classes
             {
                 return BuildCharacterSheet();
             }
-            set { charSheet = value; }
         }
-
+        /// <summary>
+        /// A list of actions the player can select from during action selection. This list is generated after the player selects a class.
+        /// </summary>
         public string ActionList;
 
-        // ** Action properties **
         /// <summary>
-        /// Action taken flag: True if the player has taken an action, false if they have not
+        /// The available actions a <see cref="Player">Player</see> can take. Each action consists of an act combined with a direction.
         /// </summary>
-        public bool ActionTaken
-        { get; set; }
-        /// <summary>
-        /// All possible player actions as enums.
-        /// </summary>
+        /// <remarks>An <see cref="Match.Outcome">Outcome</see> is generated based on a combination of both player's selected <c>Action</c>.</remarks>
         public enum Action
         {
             /// <summary>
-            /// No action has been taken.
+            /// No action has been taken. This is the default Action, used for error checking and initialization.
             /// </summary>
             none,
             /// <summary>
-            /// The player swings right.
+            /// The player swings their sword to the right.
             /// </summary>
             swingR,
             /// <summary>
-            /// The player swings left.
+            /// The player swings their sword to the left.
             /// </summary>
             swingL,
             /// <summary>
-            /// The player blocks right.
+            /// The player blocks to the right.
             /// </summary>
             blockR,
             /// <summary>
-            /// The player blocks left.
+            /// The player blocks to the left.
             /// </summary>
             blockL,
             /// <summary>
-            /// The player dodges right.
+            /// The player dodges to the right.
             /// </summary>
             dodgeR,
             /// <summary>
-            /// The player dodges left.
+            /// The player dodges to the left.
             /// </summary>
             dodgeL,
             /// <summary>
-            /// The player heals.
+            /// The player heals in any direction.
             /// </summary>
             heal
         }
 
         /// <summary>
-        /// The action the player has chosen.
+        /// The <c>Action</c> the player has chosen this round.
         /// </summary>
         public Action ChosenAction
         { get; set; }
 
-        // ** Damage Properties **
+        /// <exclude />
         private int _baseDamage;
         /// <summary>
-        /// The base damage for this player.
+        /// The base damage for this player. BaseDamage is calculated using the attacking player's <see cref="Player.Attack">Attack</see> and the defending player's <see cref="Defense">Defense</see>.
         /// </summary>
         public int BaseDamage
         {
             get { return _baseDamage; }
-            // when CalculateBaseDamage returns less than 0, set _baseDamage to 0 instead.
+
             set
             {
                 if (value <= 0)
@@ -197,78 +237,71 @@ namespace DuelingDuelsters.Classes
         // ** Status Flags **
 
         /// <summary>
-        /// Flag for whether or not the player is staggered. 
+        /// Flag that indicates whether or not the player has selected an action this round.
+        /// <para>
+        /// <c>true</c> if the player has selected an action.<br/>
+        /// <c>false</c> if the player have not selected an action.
+        /// </para>
         /// </summary>
+        public bool ActionTaken
+        { get; set; }
+
+        /// <summary>
+        /// Flag that indicates whether or not the player is staggered.
+        /// </summary>
+        /// <remarks>A player becomes staggered when the player's attack is blocked by a defending player. A staggered player is more susceptible to a critical hit if they are attacked in the next round.</remarks>
         public bool IsStaggered
         { get; set; }
 
         /// <summary>
-        /// Flag for whether or not the player is countering.
+        /// Flag the indicates whether or not the player is countering.
         /// </summary>
+        /// <remarks>Players have a chance to counter when they successfully <see cref="Player.Action.dodgeL">dodge</see> an attack. Countering players score an automatic critical hit on their opponents.</remarks>
         public bool IsCountering
         { get; set; }
 
         /// <summary>
-        /// Flag for whether or not the player is healing.
+        /// Flag that indicates whether or not the player is healing.
         /// </summary>
+        /// <remarks>Healing players are susceptible to counterattacks if the other player took a <see cref="Player.Action.swingL">swing</see> Action during the same round.</remarks>
         public bool IsHealing
         { get; set; }
 
+        /// <exclude />
+        private int _healsPerformed;
         /// <summary>
-        /// Heal count. Medics can only heal 3 times per match.
+        /// The number of times the player has healed during the match.
         /// </summary>
-        private int _healCount;
-        /// <summary>
-        /// Heal count. Medics can only heal 3 times per match.
-        /// </summary>
-        public int HealCount
+        /// <remarks>A player's <c>HealsPerformed</c> starts at <c>0</c> and increments every time the player heals. When <c>HealsPerformed</c> reaches <c>3</c>, the player's <see cref="CanHeal">CanHeal</see> flag changes to <c>false</c> and the player can no longer heal for the rest of the match.</remarks>
+        public int HealsPerformed
         {
-            get { return _healCount; }
+            get { return _healsPerformed; }
             set
             {
-                if (_healCount <= 3)
+                if (_healsPerformed <= 3)
                 {
-                    _healCount = value;
+                    _healsPerformed = value;
                 }
                 else
                 {
-                    _healCount = 3;
+                    _healsPerformed = 3;
                 }
             }
         }
 
+        /// <summary>
+        /// Flag that indicates whether or not the player can heal.
+        /// </summary>
+        /// <remarks><c>CanHeal</c> is <c>true</c> as long as <see cref="HealsPerformed">HealsPerformed</see> is less than 3.</remarks>
         public bool CanHeal
         {
-            get { return HealCount < 3; }
+            get { return HealsPerformed < 3; }
         }
-
-        // *** Constructors ***
-
-        /// <summary>
-        /// Empty constructor class for each player.
-        /// </summary>
-        public Player()
-        {
-            Name = name;
-            _class = PlayerClass.None;
-            ActionTaken = false;
-            HealCount = 0;
-        }
-        
-        /// <summary>
-        /// Key info
-        /// </summary>
-        private ConsoleKeyInfo key;
-
-        /// <summary>
-        /// Random number generator
-        /// </summary>
-        private readonly Random rng = new Random();
-
 
         /// <summary>
         /// Builds a character sheet for the character.
         /// </summary>
+        /// <remarks>This method runs when the value of <see cref="CharSheet">CharSheet</see> is read, typically at the start of a round.</remarks>
         /// <returns>A string containing the character sheet and a fancy asterisk border.</returns>
         public string BuildCharacterSheet()
         {
@@ -303,7 +336,7 @@ namespace DuelingDuelsters.Classes
             int blankSpacerLength = charSheetLength - asteriskCompensator + 1;
 
             // Build the spacers
-            System.Text.StringBuilder blankBuilder = new System.Text.StringBuilder();
+            StringBuilder blankBuilder = new StringBuilder();
             blankBuilder.Append(' ', blankSpacerLength);
             string emptySpacer = blankBuilder.ToString();
             blankBuilder.Clear();
@@ -327,12 +360,12 @@ namespace DuelingDuelsters.Classes
 
 
             // Build the divider that goes above and below the name.
-            System.Text.StringBuilder charSheetDivider = new System.Text.StringBuilder();
+            StringBuilder charSheetDivider = new StringBuilder();
             charSheetDivider.Append('-', charNameLength);
             string charSheetDiv = charSheetDivider.ToString();
 
             // Build character sheet
-            System.Text.StringBuilder charSheetBuilder = new System.Text.StringBuilder();
+            StringBuilder charSheetBuilder = new StringBuilder();
             charSheetBuilder.Append('*', charSheetLength);
             charSheetBuilder.Append("\n");
             charSheetBuilder.AppendLine($"*{emptySpacer}*");
@@ -352,8 +385,9 @@ namespace DuelingDuelsters.Classes
         }
 
         /// <summary>
-        /// Builds a set of actions for the player to choose from. Different actions are available depending on the player's class. Sets the actions to the player's ActionList variable.
+        /// Builds a set of actions for the player to choose from and sets the <see cref="ActionList"/> member variable to the resulting string. Different actions are available depending on the player's class.
         /// </summary>
+        /// <remarks>This method is run once for each player after character creation.</remarks>
         public void BuildActionList()
         {
             List<string> actions = new();
@@ -389,17 +423,16 @@ namespace DuelingDuelsters.Classes
         }
 
         /// <summary>
-        /// Resets the character to their default health and stats for a rematch.
+        /// Resets the player's health to their <see cref="MaxHealth"/>.
         /// </summary>
+        /// <remarks>This method is called at the start of a rematch.</remarks>
         public void ResetCharacterHealth()
         {
             Health = MaxHealth;
         }
 
-        // ** Damage Methods **
-
         /// <summary>
-        /// Calculate base damage for the attacking player.
+        /// Calculates base damage for this player. Base damage is calculated using the player's <see cref="Attack">Attack</see> and the <see cref="Defense">Defense</see> of the <paramref name="defPlayer">defending player</paramref>.
         /// </summary>
         /// <param name="defPlayer">The defending player.</param>
         /// <returns></returns>
@@ -411,16 +444,33 @@ namespace DuelingDuelsters.Classes
         }
 
         /// <summary>
-        /// Calculate whether or not a hit is a critical hit.
+        /// Determines whether or not the player lands a critical hit.
         /// </summary>
-        /// <param name="defPlayer">The defending player. Used to determine stagger condition.</param>
-        /// <returns>true = Critical hit.</returns>
+        /// <remarks>The player's chance to land a critical hit rises if the player's <see cref="IsCountering">IsCountering</see> flag is set to <c>true</c>. A higher <see cref="Speed">Speed</see> stat also increases the chance for a critical hit.
+        /// <para>
+        /// A critical hit is successful if:
+        /// <list type="bullet">
+        ///  <item>
+        ///    <description>The player rolls a `12` or greater on their critical roll (determined by <see cref="Match.rng">RNG</see>) and the <paramref name="defPlayer"/> is not blocking.</description>
+        ///  </item>
+        ///  <item>
+        ///    <description>The defending player is staggered.</description>
+        ///  </item>
+        ///  <item>
+        ///    <description>The defending player dodges into the attack.</description>
+        ///  </item>
+        /// </list>
+        /// </para>
+        /// </remarks>
+        /// <param name="defPlayer">The defending player.</param>
+        /// <returns><c>true</c> if the player successfully landed a critical hit.<br/>
+        ///<c>false</c> if the player did not land a critical hit.</returns>
         public bool IsCrit(Player defPlayer)
         {
-            int critRoll = rng.Next(0, 20) + (Speed / 2);
+            int critRoll = Match.rng.Next(0, 20) + (Speed / 2);
             // increase chance to crit if attacking player is countering and the defending player is not blocking.
             if (IsCountering == true && (defPlayer.ChosenAction != Action.blockL && defPlayer.ChosenAction != Action.blockR))
-            { critRoll = critRoll + 5; }
+            { critRoll += 5; }
             // Crit is successful if the crit roll is >= 12, if the defending player is staggered, or if the defending player is dodging.
             if (critRoll >= 12 || defPlayer.IsStaggered == true || (defPlayer.ChosenAction == Action.dodgeL || defPlayer.ChosenAction == Action.dodgeR))
             { return true; }
@@ -430,36 +480,38 @@ namespace DuelingDuelsters.Classes
         }
 
         /// <summary>
-        /// Calculate damage for a critical hit. Critical hits ignore opposing player's defense, and the damage is applied after base damage is calculated. Critical damage is based on RNG + player's attack / 3.
+        /// Calculates damage for a critical hit. 
         /// </summary>
-        /// <returns></returns>
+        /// <remarks>Critical hits ignore opposing player's defense, and critical hit damage is applied on top of any base damage. Critical hit damage is based on <see cref="Match.rng">RNG</see> and the player's <see cref="Attack">Attack</see>.</remarks>
+        /// <returns>Critical hit damage.</returns>
         public int CalculateCritDamage()
         {
-            int critDamage = rng.Next(1, 5) + (Attack / 2);
+            int critDamage = Match.rng.Next(1, 5) + (Attack / 2);
             return critDamage;
         }
 
         /// <summary>
-        /// Roll to determine whether or not a round results in a counter.
+        /// Determines whether or not the player successfully executes a counterattack. The player's <see cref="IsCountering">IsCountering</see> variable is set to the result.
         /// </summary>
-        /// <returns>True = The player counters.</returns>
+        /// <remarks>A counterattack's success is based on <see cref="Match.rng">RNG</see> and the player's <see cref="Player.Speed">Speed</see>.</remarks>
+        /// <returns><c>true</c> if the player successfully counters.<br/>
+        /// <c>false</c> if the player does not successfully counter.</returns>
         public bool IsCounter()
         {
-            int counterRoll = rng.Next(0, 20) + Speed;
+            int counterRoll = Match.rng.Next(0, 20) + Speed;
             IsCountering = counterRoll >= 15 ? true : false;
 
             return IsCountering;
         }
 
         /// <summary>
-        /// Calculate heal amount, set heal flag for actions.
+        /// Heals the player if they have heals remaining.
         /// </summary>
-        /// <returns></returns>
         public void HealSelf()
         {
             if (CanHeal)
             {
-                int healAmount = rng.Next(1, 10);
+                int healAmount = Match.rng.Next(1, 10);
                 string healAmountString;
                 if (healAmount + Health <= MaxHealth)
                 {
@@ -470,8 +522,8 @@ namespace DuelingDuelsters.Classes
                     healAmount = MaxHealth - Health;
                     healAmountString = healAmount.ToString();
                 }
-                Health = Health + healAmount;
-                HealCount++;
+                Health += healAmount;
+                HealsPerformed++;
                 Console.WriteLine($"{Name} heals for {healAmountString} health!");
 
                 IsHealing = true;

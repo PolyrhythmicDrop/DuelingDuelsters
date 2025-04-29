@@ -1,0 +1,4 @@
+- name: Player Guide
+  href: docs/articles/toc.yml
+- name: API Reference
+  href: docs/api/toc.yml

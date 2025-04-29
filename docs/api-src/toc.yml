@@ -1,0 +1,37 @@
+### YamlMime:TableOfContent
+items:
+- uid: DuelingDuelsters.Classes
+  name: DuelingDuelsters.Classes
+  type: Namespace
+  items:
+  - uid: DuelingDuelsters.Classes.GameLoop
+    name: GameLoop
+    type: Class
+  - uid: DuelingDuelsters.Classes.Match
+    name: Match
+    type: Class
+  - uid: DuelingDuelsters.Classes.Match.Outcome
+    name: Match.Outcome
+    type: Enum
+  - uid: DuelingDuelsters.Classes.Narrator
+    name: Narrator
+    type: Class
+  - uid: DuelingDuelsters.Classes.Narrator.Choices
+    name: Narrator.Choices
+    type: Enum
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    type: Class
+  - uid: DuelingDuelsters.Classes.Player.Action
+    name: Player.Action
+    type: Enum
+  - uid: DuelingDuelsters.Classes.Player.PlayerBrain
+    name: Player.PlayerBrain
+    type: Enum
+  - uid: DuelingDuelsters.Classes.Player.PlayerClass
+    name: Player.PlayerClass
+    type: Enum
+  - uid: DuelingDuelsters.Classes.State
+    name: State
+    type: Enum
+memberLayout: SamePage

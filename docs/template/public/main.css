@@ -1,0 +1,80 @@
+p img {
+    padding: inherit;
+    margin: auto;
+    margin-bottom: 2rem;
+    text-align: center;
+    align-content: center;
+    display: block;
+    max-width: 100%;
+}
+
+h2 + p img,
+h3 + p img,
+h4 + p img {
+    padding-top: 1%;
+}
+
+h1 {
+    padding-bottom: 3%;
+    font-size: xxx-large;
+    font-size-adjust: initial;
+    font-style: inherit;
+}
+
+h2 {
+    font-size: xx-large;
+    padding-bottom: 2%;
+    border-bottom: thin solid rgb(9, 94, 136);
+}
+
+h3 {
+    font-size: x-large;
+    padding-bottom: 1%;
+    margin-top: 30;
+    border-bottom: thin dashed rgb(9, 94, 136);
+}
+
+div.alert.alert-info {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1%;
+}
+
+/* Getting started page cards */
+div.card {
+    border: none;
+}
+
+div.card > p a:link img {
+    border: 2px outset #095e88;
+}
+
+div.card > p a:visited img {
+    border: 2px outset #9f4ce2;
+}
+
+div.card > p a:hover img {
+    filter: brightness(150%) sepia(50%) drop-shadow(8px 8px 3px black);
+}
+
+/* Tooltips */
+div.tip {
+    display: none;
+    z-index: 50;
+    background-color: inherit;
+    white-space: nowrap;
+    padding: 2% 2% 1% 2%;
+    border-radius: 4px 4px 4px 4px;
+    border: thin solid rgb(100, 98, 98);
+}
+
+div.card:hover p ~ div.tip {
+    display: block;
+    position: absolute;
+    align-items: center;
+    top: auto;
+    left: auto;
+    text-align: left;
+    text-wrap: none;
+    filter: drop-shadow(5px 5px 4px black);
+}

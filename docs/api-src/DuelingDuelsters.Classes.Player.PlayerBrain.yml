@@ -1,0 +1,134 @@
+### YamlMime:ManagedReference
+items:
+- uid: DuelingDuelsters.Classes.Player.PlayerBrain
+  commentId: T:DuelingDuelsters.Classes.Player.PlayerBrain
+  id: Player.PlayerBrain
+  parent: DuelingDuelsters.Classes
+  children:
+  - DuelingDuelsters.Classes.Player.PlayerBrain.Human
+  - DuelingDuelsters.Classes.Player.PlayerBrain.Computer
+  langs:
+  - csharp
+  - vb
+  name: Player.PlayerBrain
+  nameWithType: Player.PlayerBrain
+  fullName: DuelingDuelsters.Classes.Player.PlayerBrain
+  type: Enum
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: PlayerBrain
+    path: src/Classes/Player.cs
+    startLine: 78
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: Available types of brain controlling the player, human or computer.
+  example: []
+  syntax:
+    content: public enum Player.PlayerBrain
+    content.vb: Public Enum Player.PlayerBrain
+- uid: DuelingDuelsters.Classes.Player.PlayerBrain.Human
+  commentId: F:DuelingDuelsters.Classes.Player.PlayerBrain.Human
+  id: Human
+  parent: DuelingDuelsters.Classes.Player.PlayerBrain
+  langs:
+  - csharp
+  - vb
+  name: Human
+  nameWithType: Player.PlayerBrain.Human
+  fullName: DuelingDuelsters.Classes.Player.PlayerBrain.Human
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Human
+    path: src/Classes/Player.cs
+    startLine: 83
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The player is controlled by a human.
+  example: []
+  syntax:
+    content: Human = 0
+    return:
+      type: DuelingDuelsters.Classes.Player.PlayerBrain
+- uid: DuelingDuelsters.Classes.Player.PlayerBrain.Computer
+  commentId: F:DuelingDuelsters.Classes.Player.PlayerBrain.Computer
+  id: Computer
+  parent: DuelingDuelsters.Classes.Player.PlayerBrain
+  langs:
+  - csharp
+  - vb
+  name: Computer
+  nameWithType: Player.PlayerBrain.Computer
+  fullName: DuelingDuelsters.Classes.Player.PlayerBrain.Computer
+  type: Field
+  source:
+    remote:
+      path: src/Classes/Player.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: Computer
+    path: src/Classes/Player.cs
+    startLine: 87
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The player is controlled by AI. Used in single-player matches.
+  example: []
+  syntax:
+    content: Computer = 1
+    return:
+      type: DuelingDuelsters.Classes.Player.PlayerBrain
+references:
+- uid: DuelingDuelsters.Classes
+  commentId: N:DuelingDuelsters.Classes
+  href: DuelingDuelsters.html
+  name: DuelingDuelsters.Classes
+  nameWithType: DuelingDuelsters.Classes
+  fullName: DuelingDuelsters.Classes
+  spec.csharp:
+  - uid: DuelingDuelsters
+    name: DuelingDuelsters
+    href: DuelingDuelsters.html
+  - name: .
+  - uid: DuelingDuelsters.Classes
+    name: Classes
+    href: DuelingDuelsters.Classes.html
+  spec.vb:
+  - uid: DuelingDuelsters
+    name: DuelingDuelsters
+    href: DuelingDuelsters.html
+  - name: .
+  - uid: DuelingDuelsters.Classes
+    name: Classes
+    href: DuelingDuelsters.Classes.html
+- uid: DuelingDuelsters.Classes.Player.PlayerBrain
+  commentId: T:DuelingDuelsters.Classes.Player.PlayerBrain
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.Player.html
+  name: Player.PlayerBrain
+  nameWithType: Player.PlayerBrain
+  fullName: DuelingDuelsters.Classes.Player.PlayerBrain
+  spec.csharp:
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Player.PlayerBrain
+    name: PlayerBrain
+    href: DuelingDuelsters.Classes.Player.PlayerBrain.html
+  spec.vb:
+  - uid: DuelingDuelsters.Classes.Player
+    name: Player
+    href: DuelingDuelsters.Classes.Player.html
+  - name: .
+  - uid: DuelingDuelsters.Classes.Player.PlayerBrain
+    name: PlayerBrain
+    href: DuelingDuelsters.Classes.Player.PlayerBrain.html

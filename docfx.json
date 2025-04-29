@@ -1,0 +1,80 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../DuelingDuelsters/src",
+          "files": [
+            "DuelingDuelsters.csproj"
+          ]
+        }
+      ],
+      "output": "docs/api-src",
+      "memberLayout": "samePage",
+      "includePrivateMembers": true,
+      "enumSortOrder": "declaringOrder"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md|yml|yaml}"
+        ],
+        "exclude": [
+          "_site/**"
+        ],
+        "src": "./docs/articles",
+        "dest": "articles"
+      },
+      {
+        "files":[
+          "**/*.{yml,yaml}",
+          "../api/toc.yml"
+        ],
+        "exclude":[
+          "_site/**",
+          "toc.yml"
+        ],
+        "src": "./docs/api-src",
+        "dest": "api"
+      },
+      {
+        "files":[
+          "toc.yml",
+          "*.md"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "docs/images/**"
+        ]
+      }
+    ],
+    "markdownEngineProperties": {
+      "markdigExtensions": [
+        "Footnotes",
+        "customContainers"
+      ]
+    },
+    "output": "_site",
+    "template": [
+      "default",
+      "modern",
+      "docs/template"
+    ],
+    "globalMetadata": {
+      "_appName": "Dueling Duelsters",
+      "_appTitle": "Dueling Duelsters",
+      "_enableSearch": true,
+      "_disableNavBar": false,
+      "_disableToc": false,
+      "pdf": false,
+      "_disableNextArticle": true,
+      "_disableContribution": true
+    }
+  }
+}

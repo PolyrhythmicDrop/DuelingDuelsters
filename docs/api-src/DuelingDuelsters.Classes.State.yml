@@ -1,0 +1,263 @@
+### YamlMime:ManagedReference
+items:
+- uid: DuelingDuelsters.Classes.State
+  commentId: T:DuelingDuelsters.Classes.State
+  id: State
+  parent: DuelingDuelsters.Classes
+  children:
+  - DuelingDuelsters.Classes.State.TitleScreen
+  - DuelingDuelsters.Classes.State.PlayerSelect
+  - DuelingDuelsters.Classes.State.CharacterCreation
+  - DuelingDuelsters.Classes.State.ActionSelect
+  - DuelingDuelsters.Classes.State.OutcomeDisplay
+  - DuelingDuelsters.Classes.State.VictoryScreen
+  - DuelingDuelsters.Classes.State.HelpScreen
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: State
+  fullName: DuelingDuelsters.Classes.State
+  type: Enum
+  source:
+    remote:
+      path: src/Classes/GameLoop.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: State
+    path: src/Classes/GameLoop.cs
+    startLine: 9
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: Available states of the game. The current game state affects the help screen shown when the user selects "Help".
+  example: []
+  syntax:
+    content: public enum State
+    content.vb: Public Enum State
+- uid: DuelingDuelsters.Classes.State.TitleScreen
+  commentId: F:DuelingDuelsters.Classes.State.TitleScreen
+  id: TitleScreen
+  parent: DuelingDuelsters.Classes.State
+  langs:
+  - csharp
+  - vb
+  name: TitleScreen
+  nameWithType: State.TitleScreen
+  fullName: DuelingDuelsters.Classes.State.TitleScreen
+  type: Field
+  source:
+    remote:
+      path: src/Classes/GameLoop.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: TitleScreen
+    path: src/Classes/GameLoop.cs
+    startLine: 14
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The game is in the title screen.
+  example: []
+  syntax:
+    content: TitleScreen = 0
+    return:
+      type: DuelingDuelsters.Classes.State
+- uid: DuelingDuelsters.Classes.State.PlayerSelect
+  commentId: F:DuelingDuelsters.Classes.State.PlayerSelect
+  id: PlayerSelect
+  parent: DuelingDuelsters.Classes.State
+  langs:
+  - csharp
+  - vb
+  name: PlayerSelect
+  nameWithType: State.PlayerSelect
+  fullName: DuelingDuelsters.Classes.State.PlayerSelect
+  type: Field
+  source:
+    remote:
+      path: src/Classes/GameLoop.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: PlayerSelect
+    path: src/Classes/GameLoop.cs
+    startLine: 18
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The game is in the player count select menu. The player is choosing between single player and two player modes.
+  example: []
+  syntax:
+    content: PlayerSelect = 1
+    return:
+      type: DuelingDuelsters.Classes.State
+- uid: DuelingDuelsters.Classes.State.CharacterCreation
+  commentId: F:DuelingDuelsters.Classes.State.CharacterCreation
+  id: CharacterCreation
+  parent: DuelingDuelsters.Classes.State
+  langs:
+  - csharp
+  - vb
+  name: CharacterCreation
+  nameWithType: State.CharacterCreation
+  fullName: DuelingDuelsters.Classes.State.CharacterCreation
+  type: Field
+  source:
+    remote:
+      path: src/Classes/GameLoop.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: CharacterCreation
+    path: src/Classes/GameLoop.cs
+    startLine: 22
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The game is in character creation. The player is selecting each character's name and class.
+  example: []
+  syntax:
+    content: CharacterCreation = 2
+    return:
+      type: DuelingDuelsters.Classes.State
+- uid: DuelingDuelsters.Classes.State.ActionSelect
+  commentId: F:DuelingDuelsters.Classes.State.ActionSelect
+  id: ActionSelect
+  parent: DuelingDuelsters.Classes.State
+  langs:
+  - csharp
+  - vb
+  name: ActionSelect
+  nameWithType: State.ActionSelect
+  fullName: DuelingDuelsters.Classes.State.ActionSelect
+  type: Field
+  source:
+    remote:
+      path: src/Classes/GameLoop.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: ActionSelect
+    path: src/Classes/GameLoop.cs
+    startLine: 26
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The game is in a match and the players are selecting their actions.
+  example: []
+  syntax:
+    content: ActionSelect = 3
+    return:
+      type: DuelingDuelsters.Classes.State
+- uid: DuelingDuelsters.Classes.State.OutcomeDisplay
+  commentId: F:DuelingDuelsters.Classes.State.OutcomeDisplay
+  id: OutcomeDisplay
+  parent: DuelingDuelsters.Classes.State
+  langs:
+  - csharp
+  - vb
+  name: OutcomeDisplay
+  nameWithType: State.OutcomeDisplay
+  fullName: DuelingDuelsters.Classes.State.OutcomeDisplay
+  type: Field
+  source:
+    remote:
+      path: src/Classes/GameLoop.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: OutcomeDisplay
+    path: src/Classes/GameLoop.cs
+    startLine: 30
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The game is in a match and the outcome narration for the current game round is being displayed to the player(s).
+  example: []
+  syntax:
+    content: OutcomeDisplay = 4
+    return:
+      type: DuelingDuelsters.Classes.State
+- uid: DuelingDuelsters.Classes.State.VictoryScreen
+  commentId: F:DuelingDuelsters.Classes.State.VictoryScreen
+  id: VictoryScreen
+  parent: DuelingDuelsters.Classes.State
+  langs:
+  - csharp
+  - vb
+  name: VictoryScreen
+  nameWithType: State.VictoryScreen
+  fullName: DuelingDuelsters.Classes.State.VictoryScreen
+  type: Field
+  source:
+    remote:
+      path: src/Classes/GameLoop.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: VictoryScreen
+    path: src/Classes/GameLoop.cs
+    startLine: 34
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The game is displaying the victor of the match.
+  example: []
+  syntax:
+    content: VictoryScreen = 5
+    return:
+      type: DuelingDuelsters.Classes.State
+- uid: DuelingDuelsters.Classes.State.HelpScreen
+  commentId: F:DuelingDuelsters.Classes.State.HelpScreen
+  id: HelpScreen
+  parent: DuelingDuelsters.Classes.State
+  langs:
+  - csharp
+  - vb
+  name: HelpScreen
+  nameWithType: State.HelpScreen
+  fullName: DuelingDuelsters.Classes.State.HelpScreen
+  type: Field
+  source:
+    remote:
+      path: src/Classes/GameLoop.cs
+      branch: documentation
+      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
+    id: HelpScreen
+    path: src/Classes/GameLoop.cs
+    startLine: 38
+  assemblies:
+  - DuelingDuelsters
+  namespace: DuelingDuelsters.Classes
+  summary: The game is in a help screen.
+  example: []
+  syntax:
+    content: HelpScreen = 6
+    return:
+      type: DuelingDuelsters.Classes.State
+references:
+- uid: DuelingDuelsters.Classes
+  commentId: N:DuelingDuelsters.Classes
+  href: DuelingDuelsters.html
+  name: DuelingDuelsters.Classes
+  nameWithType: DuelingDuelsters.Classes
+  fullName: DuelingDuelsters.Classes
+  spec.csharp:
+  - uid: DuelingDuelsters
+    name: DuelingDuelsters
+    href: DuelingDuelsters.html
+  - name: .
+  - uid: DuelingDuelsters.Classes
+    name: Classes
+    href: DuelingDuelsters.Classes.html
+  spec.vb:
+  - uid: DuelingDuelsters
+    name: DuelingDuelsters
+    href: DuelingDuelsters.html
+  - name: .
+  - uid: DuelingDuelsters.Classes
+    name: Classes
+    href: DuelingDuelsters.Classes.html
+- uid: DuelingDuelsters.Classes.State
+  commentId: T:DuelingDuelsters.Classes.State
+  parent: DuelingDuelsters.Classes
+  href: DuelingDuelsters.Classes.State.html
+  name: State
+  nameWithType: State
+  fullName: DuelingDuelsters.Classes.State
