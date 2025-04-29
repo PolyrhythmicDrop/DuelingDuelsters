@@ -36,6 +36,8 @@ jobs:
 
     - name: Upload Artifact
       uses: actions/upload-pages-artifact@v3
+      env:
+        GH_TOKEN: $ {{ secrets.GITHUB_TOKEN }}
       with:
         path: './_site'
     
