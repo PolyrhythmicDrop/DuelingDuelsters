@@ -1,6 +1,6 @@
 # Dueling Duelsters
 
-![The Dueling Duelsters title screen welcomes you to the arena.](../docs/images/dueling-duelsters-title.png)
+![The Dueling Duelsters title screen welcomes you to the arena.](./docs/images/dueling-duelsters-title.png)
 
 Dueling Duelsters is a text-based game in which two combatants slice, dice, dodge, groove, block, bash, and otherwise defeat each other through chance and strategy. Let's play!
 
@@ -24,7 +24,7 @@ The first step on the road to victory is being brave enough to enter the arena i
 
 Congratulations on stepping into the arena! Next, you must create a character for each player.
 
-![The Dueling Duelsters character creation screen for Player One. The screen reads "PLAYER ONE, CREATE YOUR CHARACTER" in all caps and "Enter your character's name" below it. The player has entered a name of "WideEyedGreenhornDuelster".](~/docs/images/dueling-duelsters-character-name.png) 
+![The Dueling Duelsters character creation screen for Player One. The screen reads "PLAYER ONE, CREATE YOUR CHARACTER" in all caps and "Enter your character's name" below it. The player has entered a name of "WideEyedGreenhornDuelster".](./docs/images/dueling-duelsters-character-name.png) 
 
 1. Type out a name for your character. You can use **Backspace** to go back and correct mistakes.
 2. Press **Enter** when you're satisfied with your character's name, or press **Escape** to go back to the player select menu.
@@ -33,7 +33,7 @@ Congratulations on stepping into the arena! Next, you must create a character fo
 > [!NOTE]
 > For more information on each class, refer to <xref:classes>.
 
-![The Dueling Duelsters class selection screen. The player is presented with a choice of five classes (Normie, Fridge, Leeroy, Gymnast, and Medic) and a Random option. Each class has a list of stats and a short description.](~/docs/images/dueling-duelsters-class-selection.png)
+![The Dueling Duelsters class selection screen. The player is presented with a choice of five classes (Normie, Fridge, Leeroy, Gymnast, and Medic) and a Random option. Each class has a list of stats and a short description.](./docs/images/dueling-duelsters-class-selection.png)
 
 4. Your new character's stats and name display. Make sure you're happy with what you see, then press the **Y** key to continue. If you want to go back, press the **N** key or **Escape**.
 5. Create a character for Player Two by following the same process.
@@ -43,13 +43,13 @@ Congratulations on stepping into the arena! Next, you must create a character fo
 
 Now that you're face to face with your opponent, sword in hand, crowd baying for blood, your rigorous Duelster training may flee your brain. Fear not, because a duel is a very simple thing that you'll master in no time.
 
-![The Dueling Duelsters action select screen during a match. The player has a choice of actions (swing, block, dodge, or heal) as well as the option to enter a help screen.](~/docs/images/dueling-duelsters-match-actions.png)
+![The Dueling Duelsters action select screen during a match. The player has a choice of actions (swing, block, dodge, or heal) as well as the option to enter a help screen.](./docs/images/dueling-duelsters-match-actions.png)
 
 Each duel (or **match**) is divided into a series of **rounds**. In each round, both players select an **action**. These two actions combine to create an **outcome** for the round.
 
 At the end of a round, players take damage, heal their wounds, become staggered, execute counterattacks, or endure the jeers of the crowd based on the round's outcome. The next round begins and the cycle continues until one player's health reaches 0. At that point, the duel is over and a victor is declared.
 
-![The victory screen for a match of Dueling Duelsters. The new player managed to eke out a victory over the grizzled veteran!](~/docs/images/dueling-duelsters-victory.png)
+![The victory screen for a match of Dueling Duelsters. The new player managed to eke out a victory over the grizzled veteran!](./docs/images/dueling-duelsters-victory.png)
 
 You've completed your first duel! Whether you survived or not is a matter of skill and chance, but you can always dust yourself off and try again if you succumb to your opponent.
 
