@@ -46,6 +46,7 @@ namespace DuelingDuelsters.Classes
         /// </summary>
         public static State GameState;
 
+        /// <exclude />
         static void Main(string[] args)
         {
 
@@ -73,24 +74,24 @@ namespace DuelingDuelsters.Classes
                 }
                 while (!narrator.RunTitleMenu());
 
-                Console.Clear();
+                GameLoop.ClearAllConsole();
 
                 // Branch off into new game creation, help screen, or exit.
                 switch (narrator.Choice)
                 {
                     default:
-                        Console.Clear();
+                        GameLoop.ClearAllConsole();
                         goto Title;
                     case Narrator.Choices.NewGame:
                     {
-                        Console.Clear();
+                        GameLoop.ClearAllConsole();
                         break;
                     }
                     case Narrator.Choices.Help:
                     {
-                        Console.Clear();
+                        GameLoop.ClearAllConsole();
                         while (!narrator.RunHelpScreen());
-                        Console.Clear();
+                        GameLoop.ClearAllConsole();
                         goto Title;
                     }
                     case Narrator.Choices.Exit:
@@ -116,7 +117,7 @@ namespace DuelingDuelsters.Classes
                 {
                     if (narrator.Choice == Narrator.Choices.ReturnToTitle)
                     {
-                        Console.Clear();
+                        GameLoop.ClearAllConsole();
                         goto Title;
                     }
                     brain = nullableBrain ?? throw new NullReferenceException("Brain cannot be null!");
@@ -130,7 +131,7 @@ namespace DuelingDuelsters.Classes
                 // Create the Player objects and set their brain to human or computer    
                 Player player1 = new Player(Player.PlayerBrain.Human);
                 Player player2 = new Player(brain);
-                Console.Clear();
+                GameLoop.ClearAllConsole();
 
             P1CharacterCreation:
                 GameState = State.CharacterCreation;
@@ -143,16 +144,16 @@ namespace DuelingDuelsters.Classes
                     {
                         default:
                             narrator.Choice = Narrator.Choices.Reset;
-                            Console.Clear();
+                            GameLoop.ClearAllConsole();
                             goto P1CharacterCreation;
                         case Narrator.Choices.Yes:
                             narrator.Choice = Narrator.Choices.Reset;
-                            Console.Clear();
+                            GameLoop.ClearAllConsole();
                             goto PlayerCountSelect;                            
                     }   
                 }
 
-                Console.Clear();
+                GameLoop.ClearAllConsole();
 
             P2CharacterCreation:
                 while (!narrator.RunCharacterCreation(player2, 2)) ;
@@ -167,12 +168,12 @@ namespace DuelingDuelsters.Classes
                         case Narrator.Choices.Yes:
                             player1.Name = null;
                             player1.Class = Player.PlayerClass.None;
-                            Console.Clear();
+                            GameLoop.ClearAllConsole();
                             goto P1CharacterCreation;
                         case Narrator.Choices.No:
                         case Narrator.Choices.Back:
                             narrator.Choice = Narrator.Choices.Reset;
-                            Console.Clear();
+                            GameLoop.ClearAllConsole();
                             goto P2CharacterCreation;
                     }
                 }
@@ -180,7 +181,7 @@ namespace DuelingDuelsters.Classes
                 Match match = new Match(player1, player2, narrator);
 
             PreMatchSummary:
-                Console.Clear();
+                GameLoop.ClearAllConsole();
                 do
                 {
                     Console.WriteLine(match.DrawRoundHeader());
@@ -192,7 +193,7 @@ namespace DuelingDuelsters.Classes
                     narrator.SelectBinary($"\nAre you sure you want to start over? Y/n");
                     if (narrator.Choice == Narrator.Choices.Yes)
                     {
-                        Console.Clear();
+                        GameLoop.ClearAllConsole();
                         player1.Name = null;
                         player2.Name = null;
                         player1.Class = Player.PlayerClass.None;
@@ -202,18 +203,18 @@ namespace DuelingDuelsters.Classes
                     }
                     else
                     {
-                        Console.Clear();
+                        GameLoop.ClearAllConsole();
                         goto PreMatchSummary;
                     }
                     
                 }
                 
-                Console.Clear();
+                GameLoop.ClearAllConsole();
 
             // ** Start of round loop **
             // Loop returns here if player selects Rematch after the round.
             MatchStart:
-                Console.Clear();
+                GameLoop.ClearAllConsole();
                 do
                 {
                     // Match plays out until one player's health reaches 0.
@@ -231,12 +232,12 @@ namespace DuelingDuelsters.Classes
                         // Return to title
                         case ((Narrator.Choices)6):
                         case (Narrator.Choices.Back):
-                            Console.Clear();
+                            GameLoop.ClearAllConsole();
                             match = null;
                             goto Title;
                         // Rematch
                         case ((Narrator.Choices)7):
-                            Console.Clear();
+                            GameLoop.ClearAllConsole();
                             match.PlayerOne.ResetCharacterHealth();
                             match.PlayerTwo.ResetCharacterHealth();
                             match.RoundCounter = 1;
@@ -245,7 +246,7 @@ namespace DuelingDuelsters.Classes
                 }
                 while (narrator.Key != ConsoleKey.Escape);
                 // Return to title
-                Console.Clear();
+                GameLoop.ClearAllConsole();
                 continue;
             }
             while (narrator.Key != ConsoleKey.Escape);
@@ -317,6 +318,14 @@ namespace DuelingDuelsters.Classes
 
             string splashScreen = titleBuilder.ToString();
             return splashScreen;
+        }
+
+        /// Clears the entire console using an ANSI escape code.
+        /// <exclude />
+        static public void ClearAllConsole()
+        {
+            Console.Clear();
+            Console.WriteLine("\x1b[3J");
         }
     }
 }

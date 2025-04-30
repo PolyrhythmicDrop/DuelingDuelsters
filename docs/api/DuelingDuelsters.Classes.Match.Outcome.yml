@@ -48,7 +48,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Outcome
     path: src/Classes/Match.cs
@@ -88,7 +88,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: None
     path: src/Classes/Match.cs
@@ -116,7 +116,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: SwordClash
     path: src/Classes/Match.cs
@@ -144,7 +144,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: BothHit
     path: src/Classes/Match.cs
@@ -172,7 +172,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1Blocked
     path: src/Classes/Match.cs
@@ -203,7 +203,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2Blocked
     path: src/Classes/Match.cs
@@ -235,7 +235,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1FailedBlock
     path: src/Classes/Match.cs
@@ -266,7 +266,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2FailedBlock
     path: src/Classes/Match.cs
@@ -297,7 +297,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: BothBlock
     path: src/Classes/Match.cs
@@ -328,7 +328,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1FailedDodge
     path: src/Classes/Match.cs
@@ -359,7 +359,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2FailedDodge
     path: src/Classes/Match.cs
@@ -390,7 +390,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1Dodge
     path: src/Classes/Match.cs
@@ -421,7 +421,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2Dodge
     path: src/Classes/Match.cs
@@ -452,7 +452,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1DodgeBlock
     path: src/Classes/Match.cs
@@ -483,7 +483,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2DodgeBlock
     path: src/Classes/Match.cs
@@ -514,7 +514,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1BlockP2Dodge
     path: src/Classes/Match.cs
@@ -545,7 +545,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2BlockP1Dodge
     path: src/Classes/Match.cs
@@ -576,7 +576,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: DoubleDodge
     path: src/Classes/Match.cs
@@ -604,7 +604,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1HealP2Defend
     path: src/Classes/Match.cs
@@ -635,7 +635,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2HealP1Defend
     path: src/Classes/Match.cs
@@ -666,7 +666,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1FailedHealP2Defend
     path: src/Classes/Match.cs
@@ -697,7 +697,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2FailedHealP1Defend
     path: src/Classes/Match.cs
@@ -728,7 +728,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1HealP2Swing
     path: src/Classes/Match.cs
@@ -759,7 +759,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2HealP1Swing
     path: src/Classes/Match.cs
@@ -790,7 +790,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1FailedHealP2Swing
     path: src/Classes/Match.cs
@@ -821,7 +821,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2FailedHealP1Swing
     path: src/Classes/Match.cs
@@ -852,7 +852,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1FailedHealP2Heal
     path: src/Classes/Match.cs
@@ -883,7 +883,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2FailedHealP1Heal
     path: src/Classes/Match.cs
@@ -914,7 +914,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: DoubleFailedHeal
     path: src/Classes/Match.cs
@@ -942,7 +942,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: DoubleHeal
     path: src/Classes/Match.cs
@@ -970,7 +970,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P1FailedCounter
     path: src/Classes/Match.cs
@@ -1002,7 +1002,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: P2FailedCounter
     path: src/Classes/Match.cs
@@ -1034,7 +1034,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: HealDodge
     path: src/Classes/Match.cs
@@ -1067,7 +1067,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: HealCounter
     path: src/Classes/Match.cs

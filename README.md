@@ -1,38 +1,57 @@
 # Dueling Duelsters
 
-Dueling Duelsters is a game in which two combatants slice, dice, dodge, groove, block, bash, and otherwise defeat each other through chance and strategy. Let's play!
+![The Dueling Duelsters title screen welcomes you to the arena.](./docs/images/dueling-duelsters-title.png)
 
-## Actions
+Dueling Duelsters is a text-based game in which two combatants slice, dice, dodge, groove, block, bash, and otherwise defeat each other through chance and strategy. Let's play!
 
-### Swinging
+> [!NOTE]
+> Refer to the [Dueling Duelsters API Reference](https://polyrhythmicdrop.github.io/DuelingDuelsters/api/DuelingDuelsters.Classes.html) for more information on the game's inner workings.
 
-Swinging is the basic method of attacking. The player can swing their sword using either the Swing Left or Swing Right action:
+## Getting Started
 
-* Swing Left - Swings the player's sword to the left. 
-* Swing Right - Swings the player's sword to the right.
+The first step on the road to victory is being brave enough to enter the arena in the first place. Start your Dueling Duelsters journey in a few easy steps:
 
-### Blocking
+### Start a New Game
 
-Blocking is the basic method of defense. If the player blocks in the same direction as their opponent's swing, the player takes no damage. If the player blocks in the opposite direction of their opponent's swing, the player takes full damage. 
+1. Download *DuelingDuelsters.exe* from the [Releases section](https://github.com/PolyrhythmicDrop/DuelingDuelsters/releases), then run *DuelingDuelsters.exe*.
+2. Press the `1` key on your keyboard to start a new game.
+3. Choose how many Duelsters will be dueling by pressing the appropriate key:
+   1. **One Player** - You will fight against a computer-controlled opponent. Don't worry, you'll still determine your opponent's name and class.
+   2. **Two Players** - You will fight against a human-controlled opponent. Be careful not to sabotage your relationships with loved ones by being too good at dueling.
+   3. **Back to Title** - Arena too big for you? Cat suddenly needs attention? Opponent chickened out? Return to the title menu and contemplate your next move.
 
-The player can block using either the Block Left or Block Right action:
+### Create the Characters
 
-* Block Left - Blocks to the left.
-* Block Right - Blocks to the right.
+Congratulations on stepping into the arena! Next, you must create a character for each player.
 
-### Dodging
+![The Dueling Duelsters character creation screen for Player One. The screen reads "PLAYER ONE, CREATE YOUR CHARACTER" in all caps and "Enter your character's name" below it. The player has entered a name of "WideEyedGreenhornDuelster".](./docs/images/dueling-duelsters-character-name.png) 
 
-Dodging is a high risk, high reward action. If the player dodges in the **same** direction of their opponent's swing, the player takes no damage and can roll to counter. If the player dodges in the **opposite** direction as their opponent's swing, their opponent gets an automatic crit.
+1. Type out a name for your character. You can use **Backspace** to go back and correct mistakes.
+2. Press **Enter** when you're satisfied with your character's name, or press **Escape** to go back to the player select menu.
+3. Select your class by pressing the appropriate key. You can also let the game choose a class for you by pressing the `6` key. 
 
-Dodging when your opponent blocks is similar. If the player dodges in the **same** direction of their opponent's block, the player takes no damage and can roll to counter. Counter damage is reduced by half and the counter cannot crit. If the player dodges in the **opposite** direction as their opponent's block, neither player takes damage.
+![The Dueling Duelsters class selection screen. The player is presented with a choice of five classes (Normie, Fridge, Leeroy, Gymnast, and Medic) and a Random option. Each class has a list of stats and a short description.](./docs/images/dueling-duelsters-class-selection.png)
 
-The player can dodge using the Dodge Left or Dodge Right action:
+1. Your new character's stats and name display. Make sure you're happy with what you see, then press the `Y` key to continue. If you want to go back, press the `N` key or **Escape**.
+2. Create a character for Player Two by following the same process.
+3. ***Duel!***
 
-* Dodge Left - Dodges to the left.
-* Dodge Right - Dodges to the right.
+### Your First Duel
 
-### Healing
+Now that you're face to face with your opponent, sword in hand, crowd baying for blood, your rigorous Duelster training may flee your brain. Fear not, because a duel is a very simple thing that you'll master in no time.
 
-The Medic class can heal themselves as an action. They can do this up to 3 times per match. After selecting the Heal action, they roll RNG(1-10) to determine the heal amount. The heal is applied before their opponent's attack, if any.
+![The Dueling Duelsters action select screen during a match. The player has a choice of actions (swing, block, dodge, or heal) as well as the option to enter a help screen.](./docs/images/dueling-duelsters-match-actions.png)
 
-If their opponent swings in any direction during a Heal action, the Medic rolls to avoid the attack. This is not a dodge; the Medic cannot counter after successfully avoiding an attack, they simply take no damage. Any damage done is applied after the heal has been completed.
+Each duel (or **match**) is divided into a series of **rounds**. In each round, both players select an **action**. These two actions combine to create an **outcome** for the round.
+
+At the end of a round, players take damage, heal their wounds, become staggered, execute counterattacks, or endure the jeers of the crowd based on the round's outcome. The next round begins and the cycle continues until one player's health reaches 0. At that point, the duel is over and a victor is declared.
+
+![The victory screen for a match of Dueling Duelsters. The new player managed to eke out a victory over the grizzled veteran!](./docs/images/dueling-duelsters-victory.png)
+
+You've completed your first duel! Whether you survived or not is a matter of skill and chance, but you can always dust yourself off and try again if you succumb to your opponent.
+
+### Learn More
+
+Visit the [Dueling Duelsters documentation page](https://polyrhythmicdrop.github.io/DuelingDuelsters/) to learn more about the different classes available to you, the actions you can undertake, the stats that determine your character's strengths and weaknesses, and some strategies you can use to achieve victory.
+
+If you're interested in the various bits of logic that make the game work, visit the [API Reference page](https://polyrhythmicdrop.github.io/DuelingDuelsters/api/DuelingDuelsters.Classes.html).

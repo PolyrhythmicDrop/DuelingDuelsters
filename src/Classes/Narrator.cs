@@ -453,7 +453,7 @@ namespace DuelingDuelsters.Classes
                 default:
                     {
                         success = false;
-                        Console.Clear();
+                        GameLoop.ClearAllConsole();
                         break;
                     }
                 // If the user selects "New Game", begin character creation for Player 1.
@@ -529,7 +529,7 @@ namespace DuelingDuelsters.Classes
                     return success;
                 }
 
-                Console.Clear();
+                GameLoop.ClearAllConsole();
 
                 // Class Selection
                 do
@@ -540,18 +540,18 @@ namespace DuelingDuelsters.Classes
                 
                 if (Choice == Choices.Back)
                 {
-                    Console.Clear();
+                    GameLoop.ClearAllConsole();
                     continue;
                 }
 
                 // Confirmation
-                Console.Clear();
+                GameLoop.ClearAllConsole();
                 string confirm = string.Format(confirmCharacter, player.CharSheet) + string.Format(satisfied, player.Name);
                 while (!SelectBinary(confirm));
                 switch (Choice)
                 {
                     default:
-                        Console.Clear();
+                        GameLoop.ClearAllConsole();
                         success = false;
                         continue;
                     case Choices.Yes:
@@ -559,7 +559,7 @@ namespace DuelingDuelsters.Classes
                         break;
                     case Choices.No:
                     case Choices.Back:
-                        Console.Clear();
+                        GameLoop.ClearAllConsole();
                         success = false;
                         player.Class = Player.PlayerClass.None;
                         player.Name = null;
@@ -588,7 +588,7 @@ namespace DuelingDuelsters.Classes
                 return success;
             }
 
-            Console.Clear();
+            GameLoop.ClearAllConsole();
 
             // Welcome the new character.
             Console.WriteLine(string.Format(welcomePlayer, player.Name, player.Class.ToString()));
@@ -743,12 +743,12 @@ namespace DuelingDuelsters.Classes
                                 player.Class = Player.PlayerClass.None;
                                 player.Name = null;
                                 Choice = Choices.Back;
-                                Console.Clear();
+                                GameLoop.ClearAllConsole();
                                 break;
                             case Choices.No:
                             case Choices.Back:
                                 Choice = Choices.Reset;
-                                Console.Clear();
+                                GameLoop.ClearAllConsole();
                                 break;
                             default:
                                 break;
@@ -893,6 +893,7 @@ namespace DuelingDuelsters.Classes
         {
             bool success = false;
             string? filePath;
+            GameLoop.ClearAllConsole();
 
             try
             {
@@ -944,7 +945,6 @@ namespace DuelingDuelsters.Classes
             string helpScreen = helpBuilder.ToString();
             if (helpScreen != null)
             {
-                GameLoop.GameState = State.HelpScreen;
                 Console.WriteLine(helpScreen);
                 success = true;
             }
@@ -983,7 +983,7 @@ namespace DuelingDuelsters.Classes
                 while (!HumanActionSelect(player));
                 if (Choice == Choices.Back)
                 {
-                    Console.Clear();
+                    GameLoop.ClearAllConsole();
                     return success;
                 }
                 else if (player.ActionTaken == true && player.ChosenAction != Player.Action.none)
@@ -1087,7 +1087,7 @@ namespace DuelingDuelsters.Classes
                     // Open the help screen if not a medic.
                     if (player.Class != Player.PlayerClass.Medic)
                     {
-                        Console.Clear();
+                        GameLoop.ClearAllConsole();
                         RunHelpScreen();
                         UndoActionSelection(player, out success);
                         return success;
@@ -1115,7 +1115,7 @@ namespace DuelingDuelsters.Classes
                     // Open the help screen if a Medic.
                     if (player.Class == Player.PlayerClass.Medic)
                     {
-                        Console.Clear();
+                        GameLoop.ClearAllConsole();
                         RunHelpScreen();
                         UndoActionSelection(player, out success);
                         return success;
@@ -1263,7 +1263,7 @@ namespace DuelingDuelsters.Classes
                 default:
                     {
                         success = false;
-                        Console.Clear();
+                        GameLoop.ClearAllConsole();
                         break;
                     }
                 case ConsoleKey.Y:
@@ -1375,7 +1375,7 @@ namespace DuelingDuelsters.Classes
             Choice = Choices.Back;
             player.ActionTaken = false;
             player.ChosenAction = Player.Action.none;
-            Console.Clear();
+            GameLoop.ClearAllConsole();
             success = true;
         }
     }

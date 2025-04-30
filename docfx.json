@@ -10,7 +10,7 @@
           ]
         }
       ],
-      "output": "docs/api-src",
+      "output": "docs/api",
       "memberLayout": "samePage",
       "includePrivateMembers": true,
       "enumSortOrder": "declaringOrder"
@@ -37,7 +37,7 @@
           "_site/**",
           "toc.yml"
         ],
-        "src": "./docs/api-src",
+        "src": "./docs/api",
         "dest": "api"
       },
       {
