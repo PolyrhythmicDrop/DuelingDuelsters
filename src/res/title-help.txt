@@ -1,1 +1,4 @@
-﻿This is the help screen for the title menu!
+﻿Dueling Duelsters is a text-based game in which two combatants slice, dice, dodge, groove, block, bash, and otherwise defeat each other through chance and strategy. Let's play!
+
+Press 1 to start a new game.
+Press 2 to exit the game.

@@ -30,14 +30,11 @@ Congratulations on stepping into the arena! Next, you must create a character fo
 2. Press **Enter** when you're satisfied with your character's name, or press **Escape** to go back to the player select menu.
 3. Select your class by pressing the appropriate key. You can also let the game choose a class for you by pressing the `6` key. 
 
-> [!NOTE]
-> For more information on each class, refer to <xref:classes>.
-
 ![The Dueling Duelsters class selection screen. The player is presented with a choice of five classes (Normie, Fridge, Leeroy, Gymnast, and Medic) and a Random option. Each class has a list of stats and a short description.](./docs/images/dueling-duelsters-class-selection.png)
 
-4. Your new character's stats and name display. Make sure you're happy with what you see, then press the **Y** key to continue. If you want to go back, press the **N** key or **Escape**.
-5. Create a character for Player Two by following the same process.
-6. ***Duel!***
+1. Your new character's stats and name display. Make sure you're happy with what you see, then press the `Y` key to continue. If you want to go back, press the `N` key or **Escape**.
+2. Create a character for Player Two by following the same process.
+3. ***Duel!***
 
 ### Your First Duel
 

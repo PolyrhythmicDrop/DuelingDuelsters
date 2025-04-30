@@ -708,34 +708,34 @@ namespace DuelingDuelsters.Classes
             GameLoop.GameState = State.ActionSelect;
             do
             {
-                Console.Clear();
+                GameLoop.ClearAllConsole();
                 Console.WriteLine(DrawRoundHeader());
             }
             while (!_narrator.RunPlayerActionSelect(_playerOne));
             if (_narrator.Choice == Choices.Back)
             {
                 _narrator.Choice = Choices.Reset;
-                Console.Clear();
+                GameLoop.ClearAllConsole();
                 goto P1ChooseAction;
             }
 
-            Console.Clear();
+            GameLoop.ClearAllConsole();
         P2ChooseAction:
             do
             {
-                Console.Clear();
+                GameLoop.ClearAllConsole();
                 Console.WriteLine(DrawRoundHeader());
             }
             while (!_narrator.RunPlayerActionSelect(_playerTwo));
             if (_narrator.Choice == Choices.Back)
             {
                 _narrator.Choice = Choices.Reset;
-                Console.Clear();
+                GameLoop.ClearAllConsole();
                 goto P2ChooseAction;
             }
 
             GameLoop.GameState = State.OutcomeDisplay;
-            Console.Clear();
+            GameLoop.ClearAllConsole();
             Console.WriteLine(DrawRoundHeader());
 
             ProcessRound();
@@ -1317,7 +1317,7 @@ namespace DuelingDuelsters.Classes
             string upperVictor = victor.ToUpper();
 
             // Declare the victor for all to see!
-            Console.Clear();
+            GameLoop.ClearAllConsole();
             Console.WriteLine(string.Format(declareVictor, victor, upperVictor));
             Console.WriteLine("\n\n\n");
         }

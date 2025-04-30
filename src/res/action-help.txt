@@ -1,1 +1,27 @@
-﻿I'm here to help you with selecting an action!
+﻿At the start of a round, each player selects an **action**. Understanding what actions to take in certain situations is essential to surviving long enough to be crowned the most dueling Duelster of them all.
+
+1. Swing your sword
+-------------------
+The swing action is the primary mode of attack for all classes. It's pretty simple: swing your sword and hope it hits your opponent.
+If you're lucky, you may even score a critical hit! But be careful: if your attack is blocked, you'll be staggered and open for a counterattack in the next round.
+
+2. Block with your shield
+-------------------------
+The block action allows you to reduce the damage you take from an attack or to negate an attack entirely.
+If you successfully block a swing, your opponent becomes staggered. 
+If you block during an opponent's dodge, any counterattack mounted by your opponent deals half damage and cannot result in a critical hit.
+
+3. Dodge your opponent's attack
+-------------------------------
+The dodge action is a high risk, high reward action. 
+If you successfully dodge an attack, you take no damage and have a chance to mount a powerful counterattack.
+This counterattack has a much higher chance to land a critical hit than a normal swing attack. 
+But be careful: if you dodge in the wrong direction, you'll be vulnerable to a critical hit yourself!
+
+4. Heal yourself (MEDIC ONLY)
+-----------------------------
+The heal action is a unique action that is only available to the Medic class.
+When you successfully heal, you restore between 1 and 10 points of Health. 
+The Medic has a chance to dodge incoming swings while healing, but safety is far from guaranteed.
+
+**WARNING** - You can only heal 3 times per match!!
