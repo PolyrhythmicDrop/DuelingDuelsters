@@ -46,6 +46,7 @@ namespace DuelingDuelsters.Classes
         /// </summary>
         public static State GameState;
 
+        /// <exclude />
         static void Main(string[] args)
         {
 

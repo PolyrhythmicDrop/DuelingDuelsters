@@ -7,7 +7,6 @@ items:
   children:
   - DuelingDuelsters.Classes.GameLoop.CreateTitleBanner
   - DuelingDuelsters.Classes.GameLoop.GameState
-  - DuelingDuelsters.Classes.GameLoop.Main(System.String[])
   langs:
   - csharp
   - vb
@@ -18,7 +17,7 @@ items:
   source:
     remote:
       path: src/Classes/GameLoop.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: GameLoop
     path: src/Classes/GameLoop.cs
@@ -53,7 +52,7 @@ items:
   source:
     remote:
       path: src/Classes/GameLoop.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: GameState
     path: src/Classes/GameLoop.cs
@@ -68,38 +67,6 @@ items:
     return:
       type: DuelingDuelsters.Classes.State
     content.vb: Public Shared GameState As State
-- uid: DuelingDuelsters.Classes.GameLoop.Main(System.String[])
-  commentId: M:DuelingDuelsters.Classes.GameLoop.Main(System.String[])
-  id: Main(System.String[])
-  parent: DuelingDuelsters.Classes.GameLoop
-  langs:
-  - csharp
-  - vb
-  name: Main(string[])
-  nameWithType: GameLoop.Main(string[])
-  fullName: DuelingDuelsters.Classes.GameLoop.Main(string[])
-  type: Method
-  source:
-    remote:
-      path: src/Classes/GameLoop.cs
-      branch: documentation
-      repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
-    id: Main
-    path: src/Classes/GameLoop.cs
-    startLine: 48
-  assemblies:
-  - DuelingDuelsters
-  namespace: DuelingDuelsters.Classes
-  syntax:
-    content: private static void Main(string[] args)
-    parameters:
-    - id: args
-      type: System.String[]
-    content.vb: Private Shared Sub Main(args As String())
-  overload: DuelingDuelsters.Classes.GameLoop.Main*
-  nameWithType.vb: GameLoop.Main(String())
-  fullName.vb: DuelingDuelsters.Classes.GameLoop.Main(String())
-  name.vb: Main(String())
 - uid: DuelingDuelsters.Classes.GameLoop.CreateTitleBanner
   commentId: M:DuelingDuelsters.Classes.GameLoop.CreateTitleBanner
   id: CreateTitleBanner
@@ -114,11 +81,11 @@ items:
   source:
     remote:
       path: src/Classes/GameLoop.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: CreateTitleBanner
     path: src/Classes/GameLoop.cs
-    startLine: 257
+    startLine: 258
   assemblies:
   - DuelingDuelsters
   namespace: DuelingDuelsters.Classes
@@ -397,35 +364,6 @@ references:
   name: State
   nameWithType: State
   fullName: DuelingDuelsters.Classes.State
-- uid: DuelingDuelsters.Classes.GameLoop.Main*
-  commentId: Overload:DuelingDuelsters.Classes.GameLoop.Main
-  href: DuelingDuelsters.Classes.GameLoop.html#DuelingDuelsters_Classes_GameLoop_Main_System_String___
-  name: Main
-  nameWithType: GameLoop.Main
-  fullName: DuelingDuelsters.Classes.GameLoop.Main
-- uid: System.String[]
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string[]
-  nameWithType: string[]
-  fullName: string[]
-  nameWithType.vb: String()
-  fullName.vb: String()
-  name.vb: String()
-  spec.csharp:
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '['
-  - name: ']'
-  spec.vb:
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: (
-  - name: )
 - uid: DuelingDuelsters.Classes.GameLoop.CreateTitleBanner*
   commentId: Overload:DuelingDuelsters.Classes.GameLoop.CreateTitleBanner
   href: DuelingDuelsters.Classes.GameLoop.html#DuelingDuelsters_Classes_GameLoop_CreateTitleBanner

@@ -3,7 +3,6 @@
   "DuelingDuelsters.Classes.GameLoop": "DuelingDuelsters.Classes.GameLoop.yml",
   "DuelingDuelsters.Classes.GameLoop.CreateTitleBanner": "DuelingDuelsters.Classes.GameLoop.yml",
   "DuelingDuelsters.Classes.GameLoop.GameState": "DuelingDuelsters.Classes.GameLoop.yml",
-  "DuelingDuelsters.Classes.GameLoop.Main(System.String[])": "DuelingDuelsters.Classes.GameLoop.yml",
   "DuelingDuelsters.Classes.Match": "DuelingDuelsters.Classes.Match.yml",
   "DuelingDuelsters.Classes.Match.#ctor(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Narrator)": "DuelingDuelsters.Classes.Match.yml",
   "DuelingDuelsters.Classes.Match.ApplyAttackResult(DuelingDuelsters.Classes.Player,DuelingDuelsters.Classes.Player)": "DuelingDuelsters.Classes.Match.yml",

@@ -23,7 +23,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Action
     path: src/Classes/Player.cs
@@ -51,7 +51,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: none
     path: src/Classes/Player.cs
@@ -79,7 +79,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: swingR
     path: src/Classes/Player.cs
@@ -107,7 +107,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: swingL
     path: src/Classes/Player.cs
@@ -135,7 +135,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: blockR
     path: src/Classes/Player.cs
@@ -163,7 +163,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: blockL
     path: src/Classes/Player.cs
@@ -191,7 +191,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: dodgeR
     path: src/Classes/Player.cs
@@ -219,7 +219,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: dodgeL
     path: src/Classes/Player.cs
@@ -247,7 +247,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: heal
     path: src/Classes/Player.cs

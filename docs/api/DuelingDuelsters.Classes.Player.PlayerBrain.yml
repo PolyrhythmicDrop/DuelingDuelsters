@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: PlayerBrain
     path: src/Classes/Player.cs
@@ -44,7 +44,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Human
     path: src/Classes/Player.cs
@@ -72,7 +72,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: documentation
+      branch: v1.1-release
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Computer
     path: src/Classes/Player.cs
