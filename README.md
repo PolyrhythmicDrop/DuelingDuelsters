@@ -1,6 +1,6 @@
 # Dueling Duelsters
 
-![The Dueling Duelsters title screen welcomes you to the arena.](~/docs/images/dueling-duelsters-title.png)
+![The Dueling Duelsters title screen welcomes you to the arena.](../docs/images/dueling-duelsters-title.png)
 
 Dueling Duelsters is a text-based game in which two combatants slice, dice, dodge, groove, block, bash, and otherwise defeat each other through chance and strategy. Let's play!
 
