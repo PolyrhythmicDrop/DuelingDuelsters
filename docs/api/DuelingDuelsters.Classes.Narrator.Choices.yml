@@ -25,7 +25,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Choices
     path: src/Classes/Narrator.cs
@@ -56,7 +56,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Reset
     path: src/Classes/Narrator.cs
@@ -84,7 +84,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: NewGame
     path: src/Classes/Narrator.cs
@@ -112,7 +112,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Help
     path: src/Classes/Narrator.cs
@@ -140,7 +140,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Exit
     path: src/Classes/Narrator.cs
@@ -168,7 +168,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ReturnToTitle
     path: src/Classes/Narrator.cs
@@ -196,7 +196,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Back
     path: src/Classes/Narrator.cs
@@ -224,7 +224,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Yes
     path: src/Classes/Narrator.cs
@@ -252,7 +252,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Left
     path: src/Classes/Narrator.cs
@@ -280,7 +280,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: No
     path: src/Classes/Narrator.cs
@@ -308,7 +308,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Right
     path: src/Classes/Narrator.cs

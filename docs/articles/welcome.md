@@ -2,7 +2,7 @@
 uid: welcome
 ---
 
-# Dueling Duelsters Player Guide
+# Welcome to the Arena
 
 Welcome to Dueling Duelsters! The arena can be a dangerous, foreboding place for new Duelsters. Luckily, you have your trusty **Player Guide** to help you along the way.
 

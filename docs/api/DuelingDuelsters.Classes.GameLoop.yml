@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: src/Classes/GameLoop.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: GameLoop
     path: src/Classes/GameLoop.cs
@@ -52,7 +52,7 @@ items:
   source:
     remote:
       path: src/Classes/GameLoop.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: GameState
     path: src/Classes/GameLoop.cs
@@ -81,7 +81,7 @@ items:
   source:
     remote:
       path: src/Classes/GameLoop.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: CreateTitleBanner
     path: src/Classes/GameLoop.cs

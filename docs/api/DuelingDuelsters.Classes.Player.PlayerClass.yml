@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: PlayerClass
     path: src/Classes/Player.cs
@@ -48,7 +48,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: None
     path: src/Classes/Player.cs
@@ -76,7 +76,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Normie
     path: src/Classes/Player.cs
@@ -104,7 +104,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Fridge
     path: src/Classes/Player.cs
@@ -132,7 +132,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Leeroy
     path: src/Classes/Player.cs
@@ -160,7 +160,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Gymnast
     path: src/Classes/Player.cs
@@ -188,7 +188,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Medic
     path: src/Classes/Player.cs

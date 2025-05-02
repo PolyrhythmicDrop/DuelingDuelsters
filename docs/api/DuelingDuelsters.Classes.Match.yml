@@ -29,7 +29,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Match
     path: src/Classes/Match.cs
@@ -71,7 +71,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: .ctor
     path: src/Classes/Match.cs
@@ -112,7 +112,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: PlayerOne
     path: src/Classes/Match.cs
@@ -143,7 +143,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: PlayerTwo
     path: src/Classes/Match.cs
@@ -174,7 +174,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: RoundCounter
     path: src/Classes/Match.cs
@@ -212,7 +212,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: rng
     path: src/Classes/Match.cs
@@ -248,7 +248,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: PlayRound
     path: src/Classes/Match.cs
@@ -279,7 +279,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ProcessRound
     path: src/Classes/Match.cs
@@ -310,7 +310,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: GetOutcome
     path: src/Classes/Match.cs
@@ -342,7 +342,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ProcessOutcome
     path: src/Classes/Match.cs
@@ -385,7 +385,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: CounterAttack
     path: src/Classes/Match.cs
@@ -427,7 +427,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: AttemptHealCounter
     path: src/Classes/Match.cs
@@ -472,7 +472,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ApplyAttackResult
     path: src/Classes/Match.cs
@@ -511,7 +511,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: DrawRoundHeader
     path: src/Classes/Match.cs
@@ -542,7 +542,7 @@ items:
   source:
     remote:
       path: src/Classes/Match.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: DeclareVictor
     path: src/Classes/Match.cs

@@ -38,7 +38,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Narrator
     path: src/Classes/Narrator.cs
@@ -90,7 +90,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: KeyInfo
     path: src/Classes/Narrator.cs
@@ -121,7 +121,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Key
     path: src/Classes/Narrator.cs
@@ -152,7 +152,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Choice
     path: src/Classes/Narrator.cs
@@ -181,7 +181,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: readyToDuel
     path: src/Classes/Narrator.cs
@@ -210,7 +210,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: declareVictor
     path: src/Classes/Narrator.cs
@@ -239,7 +239,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: postMatchOptions
     path: src/Classes/Narrator.cs
@@ -268,7 +268,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: GetPlayerActionNarration
     path: src/Classes/Narrator.cs
@@ -310,7 +310,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: GetOutcomeNarration
     path: src/Classes/Narrator.cs
@@ -354,7 +354,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: RunTitleMenu
     path: src/Classes/Narrator.cs
@@ -387,7 +387,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: RunCharacterCreation
     path: src/Classes/Narrator.cs
@@ -433,7 +433,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: SetPlayerName
     path: src/Classes/Narrator.cs
@@ -470,7 +470,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: SetPlayerClass
     path: src/Classes/Narrator.cs
@@ -507,7 +507,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: RandomSetPlayerClass
     path: src/Classes/Narrator.cs
@@ -539,7 +539,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: RunPlayerCountMenu
     path: src/Classes/Narrator.cs
@@ -579,7 +579,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: RunHelpScreen
     path: src/Classes/Narrator.cs
@@ -612,7 +612,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: RunPlayerActionSelect
     path: src/Classes/Narrator.cs
@@ -656,7 +656,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: HumanActionSelect
     path: src/Classes/Narrator.cs
@@ -693,7 +693,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ComputerActionSelect
     path: src/Classes/Narrator.cs
@@ -731,7 +731,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: PressAnyKey
     path: src/Classes/Narrator.cs
@@ -764,7 +764,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: SelectBinary
     path: src/Classes/Narrator.cs
@@ -804,7 +804,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: DrawArena
     path: src/Classes/Narrator.cs
@@ -836,7 +836,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ReadLineWithCancel
     path: src/Classes/Narrator.cs
@@ -868,7 +868,7 @@ items:
   source:
     remote:
       path: src/Classes/Narrator.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: UndoActionSelection
     path: src/Classes/Narrator.cs

@@ -43,7 +43,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Player
     path: src/Classes/Player.cs
@@ -80,7 +80,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: .ctor
     path: src/Classes/Player.cs
@@ -115,7 +115,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Name
     path: src/Classes/Player.cs
@@ -146,7 +146,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Class
     path: src/Classes/Player.cs
@@ -177,7 +177,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Brain
     path: src/Classes/Player.cs
@@ -206,7 +206,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Health
     path: src/Classes/Player.cs
@@ -237,7 +237,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: MaxHealth
     path: src/Classes/Player.cs
@@ -268,7 +268,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: HealthReadout
     path: src/Classes/Player.cs
@@ -299,7 +299,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Attack
     path: src/Classes/Player.cs
@@ -337,7 +337,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Defense
     path: src/Classes/Player.cs
@@ -369,7 +369,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: Speed
     path: src/Classes/Player.cs
@@ -407,7 +407,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: CharSheet
     path: src/Classes/Player.cs
@@ -438,7 +438,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ActionList
     path: src/Classes/Player.cs
@@ -467,7 +467,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ChosenAction
     path: src/Classes/Player.cs
@@ -498,7 +498,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: BaseDamage
     path: src/Classes/Player.cs
@@ -529,7 +529,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ActionTaken
     path: src/Classes/Player.cs
@@ -569,7 +569,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: IsStaggered
     path: src/Classes/Player.cs
@@ -601,7 +601,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: IsCountering
     path: src/Classes/Player.cs
@@ -633,7 +633,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: IsHealing
     path: src/Classes/Player.cs
@@ -665,7 +665,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: HealsPerformed
     path: src/Classes/Player.cs
@@ -697,7 +697,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: CanHeal
     path: src/Classes/Player.cs
@@ -729,7 +729,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: BuildCharacterSheet
     path: src/Classes/Player.cs
@@ -761,7 +761,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: BuildActionList
     path: src/Classes/Player.cs
@@ -790,7 +790,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: ResetCharacterHealth
     path: src/Classes/Player.cs
@@ -819,7 +819,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: CalculateBaseDamage
     path: src/Classes/Player.cs
@@ -854,7 +854,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: IsCrit
     path: src/Classes/Player.cs
@@ -897,7 +897,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: CalculateCritDamage
     path: src/Classes/Player.cs
@@ -929,7 +929,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: IsCounter
     path: src/Classes/Player.cs
@@ -963,7 +963,7 @@ items:
   source:
     remote:
       path: src/Classes/Player.cs
-      branch: v1.1-release
+      branch: main
       repo: https://github.com/PolyrhythmicDrop/DuelingDuelsters.git
     id: HealSelf
     path: src/Classes/Player.cs
